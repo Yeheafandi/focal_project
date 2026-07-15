@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "864008292682",
+    "project_id": "focalproject",
+    "storage_bucket": "focalproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864008292682:android:0d7898abf8bff0060a59b3",
+        "android_client_info": {
+          "package_name": "com.example.focal_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwO74bstrdNSmMHmyCo3yWb404eA0A5xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

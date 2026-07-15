@@ -6,6 +6,7 @@ import 'package:focal_project/model/hotel_model.dart';
 
 class RecommendedHotelCard extends StatelessWidget {
   final HotelModel hotel;
+  final bool underline;
 
   const RecommendedHotelCard({super.key, required this.hotel});
 
@@ -16,12 +17,14 @@ class RecommendedHotelCard extends StatelessWidget {
       padding: EdgeInsets.only(bottom: AppSpaces.paddingNormal),
       decoration: BoxDecoration(
         color: Colors.transparent,
-        border: Border(
-          bottom: BorderSide(
-            color: AppColors.grey500, 
-            width: 1.0,
-          ),
-        ),
+        border: underline
+            ? Border(
+                bottom: BorderSide(
+                  color: AppColors.grey500,
+                  width: 1.0,
+                ),
+              )
+            : null,
       ),
       child: Row(
         children: [

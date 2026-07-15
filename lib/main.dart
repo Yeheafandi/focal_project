@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:focal_project/bindings/initialize_binding.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/routes/app_routes.dart';
-import 'package:focal_project/view/home_view/home_view.dart';
+import 'package:focal_project/widgets/navigation_menu_view/navigation_menu_view.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(scaffoldBackgroundColor: AppColors.lightBlueBg),
       debugShowCheckedModeBanner: false,
       initialBinding: InitializeBinding(),
-      home: HomeView(),
+      home: NavigationMenuView(),
       getPages: AppRoutes.screens,
     );
   }

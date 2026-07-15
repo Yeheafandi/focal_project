@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/bindings/initialize_binding.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/routes/app_routes.dart';
 import 'package:focal_project/view/home_view/home_view.dart';
 import 'package:get/get.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialBinding: InitializeBinding(),
       home: HomeView(),
+      getPages: AppRoutes.screens,
     );
   }
 }

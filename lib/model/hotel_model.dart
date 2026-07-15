@@ -7,6 +7,8 @@ class HotelModel {
   final double rating;
   final int? reviewsCount; 
   final String imageUrl;
+  final double? latitude;   
+  final double? longitude;  
   bool isFavorite;
 
   HotelModel({
@@ -18,6 +20,8 @@ class HotelModel {
     required this.rating,
     this.reviewsCount,
     required this.imageUrl,
+    this.latitude,         
+    this.longitude,         
     this.isFavorite = false,
   });
 
@@ -33,6 +37,8 @@ class HotelModel {
       rating: (json['rating'] as num).toDouble(),
       reviewsCount: json['reviews_count'],
       imageUrl: json['image_url'] ?? '',
+      latitude: json['latitude'] != null ? (json['latitude'] as num).toDouble() : null,
+      longitude: json['longitude'] != null ? (json['longitude'] as num).toDouble() : null,
       isFavorite: json['is_favorite'] ?? false,
     );
   }

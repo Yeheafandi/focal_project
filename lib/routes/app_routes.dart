@@ -1,11 +1,12 @@
 
 import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/home_view/home_view.dart';
+import 'package:focal_project/view/nearby_map_view/nearby_map_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 class AppRoutes {
   static final screens = [
   GetPage(name: Routes.homeview, page: () =>  HomeView()),
-   
+  GetPage(name: Routes.nearbyMap, page: () =>  NearbyMapView()),
   ];
 }

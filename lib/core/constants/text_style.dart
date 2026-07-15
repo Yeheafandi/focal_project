@@ -8,9 +8,9 @@ class MyTextStyle {
     FontWeight? fontWeight,
   }) {
     return TextStyle(
-      fontSize: size ?? 20,
+      fontSize: size ?? 16, 
       color: color ?? AppColors.primaryBlack,
-      fontWeight: fontWeight ?? FontWeight.bold,
+      fontWeight: fontWeight ?? FontWeight.w600,
     );
   }
 
@@ -20,9 +20,21 @@ class MyTextStyle {
     FontWeight? fontWeight,
   }) {
     return TextStyle(
-      fontSize: size ?? 14,
-      color: color ?? AppColors.grey,
+      fontSize: size ?? 12,
+      color: color ?? AppColors.grey600,
       fontWeight: fontWeight ?? FontWeight.normal,
+    );
+  }
+
+  static TextStyle priceText({
+    Color? color,
+    double? size,
+    FontWeight? fontWeight,
+  }) {
+    return TextStyle(
+      fontSize: size ?? 14,
+      color: color ?? AppColors.primary,
+      fontWeight: fontWeight ?? FontWeight.bold,
     );
   }
 }

@@ -75,7 +75,7 @@ flutter:
   fonts:
     - family: Jost
       fonts:
-        - asset: assets/fonts/Jost-Bold.ttf   
+        - asset: assets/fonts/Jost-Black.ttf   
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -6,4 +6,5 @@ class AppImages {
   static String facebook ='assets/images/Icon - Facebook.png';
   static String apple='assets/images/Icon - Apple.png';
   static String google='assets/images/Icon - Google.png';
+  static String signinWith='assets/images/Or.png';
 }

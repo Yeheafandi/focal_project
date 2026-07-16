@@ -8,7 +8,11 @@ class RecommendedHotelCard extends StatelessWidget {
   final HotelModel hotel;
   final bool underline;
 
-  const RecommendedHotelCard({super.key, required this.hotel});
+  const RecommendedHotelCard({
+    super.key,
+    required this.hotel,
+    this.underline = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +22,7 @@ class RecommendedHotelCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.transparent,
         border: underline
-            ? Border(
-                bottom: BorderSide(
-                  color: AppColors.grey500,
-                  width: 1.0,
-                ),
-              )
+            ? Border(bottom: BorderSide(color: AppColors.grey500, width: 1.0))
             : null,
       ),
       child: Row(

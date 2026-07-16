@@ -14,13 +14,15 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: ThemeData(scaffoldBackgroundColor: AppColors.lightBlueBg,
-      fontFamily: 'Jost'),
-      
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.lightBlueBg,
+        fontFamily: 'Jost',
+      ),
+
       debugShowCheckedModeBanner: false,
       initialBinding: InitializeBinding(),
       home: SignupScreen(),

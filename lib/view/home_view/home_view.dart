@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/text_style.dart';
-import 'package:focal_project/core/constants/app_spaces.dart'; // تأكد من المسار الصحيح
+import 'package:focal_project/core/constants/app_spaces.dart'; 
 import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/home_view/home_controller/home_controller.dart';
 import 'package:focal_project/view/home_view/home_widgets/best_today_card.dart';
@@ -9,6 +9,7 @@ import 'package:focal_project/view/home_view/home_widgets/home_shimmer_loading_w
 import 'package:focal_project/view/home_view/home_widgets/near_you_map_card.dart';
 import 'package:focal_project/view/home_view/home_widgets/popular_hotel_card.dart';
 import 'package:focal_project/view/home_view/home_widgets/home_circle_icon_button.dart';
+import 'package:focal_project/view/search_section/search_view/search_filter_controller/search_filter_controller.dart';
 import 'package:focal_project/widgets/recommended_hotel_card.dart';
 import 'package:get/get.dart';
 
@@ -96,7 +97,12 @@ class HomeView extends StatelessWidget {
                         children: [
                           HomeCircleIconButton(
                             icon: Icons.search,
-                            onPressed: () {},
+                            onPressed: () {
+                              if (!Get.isRegistered<SearchFilterController>()) {
+                                Get.put(SearchFilterController());
+                              }
+                              Get.toNamed(Routes.search);
+                            },
                           ),
                           SizedBox(width: AppSpaces.widthSmall),
                           HomeCircleIconButton(
@@ -280,6 +286,7 @@ class HomeView extends StatelessWidget {
                           itemBuilder: (context, index) {
                             return RecommendedHotelCard(
                               hotel: controller.recommendedHotels[index],
+                              underline: false,
                             );
                           },
                         ),

@@ -8,7 +8,7 @@ class RecommendedHotelCard extends StatelessWidget {
   final HotelModel hotel;
   final bool underline;
 
-  const RecommendedHotelCard({super.key, required this.hotel});
+  const RecommendedHotelCard({super.key, required this.hotel, required this.underline});
 
   @override
   Widget build(BuildContext context) {

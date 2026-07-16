@@ -48,9 +48,9 @@ class NearbyMapView extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconCircleButton(
+                CustomCircleIconButton(
                   icon: Icons.arrow_back_ios_new,
-                  onTap: () => Get.back(),
+                  onPressed: () => Get.back(),
                 ),
                 Text(
                   "Nearby Hotel",
@@ -60,10 +60,9 @@ class NearbyMapView extends StatelessWidget {
                     color: AppColors.primaryBlack,
                   ),
                 ),
-                IconCircleButton(
+                CustomCircleIconButton(
                   icon: Icons.filter_list,
-                  hasCircle: false,
-                  onTap: () {},
+                  onPressed: () {},
                   iconSize: 24.0,
                 ),
               ],

@@ -7,7 +7,7 @@ import 'package:focal_project/model/hotel_model.dart';
 class RecommendedHotelCard extends StatelessWidget {
   final HotelModel hotel;
 
-  const RecommendedHotelCard({super.key, required this.hotel});
+  const RecommendedHotelCard({super.key, required this.hotel, required this.underline});
 
   @override
   Widget build(BuildContext context) {

@@ -25,6 +25,13 @@ class MyTextStyle {
       fontWeight: fontWeight ?? FontWeight.normal,
     );
   }
+  static TextStyle onBoarding({Color? color,double? size,FontWeight? fontWeight,}){
+    return TextStyle(
+      fontSize: size ?? 24,
+      color: color ?? AppColors.textWhite,
+      fontWeight: fontWeight ?? FontWeight.bold,
+    );
+  }
 
   static TextStyle priceText({
     Color? color,

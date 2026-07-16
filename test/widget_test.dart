@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // This is a basic Flutter widget test.
 //
 // To perform an interaction with a widget in your test, use the WidgetTester
@@ -26,5 +27,16 @@ void main() {
     // Verify that our counter has incremented.
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
+=======
+import 'package:flutter_test/flutter_test.dart';
+import 'package:focal_project/main.dart';
+
+
+void main() {
+  testWidgets('onboarding screen renders its first slide content', (tester) async {
+    await tester.pumpWidget(const MyApp());
+
+    expect(find.text('Description Text 1'), findsOneWidget);
+>>>>>>> origin/feat/auth-section
   });
 }

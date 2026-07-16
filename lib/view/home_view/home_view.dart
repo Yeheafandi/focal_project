@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/text_style.dart';
-import 'package:focal_project/core/constants/app_spaces.dart'; 
-import 'package:focal_project/routes/routes.dart';
+import 'package:focal_project/core/constants/app_spaces.dart';
+import 'package:focal_project/routes/routes.dart'; 
 import 'package:focal_project/view/home_view/home_controller/home_controller.dart';
 import 'package:focal_project/view/home_view/home_widgets/best_today_card.dart';
 import 'package:focal_project/view/home_view/home_widgets/home_shimmer_loading_widget.dart';
@@ -103,6 +103,7 @@ class HomeView extends StatelessWidget {
                               }
                               Get.toNamed(Routes.search);
                             },
+                          
                           ),
                           SizedBox(width: AppSpaces.widthSmall),
                           HomeCircleIconButton(
@@ -303,6 +304,7 @@ class HomeView extends StatelessWidget {
                         onPressed: () {
                           Get.toNamed(Routes.nearbyMap);
                         },
+                       
                         style: TextButton.styleFrom(padding: EdgeInsets.zero),
                         child: Text(
                           "Open Map",

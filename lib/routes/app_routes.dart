@@ -10,5 +10,6 @@ class AppRoutes {
   GetPage(name: Routes.homeview, page: () =>  HomeView()),
   GetPage(name: Routes.nearbyMap, page: () =>  NearbyMapView()),
   GetPage(name: Routes.search, page: () =>  SearchView()),
+   
   ];
 }

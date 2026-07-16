@@ -43,6 +43,9 @@ dependencies:
   shimmer: ^3.0.0
   flutter_map: ^8.3.1
   latlong2: ^0.10.1
+  smart_onboarding: ^0.0.3
+  smooth_page_indicator: ^2.0.1
+  circle_check: ^0.0.1+2
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +74,10 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/
+  fonts:
+    - family: Jost
+      fonts:
+        - asset: assets/fonts/Jost-Bold.ttf   
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

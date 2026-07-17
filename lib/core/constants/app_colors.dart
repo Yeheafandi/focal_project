@@ -27,5 +27,5 @@ static final Color formFiled=Color(0xFFF6F6F6);
   static final Color grey400 = Colors.grey[400]!;
   static final Color grey500 = Colors.grey[500]!;
   static final Color grey600 = Colors.grey[600]!;
-
+static const Color dotColor=Color(0xFFBFC6CC);
 }

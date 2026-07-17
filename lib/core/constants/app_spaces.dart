@@ -5,6 +5,7 @@ class AppSpaces {
   static const double paddingMedium = 12;
   static const double paddingNormal = 16;
   static const double paddingLarge = 20;
+  static const double paddingExtraLarge = 24;
 
   // Border radius
   static const double radiusSmall = 8;

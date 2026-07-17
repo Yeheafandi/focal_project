@@ -13,11 +13,12 @@ class CustomeButton extends StatelessWidget {
 
         onPressed: onPressed,
     style: ElevatedButton.styleFrom(
-    overlayColor: AppColors.primaryBlue,
+      fixedSize: const Size(327, 58),
+    backgroundColor: AppColors.primaryBlue,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-    ), child:  Text(text,style: const TextStyle(color:AppColors.textWhite),));
+    ), child:  Text(text,style: const TextStyle(fontSize: 16,color:AppColors.textWhite),));
   }
 }

@@ -28,11 +28,11 @@ final String hintText;
             suffixIcon: isPassword == true
                 ? IconButton(
                     onPressed: controller.togglePasswordVisibility,
-                    icon: Icon(
+                    icon: Icon(color:Color(0xFF171725),
                       controller.isPasswordHidden
                           ? Icons.visibility_off
                           : Icons.visibility,
-                      color: AppColors.hintColor,
+                      
                     ),
                   )
                 : null,

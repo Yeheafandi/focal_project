@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 
 class MyTextStyle {
+  
   static TextStyle normalTitleText({
     Color? color,
     double? size,
@@ -44,4 +45,5 @@ class MyTextStyle {
       fontWeight: fontWeight ?? FontWeight.bold,
     );
   }
+  
 }

@@ -2,6 +2,8 @@ import 'package:focal_project/view/booking_details_view/booking_details_controll
 import 'package:focal_project/view/search_section/search_view/search_filter_controller/search_filter_controller.dart';
 import 'package:focal_project/view/auth/auth_controller/auth_controller.dart';
 import 'package:focal_project/core/services/booking_details_services.dart';
+import 'package:focal_project/core/services/message_service.dart';
+import 'package:focal_project/view/messages_view/messages_controller/messages_controller.dart';
 import 'package:get/get.dart';
 
 class InitializeBinding extends Bindings {
@@ -16,6 +18,14 @@ class InitializeBinding extends Bindings {
 
     Get.lazyPut<BookingDetailsController>(
       () => BookingDetailsController(bookingId: 1, service: Get.find()),
+    );
+    // Get.put(Crud());
+    Get.lazyPut<BookingDetailsService>(() => BookingDetailsService());
+
+    Get.lazyPut<MessageService>(() => MessageService());
+
+    Get.lazyPut<MessageController>(
+      () => MessageController(service: Get.find()),
     );
   }
 }

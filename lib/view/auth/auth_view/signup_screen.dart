@@ -10,6 +10,8 @@ import 'package:focal_project/widgets/custom_text.dart';
 import 'package:focal_project/widgets/custome_button.dart';
 import 'package:get/get.dart';
 
+import '../../../routes/routes.dart';
+
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
 final bool isPassword = true;
@@ -22,6 +24,7 @@ final bool isPassword = true;
         leading:
           IconButton(
             onPressed: () {
+              Get.back();
             },
             icon: const Icon(Icons.arrow_back),
           ),
@@ -37,17 +40,8 @@ final bool isPassword = true;
         subTitle('Password', AppColors.titleColor,FontWeight.bold),
         CustomeFormField(isPassword:true,type: TextInputType.visiblePassword, hintText: 'Enter your password'),
         
-            SizedBox(height: 32,),Align(alignment: Alignment.center,child:ElevatedButton(
-
-        onPressed: (){},
-    style: ElevatedButton.styleFrom(
-      fixedSize: const Size(327, 58),
-    backgroundColor: AppColors.primaryBlue,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-    ), child:  Text('Create An Account',style: const TextStyle(fontSize: 16,color:AppColors.textWhite),))),
+            SizedBox(height: 32,),Align(alignment: Alignment.center,child:CustomeButton(text: 'Create An Account', onPressed: () => Get.toNamed(Routes.otpscreen),)),
+        
          SizedBox(height: 24,), Align(alignment: Alignment.center,child: Column(
             children: [
              Image.asset(AppImages.signinWith,width: 239,height: 22,),SizedBox(height: AppSpaces.heightLarge,),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_images.dart';
+import 'package:focal_project/routes/routes.dart';
+import 'package:focal_project/view/auth/auth_view/signin_screen.dart';
 import 'package:focal_project/view/auth/auth_view/signup_screen.dart';
 import 'package:focal_project/view/onboarding/onboarding_controller.dart/onboarding_controller.dart';
 import 'package:focal_project/widgets/custom_text.dart';
@@ -28,12 +30,12 @@ class Onboarding3 extends StatelessWidget {
               ),
            Spacer()
               ,CustomeButton(text: 'Get Started',onPressed: (){
-               Get.to(()=>SignupScreen());
+               Get.toNamed(Routes.signinscreen);
               },),SizedBox(height: 24,),
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   subTitle('Don’t have an account? ', AppColors.textWhite,FontWeight.normal),
-                  subTitle('Register', AppColors.primaryBlue,FontWeight.bold),
+                  InkWell(onTap: () => Get.toNamed(Routes.signupscreen),child: subTitle('Register', AppColors.primaryBlue,FontWeight.bold)),
                 ],
               ),SizedBox(height: 57,)
             ],

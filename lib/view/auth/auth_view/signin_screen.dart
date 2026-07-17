@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
+import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/auth/widgets/custome_form_field.dart';
 import 'package:focal_project/widgets/custom_text.dart';
+import 'package:focal_project/widgets/custome_button.dart';
 import 'package:get/get.dart';
 
 
@@ -25,6 +27,7 @@ class _SigninScreenState extends State<SigninScreen> {
           leading:
           IconButton(
             onPressed: () {
+              Get.back();
             },
             icon: const Icon(Icons.arrow_back),
           ),
@@ -41,23 +44,14 @@ class _SigninScreenState extends State<SigninScreen> {
               CustomeFormField(isPassword:true,type: TextInputType.visiblePassword, hintText: 'Enter your password'),
               Row(
                 children: [
-                  Expanded(child: GetBuilder<AuthController>(builder: (authController)=> CheckboxListTile(activeColor: Colors.blue,controlAffinity: ListTileControlAffinity.leading,title: Text('Remember Me'),value: authController.isChecked, onChanged: (value){authController.toggleCheckbox();},))),
-                InkWell(child: subTitle('Forgot Password  ', Colors.red, FontWeight.normal),)
+                  Expanded(child: GetBuilder<AuthController>(builder: (authController)=> CheckboxListTile(checkboxScaleFactor: 1.5,side: BorderSide(width:1,color: AppColors.grey ),horizontalTitleGap:8.0 ,checkboxShape: const CircleBorder(), activeColor: Colors.blue,controlAffinity: ListTileControlAffinity.leading,title: subTitle('Remember Me',AppColors.hintColor,FontWeight.normal),value: authController.isChecked, onChanged: (value){authController.toggleCheckbox();},))),
+                InkWell(onTap: () =>  Get.toNamed(Routes.resetrequest),child: subTitle('Forgot Password  ', Colors.red, FontWeight.normal),)
                 ],
               )
 
-             , SizedBox(height: 32,),Align(alignment: Alignment.center,child:ElevatedButton(
-
-                  onPressed: (){},
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(327, 58),
-                    backgroundColor: AppColors.primaryBlue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  ), child:  Text('Sign In',style: const TextStyle(fontSize: 16,color:AppColors.textWhite),))),
-              Row(spacing: 3,mainAxisAlignment: MainAxisAlignment.center,children: [subTitle('Don’t have an account? ', AppColors.grey, FontWeight.normal),InkWell(child: subTitle('Sign Up', AppColors.primaryBlue, FontWeight.bold),)],),
+             , SizedBox(height: 32,),Align(alignment: Alignment.center,child:CustomeButton(text: 'Sign In', onPressed: () => Get.toNamed(Routes.homeview),)
+                  ),
+              Row(spacing: 3,mainAxisAlignment: MainAxisAlignment.center,children: [subTitle('Don’t have an account? ', AppColors.grey, FontWeight.normal),InkWell(onTap:()=> Get.toNamed(Routes.signupscreen),child: subTitle('Sign Up', AppColors.primaryBlue, FontWeight.bold),)],),
               SizedBox(height: 24,), Align(alignment: Alignment.center,child: Column(
               
                 children: [

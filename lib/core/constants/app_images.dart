@@ -7,4 +7,5 @@ class AppImages {
   static String apple='assets/images/Icon - Apple.png';
   static String google='assets/images/Icon - Google.png';
   static String signinWith='assets/images/Or.png';
+  static String check='assets/images/Group.png';
 }

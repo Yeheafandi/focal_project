@@ -19,9 +19,6 @@ class InitializeBinding extends Bindings {
     Get.lazyPut<BookingDetailsController>(
       () => BookingDetailsController(bookingId: 1, service: Get.find()),
     );
-    // Get.put(Crud());
-    Get.lazyPut<BookingDetailsService>(() => BookingDetailsService());
-
     Get.lazyPut<MessageService>(() => MessageService());
 
     Get.lazyPut<MessageController>(

@@ -1,5 +1,7 @@
+import 'package:focal_project/core/services/chat_details_service.dart';
 import 'package:focal_project/core/services/message_service.dart';
 import 'package:focal_project/view/booking_details_view/booking_details_controller/booking_details_controller.dart';
+import 'package:focal_project/view/chat_details_view/chat_details_controller/chat_details_controller.dart';
 import 'package:focal_project/view/messages_view/messages_controller/messages_controller.dart';
 
 import 'package:focal_project/core/services/booking_details_services.dart';
@@ -28,5 +30,10 @@ class InitializeBinding extends Bindings {
         service: Get.find(),
       ),
     );
+    Get.lazyPut<ChatDetailsService>(
+      () => ChatDetailsService(),
+    );
+
+    
   }
 }

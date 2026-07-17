@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_spaces.dart';
+import 'package:focal_project/core/constants/text_style.dart';
+import 'package:focal_project/routes/routes.dart';
+import 'package:get/get.dart';
+
 
 class ChatItem extends StatelessWidget {
   const ChatItem({
@@ -18,39 +24,48 @@ class ChatItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        radius: 28,
-        backgroundImage: NetworkImage(image),
-      ),
-
-      title: Text(
-        name,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-
-      subtitle: Text(lastMessage),
-
-      trailing: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-
-          Text(time),
-
-          const SizedBox(height: 6),
-
-          if (unreadCount > 0)
-            CircleAvatar(
-              radius: 10,
-              child: Text(
-                unreadCount.toString(),
-                style: const TextStyle(fontSize: 11),
-              ),
-            ),
-        ],
-      ),
+    return Column(
+      children: [
+        ListTile(contentPadding: EdgeInsets.zero,onTap: (){Get.toNamed(
+      Routes.chatDetailsScreen,
+      arguments: {
+        'chatId': 1, 
+        'name': name,
+        'image': image,
+      },
+    );},
+          leading: CircleAvatar(
+            radius: 24,
+            backgroundImage: NetworkImage(image),
+          ),
+        
+          title: Text(
+            name,
+            style:MyTextStyle.normalTitleText()
+          ),
+        
+          subtitle: Text(lastMessage,style: MyTextStyle.smallTitleText(),),
+        
+          trailing: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+        
+              Text(time,style: MyTextStyle.smallTitleText()),
+        
+              const SizedBox(height: AppSpaces.heightSmall,),
+        
+              if (unreadCount > 0)
+                CircleAvatar(backgroundColor: AppColors.red,
+                  radius: AppSpaces.radiusSmall,
+                  child: Text(
+                    unreadCount.toString(),
+                    style:MyTextStyle.smallTitleText().copyWith(color: AppColors.textWhite),
+                  ),
+                ),
+            ],
+          ),
+        ),Divider(color: AppColors.grey300,)
+      ],
     );
   }
 }

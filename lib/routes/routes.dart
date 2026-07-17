@@ -4,4 +4,7 @@ class Routes {
   static const String search = '/search';
   static const String bookingDetailsView = '/booking-details-view';
   static const String messageScreen = '/message-screen';
+  static const String chatDetailsScreen = '/chat-details-screen';
+  static const String videoCallScreen = '/videocall-screen';
+  static const audioCallScreen = '/audio-call';
 }

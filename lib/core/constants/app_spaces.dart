@@ -11,6 +11,7 @@ class AppSpaces {
   static const double radiusMedium = 12;
   static const double radiusLarge = 16;
   static const double radiusExtraLarge = 20;
+  static const double radiusExtraExtraLarge28 = 28;
 
   // SizedBox Heights
   static const double heightVerySmall = 4;

@@ -63,7 +63,12 @@ class CheckoutView extends StatelessWidget {
                   const SizedBox(height: AppSpaces.heightMedium),
                   CheckoutInfoCard(controller: controller),
                   const SizedBox(height: AppSpaces.heightLarge),
-                  PromoSectionWidget(onTap: () {}),
+                  Obx(
+                    () => PromoSectionWidget(
+                      label: controller.promoLabel,
+                      onTap: controller.showCouponBottomSheet,
+                    ),
+                  ),
                   const SizedBox(height: AppSpaces.heightExtraLarge),
                 ],
               ),

@@ -6,6 +6,7 @@ import 'package:focal_project/view/checkout_view/checkout_controller/checkout_co
 import 'package:focal_project/view/checkout_view/checkout_widgets/checkout_booking_row.dart';
 import 'package:focal_project/view/checkout_view/checkout_widgets/checkout_dashed_divider.dart';
 import 'package:focal_project/view/checkout_view/checkout_widgets/checkout_price_row.dart';
+import 'package:get/get.dart';
 
 class CheckoutInfoCard extends StatelessWidget {
   final CheckoutController controller;
@@ -67,18 +68,29 @@ class CheckoutInfoCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppSpaces.heightMedium),
-          CheckoutPriceRow(
-            label: 'Price',
-            value: controller.formatPrice(controller.price),
-          ),
-          CheckoutPriceRow(
-            label: 'Admin fee',
-            value: controller.formatPrice(controller.adminFee),
-          ),
-          CheckoutPriceRow(
-            label: 'Total price',
-            value: controller.formatPrice(controller.totalPrice),
-            isTotal: true,
+          Obx(
+            () => Column(
+              children: [
+                CheckoutPriceRow(
+                  label: 'Price',
+                  value: controller.formatPrice(controller.price),
+                ),
+                CheckoutPriceRow(
+                  label: 'Admin fee',
+                  value: controller.formatPrice(controller.adminFee),
+                ),
+                if (controller.appliedCoupon.value != null)
+                  CheckoutPriceRow(
+                    label: controller.appliedCoupon.value!.title,
+                    value: '-${controller.formatPrice(controller.discountAmount)}',
+                  ),
+                CheckoutPriceRow(
+                  label: 'Total price',
+                  value: controller.formatPrice(controller.totalPrice),
+                  isTotal: true,
+                ),
+              ],
+            ),
           ),
         ],
       ),

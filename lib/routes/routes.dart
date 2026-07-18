@@ -20,4 +20,5 @@ class Routes {
   static const String chatDetailsScreen = '/chat-details-screen';
   static const String videoCallScreen = '/videocall-screen';
   static const audioCallScreen = '/audio-call';
+  static const notificationScreen = '/notification-screen';
 }

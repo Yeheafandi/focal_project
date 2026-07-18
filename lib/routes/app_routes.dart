@@ -8,6 +8,7 @@ import 'package:focal_project/view/checkout_view/checkout_view.dart';
 import 'package:focal_project/view/home_view/home_view.dart';
 import 'package:focal_project/view/messages_view/messages_screen/messages_screen.dart';
 import 'package:focal_project/view/nearby_map_view/nearby_map_view.dart';
+import 'package:focal_project/view/notification_view/notification_screen/notification_screen.dart';
 import 'package:focal_project/view/search_section/search_view/search_view.dart';
 import 'package:focal_project/view/videocall_view/videocall_screen/videocall_screen.dart';
 import 'package:focal_project/view/auth/auth_view/otp_screen.dart';
@@ -52,5 +53,10 @@ class AppRoutes {
     GetPage(name: Routes.onboarding3, page: () => Onboarding3()),
     GetPage(name: Routes.onboarding1, page: () => Onboarding1()),
     GetPage(name: Routes.otpscreen, page: () => OtpScreen()),
+    GetPage(
+      name: Routes.notificationScreen,
+      page: () => const NotificationScreen(),
+      
+    ),
   ];
 }

@@ -1,4 +1,6 @@
+import 'package:focal_project/core/services/notification_service.dart';
 import 'package:focal_project/view/booking_details_view/booking_details_controller/booking_details_controller.dart';
+import 'package:focal_project/view/notification_view/notification_controller/notification_controller.dart';
 import 'package:focal_project/view/search_section/search_view/search_filter_controller/search_filter_controller.dart';
 import 'package:focal_project/view/auth/auth_controller/auth_controller.dart';
 import 'package:focal_project/core/services/booking_details_services.dart';
@@ -27,5 +29,10 @@ class InitializeBinding extends Bindings {
     );
     // Get.put(Crud());
     Get.lazyPut<ChatDetailsService>(() => ChatDetailsService());
+    Get.lazyPut<NotificationService>(() => NotificationService());
+
+    Get.lazyPut<NotificationController>(
+      () => NotificationController(service: Get.find()),
+    );
   }
 }

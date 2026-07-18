@@ -4,6 +4,7 @@ import 'package:focal_project/view/audiocall_view/audiocall_screen/audiocall_scr
 import 'package:focal_project/view/booking_details_view/booking_details_view/booking_details_view.dart';
 import 'package:focal_project/view/book_view/request_to_book_view.dart';
 import 'package:focal_project/view/chat_details_view/chat_details_screen/chat_details_screen.dart';
+import 'package:focal_project/view/checkout_view/checkout_view.dart';
 import 'package:focal_project/view/home_view/home_view.dart';
 import 'package:focal_project/view/messages_view/messages_screen/messages_screen.dart';
 import 'package:focal_project/view/nearby_map_view/nearby_map_view.dart';
@@ -30,5 +31,6 @@ class AppRoutes {
       // binding: VideoCallBinding(),
     ),
     GetPage(name: Routes.audioCallScreen, page: () => AudioCallScreen()),
+    GetPage(name: Routes.checkout, page: () => CheckoutView()),
   ];
 }

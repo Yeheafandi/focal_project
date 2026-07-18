@@ -5,6 +5,7 @@ class Routes {
   static const String bookingDetailsView = '/booking-details-view';
   static const String messagesScreen = '/messagesScreen';
   static const String requestToBook = '/request-to-book';
+  static const String checkout = '/checkout';
 
   static const String messageScreen = '/message-screen';
   static const String chatDetailsScreen = '/chat-details-screen';

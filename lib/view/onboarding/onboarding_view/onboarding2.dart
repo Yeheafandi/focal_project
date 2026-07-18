@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_images.dart';
+import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/onboarding/onboarding_controller.dart/onboarding_controller.dart';
 import 'package:focal_project/widgets/custom_text.dart';
 import 'package:focal_project/widgets/custome_button.dart';
@@ -29,7 +30,7 @@ class Onboarding2 extends StatelessWidget {
               ),
            Spacer()
               ,CustomeButton(text: 'Continue',onPressed: (){
-                Get.to(()=>Onboarding3());
+              Get.toNamed(Routes.onboarding3);
               },),SizedBox(height: 55,)
       ],),
     )]));

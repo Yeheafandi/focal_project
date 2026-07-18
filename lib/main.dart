@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focal_project/bindings/initialize_binding.dart';
-import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/routes/app_routes.dart';
-import 'package:focal_project/view/auth/auth_view/signup_screen.dart';
+import 'package:focal_project/routes/routes.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -17,16 +17,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.lightBlueBg,
-        fontFamily: 'Jost',
+    return ScreenUtilInit(designSize: Size(360, 690),
+    minTextAdapt: true,
+    splitScreenMode: true,
+    builder: (context, child) => 
+     GetMaterialApp(
+        theme: ThemeData(
+        fontFamily: 'Jost'),
+        
+        debugShowCheckedModeBanner: false,
+        initialBinding: InitializeBinding(),
+        initialRoute: Routes.onboarding,
+        getPages: AppRoutes.screens,
       ),
-
-      debugShowCheckedModeBanner: false,
-      initialBinding: InitializeBinding(),
-      home: SignupScreen(),
-      getPages: AppRoutes.screens,
     );
   }
 }

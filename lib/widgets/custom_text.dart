@@ -6,5 +6,5 @@ Widget mainTitle(String text,Color color){
 }
 
 Widget subTitle(String text,Color color,FontWeight? fontWeight){
-  return Text(text,style:  TextStyle(fontSize: 14,color: color,fontWeight: fontWeight!),);
+  return Text(textWidthBasis: TextWidthBasis.longestLine,text,style:  TextStyle(fontSize: 14,color: color,fontWeight: fontWeight!),);
 }

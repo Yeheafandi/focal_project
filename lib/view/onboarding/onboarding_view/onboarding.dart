@@ -17,7 +17,7 @@ class Onboarding extends StatelessWidget {
             children: [
               Onboarding1(),
               Onboarding2(),
-             
+
             ],
             
           ), Positioned(bottom: 160,left: 159,right: 159,

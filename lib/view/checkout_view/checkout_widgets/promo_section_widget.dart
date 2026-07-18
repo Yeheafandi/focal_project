@@ -4,10 +4,12 @@ import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 
 class PromoSectionWidget extends StatelessWidget {
+  final String label;
   final VoidCallback? onTap;
 
   const PromoSectionWidget({
     super.key,
+    this.label = 'Select',
     this.onTap,
   });
 
@@ -44,7 +46,7 @@ class PromoSectionWidget extends StatelessWidget {
                 ),
                 const SizedBox(width: AppSpaces.widthMedium),
                 Text(
-                  'Select',
+                  label,
                   style: MyTextStyle.normalTitleText(
                     color: AppColors.primary,
                     size: 15,

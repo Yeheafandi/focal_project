@@ -1,4 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/model/booking_flow_args.dart';
+import 'package:focal_project/model/coupon_model.dart';
+import 'package:focal_project/view/checkout_view/checkout_widgets/my_coupon_bottom_sheet.dart';
 import 'package:get/get.dart';
 
 class CheckoutController extends GetxController {
@@ -7,6 +11,9 @@ class CheckoutController extends GetxController {
   final double adminFee = 2.50;
   final String roomType = 'Queen Room';
   final String phone = '0214345646';
+
+  final RxList<CouponModel> coupons = <CouponModel>[].obs;
+  final Rxn<CouponModel> appliedCoupon = Rxn<CouponModel>();
 
   static const List<String> _months = [
     'Jan',
@@ -27,6 +34,34 @@ class CheckoutController extends GetxController {
   void onInit() {
     super.onInit();
     bookingArgs = Get.arguments as BookingFlowArgs;
+    _initCoupons();
+  }
+
+  void _initCoupons() {
+    coupons.assignAll([
+      CouponModel(
+        id: '1',
+        title: '50% Cashback',
+        discountPercentage: 50,
+        couponType: 'Cashback',
+        expiryDays: 2,
+        isSelected: true,
+      ),
+      CouponModel(
+        id: '2',
+        title: '15% Discount',
+        discountPercentage: 15,
+        couponType: 'Discount',
+        expiryDays: 1,
+      ),
+      CouponModel(
+        id: '3',
+        title: '10% Cashback',
+        discountPercentage: 10,
+        couponType: 'Cashback',
+        expiryDays: 7,
+      ),
+    ]);
   }
 
   int get nightCount {
@@ -38,7 +73,12 @@ class CheckoutController extends GetxController {
 
   double get price => nightCount * bookingArgs.hotel.pricePerNight;
 
-  double get totalPrice => price + adminFee;
+  double get discountAmount {
+    if (appliedCoupon.value == null) return 0;
+    return price * (appliedCoupon.value!.discountPercentage / 100);
+  }
+
+  double get totalPrice => price + adminFee - discountAmount;
 
   String get datesRange {
     final checkIn = bookingArgs.checkInDate;
@@ -56,9 +96,37 @@ class CheckoutController extends GetxController {
   String get guestLabel =>
       '${bookingArgs.guestCount} Guest${bookingArgs.guestCount > 1 ? 's' : ''} (1 Room)';
 
+  String get promoLabel =>
+      appliedCoupon.value?.title ?? 'Select';
+
   String formatPrice(double amount) => '\$${amount.toStringAsFixed(2)}';
 
+  void selectCoupon(String id) {
+    for (final coupon in coupons) {
+      coupon.isSelected = coupon.id == id;
+    }
+    coupons.refresh();
+  }
+
+  void useCoupon() {
+    appliedCoupon.value = coupons.firstWhere((coupon) => coupon.isSelected);
+    Get.back();
+  }
+
+  void showCouponBottomSheet() {
+    if (appliedCoupon.value != null) {
+      selectCoupon(appliedCoupon.value!.id);
+    }
+
+    Get.bottomSheet(
+      const MyCouponBottomSheet(),
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      barrierColor: AppColors.black87.withOpacity(0.4),
+    );
+  }
+
   void selectPayment() {
-    //لسا ما عملت هي
+    // Placeholder for payment selection
   }
 }

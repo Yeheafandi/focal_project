@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/view/my_favorite_view/my_favorite_controller/my_favorite_controller.dart';
+import 'package:focal_project/view/my_favorite_view/widgets/my_favorite_shimmer.dart';
 import 'package:focal_project/widgets/custom_search_bar.dart';
+import 'package:focal_project/widgets/custom_shimmer.dart';
 import 'package:get/get.dart';
 
 import 'package:focal_project/core/constants/app_colors.dart';
@@ -10,6 +12,7 @@ import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/my_favorite_view/widgets/category_item.dart';
 import 'package:focal_project/view/my_favorite_view/widgets/favorite_item.dart';
 import 'package:focal_project/view/my_favorite_view/widgets/search_widget.dart';
+import 'package:shimmer/shimmer.dart';
 
 class MyFavoriteScreen extends GetView<MyFavoriteController> {
   const MyFavoriteScreen({super.key});
@@ -65,8 +68,15 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
             const SizedBox(height: AppSpaces.heightLarge),
 
             Expanded(
-              child: Obx(
-                () => GridView.builder(
+              child: Obx(() {
+                print("isLoading = ${controller.isLoading.value}");
+                if (controller.isLoading.value) {
+                  return MyFavoriteShimmer();
+                }
+                if (controller.favorites.isEmpty) {
+                  return const Center(child: Text("No favorites added yet"));
+                }
+                return GridView.builder(
                   // تحديد عدد الأعمدة (2) والمسافات بينها
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -78,8 +88,8 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                   itemBuilder: (_, index) {
                     return FavoriteItem(hotel: controller.favorites[index]);
                   },
-                ),
-              ),
+                );
+              }),
             ),
           ],
         ),

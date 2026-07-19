@@ -77,7 +77,7 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                   return const Center(child: Text("No favorites added yet"));
                 }
                 return GridView.builder(
-                  // تحديد عدد الأعمدة (2) والمسافات بينها
+                  
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 20,

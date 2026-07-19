@@ -42,14 +42,14 @@ class MyFavoriteController extends GetxController {
 
   void fetchFavorites() async {
     try {
-      isLoading.value = true; // تشغيل الشيمر
+      isLoading.value = true; 
 
-      // محاكاة تأخير لمدة ثانيتين (2 ثانية) لتستطيع رؤية حركة اللمعان الجميلة
+
       await Future.delayed(const Duration(seconds: 6));
 
       favorites.assignAll(_service.getFavorites());
     } finally {
-      isLoading.value = false; // إيقاف الشيمر وعرض البيانات الحقيقية فوراً
+      isLoading.value = false; 
     }
   }
 }

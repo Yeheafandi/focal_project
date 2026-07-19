@@ -114,7 +114,7 @@ class BestTodayCard extends StatelessWidget {
                           "\$${hotel.pricePerNight.toInt()}",
                           style: MyTextStyle.priceText(
                             fontWeight: FontWeight.bold,
-                            color: AppColors.primary,
+                            color: AppColors.primaryBlue,
                             size: 14,
                           ),
                         ),

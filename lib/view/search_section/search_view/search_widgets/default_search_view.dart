@@ -62,7 +62,7 @@ class DefaultSearchView extends StatelessWidget {
                 child: Text(
                   'See All',
                   style: MyTextStyle.normalTitleText(
-                    color: AppColors.primary,
+                    color: AppColors.primaryBlue,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

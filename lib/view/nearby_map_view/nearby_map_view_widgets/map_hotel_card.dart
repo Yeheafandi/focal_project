@@ -88,7 +88,7 @@ class MapHotelCard extends StatelessWidget {
                           "\$${hotel.pricePerNight.toInt()}",
                           style: MyTextStyle.priceText(
                             fontWeight: FontWeight.bold,
-                            color: AppColors.primary,
+                            color: AppColors.primaryBlue,
                             size: 16,
                           ),
                         ),
@@ -128,7 +128,7 @@ class MapHotelCard extends StatelessWidget {
                   onPressed: () {
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
+                    backgroundColor: AppColors.primaryBlue,
                     padding: EdgeInsets.symmetric(vertical: AppSpaces.paddingMedium + 2),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),

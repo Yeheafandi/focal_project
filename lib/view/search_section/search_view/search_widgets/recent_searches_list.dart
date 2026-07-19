@@ -21,7 +21,7 @@ class RecentSearchesList extends StatelessWidget {
           return ListTile(
             contentPadding: EdgeInsets.zero,
             leading: CircleAvatar(
-              backgroundColor: AppColors.grey200,
+              backgroundColor: AppColors.background,
               child: Icon(Icons.access_time, color: AppColors.grey500),
             ),
             title: Text(

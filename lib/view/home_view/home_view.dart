@@ -129,7 +129,7 @@ class HomeView extends StatelessWidget {
                       children: [
                         const Icon(
                           Icons.location_on,
-                          color: AppColors.primary,
+                          color: AppColors.primaryBlue,
                           size: 26,
                         ),
                         SizedBox(width: AppSpaces.widthMedium),
@@ -165,7 +165,7 @@ class HomeView extends StatelessWidget {
                         child: Text(
                           "See All",
                           style: MyTextStyle.smallTitleText(
-                            color: AppColors.primary,
+                            color: AppColors.primaryBlue,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -202,7 +202,7 @@ class HomeView extends StatelessWidget {
                         child: Text(
                           "See All",
                           style: MyTextStyle.smallTitleText(
-                            color: AppColors.primary,
+                            color: AppColors.primaryBlue,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -235,7 +235,7 @@ class HomeView extends StatelessWidget {
                               ),
                               decoration: BoxDecoration(
                                 color: isSelected
-                                    ? AppColors.primary
+                                    ? AppColors.primaryBlue
                                     : AppColors.primaryWhite,
                                 borderRadius: BorderRadius.circular(
                                   AppSpaces.radiusExtraLarge,
@@ -310,7 +310,7 @@ class HomeView extends StatelessWidget {
                         child: Text(
                           "Open Map",
                           style: MyTextStyle.smallTitleText(
-                            color: AppColors.primary,
+                            color: AppColors.primaryBlue,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -339,7 +339,7 @@ class HomeView extends StatelessWidget {
                         child: Text(
                           "See All",
                           style: MyTextStyle.smallTitleText(
-                            color: AppColors.primary,
+                            color: AppColors.primaryBlue,
                             fontWeight: FontWeight.bold,
                           ),
                         ),

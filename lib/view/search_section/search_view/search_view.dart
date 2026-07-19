@@ -42,7 +42,6 @@ class SearchView extends StatelessWidget {
         actions: [
           IconButton(
             icon: Image.asset(AppImages.notificationIcon),
-            color: AppColors.primaryBlack,
             onPressed: () {},
           ),
           const SizedBox(width: 12),

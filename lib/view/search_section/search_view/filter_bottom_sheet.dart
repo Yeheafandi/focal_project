@@ -100,7 +100,7 @@ class FilterBottomSheet extends StatelessWidget {
                 values: controller.priceRange.value,
                 min: 0,
                 max: 500,
-                activeColor: AppColors.primary,
+                activeColor: AppColors.primaryBlue,
                 inactiveColor: AppColors.grey200,
                 onChanged: (values) {
                   controller.priceRange.value = values;
@@ -128,7 +128,7 @@ class FilterBottomSheet extends StatelessWidget {
                   () => Switch(
                     value: controller.isInstantBook.value,
                     activeColor: AppColors.primaryWhite,
-                    activeTrackColor: AppColors.primary,
+                    activeTrackColor: AppColors.primaryBlue,
                     onChanged: (val) => controller.isInstantBook.value = val,
                   ),
                 ),
@@ -149,12 +149,12 @@ class FilterBottomSheet extends StatelessWidget {
                       child: ChoiceChip(
                         label: Text(loc),
                         selected: isSelected,
-                        selectedColor: AppColors.primary,
+                        selectedColor: AppColors.primaryBlue,
                         backgroundColor: AppColors.primaryWhite,
                         labelStyle: MyTextStyle.normalTitleText(
                           color: isSelected
                               ? AppColors.primaryWhite
-                              : AppColors.primary,
+                              : AppColors.primaryBlue,
                           fontWeight: FontWeight.bold,
                         ),
                         onSelected: (selected) {
@@ -183,7 +183,7 @@ class FilterBottomSheet extends StatelessWidget {
                     ),
                   ),
                   value: isChecked,
-                  activeColor: AppColors.primary,
+                  activeColor: AppColors.primaryBlue,
                   onChanged: (checked) {
                     if (checked == true) {
                       controller.selectedFacilities.add(facility);
@@ -213,13 +213,13 @@ class FilterBottomSheet extends StatelessWidget {
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: isSelected
-                              ? AppColors.primary
+                              ? AppColors.primaryBlue
                               : AppColors.grey200,
                           width: isSelected ? 1.5 : 1,
                         ),
                         borderRadius: BorderRadius.circular(20),
                         color: isSelected
-                            ? AppColors.primary
+                            ? AppColors.primaryBlue
                             : Colors.transparent,
                       ),
                       child: Row(
@@ -246,7 +246,7 @@ class FilterBottomSheet extends StatelessWidget {
               height: 54,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
+                  backgroundColor: AppColors.primaryBlue,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),

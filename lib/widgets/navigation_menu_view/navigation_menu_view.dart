@@ -19,7 +19,7 @@ class NavigationMenuView extends StatelessWidget {
           data: NavigationBarThemeData(
             indicatorColor: Colors.transparent, 
             elevation: 15,
-            shadowColor: AppColors.primaryBlack.withOpacity(0.1),
+            shadowColor: AppColors.primaryBlack,
             labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((
               Set<WidgetState> states,
             ) {

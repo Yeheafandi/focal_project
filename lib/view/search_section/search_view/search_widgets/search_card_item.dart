@@ -37,7 +37,7 @@ class SearchCardItem extends StatelessWidget {
                     vertical: 5,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.primaryBlack,
+                    color: AppColors.primaryWhite.withAlpha(10),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
@@ -47,7 +47,7 @@ class SearchCardItem extends StatelessWidget {
                       Text(
                         "4.9",
                         style: MyTextStyle.normalTitleText(
-                          color: Colors.white,
+                          color: AppColors.primaryWhite,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -59,11 +59,8 @@ class SearchCardItem extends StatelessWidget {
                 top: 15,
                 right: 15,
                 child: CircleAvatar(
-                  backgroundColor: AppColors.primaryWhite,
-                  child: Image.asset(
-                    AppImages.heartIcon,
-                    color: AppColors.grey,
-                  ),
+                  backgroundColor: AppColors.primaryWhite.withAlpha(10),
+                  child: Image.asset(AppImages.heartIcon),
                 ),
               ),
             ],
@@ -82,7 +79,7 @@ class SearchCardItem extends StatelessWidget {
               Text(
                 "\$290",
                 style: MyTextStyle.normalTitleText(
-                  color: AppColors.primary,
+                  color: AppColors.primaryBlue,
                   fontWeight: FontWeight.bold,
                   size: 18,
                 ),

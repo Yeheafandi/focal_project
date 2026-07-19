@@ -25,11 +25,11 @@ class NearYouMapCard extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(AppSpaces.paddingMedium),
           decoration: BoxDecoration(
-            color: AppColors.primary,
+            color: AppColors.primaryBlue,
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
-                color: AppColors.primary,
+                color: AppColors.primaryBlue,
                 blurRadius: 15,
                 spreadRadius: 5,
               ),

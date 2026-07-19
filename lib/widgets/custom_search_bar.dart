@@ -32,14 +32,8 @@ class CustomSearchBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.primaryWhite,
         borderRadius: BorderRadius.circular(30),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.primaryBlack,
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-        border: Border.all(color: Colors.grey.shade100),
+
+        border: Border.all(color: AppColors.grey300),
       ),
       child: Row(
         children: [
@@ -63,7 +57,9 @@ class CustomSearchBar extends StatelessWidget {
           if (onFilterTap != null)
             IconButton(
               icon: Image.asset(
-                isFilterApplied ? AppImages.filterOffOutlineIcon : AppImages.filterIcon,
+                isFilterApplied
+                    ? AppImages.filterOffOutlineIcon
+                    : AppImages.filterIcon,
               ),
               onPressed: isFilterApplied ? onResetTap : onFilterTap,
               padding: EdgeInsets.zero,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 
 class HomeCircleIconButton extends StatelessWidget {
-  final IconData icon;
+  final Image icon;
   final VoidCallback onPressed;
 
   const HomeCircleIconButton({
@@ -23,7 +23,7 @@ class HomeCircleIconButton extends StatelessWidget {
       ),
       child: IconButton(
         padding: EdgeInsets.zero,
-        icon: Icon(icon, color: AppColors.black87, size: 22),
+        icon:icon,
         onPressed: onPressed,
       ),
     );

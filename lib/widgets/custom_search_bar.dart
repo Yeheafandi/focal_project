@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:focal_project/core/constants/app_images.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_spaces.dart';
 import '../../core/constants/text_style.dart';
@@ -61,9 +62,8 @@ class CustomSearchBar extends StatelessWidget {
           ),
           if (onFilterTap != null)
             IconButton(
-              icon: Icon(
-                isFilterApplied ? Icons.filter_alt_off : Icons.tune,
-                color: isFilterApplied ? AppColors.red : AppColors.grey600,
+              icon: Image.asset(
+                isFilterApplied ? AppImages.filterOffOutlineIcon : AppImages.filterIcon,
               ),
               onPressed: isFilterApplied ? onResetTap : onFilterTap,
               padding: EdgeInsets.zero,

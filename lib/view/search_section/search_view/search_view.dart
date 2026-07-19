@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/view/search_section/search_view/search_widgets/default_search_view.dart';
 import 'package:focal_project/view/search_section/search_view/search_widgets/search_results_view.dart';
 import 'package:get/get.dart';
@@ -25,7 +26,7 @@ class SearchView extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: CustomCircleIconButton(
-            icon: Icons.arrow_back_ios_new,
+            icon: Icons.arrow_back_sharp,
             onPressed: () => Get.back(),
           ),
         ),
@@ -40,11 +41,8 @@ class SearchView extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(
-              Icons.notifications_none_outlined,
-              color: AppColors.primaryBlack,
-              size: 28,
-            ),
+            icon: Image.asset(AppImages.notificationIcon),
+            color: AppColors.primaryBlack,
             onPressed: () {},
           ),
           const SizedBox(width: 12),

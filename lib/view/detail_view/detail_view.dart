@@ -196,8 +196,8 @@ class HotelDetailView extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomCircleIconButton(icon: Icons.arrow_back, onPressed: () => Get.back()),
-                CustomCircleIconButton(icon: Icons.more_vert, onPressed: () {}),
+                IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Get.back()),
+                IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
               ],
             ),
           ),

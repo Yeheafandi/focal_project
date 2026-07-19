@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:focal_project/core/constants/app_images.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spaces.dart';
 import '../../../../core/constants/text_style.dart';
@@ -154,7 +155,7 @@ class MapHotelCard extends StatelessWidget {
                   border: Border.all(color: AppColors.grey200, width: 1),
                 ),
                 child: IconButton(
-                  icon: const Icon(Icons.chat_bubble_outline, color: AppColors.primaryBlack, size: 20),
+                  icon:  Image.asset(AppImages.messageTextIcon),
                   onPressed: () {
                   },
                 ),

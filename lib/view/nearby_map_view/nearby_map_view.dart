@@ -49,7 +49,7 @@ class NearbyMapView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomCircleIconButton(
-                  icon: Icons.arrow_back_ios_new,
+                  icon: Icons.arrow_back_sharp,
                   onPressed: () => Get.back(),
                 ),
                 Text(
@@ -60,8 +60,8 @@ class NearbyMapView extends StatelessWidget {
                     color: AppColors.primaryBlack,
                   ),
                 ),
-                CustomCircleIconButton(
-                  icon: Icons.filter_list,
+                IconButton(
+                  icon: Icon(Icons.filter_list),
                   onPressed: () {},
                   iconSize: 24.0,
                 ),

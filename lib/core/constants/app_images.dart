@@ -19,4 +19,12 @@ class AppImages {
   static String google='assets/images/Icon - Google.png';
   static String signinWith='assets/images/Or.png';
   static String check='assets/images/Group.png';
+
+  static String filterIcon='assets/icons/Filter (1).png';
+  static String messageTextIcon='assets/icons/message-text.png';
+  static String searchIcon='assets/icons/Search (5).png';
+  static String sortIcon='assets/icons/sort.png';
+  static String filterOffOutlineIcon='assets/icons/mdi_filter-off-outline.png';
+  static String notificationIcon='assets/icons/solar_bell-linear (1).png';
+  static String heartIcon='assets/icons/Heart.png';
 }

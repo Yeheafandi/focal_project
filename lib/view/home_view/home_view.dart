@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/routes/routes.dart'; 
@@ -96,7 +97,7 @@ class HomeView extends StatelessWidget {
                       Row(
                         children: [
                           HomeCircleIconButton(
-                            icon: Icons.search,
+                            icon: Image.asset(AppImages.searchIcon),
                             onPressed: () {
                               if (!Get.isRegistered<SearchFilterController>()) {
                                 Get.put(SearchFilterController());
@@ -107,7 +108,7 @@ class HomeView extends StatelessWidget {
                           ),
                           SizedBox(width: AppSpaces.widthSmall),
                           HomeCircleIconButton(
-                            icon: Icons.notifications_outlined,
+                            icon:Image.asset(AppImages.notificationIcon),
                             onPressed: () {},
                           ),
                         ],

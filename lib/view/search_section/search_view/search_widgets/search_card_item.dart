@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:focal_project/core/constants/app_images.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/text_style.dart';
 
@@ -59,7 +60,10 @@ class SearchCardItem extends StatelessWidget {
                 right: 15,
                 child: CircleAvatar(
                   backgroundColor: AppColors.primaryWhite,
-                  child: Icon(Icons.favorite_border, color: AppColors.grey),
+                  child: Image.asset(
+                    AppImages.heartIcon,
+                    color: AppColors.grey,
+                  ),
                 ),
               ),
             ],

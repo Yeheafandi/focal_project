@@ -18,7 +18,7 @@ class PaymentMethodCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(AppSpaces.paddingNormal),
+      padding:  EdgeInsets.all(AppSpaces.paddingNormal),
       decoration: BoxDecoration(
         color: AppColors.primaryWhite,
         borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
@@ -39,7 +39,7 @@ class PaymentMethodCard extends StatelessWidget {
               size: 22,
             ),
           ),
-          const SizedBox(width: AppSpaces.widthMedium),
+           SizedBox(width: AppSpaces.widthMedium),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +51,7 @@ class PaymentMethodCard extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                const SizedBox(height: AppSpaces.heightVerySmall),
+                 SizedBox(height: AppSpaces.heightVerySmall),
                 Text(
                   accountNumber,
                   style: MyTextStyle.smallTitleText(
@@ -65,7 +65,7 @@ class PaymentMethodCard extends StatelessWidget {
           GestureDetector(
             onTap: onEdit,
             child: Container(
-              padding: const EdgeInsets.symmetric(
+              padding:  EdgeInsets.symmetric(
                 horizontal: AppSpaces.paddingNormal,
                 vertical: AppSpaces.paddingSmall,
               ),

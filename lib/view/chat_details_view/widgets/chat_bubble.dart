@@ -16,7 +16,7 @@ class ChatBubble extends StatelessWidget {
     return Align(
       alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: AppSpaces.heightSmall),
+        margin:  EdgeInsets.symmetric(vertical: AppSpaces.heightSmall),
         constraints: BoxConstraints(
           maxWidth: MediaQuery.of(context).size.width * 0.75,
         ),
@@ -26,7 +26,7 @@ class ChatBubble extends StatelessWidget {
               : CrossAxisAlignment.start,
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(
+              padding:  EdgeInsets.symmetric(
                 horizontal: AppSpaces.widthNormal,
                 vertical: AppSpaces.heightMedium,
               ),
@@ -48,7 +48,7 @@ class ChatBubble extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: AppSpaces.heightSmall),
+             SizedBox(height: AppSpaces.heightSmall),
 
             Row(
               mainAxisSize: MainAxisSize.min,
@@ -62,7 +62,7 @@ class ChatBubble extends StatelessWidget {
                   ),
                 ),
                 if (isMe) ...[
-                  const SizedBox(width: AppSpaces.heightSmall),
+                   SizedBox(width: AppSpaces.heightSmall),
                   const Icon(
                     Icons.done_all,
                     size: 14,

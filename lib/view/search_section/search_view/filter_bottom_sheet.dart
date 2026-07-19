@@ -32,7 +32,7 @@ class FilterBottomSheet extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+             SizedBox(height: AppSpaces.paddingLarge),
             Center(
               child: Text(
                 "Filter By",
@@ -43,10 +43,10 @@ class FilterBottomSheet extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+             SizedBox(height: AppSpaces.paddingLarge),
 
             _buildSectionTitle("Placeholder"),
-            const SizedBox(height: 10),
+             SizedBox(height: AppSpaces.paddingSmall),
             Obx(
               () => Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -77,7 +77,7 @@ class FilterBottomSheet extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+             SizedBox(height: AppSpaces.paddingLarge),
 
             Obx(
               () => Row(
@@ -94,7 +94,7 @@ class FilterBottomSheet extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 5),
+             SizedBox(height: AppSpaces.paddingSmall),
             Obx(
               () => RangeSlider(
                 values: controller.priceRange.value,
@@ -107,7 +107,7 @@ class FilterBottomSheet extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(height: 10),
+             SizedBox(height: AppSpaces.paddingSmall),
 
             // 3. Instant Book Switch
             Row(
@@ -117,7 +117,7 @@ class FilterBottomSheet extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildSectionTitle("Instant Book"),
-                    const SizedBox(height: 4),
+                     SizedBox(height: AppSpaces.paddingSmall),
                     Text(
                       "Book without waiting for the host to respond",
                       style: TextStyle(color: AppColors.grey400, fontSize: 11),
@@ -134,10 +134,10 @@ class FilterBottomSheet extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
+             SizedBox(height: AppSpaces.paddingLarge),
 
             _buildSectionTitle("Location"),
-            const SizedBox(height: 10),
+             SizedBox(height: AppSpaces.paddingSmall),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -166,7 +166,7 @@ class FilterBottomSheet extends StatelessWidget {
                 }).toList(),
               ),
             ),
-            const SizedBox(height: 20),
+             SizedBox(height: AppSpaces.paddingLarge),
 
             // 5. Facilities Checkboxes
             _buildSectionTitle("Facilities"),
@@ -197,7 +197,7 @@ class FilterBottomSheet extends StatelessWidget {
             }),
 
             _buildSectionTitle("Ratings"),
-            const SizedBox(height: 10),
+             SizedBox(height: AppSpaces.paddingSmall),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [5, 4, 3, 2, 1].map((stars) {
@@ -239,7 +239,7 @@ class FilterBottomSheet extends StatelessWidget {
                 });
               }).toList(),
             ),
-            const SizedBox(height: 30),
+             SizedBox(height: AppSpaces.paddingLarge),
 
             SizedBox(
               width: double.infinity,

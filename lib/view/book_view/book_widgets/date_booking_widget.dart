@@ -21,7 +21,7 @@ class DateBookingWidget extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.all(AppSpaces.paddingNormal),
+        padding:  EdgeInsets.all(AppSpaces.paddingNormal),
         decoration: BoxDecoration(
           color: AppColors.grey100,
           borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
@@ -36,7 +36,7 @@ class DateBookingWidget extends StatelessWidget {
                   size: 16,
                   color: AppColors.grey600,
                 ),
-                const SizedBox(width: AppSpaces.widthSmall),
+                 SizedBox(width: AppSpaces.widthSmall),
                 Text(
                   label,
                   style: MyTextStyle.smallTitleText(
@@ -47,7 +47,7 @@ class DateBookingWidget extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: AppSpaces.heightSmall),
+             SizedBox(height: AppSpaces.heightSmall),
             Text(
               dateText,
               style: MyTextStyle.normalTitleText(

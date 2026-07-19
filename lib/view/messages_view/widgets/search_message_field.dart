@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:focal_project/core/constants/app_spaces.dart';
 
 class SearchMessageField extends StatelessWidget {
   const SearchMessageField({super.key});
@@ -12,7 +13,7 @@ class SearchMessageField extends StatelessWidget {
         prefixIcon: const Icon(Icons.search),
 
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(AppSpaces.radiusExtraExtraLarge28),
         ),
       ),
     );

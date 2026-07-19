@@ -34,7 +34,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
       ),
 
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
+        padding:  EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
         child: Column(
           children: [
             ListTile(
@@ -60,7 +60,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    icon: const Icon(
+                    icon:  Icon(
                       size: AppSpaces.heightLarge,
                       Icons.videocam_outlined,
                       color: AppColors.primaryBlack,
@@ -70,7 +70,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(
+                    icon:  Icon(
                       size: AppSpaces.heightLarge,
                       Icons.call_outlined,
                       color: AppColors.primaryBlack,
@@ -86,7 +86,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
             Expanded(
               child: Obx(
                 () => ListView.builder(
-                  padding: const EdgeInsets.symmetric(
+                  padding:  EdgeInsets.symmetric(
                     vertical: AppSpaces.heightLarge,
                   ),
                   itemCount: controller.messages.length,
@@ -98,10 +98,10 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
             ),
 
             Container(
-              padding: const EdgeInsets.only(bottom: AppSpaces.heightNormal),
+              padding:  EdgeInsets.only(bottom: AppSpaces.heightNormal),
               decoration: const BoxDecoration(color: AppColors.primaryWhite),
               child: Container(
-                padding: const EdgeInsets.only(left: AppSpaces.widthNormal),
+                padding:  EdgeInsets.only(left: AppSpaces.widthNormal),
                 decoration: BoxDecoration(
                   color: AppColors.grey200,
                   borderRadius: BorderRadius.circular(
@@ -124,7 +124,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
                     ),
                     GestureDetector(
                       onTap: controller.sendMessage,
-                      child: const CircleAvatar(
+                      child:  CircleAvatar(
                         radius: 24,
                         backgroundColor: AppColors.primary,
                         child: Icon(

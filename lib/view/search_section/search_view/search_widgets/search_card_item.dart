@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_images.dart';
+import 'package:focal_project/core/constants/app_spaces.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/text_style.dart';
 
@@ -9,7 +10,7 @@ class SearchCardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 20),
+      margin:  EdgeInsets.only(bottom: AppSpaces.paddingLarge),
       decoration: BoxDecoration(
         color: AppColors.primaryWhite,
         borderRadius: BorderRadius.circular(20),
@@ -43,7 +44,7 @@ class SearchCardItem extends StatelessWidget {
                   child: Row(
                     children: [
                       Icon(Icons.star, color: AppColors.amber, size: 14),
-                      const SizedBox(width: 4),
+                       SizedBox(width: AppSpaces.paddingVerySmall),
                       Text(
                         "4.9",
                         style: MyTextStyle.normalTitleText(
@@ -65,7 +66,7 @@ class SearchCardItem extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
+           SizedBox(height: AppSpaces.heightSmall),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -102,18 +103,18 @@ class SearchCardItem extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 8),
+           SizedBox(height: AppSpaces.heightSmall),
           Row(
             children: [
               Icon(Icons.bed, color: AppColors.grey500, size: 18),
-              const SizedBox(width: 4),
+               SizedBox(width: AppSpaces.paddingVerySmall),
               Text(
                 "3 bed",
                 style: MyTextStyle.normalTitleText(color: AppColors.grey400),
               ),
-              const SizedBox(width: 15),
+               SizedBox(width: AppSpaces.paddingNormal),
               Icon(Icons.bathroom, color: AppColors.grey500, size: 18),
-              const SizedBox(width: 4),
+               SizedBox(width: AppSpaces.paddingVerySmall),
               Text(
                 "3 bathroom",
                 style: MyTextStyle.normalTitleText(color: AppColors.grey400),

@@ -44,7 +44,7 @@ class PopularHotelCard extends StatelessWidget {
               onTap: () => controller.toggleFavorite(hotel),
               child: CircleAvatar(
                 backgroundColor: AppColors.primaryWhite,
-                radius: 16,
+                radius: AppSpaces.radiusLarge,
                 child: Icon(
                   hotel.isFavorite ? Icons.favorite : Icons.favorite_border,
                   color: AppColors.red,

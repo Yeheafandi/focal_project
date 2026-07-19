@@ -45,26 +45,26 @@ class HotelCard extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(width: AppSpaces.widthNormal),
+           SizedBox(width: AppSpaces.widthNormal),
 
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(hotelName, style: MyTextStyle.normalTitleText()),
 
-              const SizedBox(height: AppSpaces.heightSmall),
+               SizedBox(height: AppSpaces.heightSmall),
 
               Row(
                 children: [
                   const Icon(Icons.location_on_outlined, size: 18),
 
-                  const SizedBox(width: AppSpaces.widthVerySmall),
+                   SizedBox(width: AppSpaces.widthVerySmall),
 
                   Text(location, style: MyTextStyle.smallTitleText()),
                 ],
               ),
 
-              const SizedBox(height: AppSpaces.heightSmall),
+               SizedBox(height: AppSpaces.heightSmall),
 
               RichText(
                 text: TextSpan(

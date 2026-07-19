@@ -14,13 +14,13 @@ class MyCouponBottomSheet extends StatelessWidget {
     final controller = Get.find<CheckoutController>();
 
     return Container(
-      padding: const EdgeInsets.fromLTRB(
+      padding:  EdgeInsets.fromLTRB(
         AppSpaces.paddingLarge,
         AppSpaces.paddingMedium,
         AppSpaces.paddingLarge,
         AppSpaces.paddingLarge,
       ),
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         color: AppColors.primaryWhite,
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(AppSpaces.radiusExtraLarge),
@@ -37,7 +37,7 @@ class MyCouponBottomSheet extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppSpaces.radiusSmall),
             ),
           ),
-          const SizedBox(height: AppSpaces.heightLarge),
+           SizedBox(height: AppSpaces.heightLarge),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -51,12 +51,12 @@ class MyCouponBottomSheet extends StatelessWidget {
               GestureDetector(
                 onTap: Get.back,
                 child: Container(
-                  padding: const EdgeInsets.all(AppSpaces.paddingSmall),
+                  padding:  EdgeInsets.all(AppSpaces.paddingSmall),
                   decoration: BoxDecoration(
                     color: AppColors.grey100,
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
+                  child:  Icon(
                     Icons.close,
                     size: AppSpaces.widthMedium,
                     color: AppColors.black87,
@@ -65,7 +65,7 @@ class MyCouponBottomSheet extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: AppSpaces.heightLarge),
+           SizedBox(height: AppSpaces.heightLarge),
           Obx(
             () => ListView.builder(
               shrinkWrap: true,
@@ -80,7 +80,7 @@ class MyCouponBottomSheet extends StatelessWidget {
               },
             ),
           ),
-          const SizedBox(height: AppSpaces.heightMedium),
+           SizedBox(height: AppSpaces.heightMedium),
           SizedBox(
             width: double.infinity,
             height: 52,

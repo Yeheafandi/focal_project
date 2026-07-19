@@ -32,7 +32,7 @@ class VideoCallScreen extends StatelessWidget {
             left: 20,
             right: 20,
             child: Container(
-              padding: const EdgeInsets.symmetric(
+              padding:  EdgeInsets.symmetric(
                 horizontal: AppSpaces.widthLarge,
                 vertical: AppSpaces.heightMedium,
               ),
@@ -49,7 +49,7 @@ class VideoCallScreen extends StatelessWidget {
                     backgroundImage: NetworkImage(controller.image),
                   ),
 
-                  const SizedBox(width: AppSpaces.widthSmall),
+                   SizedBox(width: AppSpaces.widthSmall),
 
                   Text(
                     controller.name,
@@ -62,7 +62,7 @@ class VideoCallScreen extends StatelessWidget {
 
                   const Icon(Icons.circle, color: Colors.red, size: 12),
 
-                  const SizedBox(width: AppSpaces.widthSmall),
+                   SizedBox(width: AppSpaces.widthSmall),
 
                   Obx(
                     () => Text(

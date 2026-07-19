@@ -19,7 +19,7 @@ class CheckoutInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(AppSpaces.paddingNormal),
+      padding:  EdgeInsets.all(AppSpaces.paddingNormal),
       decoration: BoxDecoration(
         color: AppColors.primaryWhite,
         borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
@@ -36,7 +36,7 @@ class CheckoutInfoCard extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox(height: AppSpaces.heightMedium),
+           SizedBox(height: AppSpaces.heightMedium),
           CheckoutBookingRow(
             icon: Icons.calendar_today_outlined,
             label: 'Dates',
@@ -58,7 +58,7 @@ class CheckoutInfoCard extends StatelessWidget {
             value: controller.phone,
           ),
           const CheckoutDashedDivider(),
-          const SizedBox(height: AppSpaces.heightMedium),
+           SizedBox(height: AppSpaces.heightMedium),
           Text(
             'Price Details',
             style: MyTextStyle.normalTitleText(
@@ -67,7 +67,7 @@ class CheckoutInfoCard extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox(height: AppSpaces.heightMedium),
+           SizedBox(height: AppSpaces.heightMedium),
           Obx(
             () => Column(
               children: [

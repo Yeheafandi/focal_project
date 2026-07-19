@@ -52,7 +52,7 @@ class ChatItem extends StatelessWidget {
         
               Text(time,style: MyTextStyle.smallTitleText()),
         
-              const SizedBox(height: AppSpaces.heightSmall,),
+               SizedBox(height: AppSpaces.heightSmall,),
         
               if (unreadCount > 0)
                 CircleAvatar(backgroundColor: AppColors.red,

@@ -30,7 +30,7 @@ class ShareOption extends StatelessWidget {
             ),
             child: Icon(icon, color: AppColors.primaryWhite, size: 28),
           ),
-          const SizedBox(height: AppSpaces.heightSmall),
+           SizedBox(height: AppSpaces.heightSmall),
           Text(label,
               style: MyTextStyle.smallTitleText(color: AppColors.black87)),
         ],

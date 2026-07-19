@@ -48,25 +48,25 @@ class NotificationScreen extends GetView<NotificationController> {
       ),
 
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
+        padding:  EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
         child: Obx(
           () => ListView(
             children: [
-              const SizedBox(height: AppSpaces.heightLarge),
+               SizedBox(height: AppSpaces.heightLarge),
 
               Text("Today", style: MyTextStyle.normalTitleText()),
 
-              const SizedBox(height: AppSpaces.heightExtraLarge),
+               SizedBox(height: AppSpaces.heightExtraLarge),
 
               ...controller.notifications.map(
                 (notification) => NotificationItem(notification: notification),
               ),
 
-              const SizedBox(height: AppSpaces.heightLarge),
+               SizedBox(height: AppSpaces.heightLarge),
 
               Text("Yesterday", style: MyTextStyle.normalTitleText()),
 
-              const SizedBox(height: AppSpaces.heightExtraLarge),
+               SizedBox(height: AppSpaces.heightExtraLarge),
 
               ...controller.notifications.map(
                 (notification) => NotificationItem(notification: notification),

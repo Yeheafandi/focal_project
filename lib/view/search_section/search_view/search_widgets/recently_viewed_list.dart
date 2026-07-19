@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:get/get.dart';
 import '../../../../core/constants/app_colors.dart';
@@ -29,7 +30,7 @@ class RecentlyViewedList extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(width: 15),
+               SizedBox(width: AppSpaces.paddingNormal),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +50,7 @@ class RecentlyViewedList extends StatelessWidget {
                         size: 12,
                       ),
                     ),
-                    const SizedBox(height: 5),
+                     SizedBox(height: AppSpaces.heightVerySmall),
                     Text(
                       "\$230 /night",
                       style: MyTextStyle.normalTitleText(
@@ -63,7 +64,7 @@ class RecentlyViewedList extends StatelessWidget {
               Row(
                 children: [
                   Icon(Icons.star, color: AppColors.amber, size: 16),
-                  const SizedBox(width: 4),
+                   SizedBox(width: AppSpaces.paddingVerySmall),
                   const Text(
                     "4.0",
                     style: TextStyle(fontWeight: FontWeight.bold),

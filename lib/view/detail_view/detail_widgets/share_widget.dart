@@ -16,8 +16,8 @@ class ShareWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(AppSpaces.paddingLarge),
-      padding: const EdgeInsets.all(AppSpaces.paddingLarge),
+      margin:  EdgeInsets.all(AppSpaces.paddingLarge),
+      padding:  EdgeInsets.all(AppSpaces.paddingLarge),
       decoration: BoxDecoration(
         color: AppColors.primaryWhite,
         borderRadius: BorderRadius.circular(AppSpaces.radiusExtraLarge),
@@ -35,12 +35,12 @@ class ShareWidget extends StatelessWidget {
               GestureDetector(
                 onTap: Get.back,
                 child: Container(
-                  padding: const EdgeInsets.all(AppSpaces.paddingSmall),
+                  padding:  EdgeInsets.all(AppSpaces.paddingSmall),
                   decoration: BoxDecoration(
                     color: AppColors.grey100,
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
+                  child:  Icon(
                     Icons.close,
                     size: AppSpaces.widthMedium,
                     color: AppColors.black87,
@@ -49,18 +49,18 @@ class ShareWidget extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: AppSpaces.heightSmall),
+           SizedBox(height: AppSpaces.heightSmall),
           Divider(
             thickness: 1,
             color: AppColors.grey300,
           ),
-          const SizedBox(height: AppSpaces.heightSmall),
+           SizedBox(height: AppSpaces.heightSmall),
           RecommendedHotelCard(
             hotel: hotel,
             underline: false,
           ),
           Container(
-            padding: const EdgeInsets.symmetric(
+            padding:  EdgeInsets.symmetric(
                 horizontal: AppSpaces.paddingMedium,
                 vertical: AppSpaces.paddingSmall),
             decoration: BoxDecoration(
@@ -108,7 +108,7 @@ class ShareWidget extends StatelessWidget {
                           BorderRadius.circular(AppSpaces.radiusSmall),
                       side: const BorderSide(color: AppColors.primaryWhite),
                     ),
-                    padding: const EdgeInsets.symmetric(
+                    padding:  EdgeInsets.symmetric(
                       horizontal: AppSpaces.paddingMedium,
                       vertical: AppSpaces.paddingSmall,
                     ),
@@ -117,7 +117,7 @@ class ShareWidget extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: AppSpaces.heightSmall),
+           SizedBox(height: AppSpaces.heightSmall),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

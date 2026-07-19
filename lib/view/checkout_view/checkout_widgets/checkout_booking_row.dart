@@ -18,7 +18,7 @@ class CheckoutBookingRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: AppSpaces.heightMedium),
+      padding:  EdgeInsets.only(bottom: AppSpaces.heightMedium),
       child: Row(
         children: [
           Icon(
@@ -26,7 +26,7 @@ class CheckoutBookingRow extends StatelessWidget {
             size: 18,
             color: AppColors.primary,
           ),
-          const SizedBox(width: AppSpaces.widthMedium),
+           SizedBox(width: AppSpaces.widthMedium),
           Text(
             label,
             style: MyTextStyle.smallTitleText(

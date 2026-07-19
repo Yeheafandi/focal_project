@@ -27,7 +27,7 @@ class GuestCounterWidget extends StatelessWidget {
           onTap: onDecrement,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(
+          padding:  EdgeInsets.symmetric(
             horizontal: AppSpaces.paddingNormal,
           ),
           child: Text(

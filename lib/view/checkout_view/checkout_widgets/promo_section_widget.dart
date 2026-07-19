@@ -25,11 +25,11 @@ class PromoSectionWidget extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: AppSpaces.heightMedium),
+         SizedBox(height: AppSpaces.heightMedium),
         GestureDetector(
           onTap: onTap,
           child: Container(
-            padding: const EdgeInsets.symmetric(
+            padding:  EdgeInsets.symmetric(
               horizontal: AppSpaces.paddingNormal,
               vertical: AppSpaces.paddingMedium,
             ),
@@ -44,7 +44,7 @@ class PromoSectionWidget extends StatelessWidget {
                   color: AppColors.primary,
                   size: 22,
                 ),
-                const SizedBox(width: AppSpaces.widthMedium),
+                 SizedBox(width: AppSpaces.widthMedium),
                 Text(
                   label,
                   style: MyTextStyle.normalTitleText(

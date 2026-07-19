@@ -15,7 +15,7 @@ class NotificationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
+      padding:  EdgeInsets.only(
         bottom: AppSpaces.heightNormal,
       ),
       child: Row(
@@ -26,7 +26,7 @@ class NotificationItem extends StatelessWidget {
             backgroundImage: NetworkImage(notification.image),
           ),
 
-          const SizedBox(width: AppSpaces.widthMedium),
+           SizedBox(width: AppSpaces.widthMedium),
 
           Expanded(
             child: Column(
@@ -37,7 +37,7 @@ class NotificationItem extends StatelessWidget {
                   style: MyTextStyle.smallTitleText(),
                 ),
 
-                const SizedBox(height: AppSpaces.heightVerySmall,),
+                 SizedBox(height: AppSpaces.heightVerySmall,),
 
                 Text(
                   notification.time,
@@ -46,7 +46,7 @@ class NotificationItem extends StatelessWidget {
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
-                ),const SizedBox(height: AppSpaces.heightLarge,),
+                ), SizedBox(height: AppSpaces.heightLarge,),
                 Divider()
               ],
             ),

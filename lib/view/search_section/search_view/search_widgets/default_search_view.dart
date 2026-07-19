@@ -20,7 +20,7 @@ class DefaultSearchView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 10),
+           SizedBox(height: AppSpaces.heightSmall),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -45,7 +45,7 @@ class DefaultSearchView extends StatelessWidget {
             ],
           ),
           const RecentSearchesList(),
-          const SizedBox(height: 20),
+           SizedBox(height: AppSpaces.paddingLarge),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -70,7 +70,7 @@ class DefaultSearchView extends StatelessWidget {
             ],
           ),
           const RecentlyViewedList(),
-          const SizedBox(height: 20),
+           SizedBox(height: AppSpaces.paddingLarge),
         ],
       ),
     );

@@ -19,8 +19,8 @@ class CouponItemWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: AppSpaces.heightMedium),
-        padding: const EdgeInsets.all(AppSpaces.paddingNormal),
+        margin:  EdgeInsets.only(bottom: AppSpaces.heightMedium),
+        padding:  EdgeInsets.all(AppSpaces.paddingNormal),
         decoration: BoxDecoration(
           color: coupon.isSelected ? AppColors.primaryWhite : AppColors.grey100,
           borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
@@ -35,7 +35,7 @@ class CouponItemWidget extends StatelessWidget {
               color: AppColors.primary,
               size: 28,
             ),
-            const SizedBox(width: AppSpaces.widthMedium),
+             SizedBox(width: AppSpaces.widthMedium),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +50,7 @@ class CouponItemWidget extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  const SizedBox(height: AppSpaces.heightVerySmall),
+                   SizedBox(height: AppSpaces.heightVerySmall),
                   Row(
                     children: [
                       Text(
@@ -60,7 +60,7 @@ class CouponItemWidget extends StatelessWidget {
                           size: 12,
                         ),
                       ),
-                      const SizedBox(width: AppSpaces.widthSmall),
+                       SizedBox(width: AppSpaces.widthSmall),
                       Text(
                         'See Detail',
                         style: MyTextStyle.smallTitleText(

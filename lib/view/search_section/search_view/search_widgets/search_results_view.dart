@@ -17,14 +17,14 @@ class SearchResultsView extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: AppSpaces.paddingLarge),
             child: Column(
               children: [
-                const SizedBox(height: 10),
+                 SizedBox(height: AppSpaces.heightSmall),
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: 2,
                   itemBuilder: (context, index) => const SearchCardItem(),
                 ),
-                const SizedBox(height: 20),
+                 SizedBox(height: AppSpaces.paddingLarge),
               ],
             ),
           ),

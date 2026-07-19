@@ -40,7 +40,7 @@ class AudioCallScreen extends StatelessWidget {
             left: 24,
             right: 24,
             child: Container(
-              padding: const EdgeInsets.symmetric(
+              padding:  EdgeInsets.symmetric(
                 horizontal: AppSpaces.widthLarge,
                 vertical: AppSpaces.heightMedium,
               ),
@@ -54,7 +54,7 @@ class AudioCallScreen extends StatelessWidget {
                     radius: AppSpaces.radiusExtraLarge,
                     backgroundImage: NetworkImage(controller.image),
                   ),
-                  const SizedBox(width: AppSpaces.widthNormal),
+                   SizedBox(width: AppSpaces.widthNormal),
                   Text(
                     controller.name,
                     style: MyTextStyle.normalTitleText().copyWith(
@@ -65,7 +65,7 @@ class AudioCallScreen extends StatelessWidget {
                   ),Spacer(),
 
                   const Icon(Icons.circle, color: AppColors.red, size: 12),
-                  const SizedBox(width: AppSpaces.widthSmall),
+                   SizedBox(width: AppSpaces.widthSmall),
                   Obx(
                     () => Text(
                       controller.callDuration.value,

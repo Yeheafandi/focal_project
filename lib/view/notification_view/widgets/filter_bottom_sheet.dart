@@ -12,7 +12,7 @@ class FilterBottomSheet extends GetView<NotificationController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(AppSpaces.paddingLarge),
+      padding:  EdgeInsets.all(AppSpaces.paddingLarge),
 
       decoration: const BoxDecoration(
         color: AppColors.primaryWhite,
@@ -29,16 +29,16 @@ class FilterBottomSheet extends GetView<NotificationController> {
               height: 5,
               width: 60,
               decoration: BoxDecoration(color: AppColors.grey200),
-            ),const SizedBox(height: AppSpaces.heightNormal),
+            ), SizedBox(height: AppSpaces.heightNormal),
             Text("Filter By", style: MyTextStyle.normalTitleText().copyWith(fontWeight: FontWeight.w300,fontSize: 18)),
 
-            const SizedBox(height: AppSpaces.heightExtraLarge),
+             SizedBox(height: AppSpaces.heightExtraLarge),
 
             ...controller.filters.map(
               (filter) => FilterOptionTile(title: filter),
             ),
 
-            const SizedBox(height: AppSpaces.heightExtraLarge),
+             SizedBox(height: AppSpaces.heightExtraLarge),
 
             SizedBox(
               width: double.infinity,

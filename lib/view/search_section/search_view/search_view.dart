@@ -44,7 +44,7 @@ class SearchView extends StatelessWidget {
             icon: Image.asset(AppImages.notificationIcon),
             onPressed: () {},
           ),
-          const SizedBox(width: 12),
+           SizedBox(width: AppSpaces.paddingSmall),
         ],
       ),
       body: Column(
@@ -52,7 +52,7 @@ class SearchView extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: AppSpaces.paddingLarge,
-              vertical: 10,
+              vertical: AppSpaces.paddingSmall,
             ),
             child: Obx(
               () => CustomSearchBar(

@@ -78,7 +78,7 @@ class RequestToBookView extends StatelessWidget {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(
+              padding:  EdgeInsets.symmetric(
                 horizontal: AppSpaces.paddingLarge,
                 vertical: AppSpaces.paddingNormal,
               ),
@@ -93,7 +93,7 @@ class RequestToBookView extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: AppSpaces.heightMedium),
+                     SizedBox(height: AppSpaces.heightMedium),
                     Row(
                       children: [
                         Expanded(
@@ -110,7 +110,7 @@ class RequestToBookView extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(width: AppSpaces.widthMedium),
+                         SizedBox(width: AppSpaces.widthMedium),
                         Expanded(
                           child: DateBookingWidget(
                             label: 'Check - Out',
@@ -129,7 +129,7 @@ class RequestToBookView extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: AppSpaces.heightLarge),
+                     SizedBox(height: AppSpaces.heightLarge),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -147,7 +147,7 @@ class RequestToBookView extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: AppSpaces.heightLarge),
+                     SizedBox(height: AppSpaces.heightLarge),
                     Text(
                       'Pay With',
                       style: MyTextStyle.normalTitleText(
@@ -155,13 +155,13 @@ class RequestToBookView extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: AppSpaces.heightMedium),
+                     SizedBox(height: AppSpaces.heightMedium),
                     PaymentMethodCard(
                       methodName: controller.paymentMethodName.value,
                       accountNumber: controller.paymentMethodNumber.value,
                       onEdit: () {},
                     ),
-                    const SizedBox(height: AppSpaces.heightLarge),
+                     SizedBox(height: AppSpaces.heightLarge),
                     Text(
                       'Payment Details',
                       style: MyTextStyle.normalTitleText(
@@ -169,7 +169,7 @@ class RequestToBookView extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: AppSpaces.heightMedium),
+                     SizedBox(height: AppSpaces.heightMedium),
                     PaymentDetailRow(
                       label: 'Total : ${controller.nightCount} Night',
                       value: '\$${controller.nightsTotal.toInt()}',
@@ -192,14 +192,14 @@ class RequestToBookView extends StatelessWidget {
                       value: '\$${controller.totalPayment.toInt()}',
                       isTotal: true,
                     ),
-                    const SizedBox(height: AppSpaces.heightExtraLarge),
+                     SizedBox(height: AppSpaces.heightExtraLarge),
                   ],
                 ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(
+            padding:  EdgeInsets.fromLTRB(
               AppSpaces.paddingLarge,
               AppSpaces.paddingSmall,
               AppSpaces.paddingLarge,

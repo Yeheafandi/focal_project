@@ -16,7 +16,7 @@ class ResetPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar( leading: IconButton(onPressed: Get.back, icon: Icon(Icons.arrow_back)),),
       body: Padding(
-        padding: const EdgeInsets.all(AppSpaces.paddingExtraLarge32),
+        padding:  EdgeInsets.all(AppSpaces.paddingExtraLarge32),
         child: Center(
           child: Column(spacing: 8,
             children: [

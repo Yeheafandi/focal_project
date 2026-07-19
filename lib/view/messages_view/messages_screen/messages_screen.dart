@@ -33,7 +33,7 @@ class MessageScreen extends GetView<MessageController> {
           children: [
             const SearchMessageField(),
 
-            const SizedBox(height: AppSpaces.heightLarge,),
+             SizedBox(height: AppSpaces.heightLarge,),
 
             Expanded(
               child: ListView.builder(

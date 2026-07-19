@@ -49,7 +49,7 @@ class CheckoutView extends StatelessWidget {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(
+              padding:  EdgeInsets.symmetric(
                 horizontal: AppSpaces.paddingLarge,
                 vertical: AppSpaces.paddingNormal,
               ),
@@ -60,22 +60,22 @@ class CheckoutView extends StatelessWidget {
                     hotel: controller.bookingArgs.hotel,
                     underline: false,
                   ),
-                  const SizedBox(height: AppSpaces.heightMedium),
+                   SizedBox(height: AppSpaces.heightMedium),
                   CheckoutInfoCard(controller: controller),
-                  const SizedBox(height: AppSpaces.heightLarge),
+                   SizedBox(height: AppSpaces.heightLarge),
                   Obx(
                     () => PromoSectionWidget(
                       label: controller.promoLabel,
                       onTap: controller.showCouponBottomSheet,
                     ),
                   ),
-                  const SizedBox(height: AppSpaces.heightExtraLarge),
+                   SizedBox(height: AppSpaces.heightExtraLarge),
                 ],
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(
+            padding:  EdgeInsets.fromLTRB(
               AppSpaces.paddingLarge,
               AppSpaces.paddingSmall,
               AppSpaces.paddingLarge,

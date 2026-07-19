@@ -70,19 +70,19 @@ class HotelDetailView extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 8),
+                       SizedBox(height: AppSpaces.heightSmall),
 
                       Row(
                         children: [
                           Icon(Icons.location_on, color: AppColors.primary, size: 16),
-                          const SizedBox(width: 4),
+                           SizedBox(width: AppSpaces.widthVerySmall),
                           Text(
                             hotel.location,
                             style: MyTextStyle.smallTitleText(color: AppColors.grey500, size: 14),
                           ),
-                          const SizedBox(width: 12),
+                           SizedBox(width: AppSpaces.widthSmall),
                           Icon(Icons.star, color: AppColors.amber, size: 16),
-                          const SizedBox(width: 4),
+                           SizedBox(width: AppSpaces.widthVerySmall),
                           Text(
                             "${hotel.rating}",
                             style: MyTextStyle.normalTitleText(fontWeight: FontWeight.bold, size: 14),

@@ -1,4 +1,5 @@
 import 'package:focal_project/bindings/chat_details_binding.dart';
+import 'package:focal_project/bindings/my_favorite_binding.dart';
 import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/audiocall_view/audiocall_screen/audiocall_screen.dart';
 import 'package:focal_project/view/booking_details_view/booking_details_view/booking_details_view.dart';
@@ -7,6 +8,7 @@ import 'package:focal_project/view/chat_details_view/chat_details_screen/chat_de
 import 'package:focal_project/view/checkout_view/checkout_view.dart';
 import 'package:focal_project/view/home_view/home_view.dart';
 import 'package:focal_project/view/messages_view/messages_screen/messages_screen.dart';
+import 'package:focal_project/view/my_favorite_view/my_favorite_screen/my_favorite_screen.dart';
 import 'package:focal_project/view/nearby_map_view/nearby_map_view.dart';
 import 'package:focal_project/view/notification_view/notification_screen/notification_screen.dart';
 import 'package:focal_project/view/search_section/search_view/search_view.dart';
@@ -57,6 +59,10 @@ class AppRoutes {
       name: Routes.notificationScreen,
       page: () => const NotificationScreen(),
       
-    ),
+    ),GetPage(
+  name: Routes.myFavoriteScreen,
+  page: () => const MyFavoriteScreen(),
+  binding: MyFavoriteBinding(),
+),
   ];
 }

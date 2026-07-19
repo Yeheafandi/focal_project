@@ -21,4 +21,6 @@ class Routes {
   static const String videoCallScreen = '/videocall-screen';
   static const audioCallScreen = '/audio-call';
   static const notificationScreen = '/notification-screen';
+  static const String myFavoriteScreen = '/favorite';
+
 }

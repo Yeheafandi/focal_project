@@ -3,6 +3,7 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/model/coupon_model.dart';
+import 'package:focal_project/view/checkout_view/checkout_widgets/payment_method_modal.dart';
 
 class CouponItemWidget extends StatelessWidget {
   final CouponModel coupon;
@@ -17,10 +18,25 @@ class CouponItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        onTap();
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          builder: (_) => Container(
+            margin: const EdgeInsets.only(top: 40),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+            ),
+            child: const PaymentMethodModal(),
+          ),
+        );
+      },
       child: Container(
-        margin:  EdgeInsets.only(bottom: AppSpaces.heightMedium),
-        padding:  EdgeInsets.all(AppSpaces.paddingNormal),
+        margin: EdgeInsets.only(bottom: AppSpaces.heightMedium),
+        padding: EdgeInsets.all(AppSpaces.paddingNormal),
         decoration: BoxDecoration(
           color: coupon.isSelected ? AppColors.primaryWhite : AppColors.grey100,
           borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
@@ -35,7 +51,7 @@ class CouponItemWidget extends StatelessWidget {
               color: AppColors.primary,
               size: 28,
             ),
-             SizedBox(width: AppSpaces.widthMedium),
+            SizedBox(width: AppSpaces.widthMedium),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +66,7 @@ class CouponItemWidget extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                   SizedBox(height: AppSpaces.heightVerySmall),
+                  SizedBox(height: AppSpaces.heightVerySmall),
                   Row(
                     children: [
                       Text(
@@ -60,7 +76,7 @@ class CouponItemWidget extends StatelessWidget {
                           size: 12,
                         ),
                       ),
-                       SizedBox(width: AppSpaces.widthSmall),
+                      SizedBox(width: AppSpaces.widthSmall),
                       Text(
                         'See Detail',
                         style: MyTextStyle.smallTitleText(
@@ -75,11 +91,7 @@ class CouponItemWidget extends StatelessWidget {
               ),
             ),
             if (coupon.isSelected)
-              Icon(
-                Icons.check,
-                color: AppColors.primary,
-                size: 22,
-              ),
+              Icon(Icons.check, color: AppColors.primary, size: 22),
           ],
         ),
       ),

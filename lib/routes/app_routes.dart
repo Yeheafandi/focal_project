@@ -20,18 +20,22 @@ import 'package:focal_project/view/auth/auth_view/signin_screen.dart';
 import 'package:focal_project/view/auth/auth_view/signup_screen.dart';
 import 'package:focal_project/view/onboarding/onboarding_view/onboarding.dart';
 import 'package:focal_project/view/onboarding/onboarding_view/onboarding3.dart';
+import 'package:focal_project/widgets/navigation_menu_view/navigation_menu_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../view/onboarding/onboarding_view/onboarding1.dart';
 
 class AppRoutes {
   static final screens = [
+  GetPage(name: Routes.homeview, page: () =>  HomeView()),
+  GetPage(name: Routes.nearbyMap, page: () =>  NearbyMapView()),
     GetPage(name: Routes.homeview, page: () => HomeView()),
     GetPage(name: Routes.nearbyMap, page: () => NearbyMapView()),
     GetPage(name: Routes.search, page: () => SearchView()),
     GetPage(name: Routes.messageScreen, page: () => MessageScreen()),
     GetPage(name: Routes.bookingDetailsView, page: () => BookingDetailsView()),
     GetPage(name: Routes.requestToBook, page: () => RequestToBookView()),
+    GetPage(name: Routes.navigationMenuView, page: () => NavigationMenuView()),
     GetPage(
       name: Routes.chatDetailsScreen,
       page: () => ChatDetailsScreen(),

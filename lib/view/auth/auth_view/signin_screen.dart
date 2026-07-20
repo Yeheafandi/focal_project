@@ -95,7 +95,7 @@ class SigninScreen extends StatelessWidget {
                               onPressed: () {
                                 if (authController.formKey.currentState!
                                     .validate()) {
-                                  Get.toNamed(Routes.homeview);
+                                  Get.toNamed(Routes.navigationMenuView);
                                 }
                               })),
                       Row(

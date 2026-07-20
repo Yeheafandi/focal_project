@@ -15,12 +15,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: ThemeData(scaffoldBackgroundColor: AppColors.lightBlueBg),
-      debugShowCheckedModeBanner: false,
-      initialBinding: InitializeBinding(),
-      home: NavigationMenuView(),
-      getPages: AppRoutes.screens,
+    return ScreenUtilInit(designSize: Size(360, 690),
+    minTextAdapt: true,
+    splitScreenMode: true,
+    builder: (context, child) => 
+     GetMaterialApp(
+        theme: ThemeData(
+        fontFamily: 'Jost'),
+        
+        debugShowCheckedModeBanner: false,
+        initialBinding: InitializeBinding(),
+        initialRoute: Routes.onboarding,
+        getPages: AppRoutes.screens,
+      ),
     );
   }
 }

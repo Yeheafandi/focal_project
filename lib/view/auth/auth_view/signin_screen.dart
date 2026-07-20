@@ -42,7 +42,7 @@ class SigninScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(AppSpaces.paddingExtraLarge.r),
                 child: Form(
-                  key: authController.formKey,
+                  key: authController.formKey2,
                   child: Column(
                     spacing: 8.h,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +93,7 @@ class SigninScreen extends StatelessWidget {
                           child: CustomeButton(
                               text: 'Sign In',
                               onPressed: () {
-                                if (authController.formKey.currentState!
+                                if (authController.formKey2.currentState!
                                     .validate()) {
                                   Get.toNamed(Routes.navigationMenuView);
                                 }

@@ -32,7 +32,7 @@ class Onboarding3 extends StatelessWidget {
               ,CustomeButton(text: 'Get Started',onPressed: (){
                Get.toNamed(Routes.signinscreen);
               },),SizedBox(height: 24,),
-              Row(mainAxisAlignment: MainAxisAlignment.center,
+              Row(mainAxisAlignment: MainAxisAlignment.center,spacing: 3,
                 children: [
                   subTitle('Don’t have an account? ', AppColors.textWhite,FontWeight.normal),
                   InkWell(onTap: () => Get.toNamed(Routes.signupscreen),child: subTitle('Register', AppColors.primaryBlue,FontWeight.bold)),

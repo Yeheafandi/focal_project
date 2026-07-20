@@ -30,7 +30,7 @@ class InitializeBinding extends Bindings {
     // Get.put(Crud());
     Get.lazyPut<ChatDetailsService>(() => ChatDetailsService());
     Get.lazyPut<NotificationService>(() => NotificationService());
-
+    Get.lazyPut<AuthController>(() => AuthController());
     Get.lazyPut<NotificationController>(
       () => NotificationController(service: Get.find()),
     );

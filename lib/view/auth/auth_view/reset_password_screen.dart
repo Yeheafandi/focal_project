@@ -27,7 +27,7 @@ class ResetPasswordScreen extends StatelessWidget {
             child: Column(
               spacing: 8.h,
               children: [
-                mainTitle('Create a\n New Password', AppColors.primaryBlack),
+                mainTitle('      Create a\n New Password', AppColors.primaryBlack),
                 SizedBox(height: AppSpaces.heightMedium.h),
                 FittedBox(
                   fit: BoxFit.scaleDown,

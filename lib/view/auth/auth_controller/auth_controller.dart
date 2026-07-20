@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 class AuthController extends GetxController{
   bool isPasswordHidden=true;
   bool isChecked=false;
-  final formKey =GlobalKey<FormState>();
+  GlobalKey<FormState> formKey =GlobalKey<FormState>();
+   GlobalKey<FormState> formKey2 =GlobalKey<FormState>();
   final userController =TextEditingController();
   final passController =TextEditingController();
   final eController =TextEditingController();

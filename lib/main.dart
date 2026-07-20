@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         
         debugShowCheckedModeBanner: false,
         initialBinding: InitializeBinding(),
-        initialRoute: Routes.homeview,
+        initialRoute: Routes.onboarding,
         getPages: AppRoutes.screens,
       ),
     );

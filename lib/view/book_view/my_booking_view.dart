@@ -48,13 +48,17 @@ class MyBookingView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: AppSpaces.heightLarge),
-              CustomSearchBar(hintText: 'Search...', onFilterTap: () {}),
+              CustomSearchBar(
+                hintText: 'Search...',
+                onFilterTap: () {},
+                onChanged: controller.onSearchChanged,
+              ),
               SizedBox(height: AppSpaces.heightLarge),
               _buildTabs(),
               SizedBox(height: AppSpaces.heightLarge),
               Expanded(
                 child: Obx(() {
-                  final bookings = controller.bookings;
+                  final bookings = controller.filteredBookings;
                   if (bookings.isEmpty) {
                     return Center(
                       child: Text(
@@ -108,36 +112,4 @@ class MyBookingView extends StatelessWidget {
     });
   }
 
-  // Widget _buildTabButton(String title, int index) {
-  //   return Expanded(
-  //     child: Obx(() {
-  //       final isSelected = controller.selectedTabIndex.value == index;
-  //       return GestureDetector(
-  //         onTap: () => controller.changeTab(index),
-  //         child: Container(
-  //           height: 46,
-  //           decoration: BoxDecoration(
-  //             color: isSelected ? AppColors.primaryWhite : AppColors.grey100,
-  //             borderRadius: BorderRadius.circular(AppSpaces.radiusExtraLarge),
-  //             border: Border.all(
-  //               color: isSelected ? AppColors.primary : AppColors.grey300,
-  //             ),
-  //           ),
-  //           child: Center(
-  //             child: Text(
-  //               title,
-  //               style: MyTextStyle.normalTitleText(
-  //                 size: 14,
-  //                 color: isSelected
-  //                     ? AppColors.primaryBlack
-  //                     : AppColors.grey600,
-  //                 fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-  //               ),
-  //             ),
-  //           ),
-  //         ),
-  //       );
-  //     }),
-  //   );
-  // }
 }

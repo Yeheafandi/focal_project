@@ -4,19 +4,30 @@ import 'package:focal_project/model/booking_details_model.dart';
 class MyBookingController extends GetxController {
   final RxInt selectedTabIndex = 0.obs;
   final RxList<BookingDetailsModel> bookings = <BookingDetailsModel>[].obs;
+  final RxList<BookingDetailsModel> filteredBookings =
+      <BookingDetailsModel>[].obs;
+
   final List<BookingDetailsModel>? _initialBookings;
 
   MyBookingController({List<BookingDetailsModel>? initialBookings})
-    : _initialBookings = initialBookings;
+      : _initialBookings = initialBookings;
 
   @override
   void onInit() {
     super.onInit();
     bookings.assignAll(_initialBookings ?? _defaultBookings);
+    filteredBookings.assignAll(bookings);
   }
 
   void changeTab(int index) {
     selectedTabIndex.value = index;
+  }
+
+  void onSearchChanged(String value) {
+    filteredBookings.value = bookings
+        .where((b) => b.hotelName.toLowerCase().contains(value.toLowerCase()))
+        .toList();
+    filteredBookings.refresh();
   }
 
   static final List<BookingDetailsModel> _defaultBookings = [

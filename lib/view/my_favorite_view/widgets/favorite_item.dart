@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/view/my_favorite_view/my_favorite_controller/my_favorite_controller.dart';
 import 'package:get/get.dart';
 
@@ -23,13 +26,13 @@ class FavoriteItem extends GetView<MyFavoriteController> {
               borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
               child: Image.network(
                 hotel.image,
-                height: 154, // تقليل الارتفاع ليناسب شبكة الـ Grid العمودين
-                width: double.infinity,
+                height: 119.h, 
+                width: 154.w,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
-                    height: 154,
-                    color: Colors.grey.shade200,
+                    height: 119,
+                    color: AppColors.primaryWhite,
                     child: const Icon(
                       Icons.image_not_supported,
                       size: 40,
@@ -49,10 +52,10 @@ class FavoriteItem extends GetView<MyFavoriteController> {
                   () => Icon(
                     controller.favorites.contains(
                           hotel,
-                        ) // أو استخدام الحقل الداخلي hotel.isFavorite
+                        ) 
                         ? Icons.favorite
                         : Icons.favorite_border,
-                    color: Colors.white, // لون القلب أبيض بالكامل كما في الصورة
+                    color: Colors.white, 
                     size: 24,
                   ),
                 ),
@@ -62,10 +65,10 @@ class FavoriteItem extends GetView<MyFavoriteController> {
         ),
         const SizedBox(height: 8),
 
-        // التقييم (النجوم)
+        
         Row(
           children: [
-            const Icon(Icons.star, color: AppColors.amber, size: 14),
+            SvgPicture.asset(AppIcons.solarStar),
              SizedBox(width: AppSpaces.widthVerySmall),
             Text(
               hotel.rating.toString(),
@@ -109,14 +112,14 @@ class FavoriteItem extends GetView<MyFavoriteController> {
         ),
          SizedBox(height: AppSpaces.heightVerySmall),
 
-        // السعر
+        
         Row(
           children: [
             Text(
               "\$${hotel.price}",
               style: MyTextStyle.priceText().copyWith(
                 color: AppColors
-                    .primaryBlack, // اللون أسود داكن في لقطة الشاشة وليس ملوناً
+                    .primaryBlack, 
                 fontWeight: FontWeight.bold,
                 fontSize: 14,
               ),

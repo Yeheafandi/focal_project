@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/model/booking_details_model.dart';
 import 'booking_info_item.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class BookingInfoCard extends StatelessWidget {
   const BookingInfoCard({super.key, required this.booking});
@@ -24,10 +26,7 @@ class BookingInfoCard extends StatelessWidget {
       child: Column(
         children: [
           BookingInfoItem(
-            itemIcon: Icon(
-              Icons.calendar_month_outlined,
-              color: AppColors.grey,
-            ),
+            iconName: AppIcons.calendar,
             title: "Check In",
             value: booking.checkIn,
           ),
@@ -37,16 +36,13 @@ class BookingInfoCard extends StatelessWidget {
           BookingInfoItem(
             title: "Check Out",
             value: booking.checkOut,
-            itemIcon: Icon(
-              Icons.calendar_month_outlined,
-              color: AppColors.grey,
-            ),
+            iconName: AppIcons.calendar,
           ),
 
           SizedBox(height: AppSpaces.heightSmall),
 
           BookingInfoItem(
-            itemIcon: Icon(Icons.person_outlined, color: AppColors.grey),
+            iconName: AppIcons.user,
             title: "Guests",
             value: booking.guests.toString(),
           ),
@@ -54,7 +50,7 @@ class BookingInfoCard extends StatelessWidget {
           SizedBox(height: AppSpaces.heightSmall),
 
           BookingInfoItem(
-            itemIcon: Icon(Icons.local_hotel_outlined, color: AppColors.grey),
+            iconName: AppIcons.building,
             title: "Room Type",
             value: booking.roomType,
           ),
@@ -62,7 +58,7 @@ class BookingInfoCard extends StatelessWidget {
           SizedBox(height: AppSpaces.heightSmall),
 
           BookingInfoItem(
-            itemIcon: Icon(Icons.call_outlined, color: AppColors.grey),
+            iconName: AppIcons.call,
             title: "Phone",
             value: booking.phone,
           ),

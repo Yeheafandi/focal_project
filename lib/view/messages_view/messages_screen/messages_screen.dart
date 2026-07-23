@@ -4,7 +4,7 @@ import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/messages_view/messages_controller/messages_controller.dart';
 import 'package:focal_project/view/messages_view/widgets/chat_item.dart';
-import 'package:focal_project/view/messages_view/widgets/search_message_field.dart';
+import 'package:focal_project/widgets/custom_search_bar.dart';
 import 'package:get/get.dart';
 
 class MessageScreen extends GetView<MessageController> {
@@ -24,14 +24,14 @@ class MessageScreen extends GetView<MessageController> {
 
       body: Padding(
         padding: EdgeInsetsGeometry.only(
-          top: AppSpaces.heightExtraLarge,
+          top: AppSpaces.heightLarge,
           right: AppSpaces.widthLarge,
           left: AppSpaces.widthLarge,
         ),
 
         child: Column(
           children: [
-            const SearchMessageField(),
+            CustomSearchBar(),
 
              SizedBox(height: AppSpaces.heightLarge,),
 

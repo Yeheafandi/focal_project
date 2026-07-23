@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 
 class BookingInfoItem extends StatelessWidget {
@@ -6,12 +7,12 @@ class BookingInfoItem extends StatelessWidget {
     super.key,
     required this.title,
     required this.value,
-    required this.itemIcon,
+    required this.iconName,
   });
 
   final String title;
   final String value;
-  final Icon itemIcon;
+  final String iconName;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class BookingInfoItem extends StatelessWidget {
       children: [
         Row(
           children: [
-            itemIcon,
+            SvgPicture.asset(iconName,width:20 ,height: 20,),
             SizedBox(width: AppSpaces.widthMedium),
             Text(title),
           ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/audiocall_view/audiocall_controller/audiocall_controller.dart';
@@ -84,8 +85,8 @@ class AudioCallScreen extends StatelessWidget {
             left: 152,
             right: 152,
 
-            child: ActionButton(
-              icon: Icons.call_end_outlined,
+            child: ActionButton(width: 32,height: 32,
+              iconName: AppIcons.endCall,
               onTap: controller.endCall,
               backgroundColor: AppColors.red,
               iconColor: AppColors.primaryWhite,
@@ -100,15 +101,15 @@ class AudioCallScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ActionButton(
-                  icon: Icons.mic_none,
+                  iconName: AppIcons.voice,
                   state: controller.isMicMuted,
                   onTap: controller.toggleMic,
                   backgroundColor: AppColors.primaryWhite,
                   iconColor: AppColors.primaryBlack,
                 ),
 
-                ActionButton(
-                  icon: Icons.videocam_outlined,
+                ActionButton(width: 16,height: 16,
+                  iconName: AppIcons.video,
                   state: controller.isCameraOff,
                   onTap: controller.toggleCamera,
                   backgroundColor: AppColors.primaryWhite,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:get/get.dart';
@@ -6,15 +7,18 @@ import 'package:get/get.dart';
 class ActionButton extends StatelessWidget {
   const ActionButton({
     super.key,
-    required this.icon,
+    required this.iconName,
     required this.onTap,
     this.state,
     this.isToggle = true,
     this.backgroundColor,
     this.iconColor,
+    this.width=24.0,
+    this.height=24.0,
   });
-
-  final IconData icon;
+  final double width;
+  final double height;
+  final String iconName;
   final RxBool? state;
   final VoidCallback onTap;
   final bool isToggle;
@@ -24,7 +28,6 @@ class ActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     if (state != null) {
       return Obx(
         () => _button(
@@ -36,27 +39,23 @@ class ActionButton extends StatelessWidget {
       );
     }
 
-   
     return _button(
       color: backgroundColor ?? AppColors.grey300,
       iconColor: iconColor ?? AppColors.primaryBlack,
     );
   }
 
-
-  Widget _button({
-    required Color color,
-    required Color iconColor,
-  }) {
+  Widget _button({required Color color, required Color iconColor}) {
     return GestureDetector(
       onTap: onTap,
       child: CircleAvatar(
         radius: AppSpaces.radiusExtraExtraLarge28,
         backgroundColor: color,
-        child: Icon(
-          icon,
+        child: SvgPicture.asset(
+          iconName,
+          width: width,
+          height: height,
           color: iconColor,
-          size: 28,
         ),
       ),
     );

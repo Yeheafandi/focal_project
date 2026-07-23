@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/view/my_favorite_view/my_favorite_controller/my_favorite_controller.dart';
 import 'package:focal_project/view/my_favorite_view/widgets/my_favorite_shimmer.dart';
 import 'package:focal_project/widgets/custom_search_bar.dart';
@@ -23,7 +25,7 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
       backgroundColor: AppColors.primaryWhite,
 
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
+        padding: EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
         child: Column(
           children: [
             SizedBox(height: 56),
@@ -38,21 +40,17 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                     Get.back();
                   },
                 ),
-                Text("My Favorite", style: MyTextStyle.normalTitleText()),
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  icon: Icon(Icons.filter_list, color: AppColors.primaryBlack),
-                  onPressed: () {
-                    Get.back();
-                  },
+                Text(
+                  "My Favorite",
+                  style: MyTextStyle.normalTitleText().copyWith(fontSize: 18),
                 ),
+                InkWell(child: SvgPicture.asset(AppIcons.sort)),
               ],
             ),
-             SizedBox(height: AppSpaces.heightLarge),
+            SizedBox(height: AppSpaces.heightLarge),
             CustomSearchBar(),
 
-             SizedBox(height: AppSpaces.heightNormal),
+            SizedBox(height: AppSpaces.heightNormal),
 
             SizedBox(
               height: 36,
@@ -65,7 +63,7 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
               ),
             ),
 
-             SizedBox(height: AppSpaces.heightLarge),
+            SizedBox(height: AppSpaces.heightLarge),
 
             Expanded(
               child: Obx(() {
@@ -77,7 +75,6 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                   return const Center(child: Text("No favorites added yet"));
                 }
                 return GridView.builder(
-                  
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 20,

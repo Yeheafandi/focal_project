@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         
         debugShowCheckedModeBanner: false,
         initialBinding: InitializeBinding(),
-        initialRoute: Routes.onboarding,
+        initialRoute: Routes.myFavoriteScreen,
         getPages: AppRoutes.screens,
       ),
     );

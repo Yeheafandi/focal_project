@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/chat_details_view/chat_details_controller/chat_details_controller.dart';
@@ -34,7 +36,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
       ),
 
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
+        padding: EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
         child: Column(
           children: [
             ListTile(
@@ -59,23 +61,24 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  IconButton(
-                    icon:  Icon(
-                      size: AppSpaces.heightLarge,
-                      Icons.videocam_outlined,
-                      color: AppColors.primaryBlack,
+                  InkWell(
+                    child: SvgPicture.asset(
+                      AppIcons.video,
+                      width: 16,
+                      height: 16,
                     ),
-                    onPressed: () {
+                    onTap: () {
                       controller.goToVideoCall();
                     },
                   ),
-                  IconButton(
-                    icon:  Icon(
-                      size: AppSpaces.heightLarge,
-                      Icons.call_outlined,
-                      color: AppColors.primaryBlack,
+                  SizedBox(width: AppSpaces.widthLarge),
+                  InkWell(
+                    child: SvgPicture.asset(
+                      AppIcons.audio,
+                      width: 16,
+                      height: 16,
                     ),
-                    onPressed: () {
+                    onTap: () {
                       controller.goToVoiceCall();
                     },
                   ),
@@ -86,7 +89,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
             Expanded(
               child: Obx(
                 () => ListView.builder(
-                  padding:  EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     vertical: AppSpaces.heightLarge,
                   ),
                   itemCount: controller.messages.length,
@@ -98,10 +101,10 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
             ),
 
             Container(
-              padding:  EdgeInsets.only(bottom: AppSpaces.heightNormal),
+              padding: EdgeInsets.only(bottom: AppSpaces.heightNormal),
               decoration: const BoxDecoration(color: AppColors.primaryWhite),
               child: Container(
-                padding:  EdgeInsets.only(left: AppSpaces.widthNormal),
+                padding: EdgeInsets.only(left: AppSpaces.widthNormal),
                 decoration: BoxDecoration(
                   color: AppColors.grey200,
                   borderRadius: BorderRadius.circular(
@@ -110,8 +113,8 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.attach_file, color: Colors.grey),
-                    SizedBox(width: 8),
+                    SvgPicture.asset(AppIcons.paperclip),
+                    SizedBox(width: AppSpaces.widthSmall),
                     Expanded(
                       child: TextField(
                         controller: controller.messageInputController,
@@ -124,14 +127,10 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
                     ),
                     GestureDetector(
                       onTap: controller.sendMessage,
-                      child:  CircleAvatar(
+                      child: CircleAvatar(
                         radius: 24,
                         backgroundColor: AppColors.primary,
-                        child: Icon(
-                          Icons.send,
-                          color: AppColors.primaryWhite,
-                          size: AppSpaces.heightLarge,
-                        ),
+                        child: SvgPicture.asset(AppIcons.send)
                       ),
                     ),
                   ],

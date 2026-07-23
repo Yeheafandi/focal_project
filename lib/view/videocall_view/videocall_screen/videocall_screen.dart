@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/videocall_view/videocall_controller/videocall_controller.dart';
@@ -29,8 +30,8 @@ class VideoCallScreen extends StatelessWidget {
           ),
           Positioned(
             bottom: 120,
-            left: 20,
-            right: 20,
+            left: 24,
+            right: 24,
             child: Container(
               padding:  EdgeInsets.symmetric(
                 horizontal: AppSpaces.widthLarge,
@@ -60,7 +61,7 @@ class VideoCallScreen extends StatelessWidget {
 
                   const Spacer(),
 
-                  const Icon(Icons.circle, color: Colors.red, size: 12),
+                  const Icon(Icons.circle, color: AppColors.red, size: 9),
 
                    SizedBox(width: AppSpaces.widthSmall),
 
@@ -83,33 +84,33 @@ class VideoCallScreen extends StatelessWidget {
             child: Container(
               color: AppColors.primaryWhite,
               child: SizedBox(
-                height: 96,
+                height: 92,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ActionButton(
-                      icon: Icons.mic_none,
+                      iconName: AppIcons.voice,
                       state: controller.isMicMuted,
                       onTap: controller.toggleMic,
                     ),
 
                     ActionButton(
-                      icon: Icons.volume_up_outlined,
+                     iconName: AppIcons.volumeUp,
                       state: controller.isSpeakerOn,
                       onTap: controller.toggleSpeaker,
                     ),
 
                     ActionButton(
-                      icon: Icons.videocam_outlined,
+                      iconName: AppIcons.video,
                       state: controller.isCameraOff,
-                      onTap: controller.toggleCamera,
+                      onTap: controller.toggleCamera,width: 16,height: 16,
                     ),
 
                     ActionButton(
-                      icon: Icons.call_end,
+                      iconName: AppIcons.endCall,
                       onTap: controller.endCall,
                       backgroundColor: AppColors.red,
-                      iconColor: AppColors.primaryWhite,
+                      iconColor: AppColors.primaryWhite,width: 32,height: 32,
                     ),
                   ],
                 ),

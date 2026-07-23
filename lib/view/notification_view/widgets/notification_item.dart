@@ -46,7 +46,7 @@ class NotificationItem extends StatelessWidget {
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
-                ), SizedBox(height: AppSpaces.heightLarge,),
+                ), SizedBox(height: AppSpaces.heightMedium,),
                 Divider()
               ],
             ),

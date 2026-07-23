@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/notification_view/notification_controller/notification_controller.dart';
@@ -30,43 +32,46 @@ class NotificationScreen extends GetView<NotificationController> {
         title: Text("Notifications", style: MyTextStyle.normalTitleText()),
 
         actions: [
-          IconButton(
-            padding: EdgeInsets.only(right: AppSpaces.widthLarge),
-            onPressed: () {
-              Get.bottomSheet(
-                const FilterBottomSheet(),
-                backgroundColor: AppColors.primaryWhite,
-                isScrollControlled: true,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
-                ),
-              );
-            },
-            icon: const Icon(Icons.filter_list, color: AppColors.primaryBlack),
+          Padding(
+            padding: const EdgeInsets.only(right: 24),
+            child: InkWell(
+              child: SvgPicture.asset(AppIcons.sort),
+              onTap: () {
+                Get.bottomSheet(
+                  const FilterBottomSheet(),
+                  backgroundColor:  Colors.transparent,
+                   barrierColor: Colors.black.withOpacity(0.2),
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+                  ),
+                );
+              },
+            ),
           ),
         ],
       ),
 
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
+        padding: EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
         child: Obx(
           () => ListView(
             children: [
-               SizedBox(height: AppSpaces.heightLarge),
+              SizedBox(height: AppSpaces.heightLarge),
 
               Text("Today", style: MyTextStyle.normalTitleText()),
 
-               SizedBox(height: AppSpaces.heightExtraLarge),
+              SizedBox(height: AppSpaces.heightExtraLarge),
 
               ...controller.notifications.map(
                 (notification) => NotificationItem(notification: notification),
               ),
 
-               SizedBox(height: AppSpaces.heightLarge),
+              SizedBox(height: AppSpaces.heightSmall),
 
               Text("Yesterday", style: MyTextStyle.normalTitleText()),
 
-               SizedBox(height: AppSpaces.heightExtraLarge),
+              SizedBox(height: AppSpaces.heightExtraLarge),
 
               ...controller.notifications.map(
                 (notification) => NotificationItem(notification: notification),

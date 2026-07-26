@@ -4,6 +4,7 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/helpful_functions/helpful_functions.dart';
+import 'package:focal_project/core/services/my_services.dart';
 import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/auth/widgets/custome_form_field.dart';
 import 'package:focal_project/widgets/custom_text.dart';
@@ -17,7 +18,7 @@ class SigninScreen extends StatelessWidget {
   SigninScreen({super.key});
 
   final AuthController authController = Get.find<AuthController>();
-
+final serv =Get.find<MyServices>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,24 +35,29 @@ class SigninScreen extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Column(
-            spacing: 32.h,
+            spacing: 30.h,
             children: [
-              mainTitle('Let’s Sign you in', AppColors.titleColor),
-              subTitle('Lorem ipsum dolor sit amet, consectetur',
+              Column(spacing: 12,
+                children: [
+                  mainTitle('Let’s Sign you in', AppColors.titleColor),
+                  subTitle('Lorem ipsum dolor sit amet, consectetur',
                   AppColors.subtitleColor, FontWeight.bold),
+                ],
+              ),
+              
               Padding(
-                padding: EdgeInsets.all(AppSpaces.paddingExtraLarge.r),
+                padding: EdgeInsets.all(AppSpaces.paddingExtraLarge),
                 child: Form(
                   key: authController.formKey2,
                   child: Column(
                     spacing: 8.h,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      subTitle('E-mail', AppColors.titleColor, FontWeight.bold),
+                      subTitle('Email Address', AppColors.titleColor, FontWeight.bold),
                       CustomeFormField(
                           validator: (value) => Validator.validateEmail(value),
                           authController: authController.eController,
-                          hintText: 'Enter your email',
+                          hintText: 'Enter your email address',
                           type: TextInputType.emailAddress),
                       subTitle('Password', AppColors.titleColor, FontWeight.bold),
                       CustomeFormField(
@@ -63,8 +69,7 @@ class SigninScreen extends StatelessWidget {
                       Row(
                         children: [
                           Expanded(
-                              child: GetBuilder<AuthController>(
-                                  builder: (authController) => CheckboxListTile(
+                              child: Obx(() => CheckboxListTile(
                                       checkboxScaleFactor: 1.2.r,
                                       side: BorderSide(
                                           width: 1.w, color: AppColors.grey),
@@ -74,13 +79,16 @@ class SigninScreen extends StatelessWidget {
                                           ListTileControlAffinity.leading,
                                       title: subTitle('Remember Me',
                                           AppColors.hintColor, FontWeight.normal),
-                                      value: authController.isChecked,
-                                      onChanged: (value) {
+                                      value: serv.isRemembered.value,
+                                      onChanged: (value) async{
+                                        await serv.setRemember(value!);
                                         authController.toggleCheckbox();
                                       }))),
                           InkWell(
-                            onTap: () => Get.toNamed(Routes.resetrequest),
-                            child: subTitle('Forgot Password  ', Colors.red,
+                            onTap: () {
+                               Get.toNamed(Routes.resetrequest);
+                               authController.eController.clear();},
+                            child: subTitle('Forgot Password  ', AppColors.red,
                                 FontWeight.normal),
                           )
                         ],
@@ -105,7 +113,8 @@ class SigninScreen extends StatelessWidget {
                           subTitle('Don’t have an account? ', AppColors.grey,
                               FontWeight.normal),
                           InkWell(
-                            onTap: () => Get.toNamed(Routes.signupscreen),
+                            onTap: () { Get.toNamed(Routes.signupscreen);
+                            authController.clearFields();},
                             child: subTitle('Sign Up', AppColors.primaryBlue,
                                 FontWeight.bold),
                           )

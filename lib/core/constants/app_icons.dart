@@ -16,4 +16,5 @@ class AppIcons {
   static const String location = '${iconsPath}location-icon.svg';
   static const String send = '${iconsPath}send.svg';
   static const String endCall = '${iconsPath}endcall.svg';
+  static const String visible = '${iconsPath}Hide.svg';
 }

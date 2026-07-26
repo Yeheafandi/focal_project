@@ -25,6 +25,7 @@ class SignupScreen extends StatelessWidget {
           leading: IconButton(
             onPressed: () {
               Get.back();
+              authController.clearFields() ;
             },
             icon: const Icon(Icons.arrow_back),
           ),

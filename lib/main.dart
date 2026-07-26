@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focal_project/bindings/initialize_binding.dart';
 import 'package:focal_project/core/services/local_notification_service.dart';
+import 'package:focal_project/core/services/my_services.dart';
 import 'package:focal_project/core/services/notification_firebase_service.dart';
 import 'package:focal_project/routes/app_routes.dart';
 import 'package:focal_project/routes/routes.dart';
@@ -14,7 +15,7 @@ void main() async {
   await Get.putAsync<LocalNotificationService>(
   () => LocalNotificationService().init(),
 );
-
+await Get.putAsync(()=>MyServices().remembered());
 await Get.putAsync<NotificationFirebaseService>(
   () => NotificationFirebaseService().init(),
 );
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final serv=Get.find<MyServices>();
     return ScreenUtilInit(designSize: Size(360, 690),
     minTextAdapt: true,
     splitScreenMode: true,
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
         
         debugShowCheckedModeBanner: false,
         initialBinding: InitializeBinding(),
-        initialRoute: Routes.myFavoriteScreen,
+        initialRoute:serv.isRemembered.value? Routes.signinscreen:Routes.signinscreen,
         getPages: AppRoutes.screens,
       ),
     );

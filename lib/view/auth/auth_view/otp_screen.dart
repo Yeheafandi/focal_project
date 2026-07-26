@@ -29,7 +29,7 @@ class OtpScreen extends StatelessWidget {
               borderColor: AppColors.textWhite,borderRadius: BorderRadius.circular(24),
               showFieldAsBox: true,
             ),SizedBox(height: 40,),
-            CustomeButton(text: 'Continue',onPressed: () => Routes.navigationMenuView ,),SizedBox(height: AppSpaces.heightLarge,),
+            CustomeButton(text: 'Continue',onPressed: () =>Get.offNamed( Routes.navigationMenuView ),),SizedBox(height: AppSpaces.heightLarge,),
             Row(spacing: 3,mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 subTitle('Didn’t receive code? ', AppColors.hintColor, FontWeight.normal),

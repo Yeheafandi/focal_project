@@ -1,3 +1,4 @@
+import 'package:focal_project/core/services/my_services.dart';
 import 'package:focal_project/core/services/notification_service.dart';
 import 'package:focal_project/view/booking_details_view/booking_details_controller/booking_details_controller.dart';
 import 'package:focal_project/view/notification_view/notification_controller/notification_controller.dart';
@@ -14,7 +15,7 @@ class InitializeBinding extends Bindings {
   void dependencies() {
     // Get.put(Crud());
     Get.lazyPut<SearchFilterController>(() => SearchFilterController());
-    Get.put(AuthController());
+
     // Get.put(Crud());
 
     Get.lazyPut<BookingDetailsService>(() => BookingDetailsService());

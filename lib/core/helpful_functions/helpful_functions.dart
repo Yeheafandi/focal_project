@@ -1,4 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:focal_project/view/auth/auth_controller/auth_controller.dart';
+import 'package:get/get.dart';
+
 class Validator {
+  
   static String? validateUserName(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter your user name';
@@ -36,6 +41,15 @@ class Validator {
 
     if (!hasLetters || !hasNumbers) {
       return 'Password must contain both letters and numbers';
+    }
+    return null;
+  }
+  static String? validatePasswordConfirm(String? value ){
+    final AuthController authController = Get.find<AuthController>();
+    if (value==null|| value.isEmpty){
+      return 'please confirm your password';
+    }if (value != authController.passController.text ) {return "password don't match";
+      
     }
     return null;
   }

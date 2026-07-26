@@ -24,7 +24,7 @@ class Onboarding3 extends StatelessWidget {
               Column(spacing: 8,
                 children: [
                   mainTitle( 'Discover Your Dream\n  Hotel, Effortlessly', AppColors.textWhite),
-                subTitle(' Lorem Ipsum is simply dummy text of the printing and\n                            typesetting industry.', AppColors.textWhite,FontWeight.normal)
+                subTitle(' Lorem Ipsum is simply dummy text of the printing and\n                            typesetting industry.', AppColors.boardingsub,FontWeight.normal)
           
                 ],
               ),

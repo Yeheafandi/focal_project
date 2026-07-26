@@ -28,7 +28,7 @@ class CustomeFormField extends StatelessWidget {
         decoration: InputDecoration(
           filled: true,
           fillColor: AppColors.formFiled,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12),borderSide: BorderSide.none),
           hintText: hintText,
           hintStyle: TextStyle(color: AppColors.hintColor),
           suffixIcon: isPassword == true

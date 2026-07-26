@@ -14,8 +14,6 @@ class InitializeBinding extends Bindings {
   void dependencies() {
     // Get.put(Crud());
     Get.lazyPut<SearchFilterController>(() => SearchFilterController());
-    Get.put(AuthController());
-    // Get.put(Crud());
 
     Get.lazyPut<BookingDetailsService>(() => BookingDetailsService());
 

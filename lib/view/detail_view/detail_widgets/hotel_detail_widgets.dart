@@ -28,7 +28,7 @@ class BookingBottomBar extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primaryBlack,
+            color: AppColors.grey.withOpacity(0.5),
             blurRadius: 15,
             offset: const Offset(0, -6),
           ),
@@ -131,7 +131,9 @@ class HotelReviewTile extends StatelessWidget {
                         SizedBox(width: AppSpaces.widthVerySmall),
                         Text(
                           "$rating",
-                          style:  MyTextStyle.normalTitleText(fontWeight: FontWeight.bold),
+                          style: MyTextStyle.normalTitleText(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),

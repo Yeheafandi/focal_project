@@ -24,4 +24,7 @@ class Routes {
   static const notificationScreen = '/notification-screen';
   static const String myFavoriteScreen = '/favorite';
 
+  static const String splashscreen = '/splash-screen';
+  static const String profilescreen = '/profile-screen';
+  static const String cardscreen = '/card-screen';
 }

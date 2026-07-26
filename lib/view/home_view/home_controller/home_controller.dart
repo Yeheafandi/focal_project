@@ -109,7 +109,6 @@ class HomeController extends GetxController {
       nearYouData.value = NearYouModel(
         latitude: 32.7157,
         longitude: -117.1611,
-        // رابط صورة خريطة افتراضية نظيفة ومحاكية للتصميم الرسومي للخريطة في طلبك
         mapStaticImageUrl: "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/-117.1611,32.7157,13,0/600x300?access_token=mock_token", 
         areaName: "San Diego, CA",
       );

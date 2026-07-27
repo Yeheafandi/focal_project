@@ -34,23 +34,23 @@ final AuthController authController = Get.find<AuthController>();
                   SizedBox(height: AppSpaces.heightMedium),
                   FittedBox(
                     fit: BoxFit.scaleDown,
-                    child: subTitle('Enter your new password', AppColors.subtitleColor,
-                        FontWeight.normal),
+                    child: SubTitle(text:  'Enter your new password',color:  AppColors.subtitleColor,
+                       fontWeight:FontWeight.normal),
                   ),
                   SizedBox(height: AppSpaces.heightExtraLarge),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 8.h,
                     children: [
-                      subTitle('New Password', AppColors.black87, FontWeight.bold),
+                      SubTitle(text:  'New Password',color:  AppColors.black87,fontWeight: FontWeight.w600),
                        CustomeFormField(authController: authController.passController,
                         isPassword: true,
                         validator: (value)=>Validator.validatePassword(value),
                         type: TextInputType.visiblePassword,
                         hintText: 'Enter your password',
                       ),
-                      subTitle(
-                          'Confirm Password', AppColors.black87, FontWeight.bold),
+                      SubTitle(
+                         text:  'Confirm Password',color:  AppColors.black87,fontWeight:FontWeight.w600),
                        CustomeFormField(authController: authController.passConfirmController,
                         isPassword: true,
                         type: TextInputType.visiblePassword,
@@ -65,10 +65,10 @@ final AuthController authController = Get.find<AuthController>();
                               Get.dialog(
                         AlertDialog(insetPadding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 24.0),
                           backgroundColor: AppColors.textWhite,
-                          content: subTitle(
+                          content: SubTitle(text: 
                               '  Your password is successfully\n                   created',
-                              AppColors.hintColor,
-                              FontWeight.normal),
+                            color:   AppColors.hintColor,
+                             fontWeight:  FontWeight.normal),
                           title: Center(
                             child: Column(spacing: AppSpaces.heightMedium,
                               children: [

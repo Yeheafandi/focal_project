@@ -40,8 +40,8 @@ final serv =Get.find<MyServices>();
               Column(spacing: 12,
                 children: [
                   mainTitle('Let’s Sign you in', AppColors.titleColor),
-                  subTitle('Lorem ipsum dolor sit amet, consectetur',
-                  AppColors.subtitleColor, FontWeight.bold),
+                  SubTitle(text: 'Lorem ipsum dolor sit amet, consectetur',
+                 color:  AppColors.subtitleColor,fontWeight:  FontWeight.w400),
                 ],
               ),
               
@@ -53,13 +53,13 @@ final serv =Get.find<MyServices>();
                     spacing: 8.h,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      subTitle('Email Address', AppColors.titleColor, FontWeight.bold),
+                      SubTitle(text: 'Email Address',color:  AppColors.titleColor,fontWeight:  FontWeight.w600),
                       CustomeFormField(
                           validator: (value) => Validator.validateEmail(value),
                           authController: authController.eController,
                           hintText: 'Enter your email address',
                           type: TextInputType.emailAddress),
-                      subTitle('Password', AppColors.titleColor, FontWeight.bold),
+                      SubTitle(text: 'Password',color:  AppColors.titleColor,fontWeight:  FontWeight.w600),
                       CustomeFormField(
                           authController: authController.passController,
                           validator: (value) => Validator.validatePassword(value),
@@ -77,8 +77,8 @@ final serv =Get.find<MyServices>();
                                       activeColor: Colors.blue,
                                       controlAffinity:
                                           ListTileControlAffinity.leading,
-                                      title: subTitle('Remember Me',
-                                          AppColors.hintColor, FontWeight.normal),
+                                      title: SubTitle(text: 'Remember Me',
+                                         color:  AppColors.hintColor,fontWeight:  FontWeight.w400),
                                       value: serv.isRemembered.value,
                                       onChanged: (value) async{
                                         await serv.setRemember(value!);
@@ -88,8 +88,8 @@ final serv =Get.find<MyServices>();
                             onTap: () {
                                Get.toNamed(Routes.resetrequest);
                                authController.eController.clear();},
-                            child: subTitle('Forgot Password  ', AppColors.red,
-                                FontWeight.normal),
+                            child: SubTitle(text:  'Forgot Password  ',color:  AppColors.red,
+                               fontWeight:  FontWeight.w400),
                           )
                         ],
                       ),
@@ -110,13 +110,13 @@ final serv =Get.find<MyServices>();
                         spacing: 3.w,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          subTitle('Don’t have an account? ', AppColors.grey,
-                              FontWeight.normal),
+                          SubTitle( text: 'Don’t have an account? ',color:  AppColors.grey,
+                             fontWeight:  FontWeight.normal),
                           InkWell(
                             onTap: () { Get.toNamed(Routes.signupscreen);
                             authController.clearFields();},
-                            child: subTitle('Sign Up', AppColors.primaryBlue,
-                                FontWeight.bold),
+                            child: SubTitle(text:  'Sign Up',color:  AppColors.primaryBlue,
+                               fontWeight:  FontWeight.bold),
                           )
                         ],
                       ),
@@ -156,11 +156,10 @@ final serv =Get.find<MyServices>();
                     mainAxisAlignment: MainAxisAlignment.center,
                     spacing: 3.w,
                     children: [
-                      subTitle('By signing up you agree to our', AppColors.grey,
-                          FontWeight.normal),
+                      SubTitle(text:  'By signing up you agree to our',color:  AppColors.grey,
+                         fontWeight:  FontWeight.normal),
                       InkWell(
-                        child: subTitle(
-                            'Terms', AppColors.black87, FontWeight.normal),
+                        child: SubTitle(text: 'Terms',color:  AppColors.black87,fontWeight:  FontWeight.normal),
                       )
                     ],
                   ),
@@ -168,10 +167,10 @@ final serv =Get.find<MyServices>();
                     mainAxisAlignment: MainAxisAlignment.center,
                     spacing: 3.w,
                     children: [
-                      subTitle('and', AppColors.grey, FontWeight.normal),
+                      SubTitle(text:  'and',color:  AppColors.grey,fontWeight:  FontWeight.normal),
                       InkWell(
-                        child: subTitle('Conditions of Use', AppColors.black87,
-                            FontWeight.normal),
+                        child: SubTitle(text:  'Conditions of Use',color:  AppColors.black87,
+                           fontWeight:  FontWeight.normal),
                       )
                     ],
                   )

@@ -24,7 +24,7 @@ class Onboarding3 extends StatelessWidget {
               Column(spacing: 8,
                 children: [
                   mainTitle( 'Discover Your Dream\n  Hotel, Effortlessly', AppColors.textWhite),
-                subTitle(' Lorem Ipsum is simply dummy text of the printing and\n                            typesetting industry.', AppColors.boardingsub,FontWeight.normal)
+                SubTitle(text:  ' Lorem Ipsum is simply dummy text of the printing and\n                            typesetting industry.',color:AppColors.boardingsub,fontWeight:FontWeight.w400)
           
                 ],
               ),
@@ -34,8 +34,8 @@ class Onboarding3 extends StatelessWidget {
               },),SizedBox(height: 24,),
               Row(mainAxisAlignment: MainAxisAlignment.center,spacing: 3,
                 children: [
-                  subTitle('Don’t have an account? ', AppColors.textWhite,FontWeight.normal),
-                  InkWell(onTap: () => Get.toNamed(Routes.signupscreen),child: subTitle('Register', AppColors.primaryBlue,FontWeight.bold)),
+                  SubTitle(text:  'Don’t have an account? ',color:  AppColors.textWhite,fontWeight:  FontWeight.normal,size: 16,),
+                  InkWell(onTap: () => Get.toNamed(Routes.signupscreen),child: SubTitle(text:'Register',color:AppColors.primaryBlue,fontWeight:FontWeight.w400)),
                 ],
               ),SizedBox(height: 57,)
             ],

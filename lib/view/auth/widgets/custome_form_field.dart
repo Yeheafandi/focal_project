@@ -30,7 +30,7 @@ class CustomeFormField extends StatelessWidget {
           fillColor: AppColors.formFiled,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12),borderSide: BorderSide.none),
           hintText: hintText,
-          hintStyle: TextStyle(color: AppColors.hintColor),
+          hintStyle: TextStyle(color: AppColors.hintColor,fontWeight: FontWeight.w600),
           suffixIcon: isPassword == true
               ? IconButton(
                   onPressed: controller.togglePasswordVisibility,

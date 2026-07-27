@@ -76,10 +76,16 @@ class NearbyMapView extends StatelessWidget {
             right: AppSpaces.paddingLarge,
             child: CustomSearchBar(
               hintText: "Search...",
-              onChanged: (value) {},
-              onSubmitted: (value) {},
+              onChanged: (value) {
+                controller.searchHotels(value); 
+              },
+              onSubmitted: (value) {
+                controller.searchHotels(value);
+              },
               onFilterTap: () {},
-              onResetTap: () {},
+              onResetTap: () {
+                controller.searchHotels('');
+              },
               isFilterApplied: false,
             ),
           ),

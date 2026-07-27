@@ -14,6 +14,8 @@ class HotelServices {
       description: "Experience world-class luxury at The Horizon Retreat with panoramic city views, infinity pool, and premium spa facilities.",
       category: "Hotels",
       isFavorite: false,
+      latitude: 34.0522,
+      longitude: -118.2437,
     ),
     HotelModel(
       id: "2",
@@ -27,6 +29,8 @@ class HotelServices {
       description: "Cozy stay near the ocean with top amenities, complimentary breakfast, and easy beach access.",
       category: "Hotels",
       isFavorite: true,
+      latitude: 32.7157,
+      longitude: -117.1611,
     ),
     HotelModel(
       id: "3",
@@ -40,6 +44,8 @@ class HotelServices {
       description: "A tropical beachfront paradise offering luxury suites, private balconies, and oceanfront dining.",
       category: "Villas",
       isFavorite: false,
+      latitude: 21.3069,
+      longitude: -157.8583,
     ),
     HotelModel(
       id: "4",
@@ -53,6 +59,8 @@ class HotelServices {
       description: "Modern luxury suites equipped with private jacuzzis, high-speed Wi-Fi, and personalized concierge service.",
       category: "Apartments",
       isFavorite: false,
+      latitude: 32.7314,
+      longitude: -117.1460,
     ),
     HotelModel(
       id: "5",
@@ -66,6 +74,8 @@ class HotelServices {
       description: "Relaxing stay close to the pier featuring stylish interior designs and lush garden spaces.",
       category: "Hotels",
       isFavorite: true,
+      latitude: 34.0195,
+      longitude: -118.4912,
     ),
     HotelModel(
       id: "6",
@@ -79,6 +89,8 @@ class HotelServices {
       description: "Exclusive cliffside villa providing direct ocean views, private infinity pool, and personalized chef services.",
       category: "Villas",
       isFavorite: false,
+      latitude: 34.0259,
+      longitude: -118.7798,
     ),
     HotelModel(
       id: "7",
@@ -91,6 +103,8 @@ class HotelServices {
       description: "Historic architecture meets modern comfort in downtown San Francisco, ideal for both business and leisure.",
       category: "Hotels",
       isFavorite: false,
+      latitude: 37.7749,
+      longitude: -122.4194,
     ),
     HotelModel(
       id: "8",
@@ -104,6 +118,8 @@ class HotelServices {
       description: "Vibrant beachside resort with private beach access, rooftop cocktail lounge, and live entertainment.",
       category: "Villas",
       isFavorite: false,
+      latitude: 25.7617,
+      longitude: -80.1918,
     ),
     HotelModel(
       id: "9",
@@ -116,6 +132,8 @@ class HotelServices {
       description: "Sleek metropolitan apartments with skyline views, fully equipped kitchens, and fitness center.",
       category: "Apartments",
       isFavorite: false,
+      latitude: 47.6062,
+      longitude: -122.3321,
     ),
     HotelModel(
       id: "10",
@@ -129,6 +147,8 @@ class HotelServices {
       description: "Cozy alpine lodge with ski-in/ski-out access, outdoor heated pools, and stone fireplace lounges.",
       category: "Hotels",
       isFavorite: false,
+      latitude: 39.1911,
+      longitude: -106.8175,
     ),
   ];
 }

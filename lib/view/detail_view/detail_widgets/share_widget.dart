@@ -16,8 +16,8 @@ class ShareWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:  EdgeInsets.all(AppSpaces.paddingLarge),
-      padding:  EdgeInsets.all(AppSpaces.paddingLarge),
+      margin: EdgeInsets.all(AppSpaces.paddingLarge),
+      padding: EdgeInsets.all(AppSpaces.paddingLarge),
       decoration: BoxDecoration(
         color: AppColors.primaryWhite,
         borderRadius: BorderRadius.circular(AppSpaces.radiusExtraLarge),
@@ -28,19 +28,16 @@ class ShareWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Share this Service',
-                style: MyTextStyle.normalTitleText(),
-              ),
+              Text('Share this Service', style: MyTextStyle.normalTitleText()),
               GestureDetector(
                 onTap: Get.back,
                 child: Container(
-                  padding:  EdgeInsets.all(AppSpaces.paddingSmall),
+                  padding: EdgeInsets.all(AppSpaces.paddingSmall),
                   decoration: BoxDecoration(
                     color: AppColors.grey100,
                     shape: BoxShape.circle,
                   ),
-                  child:  Icon(
+                  child: Icon(
                     Icons.close,
                     size: AppSpaces.widthMedium,
                     color: AppColors.black87,
@@ -49,20 +46,15 @@ class ShareWidget extends StatelessWidget {
               ),
             ],
           ),
-           SizedBox(height: AppSpaces.heightSmall),
-          Divider(
-            thickness: 1,
-            color: AppColors.grey300,
-          ),
-           SizedBox(height: AppSpaces.heightSmall),
-          RecommendedHotelCard(
-            hotel: hotel,
-            underline: false,
-          ),
+          SizedBox(height: AppSpaces.heightSmall),
+          Divider(thickness: 1, color: AppColors.grey300),
+          SizedBox(height: AppSpaces.heightSmall),
+          RecommendedHotelCard(hotel: hotel, underline: false),
           Container(
-            padding:  EdgeInsets.symmetric(
-                horizontal: AppSpaces.paddingMedium,
-                vertical: AppSpaces.paddingSmall),
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSpaces.paddingMedium,
+              vertical: AppSpaces.paddingSmall,
+            ),
             decoration: BoxDecoration(
               color: const Color(0xFFF6F6F6),
               borderRadius: BorderRadius.circular(14),
@@ -71,7 +63,7 @@ class ShareWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Instastaycom/hotel/the-aston-...',
+                    link, 
                     style: MyTextStyle.smallTitleText(size: 14),
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -79,9 +71,7 @@ class ShareWidget extends StatelessWidget {
                 ElevatedButton.icon(
                   onPressed: () {
                     Clipboard.setData(
-                      const ClipboardData(
-                        text: 'https://instastaycom/hotel/the-aston-vill-hotel',
-                      ),
+                      ClipboardData(text: link), 
                     );
                     Get.snackbar(
                       'Copied!',
@@ -96,19 +86,22 @@ class ShareWidget extends StatelessWidget {
                     size: 14,
                     color: AppColors.primaryBlue,
                   ),
-                  label: Text('Copy',
-                      style: MyTextStyle.smallTitleText(
-                        color: AppColors.primaryBlue,
-                      )),
+                  label: Text(
+                    'Copy',
+                    style: MyTextStyle.smallTitleText(
+                      color: AppColors.primaryBlue,
+                    ),
+                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryWhite,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(AppSpaces.radiusSmall),
+                      borderRadius: BorderRadius.circular(
+                        AppSpaces.radiusSmall,
+                      ),
                       side: const BorderSide(color: AppColors.primaryWhite),
                     ),
-                    padding:  EdgeInsets.symmetric(
+                    padding: EdgeInsets.symmetric(
                       horizontal: AppSpaces.paddingMedium,
                       vertical: AppSpaces.paddingSmall,
                     ),
@@ -117,7 +110,7 @@ class ShareWidget extends StatelessWidget {
               ],
             ),
           ),
-           SizedBox(height: AppSpaces.heightSmall),
+          SizedBox(height: AppSpaces.heightSmall),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

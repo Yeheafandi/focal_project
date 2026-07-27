@@ -95,6 +95,8 @@ flutter:
           weight: 300
         - asset: assets/fonts/Jost-LightItalic.ttf
           weight: 300
+        - asset: assets/fonts/Jost-Regular.ttf
+          weight: 400
           style: italic
         - asset: assets/fonts/Jost-Medium.ttf
           weight: 500

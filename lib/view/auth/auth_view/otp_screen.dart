@@ -21,8 +21,8 @@ class OtpScreen extends StatelessWidget {
             children: [
               mainTitle('Enter OTP',AppColors.primaryBlack),
             SizedBox(height: AppSpaces.heightMedium,),
-              FittedBox(fit: BoxFit.scaleDown, child: subTitle('We have just sent you 4 digit code via your email', AppColors.grey, FontWeight.normal)),
-              subTitle('example@gmail.com', AppColors.black87, FontWeight.normal)
+              FittedBox(fit: BoxFit.scaleDown, child: SubTitle(text: 'We have just sent you 4 digit code via your email',color:AppColors.grey,fontWeight:  FontWeight.w400)),
+              SubTitle(text:  'example@gmail.com',color:  AppColors.black87,fontWeight:FontWeight.w400)
         ,SizedBox(height: AppSpaces.heightExtraLarge,)
            , OtpTextField(fieldHeight: 56,fieldWidth: 56,focusedBorderColor: AppColors.primaryBlue,borderWidth: 1,
               numberOfFields: 4,margin: EdgeInsets.all(10),
@@ -32,8 +32,8 @@ class OtpScreen extends StatelessWidget {
             CustomeButton(text: 'Continue',onPressed: () =>Get.offNamed( Routes.navigationMenuView ),),SizedBox(height: AppSpaces.heightLarge,),
             Row(spacing: 3,mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                subTitle('Didn’t receive code? ', AppColors.hintColor, FontWeight.normal),
-              InkWell(child: subTitle('Resend Code', AppColors.primaryBlue, FontWeight.bold))
+                SubTitle(text:'Didn’t receive code? ',color: AppColors.hintColor,fontWeight:FontWeight.w600),
+              InkWell(child: SubTitle(text: 'Resend Code',color: AppColors.primaryBlue,fontWeight: FontWeight.w600))
               ],
             ), 
             ],

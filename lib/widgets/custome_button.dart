@@ -19,6 +19,6 @@ class CustomeButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-    ), child:  Text(text,style: const TextStyle(fontSize: 16,color:AppColors.textWhite),));
+    ), child:  Text(text,style: const TextStyle(fontSize: 16,color:AppColors.textWhite,fontWeight: FontWeight.w600),));
   }
 }

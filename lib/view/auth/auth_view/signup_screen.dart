@@ -35,29 +35,29 @@ class SignupScreen extends StatelessWidget {
             spacing: 32.h,
             children: [
               mainTitle('Create Account', AppColors.titleColor),
-              subTitle('Lorem ipsum dolor sit amet, consectetur',
-                  AppColors.subtitleColor, FontWeight.bold),
+              SubTitle(text: 'Lorem ipsum dolor sit amet, consectetur',
+                 color:AppColors.subtitleColor,fontWeight:FontWeight.w400),
               Padding(
-                padding: EdgeInsets.all(AppSpaces.paddingExtraLarge.r),
+                padding: EdgeInsets.all(AppSpaces.paddingExtraLarge),
                 child: Form(
                   key: authController.formKey,
                   child: Column(
                     spacing: 8.h,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      subTitle('Full Name', AppColors.titleColor, FontWeight.bold),
+                      SubTitle(text:  'Full Name',color:  AppColors.titleColor,fontWeight:FontWeight.w600),
                       CustomeFormField(
                           authController: authController.userController,
                           validator: (val) => Validator.validateUserName(val),
                           type: TextInputType.text,
                           hintText: 'Enter your name'),
-                      subTitle('E-mail', AppColors.titleColor, FontWeight.bold),
+                      SubTitle(text:'E-mail',color:AppColors.titleColor,fontWeight:FontWeight.w600),
                       CustomeFormField(
                           authController: authController.eController,
                           validator: (val) => Validator.validateEmail(val),
                           hintText: 'Enter your email',
                           type: TextInputType.emailAddress),
-                      subTitle('Password', AppColors.titleColor, FontWeight.bold),
+                      SubTitle(text: 'Password',color:AppColors.titleColor,fontWeight:FontWeight.w600),
                       CustomeFormField(
                           authController: authController.passController,
                           validator: (val) => Validator.validatePassword(val),
@@ -114,11 +114,11 @@ class SignupScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     spacing: 3.w,
                     children: [
-                      subTitle('By signing up you agree to our', AppColors.grey,
-                          FontWeight.normal),
+                      SubTitle(text: 'By signing up you agree to our',color:  AppColors.grey,
+                         fontWeight: FontWeight.w400),
                       InkWell(
-                        child: subTitle(
-                            'Terms', AppColors.black87, FontWeight.normal),
+                        child: SubTitle(
+                           text:  'Terms',color:  AppColors.black87,fontWeight:  FontWeight.w400),
                       )
                     ],
                   ),
@@ -126,10 +126,10 @@ class SignupScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     spacing: 3.w,
                     children: [
-                      subTitle('and', AppColors.grey, FontWeight.normal),
+                      SubTitle(text: 'and',color:  AppColors.grey,fontWeight: FontWeight.w400),
                       InkWell(
-                        child: subTitle('Conditions of Use', AppColors.black87,
-                            FontWeight.normal),
+                        child: SubTitle(text:  'Conditions of Use',color:  AppColors.black87,
+                           fontWeight:FontWeight.w400),
                       )
                     ],
                   )

@@ -23,7 +23,7 @@ await Get.putAsync<NotificationFirebaseService>(
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

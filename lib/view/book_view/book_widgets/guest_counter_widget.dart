@@ -27,14 +27,12 @@ class GuestCounterWidget extends StatelessWidget {
           onTap: onDecrement,
         ),
         Padding(
-          padding:  EdgeInsets.symmetric(
-            horizontal: AppSpaces.paddingNormal,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: AppSpaces.paddingNormal),
           child: Text(
             '$count',
             style: MyTextStyle.normalTitleText(
-              size: 16,
-              fontWeight: FontWeight.w600,
+              size: 20,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),
@@ -73,11 +71,7 @@ class _CounterButton extends StatelessWidget {
           color: backgroundColor,
           shape: BoxShape.circle,
         ),
-        child: Icon(
-          icon,
-          size: 18,
-          color: iconColor,
-        ),
+        child: Icon(icon, size: 18, color: iconColor),
       ),
     );
   }

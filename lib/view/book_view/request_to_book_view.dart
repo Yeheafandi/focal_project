@@ -7,6 +7,7 @@ import 'package:focal_project/view/book_view/book_widgets/date_booking_widget.da
 import 'package:focal_project/view/book_view/book_widgets/guest_counter_widget.dart';
 import 'package:focal_project/view/book_view/book_widgets/payment_detail_row.dart';
 import 'package:focal_project/view/book_view/book_widgets/payment_method_card.dart';
+import 'package:focal_project/widgets/custome_button.dart';
 import 'package:get/get.dart';
 
 class RequestToBookView extends StatelessWidget {
@@ -28,9 +29,7 @@ class RequestToBookView extends StatelessWidget {
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(
-            colorScheme: const ColorScheme.light(
-              primary: AppColors.primary,
-            ),
+            colorScheme: const ColorScheme.light(primary: AppColors.primary),
           ),
           child: child!,
         );
@@ -51,10 +50,7 @@ class RequestToBookView extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.primaryBlack,
-          ),
+          icon: const Icon(Icons.arrow_back, color: AppColors.primaryBlack),
           onPressed: () => Get.back(),
         ),
         title: Text(
@@ -66,10 +62,7 @@ class RequestToBookView extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(
-              Icons.more_vert,
-              color: AppColors.primaryBlack,
-            ),
+            icon: const Icon(Icons.more_vert, color: AppColors.primaryBlack),
             onPressed: () {},
           ),
         ],
@@ -78,22 +71,13 @@ class RequestToBookView extends StatelessWidget {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding:  EdgeInsets.symmetric(
-                horizontal: AppSpaces.paddingLarge,
-                vertical: AppSpaces.paddingNormal,
-              ),
+              padding: EdgeInsets.all(AppSpaces.paddingExtraLarge),
               child: Obx(
                 () => Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Date',
-                      style: MyTextStyle.normalTitleText(
-                        size: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                     SizedBox(height: AppSpaces.heightMedium),
+                    Text('Date', style: MyTextStyle.normalTitleText(size: 16)),
+                    SizedBox(height: AppSpaces.heightNormal),
                     Row(
                       children: [
                         Expanded(
@@ -110,7 +94,7 @@ class RequestToBookView extends StatelessWidget {
                             ),
                           ),
                         ),
-                         SizedBox(width: AppSpaces.widthMedium),
+                        SizedBox(width: AppSpaces.widthMedium),
                         Expanded(
                           child: DateBookingWidget(
                             label: 'Check - Out',
@@ -129,17 +113,11 @@ class RequestToBookView extends StatelessWidget {
                         ),
                       ],
                     ),
-                     SizedBox(height: AppSpaces.heightLarge),
+                    SizedBox(height: AppSpaces.heightLarge),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'Guest',
-                          style: MyTextStyle.normalTitleText(
-                            size: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        Text('Guest', style: MyTextStyle.normalTitleText()),
                         GuestCounterWidget(
                           count: controller.guestCount.value,
                           onIncrement: controller.incrementGuest,
@@ -147,37 +125,31 @@ class RequestToBookView extends StatelessWidget {
                         ),
                       ],
                     ),
-                     SizedBox(height: AppSpaces.heightLarge),
-                    Text(
-                      'Pay With',
-                      style: MyTextStyle.normalTitleText(
-                        size: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                     SizedBox(height: AppSpaces.heightMedium),
+                    SizedBox(height: AppSpaces.heightLarge),
+                    Text('Pay With', style: MyTextStyle.normalTitleText()),
+                    SizedBox(height: AppSpaces.heightNormal),
                     PaymentMethodCard(
                       methodName: controller.paymentMethodName.value,
                       accountNumber: controller.paymentMethodNumber.value,
                       onEdit: () {},
                     ),
-                     SizedBox(height: AppSpaces.heightLarge),
+                    SizedBox(height: AppSpaces.heightLarge),
                     Text(
                       'Payment Details',
-                      style: MyTextStyle.normalTitleText(
-                        size: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: MyTextStyle.normalTitleText(),
                     ),
-                     SizedBox(height: AppSpaces.heightMedium),
+                    SizedBox(height: AppSpaces.heightSmall + 2),
                     PaymentDetailRow(
                       label: 'Total : ${controller.nightCount} Night',
                       value: '\$${controller.nightsTotal.toInt()}',
                     ),
+                    SizedBox(height: AppSpaces.heightSmall + 2),
+
                     PaymentDetailRow(
                       label: 'Cleaning Fee',
                       value: '\$${controller.cleaningFee.toInt()}',
                     ),
+                    SizedBox(height: AppSpaces.heightSmall + 2),
                     PaymentDetailRow(
                       label: 'Service Fee',
                       value: '\$${controller.serviceFee.toInt()}',
@@ -192,45 +164,14 @@ class RequestToBookView extends StatelessWidget {
                       value: '\$${controller.totalPayment.toInt()}',
                       isTotal: true,
                     ),
-                     SizedBox(height: AppSpaces.heightExtraLarge),
+                    SizedBox(height: AppSpaces.heightExtraLarge),
                   ],
                 ),
               ),
             ),
           ),
-          Padding(
-            padding:  EdgeInsets.fromLTRB(
-              AppSpaces.paddingLarge,
-              AppSpaces.paddingSmall,
-              AppSpaces.paddingLarge,
-              AppSpaces.paddingLarge,
-            ),
-            child: SizedBox(
-              width: double.infinity,
-              height: 52,
-              child: ElevatedButton(
-                onPressed: controller.checkout,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  foregroundColor: AppColors.primaryWhite,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      AppSpaces.radiusMedium,
-                    ),
-                  ),
-                ),
-                child: Text(
-                  'Checkout',
-                  style: MyTextStyle.normalTitleText(
-                    color: AppColors.primaryWhite,
-                    size: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
-          ),
+
+          CustomeButton(text: "Checkout", onPressed: () {}),
         ],
       ),
     );

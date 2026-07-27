@@ -12,9 +12,14 @@ class AppIcons {
   static const String video = '${iconsPath}video.svg';
   static const String voice = '${iconsPath}voice.svg';
   static const String volumeUp = '${iconsPath}volume_up.svg';
-  static const String backArrow = '${iconsPath}west_FILL0_wght400_GRAD0_opsz48 1.svg';
+  static const String backArrow =
+      '${iconsPath}west_FILL0_wght400_GRAD0_opsz48 1.svg';
   static const String location = '${iconsPath}location-icon.svg';
   static const String send = '${iconsPath}send.svg';
   static const String endCall = '${iconsPath}endcall.svg';
   static const String visible = '${iconsPath}Hide.svg';
+  static const String person = '${iconsPath}user3.svg';
+  static const String calendar2 = '${iconsPath}calendar2.svg';
+
+  static const String emptyWallet = '${iconsPath}empty-wallet.svg';
 }

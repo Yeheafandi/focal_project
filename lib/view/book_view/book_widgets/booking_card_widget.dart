@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/model/booking_details_model.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class BookingCardWidget extends StatelessWidget {
   final BookingDetailsModel booking;
@@ -76,11 +78,12 @@ class BookingCardWidget extends StatelessWidget {
                   SizedBox(height: AppSpaces.heightSmall),
                   Row(
                     children: [
-                      Icon(
-                        Icons.location_on_outlined,
-                        size: 16,
-                        color: AppColors.grey500,
-                      ),
+                      SvgPicture.asset(AppIcons.location),
+                      // Icon(
+                      //   Icons.location_on_outlined,
+                      //   size: 16,
+                      //   color: AppColors.grey500,
+                      // ),
                       SizedBox(width: AppSpaces.widthVerySmall),
                       Expanded(
                         child: Text(
@@ -120,14 +123,14 @@ class BookingCardWidget extends StatelessWidget {
                   SizedBox(height: AppSpaces.heightSmall),
 
                   _detailsRow(
-                    icon: Icons.calendar_month_outlined,
+                    icon: AppIcons.calendar,
                     title: "Dates",
                     details:
                         '${booking.checkIn.substring(0, 2)} - ${booking.checkOut}',
                   ),
                   SizedBox(height: AppSpaces.heightSmall),
                   _detailsRow(
-                    icon: Icons.person_outline_rounded,
+                    icon: AppIcons.person,
                     title: 'Guest',
                     details:
                         ' ${booking.guests} Guests (${booking.rooms} Room)',
@@ -143,7 +146,7 @@ class BookingCardWidget extends StatelessWidget {
 }
 
 Widget _detailsRow({
-  required IconData icon,
+  required String icon,
   required String title,
   required String details,
 }) {
@@ -151,14 +154,19 @@ Widget _detailsRow({
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Icon(icon, size: 20, color: AppColors.grey600),
-      Text(
-        title,
-        style: MyTextStyle.smallTitleText(
-          color: AppColors.black87,
-          size: 14,
-          fontWeight: FontWeight.w400,
-        ),
+      Row(
+        children: [
+          SvgPicture.asset(icon),
+          SizedBox(width: AppSpaces.widthSmall),
+          Text(
+            title,
+            style: MyTextStyle.smallTitleText(
+              color: AppColors.black87,
+              size: 14,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ],
       ),
       Text(
         details,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 
@@ -21,7 +23,7 @@ class DateBookingWidget extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding:  EdgeInsets.all(AppSpaces.paddingNormal),
+        padding: EdgeInsets.all(AppSpaces.paddingNormal),
         decoration: BoxDecoration(
           color: AppColors.grey100,
           borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
@@ -31,29 +33,28 @@ class DateBookingWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(
-                  Icons.calendar_today_outlined,
-                  size: 16,
-                  color: AppColors.grey600,
-                ),
-                 SizedBox(width: AppSpaces.widthSmall),
+                // Icon(
+                //   Icons.calendar_month_outlined,
+                //   size: 20,
+                //   color: AppColors.black87,
+                // ),
+                SvgPicture.asset(AppIcons.calendar2),
+                SizedBox(width: AppSpaces.widthSmall),
                 Text(
                   label,
-                  style: MyTextStyle.smallTitleText(
-                    color: AppColors.grey600,
-                    size: 13,
+                  style: MyTextStyle.normalTitleText(
+                    color: AppColors.black87,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
             ),
-             SizedBox(height: AppSpaces.heightSmall),
+            SizedBox(height: AppSpaces.heightNormal),
             Text(
               dateText,
               style: MyTextStyle.normalTitleText(
                 color: AppColors.grey600,
-                size: 15,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w400,
               ),
             ),
           ],

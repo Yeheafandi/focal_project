@@ -17,39 +17,36 @@ class PaymentDetailRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        bottom: isTotal ? 0 : AppSpaces.heightMedium,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            label,
-            style: isTotal
-                ? MyTextStyle.normalTitleText(
-                    size: 15,
-                    fontWeight: FontWeight.w700,
-                  )
-                : MyTextStyle.smallTitleText(
-                    color: AppColors.grey600,
-                    size: 14,
-                  ),
-          ),
-          Text(
-            value,
-            style: isTotal
-                ? MyTextStyle.normalTitleText(
-                    size: 15,
-                    fontWeight: FontWeight.w700,
-                  )
-                : MyTextStyle.smallTitleText(
-                    color: AppColors.grey600,
-                    size: 14,
-                  ),
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          label,
+          style: isTotal
+              ? MyTextStyle.normalTitleText(
+                  size: 18,
+                  fontWeight: FontWeight.w500,
+                )
+              : MyTextStyle.smallTitleText(
+                  color: AppColors.grey600,
+                  size: 16,
+                  fontWeight: FontWeight.w400,
+                ),
+        ),
+        Text(
+          value,
+          style: isTotal
+              ? MyTextStyle.normalTitleText(
+                  size: 16,
+                  fontWeight: FontWeight.w500,
+                )
+              : MyTextStyle.smallTitleText(
+                  color: AppColors.black87,
+                  size: 18,
+                  fontWeight: FontWeight.w400,
+                ),
+        ),
+      ],
     );
   }
 }

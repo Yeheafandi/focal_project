@@ -15,8 +15,8 @@ class PopularHotelCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 156,
-      height: 220,
+      width: 180,
+      height: 180,
       margin: EdgeInsets.only(right: AppSpaces.paddingNormal),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppSpaces.radiusExtraLarge),
@@ -59,6 +59,7 @@ class PopularHotelCard extends StatelessWidget {
             right: 12,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 5,
               children: [
                 Text(
                   hotel.name,
@@ -76,7 +77,8 @@ class PopularHotelCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: MyTextStyle.smallTitleText(
                     color: AppColors.primaryWhite,
-                    size: 11,
+                    fontWeight: FontWeight.w400,
+                    size: 10,
                   ),
                 ),
                 SizedBox(height: AppSpaces.heightSmall),
@@ -88,7 +90,6 @@ class PopularHotelCard extends StatelessWidget {
                       style: MyTextStyle.normalTitleText(
                         color: AppColors.primaryWhite,
                         size: 12,
-                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     Row(
@@ -98,12 +99,12 @@ class PopularHotelCard extends StatelessWidget {
                           color: AppColors.amber,
                           size: 14,
                         ),
-                        SizedBox(width: AppSpaces.widthVerySmall),
                         Text(
                           hotel.rating.toString(),
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.primaryWhite,
-                            size: 11,
+                            fontWeight: FontWeight.w400,
+                            size: 12,
                           ),
                         ),
                       ],

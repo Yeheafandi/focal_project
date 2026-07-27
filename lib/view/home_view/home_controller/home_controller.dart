@@ -1,3 +1,4 @@
+import 'package:focal_project/core/services/hotel_services.dart';
 import 'package:focal_project/model/hotel_model.dart';
 import 'package:focal_project/model/near_you_model.dart';
 import 'package:focal_project/model/user_profile_model.dart';
@@ -48,60 +49,30 @@ class HomeController extends GetxController {
     }
   }
 
-  Future<void> fetchPopularHotels() async {
-    isPopularLoading(true);
-    try {
-      await Future.delayed(const Duration(milliseconds: 1800));
-      popularHotels.assignAll([
-        HotelModel(
-          id: "1",
-          name: "The Horizon Retreat",
-          location: "Los Angeles, CA",
-          pricePerNight: 480,
-          rating: 4.5,
-          imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef",
-        ),
-        HotelModel(
-          id: "2",
-          name: "Opal Grove Inn",
-          location: "San Diego, CA",
-          pricePerNight: 190,
-          rating: 4.5,
-          imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
-        ),
-      ]);
-    } finally {
-      isPopularLoading(false);
-    }
+ Future<void> fetchPopularHotels() async {
+  isPopularLoading(true);
+  try {
+    await Future.delayed(const Duration(milliseconds: 500));
+    // أخذ الفنادق ذات التقييم العالي مثلاً
+    popularHotels.assignAll(
+      HotelServices.allHotels.where((h) => h.rating >= 4.5).toList(),
+    );
+  } finally {
+    isPopularLoading(false);
   }
+}
 
-  Future<void> fetchRecommendedHotels() async {
-    isRecommendedLoading(true);
-    try {
-      await Future.delayed(const Duration(milliseconds: 2000));
-      recommendedHotels.assignAll([
-        HotelModel(
-          id: "3",
-          name: "Serenity Sands",
-          location: "Honolulu, HI",
-          pricePerNight: 270,
-          rating: 4.0,
-          imageUrl: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
-        ),
-        HotelModel(
-          id: "4",
-          name: "Elysian Suites",
-          location: "San Diego, CA",
-          pricePerNight: 320,
-          rating: 3.8,
-          imageUrl: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7",
-        ),
-      ]);
-    } finally {
-      isRecommendedLoading(false);
-    }
+Future<void> fetchRecommendedHotels() async {
+  isRecommendedLoading(true);
+  try {
+    await Future.delayed(const Duration(milliseconds: 500));
+        recommendedHotels.assignAll(
+      HotelServices.allHotels.take(2).toList(),
+    );
+  } finally {
+    isRecommendedLoading(false);
   }
-
+}
   Future<void> fetchNearYouData() async {
     isNearYouLoading(true);
     try {
@@ -118,36 +89,18 @@ class HomeController extends GetxController {
   }
 
   Future<void> fetchBestTodayHotels() async {
-    isBestTodayLoading(true);
-    try {
-      await Future.delayed(const Duration(milliseconds: 2500));
-      bestTodayHotels.assignAll([
-        HotelModel(
-          id: "5",
-          name: "Tranquil Shores",
-          location: "Santa Monica, CA",
-          pricePerNight: 120,
-          oldPricePerNight: 199,
-          rating: 4.4,
-          reviewsCount: 532,
-          imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
-        ),
-        HotelModel(
-          id: "6",
-          name: "Oceanic Vista",
-          location: "Malibu, CA",
-          pricePerNight: 150,
-          oldPricePerNight: 250,
-          rating: 4.7,
-          reviewsCount: 128,
-          imageUrl: "https://images.unsplash.com/photo-1473116763269-25541077c683",
-        ),
-      ]);
-    } finally {
-      isBestTodayLoading(false);
-    }
+  isBestTodayLoading(true);
+  try {
+    await Future.delayed(const Duration(milliseconds: 500));
+    bestTodayHotels.assignAll(
+      HotelServices.allHotels
+          .where((h) => h.oldPricePerNight != null)
+          .toList(),
+    );
+  } finally {
+    isBestTodayLoading(false);
   }
-
+}
   void toggleFavorite(HotelModel hotel) {
     hotel.isFavorite = !hotel.isFavorite;
     popularHotels.refresh();

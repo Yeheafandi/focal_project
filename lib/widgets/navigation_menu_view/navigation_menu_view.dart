@@ -40,7 +40,7 @@ class NavigationMenuView extends StatelessWidget {
 
           child: NavigationBar(
             backgroundColor: AppColors.primaryWhite,
-            height: 70,
+            height: 98,
             selectedIndex: controller.selectedIndex.value,
             onDestinationSelected: (index) => controller.changeIndex(index),
             destinations: [
@@ -53,6 +53,11 @@ class NavigationMenuView extends StatelessWidget {
                 icon: Image.asset(AppImages.bookingIcon, width: 24, height: 24, color: AppColors.grey500),
                 selectedIcon: Image.asset(AppImages.bookingIconFill, width: 24, height: 24, color: AppColors.primaryBlue),
                 label: 'My Booking',
+              ),
+              NavigationDestination(
+                icon: Image.asset(AppImages.favoriteIcon, width: 24, height: 24, color: AppColors.grey500),
+                selectedIcon: Image.asset(AppImages.favoriteIconFill, width: 24, height: 24, color: AppColors.primaryBlue),
+                label: 'My Favorite',
               ),
               NavigationDestination(
                 icon: Image.asset(AppImages.messageIcon, width: 24, height: 24, color: AppColors.grey500),

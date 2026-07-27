@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 
 class MyTextStyle {
-  
   static TextStyle normalTitleText({
     Color? color,
     double? size,
     FontWeight? fontWeight,
+    String? fontFamily,
   }) {
     return TextStyle(
-      fontSize: size ?? 16, 
+      fontFamily: fontFamily,
+      fontSize: size ?? 16,
       color: color ?? AppColors.primaryBlack,
       fontWeight: fontWeight ?? FontWeight.w600,
     );
@@ -19,15 +20,24 @@ class MyTextStyle {
     Color? color,
     double? size,
     FontWeight? fontWeight,
+    String? fontFamily,
   }) {
     return TextStyle(
+      fontFamily: fontFamily,
       fontSize: size ?? 12,
       color: color ?? AppColors.grey600,
       fontWeight: fontWeight ?? FontWeight.normal,
     );
   }
-  static TextStyle onBoarding({Color? color,double? size,FontWeight? fontWeight,}){
+
+  static TextStyle onBoarding({
+    Color? color,
+    double? size,
+    FontWeight? fontWeight,
+    String? fontFamily,
+  }) {
     return TextStyle(
+      fontFamily: fontFamily,
       fontSize: size ?? 24,
       color: color ?? AppColors.textWhite,
       fontWeight: fontWeight ?? FontWeight.bold,
@@ -38,12 +48,13 @@ class MyTextStyle {
     Color? color,
     double? size,
     FontWeight? fontWeight,
+    String? fontFamily,
   }) {
     return TextStyle(
+      fontFamily: fontFamily,
       fontSize: size ?? 14,
       color: color ?? AppColors.primary,
       fontWeight: fontWeight ?? FontWeight.bold,
     );
   }
-  
 }

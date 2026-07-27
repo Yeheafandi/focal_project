@@ -15,6 +15,7 @@ class AppSpaces {
   static  double  radiusMedium = 12.r;
   static  double  radiusLarge = 16.r;
   static  double  radiusExtraLarge = 20.r;
+  static  double  radius24 = 24.r;
   static  double  radiusExtraExtraLarge28 = 28.r;
 
   // SizedBox Heights

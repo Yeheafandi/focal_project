@@ -21,27 +21,6 @@ class NearYouMapCard extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
-      child: Center(
-        child: Container(
-          padding: EdgeInsets.all(AppSpaces.paddingMedium),
-          decoration: BoxDecoration(
-            color: AppColors.primaryBlue,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.primaryBlue,
-                blurRadius: 15,
-                spreadRadius: 5,
-              ),
-            ],
-          ),
-          child: const Icon(
-            Icons.my_location,
-            color: AppColors.primaryWhite,
-            size: 24,
-          ),
-        ),
-      ),
     );
   }
 }

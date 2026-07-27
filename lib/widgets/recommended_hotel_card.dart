@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/model/hotel_model.dart';
@@ -19,12 +20,7 @@ class RecommendedHotelCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: AppSpaces.paddingNormal),
       padding: EdgeInsets.only(bottom: AppSpaces.paddingNormal),
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-        border: underline
-            ? Border(bottom: BorderSide(color: AppColors.grey500, width: 1.0))
-            : null,
-      ),
+
       child: Row(
         children: [
           ClipRRect(
@@ -50,10 +46,7 @@ class RecommendedHotelCard extends StatelessWidget {
                         hotel.name,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: MyTextStyle.normalTitleText(
-                          fontWeight: FontWeight.bold,
-                          size: 15,
-                        ),
+                        style: MyTextStyle.normalTitleText(size: 16),
                       ),
                     ),
                     Row(
@@ -61,14 +54,14 @@ class RecommendedHotelCard extends StatelessWidget {
                         const Icon(
                           Icons.star,
                           color: AppColors.amber,
-                          size: 14,
+                          size: 16,
                         ),
                         SizedBox(width: AppSpaces.widthVerySmall),
                         Text(
                           hotel.rating.toString(),
                           style: MyTextStyle.normalTitleText(
-                            size: 12,
-                            fontWeight: FontWeight.bold,
+                            size: 14,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
@@ -76,20 +69,44 @@ class RecommendedHotelCard extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: AppSpaces.heightVerySmall),
-                Text(
-                  hotel.location,
-                  style: MyTextStyle.smallTitleText(
-                    color: AppColors.grey500,
-                    size: 12,
-                  ),
+                Row(
+                  spacing: 2,
+                  children: [
+                    Image.asset(
+                      AppImages.locationOutlineIcon,
+                      width: 12,
+                      height: 12,
+                      color: AppColors.grey500,
+                    ),
+                    Text(
+                      hotel.location,
+                      style: MyTextStyle.smallTitleText(
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.grey500,
+                        size: 12,
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: AppSpaces.heightMedium),
-                Text(
-                  "\$${hotel.pricePerNight.toInt()} /night",
-                  style: MyTextStyle.priceText(
-                    fontWeight: FontWeight.bold,
-                    size: 13,
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      "\$${hotel.pricePerNight.toInt()}",
+                      style: MyTextStyle.priceText(
+                        fontWeight: FontWeight.w600,
+                        size: 16,
+                      ),
+                    ),
+                    Text(
+                      " /night ",
+                      style: MyTextStyle.priceText(
+                        color: AppColors.black87,
+                        fontWeight: FontWeight.w500,
+                        size: 15,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

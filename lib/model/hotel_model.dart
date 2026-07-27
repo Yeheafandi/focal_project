@@ -3,12 +3,14 @@ class HotelModel {
   final String name;
   final String location;
   final double pricePerNight;
-  final double? oldPricePerNight; 
+  final double? oldPricePerNight;
   final double rating;
-  final int? reviewsCount; 
+  final int? reviewsCount;
   final String imageUrl;
-  final double? latitude;   
-  final double? longitude;  
+  final String description;
+  final String category;
+  final double? latitude;
+  final double? longitude;
   bool isFavorite;
 
   HotelModel({
@@ -20,8 +22,10 @@ class HotelModel {
     required this.rating,
     this.reviewsCount,
     required this.imageUrl,
-    this.latitude,         
-    this.longitude,         
+    this.description = '',
+    this.category = 'Hotels',
+    this.latitude,
+    this.longitude,
     this.isFavorite = false,
   });
 
@@ -31,12 +35,14 @@ class HotelModel {
       name: json['name'] ?? '',
       location: json['location'] ?? '',
       pricePerNight: (json['price_per_night'] as num).toDouble(),
-      oldPricePerNight: json['old_price_per_night'] != null 
-          ? (json['old_price_per_night'] as num).toDouble() 
+      oldPricePerNight: json['old_price_per_night'] != null
+          ? (json['old_price_per_night'] as num).toDouble()
           : null,
       rating: (json['rating'] as num).toDouble(),
       reviewsCount: json['reviews_count'],
       imageUrl: json['image_url'] ?? '',
+      description: json['description'] ?? '',
+      category: json['category'] ?? 'Hotels',
       latitude: json['latitude'] != null ? (json['latitude'] as num).toDouble() : null,
       longitude: json['longitude'] != null ? (json['longitude'] as num).toDouble() : null,
       isFavorite: json['is_favorite'] ?? false,

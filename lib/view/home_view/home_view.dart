@@ -3,7 +3,7 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
-import 'package:focal_project/routes/routes.dart'; 
+import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/home_view/home_controller/home_controller.dart';
 import 'package:focal_project/view/home_view/home_widgets/best_today_card.dart';
 import 'package:focal_project/view/home_view/home_widgets/home_shimmer_loading_widget.dart';
@@ -11,6 +11,7 @@ import 'package:focal_project/view/home_view/home_widgets/near_you_map_card.dart
 import 'package:focal_project/view/home_view/home_widgets/popular_hotel_card.dart';
 import 'package:focal_project/view/home_view/home_widgets/home_circle_icon_button.dart';
 import 'package:focal_project/view/search_section/search_view/search_filter_controller/search_filter_controller.dart';
+import 'package:focal_project/widgets/icon_circle_button.dart';
 import 'package:focal_project/widgets/recommended_hotel_card.dart';
 import 'package:get/get.dart';
 
@@ -56,7 +57,7 @@ class HomeView extends StatelessWidget {
                       Row(
                         children: [
                           CircleAvatar(
-                            radius: 24,
+                            radius: AppSpaces.radius24,
                             backgroundImage: NetworkImage(
                               user?.avatarUrl ?? '',
                             ),
@@ -68,24 +69,21 @@ class HomeView extends StatelessWidget {
                               Text(
                                 user?.name ?? '',
                                 style: MyTextStyle.normalTitleText(
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w600,
                                   size: 16,
                                 ),
                               ),
                               SizedBox(height: AppSpaces.heightVerySmall),
                               Row(
                                 children: [
-                                  Icon(
-                                    Icons.location_on,
-                                    size: 14,
-                                    color: AppColors.grey600,
-                                  ),
+                                  Image.asset(AppImages.locationIcon),
                                   SizedBox(width: AppSpaces.widthVerySmall),
                                   Text(
                                     user?.location ?? '',
                                     style: MyTextStyle.smallTitleText(
+                                      fontWeight: FontWeight.w400,
                                       color: AppColors.grey600,
-                                      size: 12,
+                                      size: 14,
                                     ),
                                   ),
                                 ],
@@ -104,12 +102,20 @@ class HomeView extends StatelessWidget {
                               }
                               Get.toNamed(Routes.search);
                             },
-                          
                           ),
                           SizedBox(width: AppSpaces.widthSmall),
                           HomeCircleIconButton(
-                            icon:Image.asset(AppImages.notificationIcon),
-                            onPressed: () {},
+                            icon: Image.asset(AppImages.notificationIcon),
+                            onPressed: () {
+                              Get.toNamed(Routes.notificationScreen);
+                            },
+                          ),
+                          SizedBox(width: AppSpaces.widthSmall),
+                          HomeCircleIconButton(
+                            icon: Image.asset(AppImages.heartIcon2),
+                            onPressed: () {
+                              Get.toNamed(Routes.myFavoriteScreen);
+                            },
                           ),
                         ],
                       ),
@@ -127,10 +133,10 @@ class HomeView extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        const Icon(
-                          Icons.location_on,
-                          color: AppColors.primaryBlue,
-                          size: 26,
+                        CustomCircleIconButton(
+                          icon: Icons.location_on,
+                          iconColor: AppColors.primaryBlue,
+                          onPressed: () {},
                         ),
                         SizedBox(width: AppSpaces.widthMedium),
                         Expanded(
@@ -138,7 +144,7 @@ class HomeView extends StatelessWidget {
                             "You Can Change Your Location to show nearby villas",
                             style: MyTextStyle.smallTitleText(
                               color: AppColors.black87,
-                              size: 13,
+                              size: 14,
                             ),
                           ),
                         ),
@@ -157,7 +163,10 @@ class HomeView extends StatelessWidget {
                     children: [
                       Text(
                         "Most Popular",
-                        style: MyTextStyle.normalTitleText(size: 18),
+                        style: MyTextStyle.normalTitleText(
+                          size: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       TextButton(
                         onPressed: () {},
@@ -166,7 +175,8 @@ class HomeView extends StatelessWidget {
                           "See All",
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.primaryBlue,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
+                            size: 14,
                           ),
                         ),
                       ),
@@ -194,7 +204,10 @@ class HomeView extends StatelessWidget {
                     children: [
                       Text(
                         "Recommended for you",
-                        style: MyTextStyle.normalTitleText(size: 18),
+                        style: MyTextStyle.normalTitleText(
+                          size: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       TextButton(
                         onPressed: () {},
@@ -203,7 +216,8 @@ class HomeView extends StatelessWidget {
                           "See All",
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.primaryBlue,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
+                            size: 14,
                           ),
                         ),
                       ),
@@ -238,7 +252,7 @@ class HomeView extends StatelessWidget {
                                     ? AppColors.primaryBlue
                                     : AppColors.primaryWhite,
                                 borderRadius: BorderRadius.circular(
-                                  AppSpaces.radiusExtraLarge,
+                                  AppSpaces.radiusSmall,
                                 ),
                                 border: Border.all(
                                   color: isSelected
@@ -292,26 +306,29 @@ class HomeView extends StatelessWidget {
                             );
                           },
                         ),
-                  SizedBox(height: AppSpaces.heightLarge),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         "Hotel Near You",
-                        style: MyTextStyle.normalTitleText(size: 18),
+                        style: MyTextStyle.normalTitleText(
+                          size: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       TextButton(
                         onPressed: () {
                           Get.toNamed(Routes.nearbyMap);
                         },
-                       
+
                         style: TextButton.styleFrom(padding: EdgeInsets.zero),
                         child: Text(
                           "Open Map",
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.primaryBlue,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
+                            size: 14,
                           ),
                         ),
                       ),
@@ -331,7 +348,10 @@ class HomeView extends StatelessWidget {
                     children: [
                       Text(
                         "Best Today 🔥",
-                        style: MyTextStyle.normalTitleText(size: 18),
+                        style: MyTextStyle.normalTitleText(
+                          size: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       TextButton(
                         onPressed: () {},
@@ -340,7 +360,8 @@ class HomeView extends StatelessWidget {
                           "See All",
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.primaryBlue,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
+                            size: 14,
                           ),
                         ),
                       ),
@@ -362,7 +383,6 @@ class HomeView extends StatelessWidget {
                             },
                           ),
                   ),
-                  SizedBox(height: AppSpaces.heightExtraLarge),
                 ],
               ),
             ),

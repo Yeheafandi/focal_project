@@ -34,5 +34,6 @@ class InitializeBinding extends Bindings {
     Get.lazyPut<NotificationController>(
       () => NotificationController(service: Get.find()),
     );
+    
   }
 }

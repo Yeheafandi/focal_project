@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/model/hotel_model.dart';
@@ -23,9 +24,9 @@ class BestTodayCard extends StatelessWidget {
       ),
       padding: EdgeInsets.all(AppSpaces.paddingSmall),
       decoration: BoxDecoration(
-        color: Colors.transparent,
+        color: AppColors.transparent,
         borderRadius: BorderRadius.circular(AppSpaces.radiusLarge),
-        border: Border.all(color: AppColors.grey500, width: 1.0),
+        border: Border.all(color: AppColors.grey300, width: 1.0),
       ),
       child: Row(
         children: [
@@ -57,15 +58,14 @@ class BestTodayCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: MyTextStyle.normalTitleText(
-                    fontWeight: FontWeight.bold,
                     color: AppColors.primaryBlack,
-                    size: 15,
+                    size: 16,
                   ),
                 ),
                 SizedBox(height: AppSpaces.heightVerySmall),
                 Row(
                   children: [
-                    Icon(Icons.location_on, size: 12, color: AppColors.grey600),
+                    Image.asset(AppImages.locationIcon, width: 12, height: 12),
                     SizedBox(width: AppSpaces.widthVerySmall),
                     Expanded(
                       child: Text(
@@ -73,8 +73,9 @@ class BestTodayCard extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: MyTextStyle.smallTitleText(
+                          fontWeight: FontWeight.w400,
                           color: AppColors.grey500,
-                          size: 11,
+                          size: 14,
                         ),
                       ),
                     ),
@@ -82,7 +83,7 @@ class BestTodayCard extends StatelessWidget {
                 ),
                 SizedBox(height: AppSpaces.heightSmall),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  spacing: 12,
                   children: [
                     Row(
                       children: [
@@ -95,7 +96,7 @@ class BestTodayCard extends StatelessWidget {
                         Text(
                           hotel.rating.toString(),
                           style: MyTextStyle.normalTitleText(
-                            color: AppColors.primaryBlack,
+                            color: AppColors.amber,
                             size: 12,
                           ),
                         ),
@@ -103,7 +104,8 @@ class BestTodayCard extends StatelessWidget {
                           " (${hotel.reviewsCount})",
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.grey400,
-                            size: 10,
+                            size: 12,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ],
@@ -113,8 +115,8 @@ class BestTodayCard extends StatelessWidget {
                         Text(
                           "\$${hotel.pricePerNight.toInt()}",
                           style: MyTextStyle.priceText(
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.primaryBlue,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.primaryBlack,
                             size: 14,
                           ),
                         ),
@@ -124,7 +126,7 @@ class BestTodayCard extends StatelessWidget {
                             "\$${hotel.oldPricePerNight!.toInt()}",
                             style: TextStyle(
                               color: AppColors.red,
-                              fontSize: 10,
+                              fontSize: 12,
                               decoration: TextDecoration.lineThrough,
                             ),
                           ),

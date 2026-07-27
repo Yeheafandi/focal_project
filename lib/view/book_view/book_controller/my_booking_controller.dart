@@ -10,7 +10,7 @@ class MyBookingController extends GetxController {
   final List<BookingDetailsModel>? _initialBookings;
 
   MyBookingController({List<BookingDetailsModel>? initialBookings})
-      : _initialBookings = initialBookings;
+    : _initialBookings = initialBookings;
 
   @override
   void onInit() {
@@ -34,7 +34,7 @@ class MyBookingController extends GetxController {
     BookingDetailsModel(
       id: 1,
       hotelName: 'The Aston Vill Hotel',
-      hotelImage: 'assets/images/first.jpg',
+      hotelImage: 'assets/images/second.jpg',
       location: 'Veum Point, Michikoton',
       rating: 4.7,
       price: 120,
@@ -51,7 +51,7 @@ class MyBookingController extends GetxController {
     BookingDetailsModel(
       id: 2,
       hotelName: 'Mystic Palms',
-      hotelImage: 'assets/images/second.jpg',
+      hotelImage: 'assets/images/first.jpg',
       location: 'Palm Springs, CA',
       rating: 4.0,
       price: 230,

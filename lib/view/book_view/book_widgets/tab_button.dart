@@ -26,17 +26,14 @@ class TabButton extends StatelessWidget {
           decoration: BoxDecoration(
             color: isSelected ? AppColors.primaryWhite : AppColors.grey100,
             borderRadius: BorderRadius.circular(AppSpaces.radiusExtraLarge),
-            border: Border.all(
-              color: isSelected ? AppColors.primary : AppColors.grey300,
-            ),
           ),
           child: Center(
             child: Text(
               title,
               style: MyTextStyle.normalTitleText(
                 size: 14,
-                color: isSelected ? AppColors.primaryBlack : AppColors.grey600,
-                fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                color: isSelected ? AppColors.primaryBlack : AppColors.grey500,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),

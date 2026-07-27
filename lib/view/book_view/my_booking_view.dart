@@ -18,7 +18,7 @@ class MyBookingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.primaryWhite,
       appBar: AppBar(
         backgroundColor: AppColors.primaryWhite,
         elevation: 0,
@@ -75,7 +75,7 @@ class MyBookingView extends StatelessWidget {
                     padding: EdgeInsets.zero,
                     itemCount: bookings.length,
                     separatorBuilder: (context, index) =>
-                        SizedBox(height: AppSpaces.heightLarge),
+                        SizedBox(height: AppSpaces.heightNormal),
                     itemBuilder: (context, index) {
                       final booking = bookings[index];
                       return BookingCardWidget(booking: booking);
@@ -92,24 +92,30 @@ class MyBookingView extends StatelessWidget {
 
   Widget _buildTabs() {
     return Obx(() {
-      return Row(
-        children: [
-          TabButton(
-            title: 'Booked',
-            index: 0,
-            isSelected: controller.selectedTabIndex.value == 0,
-            onTap: controller.changeTab,
-          ),
-          SizedBox(width: AppSpaces.widthSmall),
-          TabButton(
-            title: 'History',
-            index: 1,
-            isSelected: controller.selectedTabIndex.value == 1,
-            onTap: controller.changeTab,
-          ),
-        ],
+      return Container(
+        padding: EdgeInsets.all(AppSpaces.paddingVerySmall),
+        decoration: BoxDecoration(
+          color: AppColors.grey100,
+          borderRadius: BorderRadius.circular(AppSpaces.radiusExtraLarge),
+        ),
+        child: Row(
+          children: [
+            TabButton(
+              title: 'Booked',
+              index: 0,
+              isSelected: controller.selectedTabIndex.value == 0,
+              onTap: controller.changeTab,
+            ),
+            SizedBox(width: AppSpaces.widthSmall),
+            TabButton(
+              title: 'History',
+              index: 1,
+              isSelected: controller.selectedTabIndex.value == 1,
+              onTap: controller.changeTab,
+            ),
+          ],
+        ),
       );
     });
   }
-
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/text_style.dart';
+import 'package:focal_project/core/services/hotel_services.dart';
 import 'package:focal_project/model/hotel_model.dart';
 import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
@@ -23,49 +26,50 @@ class NearbyMapViewController extends GetxController {
   Future<void> fetchNearbyHotels() async {
     isLoading(true);
     try {
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(milliseconds: 800));
+      final validHotels = HotelServices.allHotels
+          .where((h) => h.latitude != null && h.longitude != null)
+          .toList();
 
-      nearbyHotels.assignAll([
-        HotelModel(
-          id: "1",
-          name: "The Horizon Retreat",
-          location: "Los Angeles, CA",
-          pricePerNight: 480,
-          rating: 4.0,
-          imageUrl: "https://images.unsplash.com/photo-1540555700478-4be289fbecef",
-          latitude: 32.7180,
-          longitude: -117.1650,
-        ),
-        HotelModel(
-          id: "2",
-          name: "Elysian Suites",
-          location: "San Diego, CA",
-          pricePerNight: 320,
-          rating: 4.7,
-          imageUrl: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7",
-          latitude: 32.7120,
-          longitude: -117.1610,
-        ),
-        HotelModel(
-          id: "3",
-          name: "Opal Grove Inn",
-          location: "San Diego, CA",
-          pricePerNight: 190,
-          rating: 4.5,
-          imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
-          latitude: 32.7150,
-          longitude: -117.1550,
-        ),
-      ]);
+      nearbyHotels.assignAll(validHotels);
 
       if (nearbyHotels.isNotEmpty) {
-        selectedHotel.value = nearbyHotels[1]; 
+        selectedHotel.value = nearbyHotels[0];
       }
 
       generateMarkers();
     } finally {
       isLoading(false);
     }
+  }
+
+  void searchHotels(String query) {
+    if (query.trim().isEmpty) {
+      fetchNearbyHotels();
+      return;
+    }
+
+    final filtered = HotelServices.allHotels.where((hotel) {
+      final matchesName = hotel.name.toLowerCase().contains(
+        query.toLowerCase(),
+      );
+      final matchesLocation = hotel.location.toLowerCase().contains(
+        query.toLowerCase(),
+      );
+      final hasCoordinates = hotel.latitude != null && hotel.longitude != null;
+      return (matchesName || matchesLocation) && hasCoordinates;
+    }).toList();
+
+    nearbyHotels.assignAll(filtered);
+
+    if (nearbyHotels.isNotEmpty) {
+      selectedHotel.value = nearbyHotels[0];
+      animateToLocation(nearbyHotels[0].latitude!, nearbyHotels[0].longitude!);
+    } else {
+      selectedHotel.value = null;
+    }
+
+    generateMarkers();
   }
 
   void generateMarkers() {
@@ -75,17 +79,70 @@ class NearbyMapViewController extends GetxController {
         markers.add(
           Marker(
             point: LatLng(hotel.latitude!, hotel.longitude!),
-            width: 40,
-            height: 40,
+            width: 70,
+            height: 70,
             child: GestureDetector(
               onTap: () {
                 selectedHotel.value = hotel;
                 animateToLocation(hotel.latitude!, hotel.longitude!);
               },
-              child: const Icon(
-                Icons.location_on_sharp,
-                color: Colors.redAccent, 
-                size: 40,
+              child: Stack(
+                alignment: Alignment.topCenter,
+                clipBehavior: Clip.none,
+                children: [
+                  Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: AppColors.primary, width: 3),
+                      image: DecorationImage(
+                        image: NetworkImage(hotel.imageUrl),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+
+                  Positioned(
+                    bottom: 0,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 3,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryWhite,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 4,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(
+                            Icons.star_rounded,
+                            color: AppColors.amber,
+                            size: 16,
+                          ),
+                          const SizedBox(width: 3),
+                          Text(
+                            "${hotel.rating}",
+                            style: MyTextStyle.smallTitleText(
+                              size: 12,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.primaryBlack,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -95,6 +152,6 @@ class NearbyMapViewController extends GetxController {
   }
 
   void animateToLocation(double lat, double lng) {
-    mapController.move(LatLng(lat, lng), 15.0);
+    mapController.move(LatLng(lat, lng), 14.5);
   }
 }

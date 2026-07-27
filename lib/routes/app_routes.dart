@@ -65,15 +65,14 @@ class AppRoutes {
     GetPage(
       name: Routes.notificationScreen,
       page: () => const NotificationScreen(),
-      
-    ),GetPage(
-  name: Routes.myFavoriteScreen,
-  page: () => const MyFavoriteScreen(),
-  binding: MyFavoriteBinding(),
-),
+    ),
+    GetPage(
+      name: Routes.myFavoriteScreen,
+      page: () => const MyFavoriteScreen(),
+      binding: MyFavoriteBinding(),
+    ),
     GetPage(name: Routes.splashscreen, page: () => SplashScreen()),
-        GetPage(name: Routes.profilescreen, page: () => ProfileScreen()),
-        GetPage(name: Routes.cardscreen, page: () => CardScreen()),
-
+    GetPage(name: Routes.profilescreen, page: () => ProfileScreen()),
+    GetPage(name: Routes.cardscreen, page: () => CardScreen()),
   ];
 }

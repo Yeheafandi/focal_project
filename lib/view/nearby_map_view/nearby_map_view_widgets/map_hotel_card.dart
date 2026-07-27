@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_images.dart';
+import 'package:focal_project/routes/routes.dart';
+import 'package:focal_project/view/detail_view/detail_widgets/share_widget.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spaces.dart';
 import '../../../../core/constants/text_style.dart';
@@ -17,14 +21,6 @@ class MapHotelCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.primaryWhite,
         borderRadius: BorderRadius.circular(AppSpaces.radiusExtraLarge),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.primaryBlack,
-            blurRadius: 24,
-            spreadRadius: 4,
-            offset: const Offset(0, 8),
-          ),
-        ],
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -43,7 +39,10 @@ class MapHotelCard extends StatelessWidget {
                       width: 85,
                       height: 85,
                       color: AppColors.grey200,
-                      child: const Icon(Icons.broken_image, color: AppColors.grey),
+                      child: const Icon(
+                        Icons.broken_image,
+                        color: AppColors.grey,
+                      ),
                     );
                   },
                 ),
@@ -53,20 +52,38 @@ class MapHotelCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      hotel.name,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: MyTextStyle.normalTitleText(
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.primaryBlack,
-                        size: 16,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          hotel.name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: MyTextStyle.normalTitleText(size: 16),
+                        ),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.star,
+                              color: AppColors.amber,
+                              size: 18,
+                            ),
+                            SizedBox(width: AppSpaces.widthVerySmall),
+                            Text(
+                              hotel.rating.toString(),
+                              style: MyTextStyle.normalTitleText(
+                                fontWeight: FontWeight.w500,
+                                size: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                     SizedBox(height: AppSpaces.heightVerySmall),
                     Row(
                       children: [
-                        Icon(Icons.location_on_outlined, size: 14, color: AppColors.grey500),
+                        Image.asset(AppImages.locationOutlineIcon),
                         SizedBox(width: AppSpaces.widthVerySmall),
                         Expanded(
                           child: Text(
@@ -75,6 +92,7 @@ class MapHotelCard extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: MyTextStyle.smallTitleText(
                               color: AppColors.grey500,
+                              fontWeight: FontWeight.w400,
                               size: 12,
                             ),
                           ),
@@ -87,7 +105,7 @@ class MapHotelCard extends StatelessWidget {
                         Text(
                           "\$${hotel.pricePerNight.toInt()}",
                           style: MyTextStyle.priceText(
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w500,
                             color: AppColors.primaryBlue,
                             size: 16,
                           ),
@@ -95,27 +113,14 @@ class MapHotelCard extends StatelessWidget {
                         Text(
                           " /night",
                           style: MyTextStyle.smallTitleText(
-                            color: AppColors.grey500,
-                            size: 12,
+                            color: AppColors.black87,
+                            size: 16,
                           ),
                         ),
                       ],
                     ),
                   ],
                 ),
-              ),
-              Row(
-                children: [
-                  const Icon(Icons.star, color: AppColors.amber, size: 18),
-                  SizedBox(width: AppSpaces.widthVerySmall),
-                  Text(
-                    hotel.rating.toString(),
-                    style: MyTextStyle.normalTitleText(
-                      fontWeight: FontWeight.bold,
-                      size: 14,
-                    ),
-                  ),
-                ],
               ),
             ],
           ),
@@ -126,12 +131,26 @@ class MapHotelCard extends StatelessWidget {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
+                    Get.bottomSheet(
+                      ShareWidget(
+                        hotel: hotel,
+                        link:
+                            'https://instastaycom/hotel/${hotel.id}', // أو الرابط المخصص للـ hotel
+                      ),
+                      isScrollControlled: true, // ليتناسب الارتفاع مع المحتوى
+                      backgroundColor: Colors
+                          .transparent, // لجعل الحواف الخارجيّة شفافة ومظهر الحاويات أنيقاً
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryBlue,
-                    padding: EdgeInsets.symmetric(vertical: AppSpaces.paddingMedium + 2),
+                    padding: EdgeInsets.symmetric(
+                      vertical: AppSpaces.paddingMedium + 2,
+                    ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
+                      borderRadius: BorderRadius.circular(
+                        AppSpaces.radiusMedium,
+                      ),
                     ),
                     elevation: 0,
                   ),
@@ -139,13 +158,13 @@ class MapHotelCard extends StatelessWidget {
                     "Booking Now",
                     style: MyTextStyle.normalTitleText(
                       color: AppColors.primaryWhite,
-                      size: 15,
-                      fontWeight: FontWeight.bold,
+                      size: 16,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
               ),
-              SizedBox(width: AppSpaces.widthMedium),
+              SizedBox(width: 18),
               Container(
                 width: 50,
                 height: 50,
@@ -155,13 +174,14 @@ class MapHotelCard extends StatelessWidget {
                   border: Border.all(color: AppColors.grey200, width: 1),
                 ),
                 child: IconButton(
-                  icon:  Image.asset(AppImages.messageTextIcon),
+                  icon: Image.asset(AppImages.messageTextIcon),
                   onPressed: () {
+                    Get.toNamed(Routes.chatDetailsScreen);
                   },
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

@@ -15,7 +15,7 @@ class BookingCardWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(AppSpaces.radiusExtraLarge),
       child: SizedBox(
         width: 110,
-        height: 130,
+        height: 170,
         child: image.startsWith('assets/')
             ? Image.asset(image, fit: BoxFit.cover)
             : Image.network(image, fit: BoxFit.cover),
@@ -28,66 +28,48 @@ class BookingCardWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.primaryWhite,
-        borderRadius: BorderRadius.circular(AppSpaces.radiusExtraLarge),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.grey300.withOpacity(0.7),
-            blurRadius: 14,
-            offset: const Offset(0, 8),
-          ),
-        ],
+        border: Border.all(color: AppColors.grey300),
+        borderRadius: BorderRadius.circular(AppSpaces.radiusLarge),
       ),
       child: Padding(
-        padding: EdgeInsets.all(AppSpaces.paddingNormal),
+        padding: EdgeInsets.all(AppSpaces.paddingMedium),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildImage(),
-            SizedBox(width: AppSpaces.widthLarge),
+            SizedBox(width: AppSpaces.widthSmall),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
                         child: Text(
                           booking.hotelName,
-                          style: MyTextStyle.normalTitleText(
-                            size: 16,
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: MyTextStyle.normalTitleText(),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      const SizedBox(width: 6),
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: AppSpaces.paddingSmall,
-                          vertical: AppSpaces.paddingVerySmall,
-                        ),
-                        decoration: BoxDecoration(
-                          color: AppColors.lightBlueBg,
-                          borderRadius: BorderRadius.circular(
-                            AppSpaces.radiusSmall,
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.star_rounded,
+                            color: AppColors.amber,
+                            size: 20,
                           ),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.star, color: AppColors.amber, size: 14),
-                            SizedBox(width: AppSpaces.widthVerySmall),
-                            Text(
-                              booking.rating.toStringAsFixed(1),
-                              style: MyTextStyle.smallTitleText(
-                                color: AppColors.primaryBlack,
-                                size: 12,
-                                fontWeight: FontWeight.w600,
-                              ),
+                          SizedBox(width: AppSpaces.widthVerySmall),
+                          Text(
+                            booking.rating.toStringAsFixed(1),
+                            style: MyTextStyle.normalTitleText(
+                              size: 14,
+                              fontWeight: FontWeight.w500,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -96,23 +78,23 @@ class BookingCardWidget extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.location_on_outlined,
-                        size: 14,
-                        color: AppColors.grey600,
+                        size: 16,
+                        color: AppColors.grey500,
                       ),
-                      SizedBox(width: AppSpaces.widthSmall),
+                      SizedBox(width: AppSpaces.widthVerySmall),
                       Expanded(
                         child: Text(
                           booking.location,
                           style: MyTextStyle.smallTitleText(
-                            color: AppColors.grey600,
-                            size: 13,
+                            color: AppColors.grey500,
+                            fontWeight: FontWeight.w400,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: AppSpaces.heightMedium),
+                  SizedBox(height: AppSpaces.heightSmall),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -125,55 +107,30 @@ class BookingCardWidget extends StatelessWidget {
                         ),
                         TextSpan(
                           text: ' /night',
-                          style: MyTextStyle.smallTitleText(
-                            color: AppColors.grey600,
-                            size: 13,
+                          style: MyTextStyle.normalTitleText(
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.black87,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: AppSpaces.heightMedium),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.calendar_today_outlined,
-                        size: 14,
-                        color: AppColors.grey600,
-                      ),
-                      SizedBox(width: AppSpaces.widthSmall),
-                      Expanded(
-                        child: Text(
-                          'Dates ${booking.checkIn} - ${booking.checkOut}',
-                          style: MyTextStyle.smallTitleText(
-                            color: AppColors.grey600,
-                            size: 13,
-                          ),
-                        ),
-                      ),
-                    ],
+                  SizedBox(height: AppSpaces.heightSmall),
+                  Divider(color: AppColors.grey300),
+                  SizedBox(height: AppSpaces.heightSmall),
+
+                  _detailsRow(
+                    icon: Icons.calendar_month_outlined,
+                    title: "Dates",
+                    details:
+                        '${booking.checkIn.substring(0, 2)} - ${booking.checkOut}',
                   ),
                   SizedBox(height: AppSpaces.heightSmall),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.person_outline,
-                        size: 14,
-                        color: AppColors.grey600,
-                      ),
-                      SizedBox(width: AppSpaces.widthSmall),
-                      Expanded(
-                        child: Text(
-                          'Guest ${booking.guests} Guests (${booking.rooms} Room)',
-                          style: MyTextStyle.smallTitleText(
-                            color: AppColors.grey600,
-                            size: 13,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
+                  _detailsRow(
+                    icon: Icons.person_outline_rounded,
+                    title: 'Guest',
+                    details:
+                        ' ${booking.guests} Guests (${booking.rooms} Room)',
                   ),
                 ],
               ),
@@ -183,4 +140,34 @@ class BookingCardWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _detailsRow({
+  required IconData icon,
+  required String title,
+  required String details,
+}) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Icon(icon, size: 20, color: AppColors.grey600),
+      Text(
+        title,
+        style: MyTextStyle.smallTitleText(
+          color: AppColors.black87,
+          size: 14,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+      Text(
+        details,
+        style: MyTextStyle.smallTitleText(
+          color: AppColors.black87,
+          size: 14,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    ],
+  );
 }

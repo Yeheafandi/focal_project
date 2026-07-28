@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_images.dart';
+import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/search_section/search_view/search_widgets/default_search_view.dart';
 import 'package:focal_project/view/search_section/search_view/search_widgets/search_results_view.dart';
 import 'package:get/get.dart';
@@ -42,9 +43,11 @@ class SearchView extends StatelessWidget {
         actions: [
           IconButton(
             icon: Image.asset(AppImages.notificationIcon),
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(Routes.notificationScreen);
+            },
           ),
-           SizedBox(width: AppSpaces.paddingSmall),
+          SizedBox(width: AppSpaces.paddingSmall),
         ],
       ),
       body: Column(

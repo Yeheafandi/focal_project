@@ -20,7 +20,7 @@ class DefaultSearchView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           SizedBox(height: AppSpaces.heightSmall),
+          SizedBox(height: AppSpaces.heightSmall),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -28,7 +28,6 @@ class DefaultSearchView extends StatelessWidget {
                 'Recent Searches',
                 style: MyTextStyle.normalTitleText(
                   size: 16,
-                  fontWeight: FontWeight.bold,
                   color: AppColors.primaryBlack,
                 ),
               ),
@@ -38,14 +37,15 @@ class DefaultSearchView extends StatelessWidget {
                   'Clear All',
                   style: MyTextStyle.normalTitleText(
                     color: AppColors.red,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
+                    size: 12,
                   ),
                 ),
               ),
             ],
           ),
           const RecentSearchesList(),
-           SizedBox(height: AppSpaces.paddingLarge),
+          SizedBox(height: AppSpaces.paddingExtraLarge32),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -70,7 +70,7 @@ class DefaultSearchView extends StatelessWidget {
             ],
           ),
           const RecentlyViewedList(),
-           SizedBox(height: AppSpaces.paddingLarge),
+          SizedBox(height: AppSpaces.paddingLarge),
         ],
       ),
     );

@@ -29,4 +29,5 @@ class AppIcons {
   static const String visaLogo = '${iconsPath}visa-logo.svg';
   static const String iconAdd = '${iconsPath}Icon add.svg';
   static const String illustration = '${iconsPath}Illustration.svg';
+  static const String paymentIcon = '${iconsPath}Buy.svg';
 }

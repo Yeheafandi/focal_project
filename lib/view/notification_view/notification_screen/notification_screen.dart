@@ -4,6 +4,8 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
+import 'package:focal_project/core/services/notification_firebase_service.dart';
+import 'package:focal_project/core/services/notification_sender_service.dart';
 import 'package:focal_project/view/notification_view/notification_controller/notification_controller.dart';
 import 'package:focal_project/view/notification_view/widgets/filter_bottom_sheet.dart';
 import 'package:focal_project/view/notification_view/widgets/notification_item.dart';
@@ -39,11 +41,13 @@ class NotificationScreen extends GetView<NotificationController> {
               onTap: () {
                 Get.bottomSheet(
                   const FilterBottomSheet(),
-                  backgroundColor:  Colors.transparent,
-                   barrierColor: Colors.black.withOpacity(0.2),
+                  backgroundColor: Colors.transparent,
+                  barrierColor: Colors.black.withOpacity(0.2),
                   isScrollControlled: true,
                   shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(30),
+                    ),
                   ),
                 );
               },
@@ -54,8 +58,14 @@ class NotificationScreen extends GetView<NotificationController> {
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
-        child: Obx(
-          () => ListView(
+        child: Obx(() {
+          final today = controller.notifications
+              .where((e) => e.section == "Today")
+              .toList();
+          final yesterday = controller.notifications
+              .where((e) => e.section == "Yesterday")
+              .toList();
+          return ListView(
             children: [
               SizedBox(height: AppSpaces.heightLarge),
 
@@ -63,8 +73,12 @@ class NotificationScreen extends GetView<NotificationController> {
 
               SizedBox(height: AppSpaces.heightExtraLarge),
 
-              ...controller.notifications.map(
-                (notification) => NotificationItem(notification: notification),
+              ...List.generate(
+                today.length,
+                (index) => NotificationItem(
+                  notification: today[index],
+                  showDivider: index != today.length - 1,
+                ),
               ),
 
               SizedBox(height: AppSpaces.heightSmall),
@@ -73,13 +87,33 @@ class NotificationScreen extends GetView<NotificationController> {
 
               SizedBox(height: AppSpaces.heightExtraLarge),
 
-              ...controller.notifications.map(
-                (notification) => NotificationItem(notification: notification),
+              ...List.generate(
+                yesterday.length,
+                (index) => NotificationItem(
+                  notification: yesterday[index],
+                  showDivider: index != yesterday.length - 1,
+                ),
               ),
             ],
-          ),
-        ),
+          );
+        }),
       ),
     );
   }
 }
+// this is a way to send payment notification from payment screen 
+/*MaterialButton(
+                onPressed: () async {
+                  final token =
+                      Get.find<NotificationFirebaseService>().fcmToken;
+
+                  if (token != null) {
+                    await NotificationSender.sendNotificationToSelectToken(
+                      fcmToken: token,
+                      title: "Payment",
+                      body: "Successful",
+                    );
+                  }
+                },
+                child: Text('send notification'),
+              ),*/

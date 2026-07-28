@@ -7,6 +7,7 @@ import 'package:focal_project/view/book_view/request_to_book_view.dart';
 import 'package:focal_project/view/card/card_screen.dart';
 import 'package:focal_project/view/chat_details_view/chat_details_screen/chat_details_screen.dart';
 import 'package:focal_project/view/checkout_view/checkout_view.dart';
+import 'package:focal_project/view/checkout_view/payment_complete_view.dart';
 import 'package:focal_project/view/home_view/home_view.dart';
 import 'package:focal_project/view/messages_view/messages_screen/messages_screen.dart';
 import 'package:focal_project/view/my_favorite_view/my_favorite_screen/my_favorite_screen.dart';
@@ -30,8 +31,8 @@ import '../view/onboarding/onboarding_view/onboarding1.dart';
 
 class AppRoutes {
   static final screens = [
-  GetPage(name: Routes.homeview, page: () =>  HomeView()),
-  GetPage(name: Routes.nearbyMap, page: () =>  NearbyMapView()),
+    GetPage(name: Routes.homeview, page: () => HomeView()),
+    GetPage(name: Routes.nearbyMap, page: () => NearbyMapView()),
     GetPage(name: Routes.homeview, page: () => HomeView()),
     GetPage(name: Routes.nearbyMap, page: () => NearbyMapView()),
     GetPage(name: Routes.search, page: () => SearchView()),
@@ -74,5 +75,6 @@ class AppRoutes {
     GetPage(name: Routes.splashscreen, page: () => SplashScreen()),
     GetPage(name: Routes.profilescreen, page: () => ProfileScreen()),
     GetPage(name: Routes.cardscreen, page: () => CardScreen()),
+    GetPage(name: Routes.paymentComplete, page: () => PaymentCompleteView()),
   ];
 }

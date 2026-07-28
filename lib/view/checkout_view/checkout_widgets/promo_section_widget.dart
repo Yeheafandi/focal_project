@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 
@@ -7,11 +9,7 @@ class PromoSectionWidget extends StatelessWidget {
   final String label;
   final VoidCallback? onTap;
 
-  const PromoSectionWidget({
-    super.key,
-    this.label = 'Select',
-    this.onTap,
-  });
+  const PromoSectionWidget({super.key, this.label = 'Select', this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +20,14 @@ class PromoSectionWidget extends StatelessWidget {
           'Promo',
           style: MyTextStyle.normalTitleText(
             size: 16,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
           ),
         ),
-         SizedBox(height: AppSpaces.heightMedium),
+        SizedBox(height: AppSpaces.heightMedium),
         GestureDetector(
           onTap: onTap,
           child: Container(
-            padding:  EdgeInsets.symmetric(
+            padding: EdgeInsets.symmetric(
               horizontal: AppSpaces.paddingNormal,
               vertical: AppSpaces.paddingMedium,
             ),
@@ -39,26 +37,21 @@ class PromoSectionWidget extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Icon(
-                  Icons.local_offer_outlined,
-                  color: AppColors.primary,
-                  size: 22,
-                ),
-                 SizedBox(width: AppSpaces.widthMedium),
+                SvgPicture.asset(AppIcons.discountShape),
+
+                SizedBox(width: AppSpaces.widthMedium),
                 Text(
                   label,
                   style: MyTextStyle.normalTitleText(
                     color: AppColors.primary,
-                    size: 15,
-                    fontWeight: FontWeight.w600,
+                    size: 14,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
                 const Spacer(),
-                Icon(
-                  Icons.chevron_right,
-                  color: AppColors.primary,
-                  size: 22,
-                ),
+                SvgPicture.asset(AppIcons.arrowRight),
+
+                // Icon(Icons.chevron_right, color: AppColors.primary, size: 22),
               ],
             ),
           ),

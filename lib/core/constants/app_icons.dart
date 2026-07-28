@@ -22,4 +22,11 @@ class AppIcons {
   static const String calendar2 = '${iconsPath}calendar2.svg';
 
   static const String emptyWallet = '${iconsPath}empty-wallet.svg';
+  static const String discountShape = '${iconsPath}discount-shape.svg';
+  static const String arrowRight = '${iconsPath}arrow-right.svg';
+  static const String close = '${iconsPath}close.svg';
+  static const String mastercard = '${iconsPath}mastercard.svg';
+  static const String visaLogo = '${iconsPath}visa-logo.svg';
+  static const String iconAdd = '${iconsPath}Icon add.svg';
+  static const String illustration = '${iconsPath}Illustration.svg';
 }

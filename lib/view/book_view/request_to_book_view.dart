@@ -171,7 +171,7 @@ class RequestToBookView extends StatelessWidget {
             ),
           ),
 
-          CustomeButton(text: "Checkout", onPressed: () {}),
+          CustomeButton(text: "Checkout", onPressed: controller.checkout),
         ],
       ),
     );

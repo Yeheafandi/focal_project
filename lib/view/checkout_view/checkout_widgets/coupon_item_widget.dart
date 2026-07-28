@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/model/coupon_model.dart';
-import 'package:focal_project/view/checkout_view/checkout_widgets/payment_method_modal.dart';
 
 class CouponItemWidget extends StatelessWidget {
   final CouponModel coupon;
@@ -18,39 +19,33 @@ class CouponItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        onTap();
-        showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          builder: (_) => Container(
-            margin: const EdgeInsets.only(top: 40),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-            ),
-            child: const PaymentMethodModal(),
-          ),
-        );
-      },
+      onTap: onTap,
+      // showModalBottomSheet(
+      //   context: context,
+      //   isScrollControlled: true,
+      //   backgroundColor: Colors.transparent,
+      //   builder: (_) => Container(
+      //     margin: const EdgeInsets.only(top: 40),
+      //     decoration: const BoxDecoration(
+      //       color: Colors.white,
+      //       borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      //     ),
+      //     child: const PaymentMethodModal(),
+      //   ),
+      // );
       child: Container(
-        margin: EdgeInsets.only(bottom: AppSpaces.heightMedium),
+        margin: EdgeInsets.only(bottom: AppSpaces.heightNormal),
         padding: EdgeInsets.all(AppSpaces.paddingNormal),
         decoration: BoxDecoration(
-          color: coupon.isSelected ? AppColors.primaryWhite : AppColors.grey100,
+          color: AppColors.primaryWhite,
           borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
           border: coupon.isSelected
-              ? Border.all(color: AppColors.primary, width: 1.5)
+              ? Border.all(color: AppColors.primary, width: 1)
               : null,
         ),
         child: Row(
           children: [
-            Icon(
-              Icons.local_offer_outlined,
-              color: AppColors.primary,
-              size: 28,
-            ),
+            SvgPicture.asset(AppIcons.discountShape),
             SizedBox(width: AppSpaces.widthMedium),
             Expanded(
               child: Column(
@@ -62,8 +57,7 @@ class CouponItemWidget extends StatelessWidget {
                       color: coupon.isSelected
                           ? AppColors.primary
                           : AppColors.primaryBlack,
-                      size: 15,
-                      fontWeight: FontWeight.w700,
+                      size: 14,
                     ),
                   ),
                   SizedBox(height: AppSpaces.heightVerySmall),
@@ -72,8 +66,9 @@ class CouponItemWidget extends StatelessWidget {
                       Text(
                         coupon.expiryText,
                         style: MyTextStyle.smallTitleText(
-                          color: AppColors.grey,
+                          color: AppColors.grey600,
                           size: 12,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                       SizedBox(width: AppSpaces.widthSmall),
@@ -81,8 +76,8 @@ class CouponItemWidget extends StatelessWidget {
                         'See Detail',
                         style: MyTextStyle.smallTitleText(
                           color: AppColors.primary,
-                          size: 12,
-                          fontWeight: FontWeight.w600,
+                          size: 14,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ],
@@ -91,7 +86,7 @@ class CouponItemWidget extends StatelessWidget {
               ),
             ),
             if (coupon.isSelected)
-              Icon(Icons.check, color: AppColors.primary, size: 22),
+              Icon(Icons.check, color: AppColors.primary, size: 20),
           ],
         ),
       ),

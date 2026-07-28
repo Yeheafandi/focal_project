@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
+import 'package:focal_project/model/hotel_model.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/text_style.dart';
 
 class SearchCardItem extends StatelessWidget {
-  const SearchCardItem({super.key});
+  final HotelModel hotel;
+
+  const SearchCardItem({super.key, required this.hotel});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:  EdgeInsets.only(bottom: AppSpaces.paddingLarge),
+      margin: EdgeInsets.only(bottom: AppSpaces.paddingLarge),
       decoration: BoxDecoration(
         color: AppColors.primaryWhite,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(AppSpaces.radiusSmall),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,10 +26,15 @@ class SearchCardItem extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
-                  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=600",
+                  hotel.imageUrl,
                   height: 200,
                   width: double.infinity,
                   fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Container(
+                    height: 200,
+                    color: AppColors.grey200,
+                    child: const Icon(Icons.hotel, size: 50),
+                  ),
                 ),
               ),
               Positioned(
@@ -38,18 +46,19 @@ class SearchCardItem extends StatelessWidget {
                     vertical: 5,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.primaryWhite.withAlpha(10),
+                    color: AppColors.primaryWhite.withAlpha(40),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.star, color: AppColors.amber, size: 14),
-                       SizedBox(width: AppSpaces.paddingVerySmall),
+                      Icon(Icons.star, color: AppColors.amber, size: 16),
+                      SizedBox(width: AppSpaces.paddingVerySmall),
                       Text(
-                        "4.9",
+                        "${hotel.rating}",
                         style: MyTextStyle.normalTitleText(
                           color: AppColors.primaryWhite,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
+                          size: 12,
                         ),
                       ),
                     ],
@@ -60,28 +69,25 @@ class SearchCardItem extends StatelessWidget {
                 top: 15,
                 right: 15,
                 child: CircleAvatar(
-                  backgroundColor: AppColors.primaryWhite.withAlpha(10),
-                  child: Image.asset(AppImages.heartIcon),
+                  backgroundColor: AppColors.primaryWhite.withAlpha(40),
+                  child: Image.asset(
+                    hotel.isFavorite
+                        ? AppImages.heartFillIcon
+                        : AppImages.heartIcon,
+                  ),
                 ),
               ),
             ],
           ),
-           SizedBox(height: AppSpaces.heightSmall),
+          SizedBox(height: AppSpaces.heightMedium),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              Text(hotel.name, style: MyTextStyle.normalTitleText(size: 16)),
               Text(
-                "Sapphire Cove Hotel",
-                style: MyTextStyle.normalTitleText(
-                  fontWeight: FontWeight.bold,
-                  size: 18,
-                ),
-              ),
-              Text(
-                "\$290",
+                "\$${hotel.pricePerNight.toInt()}",
                 style: MyTextStyle.normalTitleText(
                   color: AppColors.primaryBlue,
-                  fontWeight: FontWeight.bold,
                   size: 18,
                 ),
               ),
@@ -91,33 +97,46 @@ class SearchCardItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Key West, FL",
-                style: MyTextStyle.normalTitleText(color: AppColors.grey400),
+                hotel.location,
+                style: MyTextStyle.normalTitleText(
+                  color: AppColors.grey400,
+                  size: 14,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
               Text(
                 "Per Night",
                 style: MyTextStyle.normalTitleText(
                   color: AppColors.grey400,
+                  fontWeight: FontWeight.w400,
                   size: 12,
                 ),
               ),
             ],
           ),
-           SizedBox(height: AppSpaces.heightSmall),
+          SizedBox(height: AppSpaces.heightSmall),
           Row(
             children: [
-              Icon(Icons.bed, color: AppColors.grey500, size: 18),
-               SizedBox(width: AppSpaces.paddingVerySmall),
+              Icon(Icons.king_bed_outlined, color: AppColors.black87, size: 18),
+              SizedBox(width: AppSpaces.paddingVerySmall),
               Text(
                 "3 bed",
-                style: MyTextStyle.normalTitleText(color: AppColors.grey400),
+                style: MyTextStyle.normalTitleText(
+                  color: AppColors.black87,
+                  size: 14,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
-               SizedBox(width: AppSpaces.paddingNormal),
-              Icon(Icons.bathroom, color: AppColors.grey500, size: 18),
-               SizedBox(width: AppSpaces.paddingVerySmall),
+              SizedBox(width: AppSpaces.paddingNormal),
+              Icon(Icons.bathtub_outlined, color: AppColors.black87, size: 18),
+              SizedBox(width: AppSpaces.paddingVerySmall),
               Text(
                 "3 bathroom",
-                style: MyTextStyle.normalTitleText(color: AppColors.grey400),
+                style: MyTextStyle.normalTitleText(
+                  color: AppColors.black87,
+                  size: 14,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ],
           ),

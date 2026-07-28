@@ -14,7 +14,7 @@ class CategoryTabs extends StatelessWidget {
     final categories = ["All", "Villas", "Hotels", "Apartments"];
 
     return Container(
-      height: 50,
+      height: 40,
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -31,18 +31,26 @@ class CategoryTabs extends StatelessWidget {
               },
               child: Container(
                 margin: const EdgeInsets.only(right: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 10,
+                ),
                 decoration: BoxDecoration(
-                  color: isSelected ? AppColors.primaryBlue : AppColors.primaryWhite,
-                  borderRadius: BorderRadius.circular(20),
+                  color: isSelected
+                      ? AppColors.primaryBlue
+                      : AppColors.primaryWhite,
+                  borderRadius: BorderRadius.circular(AppSpaces.radiusSmall),
                   border: Border.all(color: AppColors.grey200),
                 ),
                 child: Center(
                   child: Text(
                     cat,
                     style: MyTextStyle.normalTitleText(
-                      color: isSelected ? AppColors.primaryWhite : AppColors.grey600,
-                      fontWeight: FontWeight.bold,
+                      color: isSelected
+                          ? AppColors.primaryWhite
+                          : AppColors.grey600,
+                      fontWeight: FontWeight.w500,
+                      size: 14,
                     ),
                   ),
                 ),

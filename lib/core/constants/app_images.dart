@@ -28,6 +28,7 @@ class AppImages {
   static String filterOffOutlineIcon='assets/icons/mdi_filter-off-outline.png';
   static String notificationIcon='assets/icons/solar_bell-linear (1).png';
   static String heartIcon='assets/icons/Heart.png';
+  static String heartFillIcon='assets/icons/Heart (1).png';
   static String heartIcon2='assets/icons/lets-icons_favorite-light.png';
   static String favoriteIcon = 'assets/icons/solar_heart-linear.png';
   static String favoriteIconFill = 'assets/icons/Frame 259.png';

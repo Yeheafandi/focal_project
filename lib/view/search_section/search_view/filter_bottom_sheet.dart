@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/view/search_section/search_view/search_filter_controller/search_filter_controller.dart';
+import 'package:focal_project/widgets/custome_button.dart';
 import 'package:get/get.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_spaces.dart';
@@ -13,10 +14,13 @@ class FilterBottomSheet extends StatelessWidget {
     final controller = Get.find<SearchFilterController>();
 
     return Container(
-      padding: EdgeInsets.all(AppSpaces.paddingLarge),
-      decoration: BoxDecoration(
+      padding: EdgeInsets.symmetric(
+        horizontal: AppSpaces.paddingLarge,
+        vertical: AppSpaces.paddingMedium,
+      ),
+      decoration: const BoxDecoration(
         color: AppColors.primaryWhite,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
       ),
       child: SingleChildScrollView(
         child: Column(
@@ -24,41 +28,48 @@ class FilterBottomSheet extends StatelessWidget {
           children: [
             Center(
               child: Container(
-                width: 50,
-                height: 5,
+                width: 40,
+                height: 4,
                 decoration: BoxDecoration(
                   color: AppColors.grey300,
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
             ),
-             SizedBox(height: AppSpaces.paddingLarge),
+            SizedBox(height: AppSpaces.paddingMedium),
             Center(
               child: Text(
                 "Filter By",
                 style: MyTextStyle.normalTitleText(
                   fontWeight: FontWeight.bold,
-                  size: 20,
+                  size: 18,
                   color: AppColors.primaryBlack,
                 ),
               ),
             ),
-             SizedBox(height: AppSpaces.paddingLarge),
+            SizedBox(height: AppSpaces.paddingLarge),
 
             _buildSectionTitle("Placeholder"),
-             SizedBox(height: AppSpaces.paddingSmall),
+            SizedBox(height: AppSpaces.paddingSmall),
             Obx(
               () => Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   border: Border.all(color: AppColors.grey200),
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
                     value: controller.selectedGuests.value,
                     isExpanded: true,
-                    icon: const Icon(Icons.keyboard_arrow_down),
+                    icon: Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      color: AppColors.grey400,
+                      size: 24,
+                    ),
                     items:
                         [
                           "3 Guest (2 Adult, 1 Childern)",
@@ -67,7 +78,13 @@ class FilterBottomSheet extends StatelessWidget {
                         ].map((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
-                            child: Text(value),
+                            child: Text(
+                              value,
+                              style: MyTextStyle.normalTitleText(
+                                size: 14,
+                                color: AppColors.grey500,
+                              ),
+                            ),
                           );
                         }).toList(),
                     onChanged: (val) {
@@ -77,7 +94,7 @@ class FilterBottomSheet extends StatelessWidget {
                 ),
               ),
             ),
-             SizedBox(height: AppSpaces.paddingLarge),
+            SizedBox(height: AppSpaces.paddingLarge),
 
             Obx(
               () => Row(
@@ -86,30 +103,43 @@ class FilterBottomSheet extends StatelessWidget {
                   _buildSectionTitle("Price"),
                   Text(
                     "\$${controller.priceRange.value.start.toInt()}-\$${controller.priceRange.value.end.toInt()}",
-                    style: TextStyle(
-                      color: AppColors.grey500,
-                      fontWeight: FontWeight.bold,
+                    style: MyTextStyle.normalTitleText(
+                      color: AppColors.grey300,
+                      fontWeight: FontWeight.w400,
+                      size: 14,
                     ),
                   ),
                 ],
               ),
             ),
-             SizedBox(height: AppSpaces.paddingSmall),
+            SizedBox(height: AppSpaces.heightNormal),
+
             Obx(
-              () => RangeSlider(
-                values: controller.priceRange.value,
-                min: 0,
-                max: 500,
-                activeColor: AppColors.primaryBlue,
-                inactiveColor: AppColors.grey200,
-                onChanged: (values) {
-                  controller.priceRange.value = values;
-                },
+              () => SliderTheme(
+                data: SliderTheme.of(context).copyWith(
+                  trackHeight: 2,
+                  thumbShape: const RoundSliderThumbShape(
+                    enabledThumbRadius: 6,
+                  ),
+                  overlayShape: const RoundSliderOverlayShape(
+                    overlayRadius: 12,
+                  ),
+                  activeTrackColor: AppColors.primaryBlue,
+                  inactiveTrackColor: AppColors.grey200,
+                  thumbColor: AppColors.primaryBlue,
+                ),
+                child: RangeSlider(
+                  values: controller.priceRange.value,
+                  min: 0,
+                  max: 500,
+                  onChanged: (values) {
+                    controller.priceRange.value = values;
+                  },
+                ),
               ),
             ),
-             SizedBox(height: AppSpaces.paddingSmall),
+            SizedBox(height: AppSpaces.paddingMedium),
 
-            // 3. Instant Book Switch
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -117,119 +147,165 @@ class FilterBottomSheet extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildSectionTitle("Instant Book"),
-                     SizedBox(height: AppSpaces.paddingSmall),
+                    const SizedBox(height: 2),
                     Text(
                       "Book without waiting for the host to respond",
-                      style: TextStyle(color: AppColors.grey400, fontSize: 11),
+                      style: MyTextStyle.smallTitleText(
+                        color: AppColors.grey400,
+                        fontWeight: FontWeight.w400,
+                        size: 12,
+                      ),
                     ),
                   ],
                 ),
                 Obx(
-                  () => Switch(
-                    value: controller.isInstantBook.value,
-                    activeColor: AppColors.primaryWhite,
-                    activeTrackColor: AppColors.primaryBlue,
-                    onChanged: (val) => controller.isInstantBook.value = val,
+                  () => Transform.scale(
+                    scale: 0.8,
+                    child: Switch(
+                      value: controller.isInstantBook.value,
+                      activeColor: AppColors.primaryWhite,
+                      activeTrackColor: AppColors.primaryBlue,
+                      inactiveThumbColor: AppColors.primaryWhite,
+                      inactiveTrackColor: AppColors.grey200,
+                      trackOutlineColor: WidgetStateProperty.all(
+                        Colors.transparent,
+                      ),
+                      onChanged: (val) => controller.isInstantBook.value = val,
+                    ),
                   ),
                 ),
               ],
             ),
-             SizedBox(height: AppSpaces.paddingLarge),
+            SizedBox(height: AppSpaces.paddingExtraLarge),
 
             _buildSectionTitle("Location"),
-             SizedBox(height: AppSpaces.paddingSmall),
+            SizedBox(height: AppSpaces.heightNormal),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: ["San Diego", "New York", "Amsterdam"].map((loc) {
                   return Obx(() {
                     bool isSelected = controller.selectedLocation.value == loc;
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: ChoiceChip(
-                        label: Text(loc),
-                        selected: isSelected,
-                        selectedColor: AppColors.primaryBlue,
-                        backgroundColor: AppColors.primaryWhite,
-                        labelStyle: MyTextStyle.normalTitleText(
-                          color: isSelected
-                              ? AppColors.primaryWhite
-                              : AppColors.primaryBlue,
-                          fontWeight: FontWeight.bold,
+                    return GestureDetector(
+                      onTap: () => controller.selectedLocation.value = loc,
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 12),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 10,
                         ),
-                        onSelected: (selected) {
-                          if (selected) controller.selectedLocation.value = loc;
-                        },
+                        decoration: BoxDecoration(
+                          color: isSelected
+                              ? AppColors.primaryBlue
+                              : AppColors.grey100.withOpacity(0.4),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Text(
+                          loc,
+                          style: MyTextStyle.normalTitleText(
+                            color: isSelected
+                                ? AppColors.primaryWhite
+                                : AppColors.primaryBlue,
+                            fontWeight: FontWeight.w600,
+                            size: 13,
+                          ),
+                        ),
                       ),
                     );
                   });
                 }).toList(),
               ),
             ),
-             SizedBox(height: AppSpaces.paddingLarge),
+            SizedBox(height: AppSpaces.paddingLarge),
 
-            // 5. Facilities Checkboxes
             _buildSectionTitle("Facilities"),
+            SizedBox(height: AppSpaces.heightNormal),
             ...["Free Wifi", "Swimming Pool", "Tv", "Laundry"].map((facility) {
               return Obx(() {
                 bool isChecked = controller.selectedFacilities.contains(
                   facility,
                 );
-                return CheckboxListTile(
-                  title: Text(
-                    facility,
-                    style: MyTextStyle.normalTitleText(
-                      color: AppColors.grey500,
-                    ),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        facility,
+                        style: MyTextStyle.normalTitleText(
+                          color: AppColors.grey400,
+                          size: 14,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 24,
+                        width: 24,
+                        child: Checkbox(
+                          value: isChecked,
+                          activeColor: AppColors.primaryBlue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          side: BorderSide(
+                            color: AppColors.grey300,
+                            width: 1.5,
+                          ),
+                          onChanged: (checked) {
+                            if (checked == true) {
+                              controller.selectedFacilities.add(facility);
+                            } else {
+                              controller.selectedFacilities.remove(facility);
+                            }
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                  value: isChecked,
-                  activeColor: AppColors.primaryBlue,
-                  onChanged: (checked) {
-                    if (checked == true) {
-                      controller.selectedFacilities.add(facility);
-                    } else {
-                      controller.selectedFacilities.remove(facility);
-                    }
-                  },
-                  controlAffinity: ListTileControlAffinity.trailing,
                 );
               });
             }),
+            SizedBox(height: AppSpaces.paddingLarge),
 
+            // 6. Ratings
             _buildSectionTitle("Ratings"),
-             SizedBox(height: AppSpaces.paddingSmall),
+            SizedBox(height: AppSpaces.heightNormal),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [5, 4, 3, 2, 1].map((stars) {
                 return Obx(() {
                   bool isSelected = controller.selectedRating.value == stars;
                   return InkWell(
+                    borderRadius: BorderRadius.circular(15),
                     onTap: () => controller.selectedRating.value = stars,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 14,
-                        vertical: 8,
+                        vertical: 12,
                       ),
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: isSelected
                               ? AppColors.primaryBlue
                               : AppColors.grey200,
-                          width: isSelected ? 1.5 : 1,
+                          width: 1.5,
                         ),
-                        borderRadius: BorderRadius.circular(20),
-                        color: isSelected
-                            ? AppColors.primaryBlue
-                            : Colors.transparent,
+                        borderRadius: BorderRadius.circular(15),
+                        color: AppColors.primaryWhite,
                       ),
                       child: Row(
                         children: [
-                          Icon(Icons.star, color: AppColors.amber, size: 16),
+                          const Icon(
+                            Icons.star,
+                            color: AppColors.amber,
+                            size: 16,
+                          ),
                           const SizedBox(width: 4),
                           Text(
                             "$stars",
                             style: MyTextStyle.normalTitleText(
                               fontWeight: FontWeight.bold,
+                              size: 13,
+                              color: AppColors.primaryBlack,
                             ),
                           ),
                         ],
@@ -239,30 +315,18 @@ class FilterBottomSheet extends StatelessWidget {
                 });
               }).toList(),
             ),
-             SizedBox(height: AppSpaces.paddingLarge),
+            SizedBox(height: AppSpaces.paddingLarge * 1.5),
 
+            // Apply Filter Button
             SizedBox(
               width: double.infinity,
-              height: 54,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primaryBlue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
+              child: CustomeButton(
+                text: "Apply Filter",
                 onPressed: () {
                   controller.isFilterApplied.value = true;
                   controller.executeSearchAndFilter();
                   Get.back();
                 },
-                child: Text(
-                  "Apply Filter",
-                  style: MyTextStyle.normalTitleText(
-                    color: AppColors.primaryWhite,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
               ),
             ),
           ],
@@ -275,8 +339,8 @@ class FilterBottomSheet extends StatelessWidget {
     return Text(
       title,
       style: MyTextStyle.normalTitleText(
-        fontWeight: FontWeight.bold,
-        size: 16,
+        fontWeight: FontWeight.w500,
+        size: 14,
         color: AppColors.primaryBlack,
       ),
     );

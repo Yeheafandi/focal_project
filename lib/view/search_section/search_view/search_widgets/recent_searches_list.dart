@@ -18,6 +18,9 @@ class RecentSearchesList extends StatelessWidget {
         itemCount: controller.recentSearches.length,
         itemBuilder: (context, index) {
           final item = controller.recentSearches[index];
+          final String title = item["title"] ?? "";
+          final String location = item["location"] ?? "";
+
           return ListTile(
             contentPadding: EdgeInsets.zero,
             leading: CircleAvatar(
@@ -25,18 +28,25 @@ class RecentSearchesList extends StatelessWidget {
               child: Icon(Icons.access_time, color: AppColors.grey500),
             ),
             title: Text(
-              item,
-              style: MyTextStyle.normalTitleText(fontWeight: FontWeight.bold),
+              title, 
+              style: MyTextStyle.normalTitleText(size: 14),
             ),
             subtitle: Text(
-              "Clearwater, FL",
+              location,
               style: MyTextStyle.normalTitleText(
+                fontWeight: FontWeight.w400,
                 color: AppColors.grey400,
                 size: 12,
               ),
             ),
+            trailing: IconButton(
+              icon: Icon(Icons.close, size: 18, color: AppColors.grey400),
+              onPressed: () {
+                controller.recentSearches.removeAt(index);
+              },
+            ),
             onTap: () {
-              controller.searchTxtController.text = item;
+              controller.searchTxtController.text = title;
               controller.executeSearchAndFilter();
             },
           );

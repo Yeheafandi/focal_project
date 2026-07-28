@@ -1,3 +1,4 @@
+import 'package:focal_project/core/constants/app_images.dart';
 import 'package:get/get.dart';
 import 'package:focal_project/model/booking_details_model.dart';
 
@@ -34,7 +35,7 @@ class MyBookingController extends GetxController {
     BookingDetailsModel(
       id: 1,
       hotelName: 'The Aston Vill Hotel',
-      hotelImage: 'assets/images/second.jpg',
+      hotelImage: AppImages.onBoarding2,
       location: 'Veum Point, Michikoton',
       rating: 4.7,
       price: 120,
@@ -51,7 +52,7 @@ class MyBookingController extends GetxController {
     BookingDetailsModel(
       id: 2,
       hotelName: 'Mystic Palms',
-      hotelImage: 'assets/images/first.jpg',
+      hotelImage: AppImages.onBoarding1,
       location: 'Palm Springs, CA',
       rating: 4.0,
       price: 230,
@@ -68,7 +69,7 @@ class MyBookingController extends GetxController {
     BookingDetailsModel(
       id: 3,
       hotelName: 'Elysian Suites',
-      hotelImage: 'assets/images/third.jpg',
+      hotelImage: AppImages.onBoarding3,
       location: 'San Diego, CA',
       rating: 3.8,
       price: 190,

@@ -5,6 +5,7 @@ import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/checkout_view/checkout_controller/checkout_controller.dart';
 import 'package:focal_project/view/checkout_view/checkout_widgets/checkout_info_card.dart';
 import 'package:focal_project/view/checkout_view/checkout_widgets/promo_section_widget.dart';
+import 'package:focal_project/widgets/custome_button.dart';
 import 'package:focal_project/widgets/recommended_hotel_card.dart';
 import 'package:get/get.dart';
 
@@ -22,25 +23,13 @@ class CheckoutView extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.primaryBlack,
-          ),
+          icon: const Icon(Icons.arrow_back, color: AppColors.primaryBlack),
           onPressed: () => Get.back(),
         ),
-        title: Text(
-          'Checkout',
-          style: MyTextStyle.normalTitleText(
-            size: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        title: Text('Checkout', style: MyTextStyle.normalTitleText(size: 18)),
         actions: [
           IconButton(
-            icon: const Icon(
-              Icons.more_vert,
-              color: AppColors.primaryBlack,
-            ),
+            icon: const Icon(Icons.more_vert, color: AppColors.primaryBlack),
             onPressed: () {},
           ),
         ],
@@ -49,7 +38,7 @@ class CheckoutView extends StatelessWidget {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding:  EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                 horizontal: AppSpaces.paddingLarge,
                 vertical: AppSpaces.paddingNormal,
               ),
@@ -60,22 +49,17 @@ class CheckoutView extends StatelessWidget {
                     hotel: controller.bookingArgs.hotel,
                     underline: false,
                   ),
-                   SizedBox(height: AppSpaces.heightMedium),
+                  SizedBox(height: AppSpaces.heightSmall),
                   CheckoutInfoCard(controller: controller),
-                   SizedBox(height: AppSpaces.heightLarge),
-                  Obx(
-                    () => PromoSectionWidget(
-                      label: controller.promoLabel,
-                      onTap: controller.showCouponBottomSheet,
-                    ),
-                  ),
-                   SizedBox(height: AppSpaces.heightExtraLarge),
+                  SizedBox(height: AppSpaces.heightLarge),
+                  PromoSectionWidget(onTap: controller.showCouponBottomSheet),
+                  SizedBox(height: AppSpaces.heightExtraLarge),
                 ],
               ),
             ),
           ),
           Padding(
-            padding:  EdgeInsets.fromLTRB(
+            padding: EdgeInsets.fromLTRB(
               AppSpaces.paddingLarge,
               AppSpaces.paddingSmall,
               AppSpaces.paddingLarge,
@@ -83,28 +67,11 @@ class CheckoutView extends StatelessWidget {
             ),
             child: SizedBox(
               width: double.infinity,
-              height: 52,
-              child: ElevatedButton(
+              child: CustomeButton(
+                text: "Select Payment",
                 onPressed: controller.selectPayment,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  foregroundColor: AppColors.primaryWhite,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      AppSpaces.radiusMedium,
-                    ),
-                  ),
-                ),
-                child: Text(
-                  'Select Payment',
-                  style: MyTextStyle.normalTitleText(
-                    color: AppColors.primaryWhite,
-                    size: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
               ),
+             
             ),
           ),
         ],

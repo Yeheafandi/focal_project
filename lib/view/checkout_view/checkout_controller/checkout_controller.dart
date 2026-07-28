@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/model/booking_flow_args.dart';
 import 'package:focal_project/model/coupon_model.dart';
+import 'package:focal_project/routes/app_routes.dart';
+import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/checkout_view/checkout_widgets/my_coupon_bottom_sheet.dart';
+import 'package:focal_project/view/checkout_view/checkout_widgets/payment_method_modal.dart';
 import 'package:get/get.dart';
 
 class CheckoutController extends GetxController {
@@ -96,9 +99,6 @@ class CheckoutController extends GetxController {
   String get guestLabel =>
       '${bookingArgs.guestCount} Guest${bookingArgs.guestCount > 1 ? 's' : ''} (1 Room)';
 
-  String get promoLabel =>
-      appliedCoupon.value?.title ?? 'Select';
-
   String formatPrice(double amount) => '\$${amount.toStringAsFixed(2)}';
 
   void selectCoupon(String id) {
@@ -127,6 +127,15 @@ class CheckoutController extends GetxController {
   }
 
   void selectPayment() {
-    // Placeholder for payment selection
+    Get.bottomSheet(
+      PaymentMethodModal(onConformAndPay: onConformAndPay),
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      barrierColor: AppColors.black87.withOpacity(0.4),
+    );
+  }
+
+  void onConformAndPay() {
+    Get.toNamed(Routes.paymentComplete);
   }
 }

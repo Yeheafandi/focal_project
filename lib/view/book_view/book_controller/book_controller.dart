@@ -1,3 +1,5 @@
+import 'package:focal_project/core/constants/app_images.dart';
+import 'package:focal_project/core/services/hotel_services.dart';
 import 'package:focal_project/model/booking_flow_args.dart';
 import 'package:focal_project/model/hotel_model.dart';
 import 'package:focal_project/routes/routes.dart';
@@ -53,15 +55,16 @@ class RequestToBookController extends GetxController {
     }
   }
 
-  static final HotelModel _defaultHotel = HotelModel(
-    id: '1',
-    name: 'The Aston Vill Hotel',
-    location: 'Veum Point, Michikoton',
-    pricePerNight: 120,
-    rating: 4.7,
-    imageUrl:
-        'https://images.unsplash.com/photo-1540555700478-4be289fbecef',
-  );
+  static final HotelModel _defaultHotel = HotelServices.allHotels[5];
+  // HotelModel(
+  //   id: '1',
+  //   name: 'The Aston Vill Hotel',
+  //   location: 'Veum Point, Michikoton',
+  //   pricePerNight: 120,
+  //   rating: 4.7,
+  //   imageUrl:
+  //       'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80',
+  // );
 
   double get pricePerNight => hotel.pricePerNight;
 
@@ -79,13 +82,13 @@ class RequestToBookController extends GetxController {
   }
 
   BookingFlowArgs get bookingArgs => BookingFlowArgs(
-        hotel: hotel,
-        checkInDate: checkInDate.value,
-        checkOutDate: checkOutDate.value,
-        guestCount: guestCount.value,
-        paymentMethodName: paymentMethodName.value,
-        paymentMethodNumber: paymentMethodNumber.value,
-      );
+    hotel: hotel,
+    checkInDate: checkInDate.value,
+    checkOutDate: checkOutDate.value,
+    guestCount: guestCount.value,
+    paymentMethodName: paymentMethodName.value,
+    paymentMethodNumber: paymentMethodNumber.value,
+  );
 
   void incrementGuest() {
     guestCount.value++;
@@ -111,9 +114,6 @@ class RequestToBookController extends GetxController {
   }
 
   void checkout() {
-    Get.toNamed(
-      Routes.checkout,
-      arguments: bookingArgs,
-    );
+    Get.toNamed(Routes.checkout, arguments: bookingArgs);
   }
 }

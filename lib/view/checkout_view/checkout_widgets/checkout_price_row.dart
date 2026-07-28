@@ -18,9 +18,7 @@ class CheckoutPriceRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        bottom: isTotal ? 0 : AppSpaces.heightMedium,
-      ),
+      padding: EdgeInsets.only(bottom: isTotal ? 0 : AppSpaces.heightMedium),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -28,12 +26,13 @@ class CheckoutPriceRow extends StatelessWidget {
             label,
             style: isTotal
                 ? MyTextStyle.normalTitleText(
-                    size: 15,
-                    fontWeight: FontWeight.w700,
+                    size: 14,
+                    fontWeight: FontWeight.w600,
                   )
                 : MyTextStyle.smallTitleText(
-                    color: AppColors.grey600,
+                    color: AppColors.black87,
                     size: 14,
+                    fontWeight: FontWeight.w400,
                   ),
           ),
           Text(
@@ -41,12 +40,12 @@ class CheckoutPriceRow extends StatelessWidget {
             style: isTotal
                 ? MyTextStyle.normalTitleText(
                     size: 15,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.primary,
+                    fontWeight: FontWeight.w600,
                   )
                 : MyTextStyle.smallTitleText(
-                    color: AppColors.grey600,
+                    color: AppColors.primaryBlack,
                     size: 14,
+                    fontWeight: FontWeight.w500,
                   ),
           ),
         ],

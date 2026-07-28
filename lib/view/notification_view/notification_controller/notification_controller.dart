@@ -17,12 +17,19 @@ class NotificationController extends GetxController {
     "Longest",
     "Discounts",
   ];
+  final allNotifications = <NotificationModel>[].obs;
 
   @override
   void onInit() {
     super.onInit();
 
-    notifications.assignAll(_service.getNotifications());
+    allNotifications.assignAll(_service.getNotifications());
+    notifications.assignAll(allNotifications);
+  }
+
+  void addNotification(NotificationModel notification) {
+    allNotifications.insert(0, notification);
+    notifications.insert(0, notification);
   }
 
   void toggleFilter(String value) {
@@ -34,16 +41,13 @@ class NotificationController extends GetxController {
   }
 
   void applyFilter() {
-    final all = _service.getNotifications();
-
     if (selectedFilters.isEmpty) {
-      notifications.assignAll(all);
-
+      notifications.assignAll(allNotifications);
       return;
     }
 
     notifications.assignAll(
-      all.where((e) => selectedFilters.contains(e.category)),
+      allNotifications.where((e) => selectedFilters.contains(e.category)),
     );
   }
 }

@@ -22,7 +22,7 @@ class Onboarding1 extends StatelessWidget {
               Column(spacing: 8,
                 children: [
                   mainTitle( ' Luxury and Comfort,\n     Just a Tap Away ', AppColors.textWhite),
-                 SubTitle(text: '    Semper in cursus magna et eu varius\nnunc adipiscing. Elementum justo,laoreet \n                         id sem . ',color:AppColors.boardingsub,fontWeight: FontWeight.w400)
+                 SubTitle(text: '    Semper in cursus magna et eu varius\nnunc adipiscing. Elementum justo,laoreet \n                       id sem . ',color:AppColors.boardingsub,fontWeight: FontWeight.w400)
                 ],
               ),
          

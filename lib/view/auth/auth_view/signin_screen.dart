@@ -18,7 +18,7 @@ class SigninScreen extends StatelessWidget {
   SigninScreen({super.key});
 
   final AuthController authController = Get.find<AuthController>();
-final serv =Get.find<MyServices>();
+  final serv =Get.find<MyServices>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,10 +41,10 @@ final serv =Get.find<MyServices>();
                 children: [
                   mainTitle('Let’s Sign you in', AppColors.titleColor),
                   SubTitle(text: 'Lorem ipsum dolor sit amet, consectetur',
-                 color:  AppColors.subtitleColor,fontWeight:  FontWeight.w400),
+                      color:  AppColors.subtitleColor,fontWeight:  FontWeight.w400),
                 ],
               ),
-              
+
               Padding(
                 padding: EdgeInsets.all(AppSpaces.paddingExtraLarge),
                 child: Form(
@@ -70,26 +70,26 @@ final serv =Get.find<MyServices>();
                         children: [
                           Expanded(
                               child: Obx(() => CheckboxListTile(
-                                      checkboxScaleFactor: 1.2.r,
-                                      side: BorderSide(
-                                          width: 1.w, color: AppColors.grey),
-                                      checkboxShape: const CircleBorder(),
-                                      activeColor: Colors.blue,
-                                      controlAffinity:
-                                          ListTileControlAffinity.leading,
-                                      title: SubTitle(text: 'Remember Me',
-                                         color:  AppColors.hintColor,fontWeight:  FontWeight.w400),
-                                      value: serv.isRemembered.value,
-                                      onChanged: (value) async{
-                                        await serv.setRemember(value!);
-                                        authController.toggleCheckbox();
-                                      }))),
+                                  checkboxScaleFactor: 1.2.r,
+                                  side: BorderSide(
+                                      width: 1.w, color: AppColors.boardingsub),
+                                  checkboxShape: const CircleBorder(),
+                                  activeColor: Colors.blue,
+                                  controlAffinity:
+                                  ListTileControlAffinity.leading,
+                                  title: SubTitle(text: 'Remember Me',
+                                      color:  AppColors.hintColor,fontWeight:  FontWeight.w400),
+                                  value: serv.isRemembered.value,
+                                  onChanged: (value) async{
+                                    await serv.setRemember(value!);
+                                    authController.toggleCheckbox();
+                                  }))),
                           InkWell(
                             onTap: () {
-                               Get.toNamed(Routes.resetrequest);
-                               authController.eController.clear();},
+                              Get.toNamed(Routes.resetrequest);
+                              authController.eController.clear();},
                             child: SubTitle(text:  'Forgot Password  ',color:  AppColors.red,
-                               fontWeight:  FontWeight.w400),
+                                fontWeight:  FontWeight.w400),
                           )
                         ],
                       ),
@@ -111,12 +111,12 @@ final serv =Get.find<MyServices>();
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SubTitle( text: 'Don’t have an account? ',color:  AppColors.grey,
-                             fontWeight:  FontWeight.normal),
+                              fontWeight:  FontWeight.normal),
                           InkWell(
                             onTap: () { Get.toNamed(Routes.signupscreen);
                             authController.clearFields();},
                             child: SubTitle(text:  'Sign Up',color:  AppColors.primaryBlue,
-                               fontWeight:  FontWeight.bold),
+                                fontWeight:  FontWeight.bold),
                           )
                         ],
                       ),
@@ -157,7 +157,7 @@ final serv =Get.find<MyServices>();
                     spacing: 3.w,
                     children: [
                       SubTitle(text:  'By signing up you agree to our',color:  AppColors.grey,
-                         fontWeight:  FontWeight.normal),
+                          fontWeight:  FontWeight.normal),
                       InkWell(
                         child: SubTitle(text: 'Terms',color:  AppColors.black87,fontWeight:  FontWeight.normal),
                       )
@@ -170,7 +170,7 @@ final serv =Get.find<MyServices>();
                       SubTitle(text:  'and',color:  AppColors.grey,fontWeight:  FontWeight.normal),
                       InkWell(
                         child: SubTitle(text:  'Conditions of Use',color:  AppColors.black87,
-                           fontWeight:  FontWeight.normal),
+                            fontWeight:  FontWeight.normal),
                       )
                     ],
                   )

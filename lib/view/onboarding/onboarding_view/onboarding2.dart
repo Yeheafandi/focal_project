@@ -24,7 +24,7 @@ class Onboarding2 extends StatelessWidget {
               Column(spacing: 8,
                 children: [
                   mainTitle( ' Book with Ease, Stay\n          with Style ', AppColors.textWhite),
-               SubTitle(text:  '   Semper in cursus magna et eu varius\nnunc adipiscing. Elementum justo,laoreet \n                          id sem . ',color:AppColors.boardingsub,fontWeight:FontWeight.w400)
+               SubTitle(text:  '   Semper in cursus magna et eu varius\nnunc adipiscing. Elementum justo,laoreet \n                       id sem . ',color:AppColors.boardingsub,fontWeight:FontWeight.w400)
           
                 ],
               ),

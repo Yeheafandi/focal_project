@@ -20,7 +20,7 @@ class Onboarding extends StatelessWidget {
 
             ],
             
-          ), Positioned(bottom: 160,left: 159,right: 159,
+          ), Positioned(bottom: 145,left: 159,right: 159,
             child: SmoothPageIndicator(controller: OnboardingController.pageController,
                count: 3,effect: const ExpandingDotsEffect(dotWidth: 8,dotHeight: 8,activeDotColor: AppColors.primaryBlue,dotColor: AppColors.dotColor),),
           )],

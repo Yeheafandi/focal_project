@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/model/hotel_model.dart';
+import 'package:focal_project/view/detail_view/detail_view.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/text_style.dart';
 
@@ -12,7 +15,12 @@ class SearchCardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: () {
+               Get.to(() => HotelDetailView(hotel: hotel));     
+
+      },
+      child: Container(
       margin: EdgeInsets.only(bottom: AppSpaces.paddingLarge),
       decoration: BoxDecoration(
         color: AppColors.primaryWhite,
@@ -142,6 +150,6 @@ class SearchCardItem extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ),);
   }
 }

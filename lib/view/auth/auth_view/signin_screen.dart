@@ -43,11 +43,7 @@ class SigninScreen extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                   
-                    ],
-                  ),
-            
-                  Padding(
+                   Padding(
                     padding: EdgeInsets.all(AppSpaces.paddingExtraLarge),
                     child: Form(
                       key: authController.formKey2,
@@ -153,6 +149,10 @@ class SigninScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                    ],
+                  ),
+            
+                  
                   Column(
                     children: [
                       Row(

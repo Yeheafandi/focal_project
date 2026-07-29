@@ -30,117 +30,113 @@ class SignupScreen extends StatelessWidget {
             icon: const Icon(Icons.arrow_back),
           ),
         ),
-        body: Column(
-          children: [  mainTitle('Create Account', AppColors.titleColor),
-              SubTitle(text: 'Lorem ipsum dolor sit amet, consectetur',
-                 color:AppColors.subtitleColor,fontWeight:FontWeight.w400),
-            SingleChildScrollView(
+        body: SingleChildScrollView(
+          child: Column(spacing: 8,
+            
+            children: [mainTitle('Create Account', AppColors.titleColor),
+          SubTitle(text: 'Lorem ipsum dolor sit amet, consectetur',
+             color:AppColors.subtitleColor,fontWeight:FontWeight.w400),
+            Padding(
+            padding: EdgeInsets.all(AppSpaces.paddingExtraLarge),
+            child: Form(
+              key: authController.formKey,
               child: Column(
-                
-                children: [
-                Padding(
-                padding: EdgeInsets.all(AppSpaces.paddingExtraLarge),
-                child: Form(
-                  key: authController.formKey,
-                  child: Column(
-                    spacing: 8.h,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      SubTitle(text:  'Full Name',color:  AppColors.titleColor,fontWeight:FontWeight.w600),
-                      CustomeFormField(
-                          authController: authController.userController,
-                          validator: (val) => Validator.validateUserName(val),
-                          type: TextInputType.text,
-                          hintText: 'Enter your name'),
-                      SubTitle(text:'E-mail',color:AppColors.titleColor,fontWeight:FontWeight.w600),
-                      CustomeFormField(
-                          authController: authController.eController,
-                          validator: (val) => Validator.validateEmail(val),
-                          hintText: 'Enter your email',
-                          type: TextInputType.emailAddress),
-                      SubTitle(text: 'Password',color:AppColors.titleColor,fontWeight:FontWeight.w600),
-                      CustomeFormField(
-                          authController: authController.passController,
-                          validator: (val) => Validator.validatePassword(val),
-                          isPassword: true,
-                          type: TextInputType.visiblePassword,
-                          hintText: 'Enter your password'),
-                      SizedBox(
-                        height: 32.h,
-                      ),
-                      Align(
-                          alignment: Alignment.center,
-                          child: CustomeButton(
-                            text: 'Create An Account',
-                            onPressed: () {
-                              if (authController.formKey.currentState!
-                                  .validate()) {
-                                Get.toNamed(Routes.otpscreen);
-                              }
-                            },
-                          )),
-                      SizedBox(
-                        height: 24.h,
-                      ),
-                      Align(
-                          alignment: Alignment.center,
-                          child: Column(
+                spacing: 8.h,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SubTitle(text:  'Full Name',color:  AppColors.titleColor,fontWeight:FontWeight.w600),
+                  CustomeFormField(
+                      authController: authController.userController,
+                      validator: (val) => Validator.validateUserName(val),
+                      type: TextInputType.text,
+                      hintText: 'Enter your name'),
+                  SubTitle(text:'E-mail',color:AppColors.titleColor,fontWeight:FontWeight.w600),
+                  CustomeFormField(
+                      authController: authController.eController,
+                      validator: (val) => Validator.validateEmail(val),
+                      hintText: 'Enter your email',
+                      type: TextInputType.emailAddress),
+                  SubTitle(text: 'Password',color:AppColors.titleColor,fontWeight:FontWeight.w600),
+                  CustomeFormField(
+                      authController: authController.passController,
+                      validator: (val) => Validator.validatePassword(val),
+                      isPassword: true,
+                      type: TextInputType.visiblePassword,
+                      hintText: 'Enter your password'),
+                  SizedBox(
+                    height: 32.h,
+                  ),
+                  Align(
+                      alignment: Alignment.center,
+                      child: CustomeButton(
+                        text: 'Create An Account',
+                        onPressed: () {
+                          if (authController.formKey.currentState!
+                              .validate()) {
+                            Get.toNamed(Routes.otpscreen);
+                          }
+                        },
+                      )),
+                  SizedBox(
+                    height: 24.h,
+                  ),
+                  Align(
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            AppImages.signinWith,
+                            width: 239.w,
+                            height: 22.h,
+                          ),
+                          SizedBox(
+                            height: AppSpaces.heightLarge.h,
+                          ),
+                          Row(
+                            spacing: 48.w,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Image.asset(
-                                AppImages.signinWith,
-                                width: 239.w,
-                                height: 22.h,
-                              ),
-                              SizedBox(
-                                height: AppSpaces.heightLarge.h,
-                              ),
-                              Row(
-                                spacing: 48.w,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CustomeIcon(AppImages.google),
-                                  CustomeIcon(AppImages.apple),
-                                  CustomeIcon(AppImages.facebook)
-                                ],
-                              ),
+                              CustomeIcon(AppImages.google),
+                              CustomeIcon(AppImages.apple),
+                              CustomeIcon(AppImages.facebook)
                             ],
-                          )),
+                          ),
+                        ],
+                      )),
+                ],
+              ),
+            ),
+          ),
+             
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 3.w,
+                    children: [
+                      SubTitle(text: 'By signing up you agree to our',color:  AppColors.grey,
+                         fontWeight: FontWeight.w400),
+                      InkWell(
+                        child: SubTitle(
+                           text:  'Terms',color:  AppColors.black87,fontWeight:  FontWeight.w400),
+                      )
                     ],
                   ),
-                ),
-              ),
-                 
-                  Column(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 3.w,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 3.w,
-                        children: [
-                          SubTitle(text: 'By signing up you agree to our',color:  AppColors.grey,
-                             fontWeight: FontWeight.w400),
-                          InkWell(
-                            child: SubTitle(
-                               text:  'Terms',color:  AppColors.black87,fontWeight:  FontWeight.w400),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 3.w,
-                        children: [
-                          SubTitle(text: 'and',color:  AppColors.grey,fontWeight: FontWeight.w400),
-                          InkWell(
-                            child: SubTitle(text:  'Conditions of Use',color:  AppColors.black87,
-                               fontWeight:FontWeight.w400),
-                          )
-                        ],
+                      SubTitle(text: 'and',color:  AppColors.grey,fontWeight: FontWeight.w400),
+                      InkWell(
+                        child: SubTitle(text:  'Conditions of Use',color:  AppColors.black87,
+                           fontWeight:FontWeight.w400),
                       )
                     ],
                   )
                 ],
-              ),
-            ),
-          ],
+              )
+            ],
+          ),
         ));
   }
 }

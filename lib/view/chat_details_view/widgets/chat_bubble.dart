@@ -31,7 +31,7 @@ class ChatBubble extends StatelessWidget {
                 vertical: AppSpaces.heightMedium,
               ),
               decoration: BoxDecoration(
-                color: isMe ? AppColors.primary : AppColors.grey200,
+                color: isMe ? AppColors.primaryBlue : AppColors.formFiled,
                 borderRadius: BorderRadius.only(
                   topLeft: const Radius.circular(14),
                   topRight: const Radius.circular(14),
@@ -45,6 +45,7 @@ class ChatBubble extends StatelessWidget {
                   color: isMe ? AppColors.textWhite : AppColors.primaryBlack,
                   fontSize: 14,
                   height: 1.4,
+                  fontWeight: FontWeight.w500
                 ),
               ),
             ),
@@ -56,16 +57,16 @@ class ChatBubble extends StatelessWidget {
                 Text(
                   message.time,
                   style: MyTextStyle.smallTitleText().copyWith(
-                    color: AppColors.grey400,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w100,
+                    color: AppColors.grey500,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
                 if (isMe) ...[
                    SizedBox(width: AppSpaces.heightSmall),
                   const Icon(
                     Icons.done_all,
-                    size: 14,
+                    size: 16,
                     color: AppColors.primary,
                   ),
                 ],

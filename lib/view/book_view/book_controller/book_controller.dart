@@ -1,4 +1,3 @@
-import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/services/hotel_services.dart';
 import 'package:focal_project/model/booking_flow_args.dart';
 import 'package:focal_project/model/hotel_model.dart';
@@ -6,8 +5,8 @@ import 'package:focal_project/routes/routes.dart';
 import 'package:get/get.dart';
 
 class RequestToBookController extends GetxController {
-  final Rx<DateTime> checkInDate = DateTime(2024, 11, 12).obs;
-  final Rx<DateTime> checkOutDate = DateTime(2024, 11, 14).obs;
+  final Rx<DateTime> checkInDate = DateTime.now().obs;
+  final Rx<DateTime> checkOutDate = DateTime.now().add(Duration(days: 1)).obs;
   final RxInt guestCount = 1.obs;
   late HotelModel hotel;
 
@@ -40,15 +39,15 @@ class RequestToBookController extends GetxController {
 
   void _initFromArguments() {
     final args = Get.arguments;
-
-    if (args is BookingFlowArgs) {
-      hotel = args.hotel;
-      checkInDate.value = args.checkInDate;
-      checkOutDate.value = args.checkOutDate;
-      guestCount.value = args.guestCount;
-      paymentMethodName.value = args.paymentMethodName;
-      paymentMethodNumber.value = args.paymentMethodNumber;
-    } else if (args is HotelModel) {
+    // if (args is BookingFlowArgs) {
+    //   hotel = args.hotel;
+    //   checkInDate.value = args.checkInDate;
+    //   checkOutDate.value = args.checkOutDate;
+    //   guestCount.value = args.guestCount;
+    //   paymentMethodName.value = args.paymentMethodName;
+    //   paymentMethodNumber.value = args.paymentMethodNumber;
+    // } else
+    if (args is HotelModel) {
       hotel = args;
     } else {
       hotel = _defaultHotel;

@@ -377,7 +377,7 @@ class HotelDetailView extends StatelessWidget {
             child: BookingBottomBar(
               hotel: hotel,
               onBookingPressed: () {
-                Get.toNamed(Routes.requestToBook);
+                Get.toNamed(Routes.requestToBook, arguments: hotel);
               },
             ),
           ),

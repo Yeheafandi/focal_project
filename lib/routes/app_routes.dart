@@ -4,7 +4,7 @@ import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/audiocall_view/audiocall_screen/audiocall_screen.dart';
 import 'package:focal_project/view/booking_details_view/booking_details_view/booking_details_view.dart';
 import 'package:focal_project/view/book_view/request_to_book_view.dart';
-import 'package:focal_project/view/card/card_screen.dart';
+import 'package:focal_project/view/profile_section/card/card_screen.dart';
 import 'package:focal_project/view/chat_details_view/chat_details_screen/chat_details_screen.dart';
 import 'package:focal_project/view/checkout_view/checkout_view.dart';
 import 'package:focal_project/view/home_view/home_view.dart';
@@ -12,7 +12,7 @@ import 'package:focal_project/view/messages_view/messages_screen/messages_screen
 import 'package:focal_project/view/my_favorite_view/my_favorite_screen/my_favorite_screen.dart';
 import 'package:focal_project/view/nearby_map_view/nearby_map_view.dart';
 import 'package:focal_project/view/notification_view/notification_screen/notification_screen.dart';
-import 'package:focal_project/view/profile/profile_screen.dart';
+import 'package:focal_project/view/profile_section/profile/profile_screen.dart';
 import 'package:focal_project/view/search_section/search_view/search_view.dart';
 import 'package:focal_project/view/splash/splash_screen.dart';
 import 'package:focal_project/view/videocall_view/videocall_screen/videocall_screen.dart';

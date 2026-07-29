@@ -30,14 +30,15 @@ class SignupScreen extends StatelessWidget {
             icon: const Icon(Icons.arrow_back),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            spacing: 32.h,
-            children: [
-              mainTitle('Create Account', AppColors.titleColor),
+        body: Column(
+          children: [  mainTitle('Create Account', AppColors.titleColor),
               SubTitle(text: 'Lorem ipsum dolor sit amet, consectetur',
                  color:AppColors.subtitleColor,fontWeight:FontWeight.w400),
-              Padding(
+            SingleChildScrollView(
+              child: Column(
+                
+                children: [
+                Padding(
                 padding: EdgeInsets.all(AppSpaces.paddingExtraLarge),
                 child: Form(
                   key: authController.formKey,
@@ -108,35 +109,40 @@ class SignupScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 3.w,
+                 
+                  Column(
                     children: [
-                      SubTitle(text: 'By signing up you agree to our',color:  AppColors.grey,
-                         fontWeight: FontWeight.w400),
-                      InkWell(
-                        child: SubTitle(
-                           text:  'Terms',color:  AppColors.black87,fontWeight:  FontWeight.w400),
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 3.w,
-                    children: [
-                      SubTitle(text: 'and',color:  AppColors.grey,fontWeight: FontWeight.w400),
-                      InkWell(
-                        child: SubTitle(text:  'Conditions of Use',color:  AppColors.black87,
-                           fontWeight:FontWeight.w400),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 3.w,
+                        children: [
+                          SubTitle(text: 'By signing up you agree to our',color:  AppColors.grey,
+                             fontWeight: FontWeight.w400),
+                          InkWell(
+                            child: SubTitle(
+                               text:  'Terms',color:  AppColors.black87,fontWeight:  FontWeight.w400),
+                          )
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 3.w,
+                        children: [
+                          SubTitle(text: 'and',color:  AppColors.grey,fontWeight: FontWeight.w400),
+                          InkWell(
+                            child: SubTitle(text:  'Conditions of Use',color:  AppColors.black87,
+                               fontWeight:FontWeight.w400),
+                          )
+                        ],
                       )
                     ],
                   )
                 ],
-              )
-            ],
-          ),
+              ),
+            ),
+          ],
         ));
   }
 }
+
+ 

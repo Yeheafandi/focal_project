@@ -5,7 +5,6 @@ import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/routes/routes.dart';
 import 'package:get/get.dart';
 
-
 class ChatItem extends StatelessWidget {
   const ChatItem({
     super.key,
@@ -24,48 +23,59 @@ class ChatItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(contentPadding: EdgeInsets.zero,onTap: (){Get.toNamed(
-      Routes.chatDetailsScreen,
-      arguments: {
-        'chatId': 1, 
-        'name': name,
-        'image': image,
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      onTap: () {
+        Get.toNamed(
+          Routes.chatDetailsScreen,
+          arguments: {'chatId': 1, 'name': name, 'image': image},
+        );
       },
-    );},
-          leading: CircleAvatar(
-            radius: 24,
-            backgroundImage: NetworkImage(image),
+      leading: CircleAvatar(radius: 24, backgroundImage: NetworkImage(image)),
+
+      title: Text(
+        name,
+        style: MyTextStyle.normalTitleText(fontWeight: FontWeight.bold),
+      ),
+
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 4),
+        child: Text(
+          lastMessage,
+          style: MyTextStyle.smallTitleText(
+            fontWeight: FontWeight.w400,
+            color: AppColors.grey500,
           ),
-        
-          title: Text(
-            name,
-            style:MyTextStyle.normalTitleText()
+        ),
+      ),
+
+      trailing: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            time,
+            style: MyTextStyle.smallTitleText(
+              size: 10,
+              color: AppColors.grey500,
+              fontWeight: FontWeight.w400,
+            ),
           ),
-        
-          subtitle: Text(lastMessage,style: MyTextStyle.smallTitleText(),),
-        
-          trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-        
-              Text(time,style: MyTextStyle.smallTitleText()),
-        
-               SizedBox(height: AppSpaces.heightSmall,),
-        
-              if (unreadCount > 0)
-                CircleAvatar(backgroundColor: AppColors.red,
-                  radius: AppSpaces.radiusSmall,
-                  child: Text(
-                    unreadCount.toString(),
-                    style:MyTextStyle.smallTitleText().copyWith(color: AppColors.textWhite),
-                  ),
+
+          SizedBox(height: AppSpaces.heightSmall),
+
+          if (unreadCount > 0)
+            CircleAvatar(
+              backgroundColor: AppColors.red,
+              radius: AppSpaces.radius10,
+              child: Text(
+                unreadCount.toString(),
+                style: MyTextStyle.smallTitleText().copyWith(
+                  color: AppColors.textWhite,
                 ),
-            ],
-          ),
-        ),Divider(color: AppColors.grey300,)
-      ],
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

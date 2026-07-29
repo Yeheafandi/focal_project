@@ -20,6 +20,7 @@ class AppImages {
   static String signinWith='assets/images/Or.png';
   static String check='assets/images/Group.png';
   static String barcode='assets/images/barcode.png';
+  static String userPhotoVideoCall = 'assets/images/userphoto.png';
 
   static String filterIcon='assets/icons/Filter (1).png';
   static String messageTextIcon='assets/icons/message-text.png';
@@ -35,5 +36,6 @@ class AppImages {
   static String locationOutlineIcon = 'assets/icons/solar_map-point-outline (1).png';
   static String locationIcon = 'assets/icons/location.png';
   static String rotate3dIcon = 'assets/icons/3d-rotate.png';
+  
 
 }

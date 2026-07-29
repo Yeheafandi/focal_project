@@ -13,11 +13,14 @@ class MessageScreen extends GetView<MessageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(backgroundColor: AppColors.primary,shape: CircleBorder(),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.primary,
+        shape: CircleBorder(),
         onPressed: () {},
-        child: const Icon(Icons.add,color: AppColors.primaryWhite,),
+        child: const Icon(Icons.add, color: AppColors.primaryWhite),
       ),
       appBar: AppBar(
+        backgroundColor: AppColors.primaryWhite,
         title: Text('Message', style: MyTextStyle.normalTitleText()),
         centerTitle: true,
       ),
@@ -31,12 +34,14 @@ class MessageScreen extends GetView<MessageController> {
 
         child: Column(
           children: [
-            CustomSearchBar(),
+            CustomSearchBar(onFilterTap: () => ''),
 
-             SizedBox(height: AppSpaces.heightLarge,),
+            SizedBox(height: AppSpaces.heightLarge),
 
             Expanded(
-              child: ListView.builder(
+              child: ListView.separated(
+                separatorBuilder: (context, index) =>
+                    Divider(height: 8,color: AppColors.grey200),
                 itemCount: controller.chats.length,
 
                 itemBuilder: (context, index) {

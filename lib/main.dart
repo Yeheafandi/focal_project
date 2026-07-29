@@ -14,12 +14,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await Get.putAsync<LocalNotificationService>(
-  () => LocalNotificationService().init(),
-);
-await Get.putAsync(()=>MyServices().remembered());
-await Get.putAsync<NotificationFirebaseService>(
-  () => NotificationFirebaseService().init(),
-);
+    () => LocalNotificationService().init(),
+  );
+  await Get.putAsync(() => MyServices().remembered());
+  await Get.putAsync<NotificationFirebaseService>(
+    () => NotificationFirebaseService().init(),
+  );
   runApp(MyApp());
 }
 
@@ -28,16 +28,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final serv=Get.find<MyServices>();
-    return ScreenUtilInit(designSize: Size(375,812),
-    minTextAdapt: true,
-    splitScreenMode: true,
-    builder: (context, child) => 
-     GetMaterialApp(
+    final serv = Get.find<MyServices>();
+    return ScreenUtilInit(
+      designSize: Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) => GetMaterialApp(
         theme: ThemeData(
-        fontFamily: 'Jost',     
-         scaffoldBackgroundColor: AppColors.backgroundPrimaryWhite,
-),
+          fontFamily: 'Jost',
+          scaffoldBackgroundColor: AppColors.backgroundPrimaryWhite,
+        ),
         debugShowCheckedModeBanner: false,
         initialBinding: InitializeBinding(),
         initialRoute:serv.isRemembered.value? Routes.navigationMenuView:Routes.onboarding,

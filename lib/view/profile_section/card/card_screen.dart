@@ -4,7 +4,7 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
-import 'package:focal_project/view/card/widgets/card_payment.dart';
+import 'package:focal_project/view/profile_section/card/widgets/card_payment.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

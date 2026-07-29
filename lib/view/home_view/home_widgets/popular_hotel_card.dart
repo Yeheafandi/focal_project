@@ -3,6 +3,7 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/model/hotel_model.dart';
+import 'package:focal_project/view/detail_view/detail_view.dart';
 import 'package:focal_project/view/home_view/home_controller/home_controller.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +15,11 @@ class PopularHotelCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: () {
+         Get.to(() => HotelDetailView(hotel: hotel));     
+          },
+    child:  Container(
       width: 180,
       height: 180,
       margin: EdgeInsets.only(right: AppSpaces.paddingNormal),
@@ -116,6 +121,6 @@ class PopularHotelCard extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ),);
   }
 }

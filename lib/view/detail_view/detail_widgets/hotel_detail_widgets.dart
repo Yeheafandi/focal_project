@@ -28,7 +28,7 @@ class BookingBottomBar extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.grey.withOpacity(0.5),
+            color: AppColors.grey.withOpacity(0.2),
             blurRadius: 15,
             offset: const Offset(0, -6),
           ),
@@ -45,13 +45,15 @@ class BookingBottomBar extends StatelessWidget {
                 "Price",
                 style: MyTextStyle.smallTitleText(
                   color: AppColors.grey500,
-                  size: 12,
+                  size: 14,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               const SizedBox(height: 2),
               Text(
-                "\$${hotel.pricePerNight.toInt()}",
+                "\$${hotel.pricePerNight.toStringAsFixed(2)}",
                 style: MyTextStyle.priceText(
+                  color: AppColors.black87,
                   fontWeight: FontWeight.bold,
                   size: 24,
                 ),
@@ -59,13 +61,13 @@ class BookingBottomBar extends StatelessWidget {
             ],
           ),
           SizedBox(
-            width: 200,
-            height: 54,
+            width: 163,
+            height: 56,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primary,
+                backgroundColor: AppColors.primaryBlue,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 elevation: 0,
               ),
@@ -74,7 +76,6 @@ class BookingBottomBar extends StatelessWidget {
                 "Booking Now",
                 style: MyTextStyle.normalTitleText(
                   color: AppColors.primaryWhite,
-                  fontWeight: FontWeight.bold,
                   size: 16,
                 ),
               ),
@@ -106,7 +107,7 @@ class HotelReviewTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CircleAvatar(
-            radius: 20,
+            radius: 25,
             backgroundColor: AppColors.grey300,
             child: Icon(Icons.person, color: AppColors.primaryWhite),
           ),
@@ -118,22 +119,14 @@ class HotelReviewTile extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      author,
-                      style: MyTextStyle.normalTitleText(
-                        fontWeight: FontWeight.bold,
-                        size: 14,
-                      ),
-                    ),
+                    Text(author, style: MyTextStyle.normalTitleText(size: 14)),
                     Row(
                       children: [
                         Icon(Icons.star, color: AppColors.amber, size: 14),
                         SizedBox(width: AppSpaces.widthVerySmall),
                         Text(
                           "$rating",
-                          style: MyTextStyle.normalTitleText(
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: MyTextStyle.normalTitleText(size: 12),
                         ),
                       ],
                     ),
@@ -143,8 +136,9 @@ class HotelReviewTile extends StatelessWidget {
                 Text(
                   reviewText,
                   style: MyTextStyle.smallTitleText(
+                    fontWeight: FontWeight.w400,
                     color: AppColors.grey600,
-                    size: 13,
+                    size: 12,
                   ),
                 ),
               ],

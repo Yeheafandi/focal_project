@@ -29,4 +29,5 @@ static const Color boardingsub= Color(0xFFE3E9ED);
   static final Color grey500 = Colors.grey[500]!;
   static final Color grey600 = Colors.grey[600]!;
   static const Color dotColor = Color(0xFFBFC6CC);
+  static const Color facilitiesColor = Color(0xFFE8F2FF); 
 }

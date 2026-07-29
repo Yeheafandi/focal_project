@@ -34,5 +34,6 @@ class AppImages {
   static String favoriteIconFill = 'assets/icons/Frame 259.png';
   static String locationOutlineIcon = 'assets/icons/solar_map-point-outline (1).png';
   static String locationIcon = 'assets/icons/location.png';
+  static String rotate3dIcon = 'assets/icons/3d-rotate.png';
 
 }

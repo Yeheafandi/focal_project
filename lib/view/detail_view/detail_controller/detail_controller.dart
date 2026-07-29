@@ -14,4 +14,10 @@ class HotelDetailController extends GetxController {
       isLoadingFacilities.value = false;
     });
   }
+
+  var isDescriptionExpanded = false.obs;
+
+  void toggleDescription() {
+    isDescriptionExpanded.value = !isDescriptionExpanded.value;
+  }
 }

@@ -4,6 +4,9 @@ import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/model/hotel_model.dart';
+import 'package:focal_project/view/detail_view/detail_view.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 
 class RecommendedHotelCard extends StatelessWidget {
   final HotelModel hotel;
@@ -17,7 +20,11 @@ class RecommendedHotelCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: () {
+         Get.to(() => HotelDetailView(hotel: hotel));
+      },
+    child:  Container(
       margin: EdgeInsets.only(bottom: AppSpaces.paddingNormal),
       padding: EdgeInsets.only(bottom: AppSpaces.paddingNormal),
 
@@ -113,6 +120,6 @@ class RecommendedHotelCard extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ),);
   }
 }

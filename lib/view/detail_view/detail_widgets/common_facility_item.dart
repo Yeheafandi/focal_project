@@ -23,7 +23,7 @@ class CommonFacilityItem extends StatelessWidget {
           width: 64,
           height: 64,
           decoration: BoxDecoration(
-            color: AppColors.primary, 
+            color: AppColors.facilitiesColor, 
             shape: BoxShape.circle,
           ),
           child: Center(
@@ -38,7 +38,7 @@ class CommonFacilityItem extends StatelessWidget {
                   )
                 : Icon(
                     icon,
-                    color: AppColors.primary,
+                    color: AppColors.primaryBlack,
                     size: 24,
                   ),
           ),
@@ -48,6 +48,7 @@ class CommonFacilityItem extends StatelessWidget {
           label,
           textAlign: TextAlign.center,
           style: MyTextStyle.smallTitleText(
+            fontWeight: FontWeight.w500,
             color: AppColors.grey500, 
             size: 12,
           ),

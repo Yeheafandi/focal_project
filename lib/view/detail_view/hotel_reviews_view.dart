@@ -3,6 +3,7 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/detail_view/detail_widgets/hotel_detail_widgets.dart';
+import 'package:focal_project/view/detail_view/detail_widgets/rating_bar_row.dart';
 import 'package:get/get.dart';
 
 class HotelReviewsView extends StatelessWidget {
@@ -50,8 +51,9 @@ class HotelReviewsView extends StatelessWidget {
                       Text(
                         "4.4",
                         style: MyTextStyle.priceText(
-                          fontWeight: FontWeight.bold,
-                          size: 48,
+                          color: AppColors.black87,
+                          fontWeight: FontWeight.w700,
+                          size: 32,
                         ),
                       ),
                       Row(
@@ -59,7 +61,9 @@ class HotelReviewsView extends StatelessWidget {
                           5,
                           (index) => Icon(
                             Icons.star,
-                            color: index < 4 ? AppColors.amber : AppColors.grey300,
+                            color: index < 4
+                                ? AppColors.amber
+                                : AppColors.grey300,
                             size: 20,
                           ),
                         ),
@@ -69,38 +73,32 @@ class HotelReviewsView extends StatelessWidget {
                         "Based on 532 reviews",
                         style: MyTextStyle.smallTitleText(
                           color: AppColors.grey500,
-                          size: 13,
+                          fontWeight: FontWeight.w500,
+                          size: 12,
                         ),
                       ),
                     ],
                   ),
                 ),
                 Expanded(
-                  flex: 4,
+                  flex: 3,
                   child: Column(
                     children: [
-                      _buildRatingRow(1, 0.8),
-                      _buildRatingRow(2, 0.6),
-                      _buildRatingRow(3, 0.4),
-                      _buildRatingRow(4, 0.3),
-                      _buildRatingRow(5, 0.1),
+                      RatingBarRow(starNumber: 1, progress: 0.1),
+                      RatingBarRow(starNumber: 2, progress: 0.3),
+                      RatingBarRow(starNumber: 3, progress: 0.4),
+                      RatingBarRow(starNumber: 4, progress: 0.6),
+                      RatingBarRow(starNumber: 5, progress: 0.8),
                     ],
                   ),
                 ),
               ],
             ),
-            
+
             SizedBox(height: AppSpaces.heightLarge),
-            const Divider(),
             SizedBox(height: AppSpaces.heightMedium),
 
-            Text(
-              "Reviews (532)",
-              style: MyTextStyle.normalTitleText(
-                fontWeight: FontWeight.bold,
-                size: 18,
-              ),
-            ),
+            Text("Reviews (532)", style: MyTextStyle.normalTitleText(size: 18)),
             SizedBox(height: AppSpaces.heightLarge),
 
             ListView(
@@ -109,68 +107,44 @@ class HotelReviewsView extends StatelessWidget {
               children: const [
                 HotelReviewTile(
                   author: "Kim Borrdy",
-                  reviewText: "Amazing! The room is good than the picture. Thanks for amazing experience!",
+                  reviewText:
+                      "Amazing! The room is good than the picture. Thanks for amazing experience!",
                   rating: 4.5,
                 ),
                 HotelReviewTile(
                   author: "Mirai Kamazuki",
-                  reviewText: "The service is on point, and I really like the facilities. Good job!",
+                  reviewText:
+                      "The service is on point, and I really like the facilities. Good job!",
                   rating: 5.0,
                 ),
                 HotelReviewTile(
                   author: "Jzenklen",
-                  reviewText: "The service is on point, and I really like the facilities. Good job!",
+                  reviewText:
+                      "The service is on point, and I really like the facilities. Good job!",
                   rating: 5.0,
                 ),
                 HotelReviewTile(
                   author: "Rezikan Akay",
-                  reviewText: "The service is on point, and I really like the facilities. Good job!",
+                  reviewText:
+                      "The service is on point, and I really like the facilities. Good job!",
                   rating: 5.0,
                 ),
                 HotelReviewTile(
                   author: "Rezingkaly",
-                  reviewText: "The service is on point, and I really like the facilities. Good job!",
+                  reviewText:
+                      "The service is on point, and I really like the facilities. Good job!",
                   rating: 5.0,
                 ),
                 HotelReviewTile(
                   author: "Andiziky",
-                  reviewText: "The service is on point, and I really like the facilities. Good job!",
+                  reviewText:
+                      "The service is on point, and I really like the facilities. Good job!",
                   rating: 5.0,
                 ),
               ],
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildRatingRow(int starNumber, double progress) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 2.0),
-      child: Row(
-        children: [
-          Text(
-            "$starNumber",
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-              color: AppColors.grey600,
-            ),
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: LinearProgressIndicator(
-                value: progress,
-                backgroundColor: AppColors.grey200,
-                valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
-                minHeight: 6,
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

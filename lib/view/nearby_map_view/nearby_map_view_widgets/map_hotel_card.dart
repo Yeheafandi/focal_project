@@ -131,16 +131,7 @@ class MapHotelCard extends StatelessWidget {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.bottomSheet(
-                      ShareWidget(
-                        hotel: hotel,
-                        link:
-                            'https://instastaycom/hotel/${hotel.id}', // أو الرابط المخصص للـ hotel
-                      ),
-                      isScrollControlled: true, // ليتناسب الارتفاع مع المحتوى
-                      backgroundColor: Colors
-                          .transparent, // لجعل الحواف الخارجيّة شفافة ومظهر الحاويات أنيقاً
-                    );
+                    Get.toNamed(Routes.requestToBook);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryBlue,

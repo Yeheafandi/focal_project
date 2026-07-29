@@ -4,6 +4,7 @@ import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/model/hotel_model.dart';
+import 'package:focal_project/view/detail_view/detail_view.dart';
 import 'package:focal_project/view/home_view/home_controller/home_controller.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +16,11 @@ class BestTodayCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: () {
+        Get.to(() => HotelDetailView(hotel: hotel));
+      },
+     child:  Container(
       width: 300,
       margin: EdgeInsets.only(
         right: AppSpaces.paddingNormal,
@@ -140,6 +145,7 @@ class BestTodayCard extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }

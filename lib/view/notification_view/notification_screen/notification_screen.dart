@@ -5,7 +5,6 @@ import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/core/services/notification_firebase_service.dart';
-import 'package:focal_project/core/services/notification_sender_service.dart';
 import 'package:focal_project/view/notification_view/notification_controller/notification_controller.dart';
 import 'package:focal_project/view/notification_view/widgets/filter_bottom_sheet.dart';
 import 'package:focal_project/view/notification_view/widgets/notification_item.dart';

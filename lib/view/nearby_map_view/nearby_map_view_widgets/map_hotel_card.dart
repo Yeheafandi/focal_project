@@ -131,7 +131,7 @@ class MapHotelCard extends StatelessWidget {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.toNamed(Routes.requestToBook);
+                    Get.toNamed(Routes.requestToBook, arguments: hotel);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryBlue,

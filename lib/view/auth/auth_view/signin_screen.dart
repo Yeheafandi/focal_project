@@ -36,21 +36,17 @@ class SigninScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             spacing: 30.h,
-            children: [
-              Column(spacing: 12,
+            children: [ mainTitle('Let’s Sign you in', AppColors.titleColor),
+              SubTitle(text: 'Lorem ipsum dolor sit amet, consectetur',
+                  color:  AppColors.subtitleColor,fontWeight:  FontWeight.w400),
+              Column(
                 children: [
-                  mainTitle('Let’s Sign you in', AppColors.titleColor),
-                  SubTitle(text: 'Lorem ipsum dolor sit amet, consectetur',
-                      color:  AppColors.subtitleColor,fontWeight:  FontWeight.w400),
-                ],
-              ),
-
-              Padding(
+               Padding(
                 padding: EdgeInsets.all(AppSpaces.paddingExtraLarge),
                 child: Form(
                   key: authController.formKey2,
                   child: Column(
-                    spacing: 8.h,
+                    spacing: 3,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SubTitle(text: 'Email Address',color:  AppColors.titleColor,fontWeight:  FontWeight.w600),
@@ -106,6 +102,7 @@ class SigninScreen extends StatelessWidget {
                                   Get.toNamed(Routes.navigationMenuView);
                                 }
                               })),
+                              SizedBox(height:AppSpaces.heightLarge ,),
                       Row(
                         spacing: 3.w,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -150,6 +147,10 @@ class SigninScreen extends StatelessWidget {
                   ),
                 ),
               ),
+                ],
+              ),
+        
+              
               Column(
                 children: [
                   Row(

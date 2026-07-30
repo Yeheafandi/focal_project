@@ -93,7 +93,7 @@ class SignupScreen extends StatelessWidget {
                             height: AppSpaces.heightLarge,
                           ),
                           Row(
-                            spacing: 48.w,
+                            spacing: 24,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               CustomeIcon(AppImages.google),

@@ -67,24 +67,25 @@ class SigninScreen extends StatelessWidget {
                           isPassword: true,
                           type: TextInputType.visiblePassword,
                           hintText: 'Enter your password'),
-                      Row(
+                      Row(mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Expanded(
-                              child: Obx(() => CheckboxListTile(
-                                  checkboxScaleFactor: 1.2.r,
-                                  side: BorderSide(
-                                      width: 1.w, color: AppColors.boardingsub),
-                                  checkboxShape: const CircleBorder(),
-                                  activeColor: Colors.blue,
-                                  controlAffinity:
-                                  ListTileControlAffinity.leading,
-                                  title: SubTitle(text: 'Remember Me',
-                                      color:  AppColors.hintColor,fontWeight:  FontWeight.w400),
-                                  value: serv.isRemembered.value,
-                                  onChanged: (value) async{
-                                    await serv.setRemember(value!);
-                                    authController.toggleCheckbox();
-                                  }))),
+                            child: Obx(() => CheckboxListTile(
+                                checkboxScaleFactor: 1.2.r,
+                                side: BorderSide(
+                                    width: 1.w, color: AppColors.boardingsub),
+                                checkboxShape: const CircleBorder(),
+                                activeColor: Colors.blue,
+                                controlAffinity:
+                                ListTileControlAffinity.leading,
+                                title: SubTitle(text: 'Remember Me',
+                                    color:  AppColors.hintColor,fontWeight:  FontWeight.w400),
+                                value: serv.isRemembered.value,
+                                onChanged: (value) async{
+                                  await serv.setRemember(value!);
+                                  authController.toggleCheckbox();
+                                })),
+                          ),
                           InkWell(
                             onTap: () {
                               Get.toNamed(Routes.resetrequest);
@@ -138,7 +139,7 @@ class SigninScreen extends StatelessWidget {
                                 height: AppSpaces.heightLarge.h,
                               ),
                               Row(
-                                spacing: 48.w,
+                                spacing: 24,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   CustomeIcon(AppImages.google),

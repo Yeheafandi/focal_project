@@ -21,9 +21,10 @@ class NotificationItem extends StatelessWidget {
       padding: EdgeInsets.only(bottom: AppSpaces.heightNormal),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
+
         children: [
           CircleAvatar(
-            radius: AppSpaces.radiusExtraLarge,
+            radius: 24,
             backgroundColor: AppColors.grey200,
             child: notification.assetIcon != null
                 ? SvgPicture.asset(
@@ -34,8 +35,8 @@ class NotificationItem extends StatelessWidget {
                 : ClipOval(
                     child: Image.network(
                       notification.image!,
-                      width: 56,
-                      height: 56,
+                      width: 48,
+                      height: 48,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -49,8 +50,10 @@ class NotificationItem extends StatelessWidget {
               children: [
                 Text(
                   notification.title,
-                  style: MyTextStyle.smallTitleText().copyWith(
-                    color: AppColors.primaryBlack,
+                  style: MyTextStyle.smallTitleText(
+                    color: AppColors.black87,
+                    fontWeight: FontWeight.w400,
+                    size: 14,
                   ),
                 ),
 
@@ -58,10 +61,10 @@ class NotificationItem extends StatelessWidget {
 
                 Text(
                   notification.time,
-                  style: MyTextStyle.smallTitleText().copyWith(
+                  style: MyTextStyle.smallTitleText(
                     color: AppColors.grey500,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
+                    size: 12,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 SizedBox(height: AppSpaces.heightMedium),

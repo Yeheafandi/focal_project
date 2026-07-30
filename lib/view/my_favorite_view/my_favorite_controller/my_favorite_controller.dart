@@ -1,3 +1,4 @@
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/model/my_favorite_model.dart';
 import 'package:get/get.dart';
 import 'package:focal_project/core/services/favorite_service.dart';
@@ -12,7 +13,13 @@ class MyFavoriteController extends GetxController {
 
   final selectedCategory = "All".obs;
 
-  final categories = ["All", "Hotels", "Resorts", "Villas", "Apartment"];
+  final categories = ["All", "Villas", "Hotels", "Apartment"];
+  final List<String?>categoriesIcons = [
+    null,
+    AppIcons.villaIcon,
+    AppIcons.hotelIcon,
+    AppIcons.residentialIcon,
+  ];
 
   @override
   void onInit() {
@@ -35,21 +42,22 @@ class MyFavoriteController extends GetxController {
   }
 
   void toggleFavorite(MyFavoriteModel hotel) {
-    hotel.isFavorite = !hotel.isFavorite;
+    hotel.isFavorite = false;
+
+    favorites.remove(hotel);
 
     favorites.refresh();
   }
 
   void fetchFavorites() async {
     try {
-      isLoading.value = true; 
-
+      isLoading.value = true;
 
       await Future.delayed(const Duration(seconds: 6));
 
       favorites.assignAll(_service.getFavorites());
     } finally {
-      isLoading.value = false; 
+      isLoading.value = false;
     }
   }
 }

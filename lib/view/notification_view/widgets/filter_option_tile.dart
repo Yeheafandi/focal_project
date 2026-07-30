@@ -6,17 +6,17 @@ import 'package:focal_project/view/notification_view/notification_controller/not
 import 'package:get/get.dart';
 
 class FilterOptionTile extends GetView<NotificationController> {
-  const FilterOptionTile({
-    super.key,
-    required this.title,
-  });
+  const FilterOptionTile({super.key, required this.title});
 
   final String title;
 
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => CheckboxListTile(checkboxShape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(5)),
+      () => CheckboxListTile(dense: true,
+        checkboxShape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(5),
+        ),
         value: controller.selectedFilters.contains(title),
 
         onChanged: (_) {
@@ -25,11 +25,15 @@ class FilterOptionTile extends GetView<NotificationController> {
 
         contentPadding: EdgeInsets.zero,
 
-        activeColor: AppColors.indigo,
+        activeColor: AppColors.primaryBlue,
 
         title: Text(
           title,
-          style: MyTextStyle.smallTitleText(),
+          style: MyTextStyle.smallTitleText(
+            size: 14,
+            color: AppColors.subtitleColor,
+            fontWeight: FontWeight.w400,
+          ),
         ),
 
         // controlAffinity: ListTileControlAffinity.trailing,

@@ -30,4 +30,8 @@ class AppIcons {
   static const String iconAdd = '${iconsPath}Icon add.svg';
   static const String illustration = '${iconsPath}Illustration.svg';
   static const String paymentIcon = '${iconsPath}Buy.svg';
+  static const String villaIcon = '${iconsPath}villaicon.svg';
+  static const String hotelIcon = '${iconsPath}hotelicon.svg';
+  static const String residentialIcon = '${iconsPath}residentialicon.svg';
+  static const String heart = '${iconsPath}heart.svg';
 }

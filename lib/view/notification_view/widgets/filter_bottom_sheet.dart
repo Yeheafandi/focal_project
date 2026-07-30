@@ -4,6 +4,7 @@ import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/notification_view/notification_controller/notification_controller.dart';
 import 'package:focal_project/view/notification_view/widgets/filter_option_tile.dart';
+import 'package:focal_project/widgets/custome_button.dart';
 import 'package:get/get.dart';
 
 class FilterBottomSheet extends GetView<NotificationController> {
@@ -12,7 +13,7 @@ class FilterBottomSheet extends GetView<NotificationController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:  EdgeInsets.all(AppSpaces.paddingLarge),
+      padding: EdgeInsets.all(AppSpaces.paddingLarge),
 
       decoration: const BoxDecoration(
         color: AppColors.primaryWhite,
@@ -29,42 +30,37 @@ class FilterBottomSheet extends GetView<NotificationController> {
               height: 5,
               width: 60,
               decoration: BoxDecoration(color: AppColors.grey200),
-            ), SizedBox(height: AppSpaces.heightNormal),
-            Text("Filter By", style: MyTextStyle.normalTitleText().copyWith(fontWeight: FontWeight.w300,fontSize: 18)),
-
-             SizedBox(height: AppSpaces.heightExtraLarge),
-
-            ...controller.filters.map(
-              (filter) => FilterOptionTile(title: filter),
+            ),
+            SizedBox(height: AppSpaces.heightNormal),
+            Text(
+              "Filter By",
+              style: MyTextStyle.normalTitleText(
+                size: 18,
+                color: AppColors.primaryBlack,
+                fontWeight: FontWeight.w500,
+              ),
             ),
 
-             SizedBox(height: AppSpaces.heightExtraLarge),
+            SizedBox(height: AppSpaces.heightLarge),
+
+            ...controller.filters.expand(
+              (filter) => [FilterOptionTile(title: filter)],
+            ),
+
+            SizedBox(height: AppSpaces.heightLarge),
 
             SizedBox(
               width: double.infinity,
               height: 55,
 
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-
+              child: CustomeButton(
+                text: 'Apply',
                 onPressed: () {
                   controller.applyFilter();
-
                   Get.back();
                 },
-
-                child: Text(
-                  "Apply",
-                  style: MyTextStyle.normalTitleText().copyWith(
-                    color: AppColors.textWhite,
-                  ),
-                ),
               ),
+              
             ),
           ],
         ),

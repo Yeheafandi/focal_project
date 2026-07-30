@@ -9,6 +9,7 @@ import 'package:focal_project/view/booking_details_view/widgets/booking_info_car
 import 'package:focal_project/view/booking_details_view/widgets/booking_map_card.dart';
 import 'package:focal_project/view/booking_details_view/widgets/hotel_card.dart';
 import 'package:focal_project/view/home_view/home_widgets/near_you_map_card.dart';
+import 'package:focal_project/view/nearby_map_view/nearby_map_view.dart';
 import 'package:get/get.dart';
 
 class BookingDetailsView extends GetView<BookingDetailsController> {
@@ -19,34 +20,37 @@ class BookingDetailsView extends GetView<BookingDetailsController> {
     final booking = controller.booking;
 
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
-          child: SingleChildScrollView(
-            child: Column(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          children: [
+            SizedBox(height: 56),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(Icons.arrow_back, color: AppColors.primaryBlack),
-                    ),
-                    Text('Booking Detail', style: MyTextStyle.normalTitleText()),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.more_vert, color: AppColors.primaryBlack),
-                    ),
-                  ],
+                IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: Icon(Icons.arrow_back, color: AppColors.primaryBlack),
                 ),
-                SizedBox(height: AppSpaces.heightLarge),
-                Container(
+                Text('Booking Detail', style: MyTextStyle.normalTitleText()),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.more_vert, color: AppColors.primaryBlack),
+                ),
+              ],
+            ),
+            SizedBox(height: AppSpaces.heightLarge),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Container(
                   margin: EdgeInsets.only(bottom: 46),
                   decoration: BoxDecoration(
                     border: Border.all(color: AppColors.grey300),
-                    borderRadius: BorderRadius.circular(AppSpaces.paddingMedium),
+                    borderRadius: BorderRadius.circular(
+                      AppSpaces.paddingMedium,
+                    ),
                   ),
                   child: Column(
                     children: [
@@ -56,7 +60,11 @@ class BookingDetailsView extends GetView<BookingDetailsController> {
                         padding: EdgeInsets.symmetric(horizontal: 16),
                         child: Text(
                           'Your Hotel',
-                          style: MyTextStyle.smallTitleText(),
+                          style: MyTextStyle.smallTitleText(
+                            color: AppColors.grey600,
+                            fontWeight: FontWeight.w600,
+                            size: 14,
+                          ),
                         ),
                       ),
                       SizedBox(height: AppSpaces.heightMedium),
@@ -74,45 +82,61 @@ class BookingDetailsView extends GetView<BookingDetailsController> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Location', style: MyTextStyle.smallTitleText()),
                             Text(
-                              'Open Map',
-                              style: MyTextStyle.smallTitleText().copyWith(
-                                color: AppColors.indigo,
-                                fontSize: 14,
+                              'Location',
+                              style: MyTextStyle.smallTitleText(
+                                color: AppColors.grey600,
                                 fontWeight: FontWeight.w600,
+                                size: 14,
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Get.to(() => NearbyMapView());
+                              },
+                              child: Text(
+                                'Open Map',
+                                style: MyTextStyle.smallTitleText(
+                                  color: AppColors.primaryBlue,
+                                  size: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ],
                         ),
                       ),
                       SizedBox(height: AppSpaces.heightSmall),
-        
+
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: NearYouMapCard(areaName: 'haight St'),
                       ),
-        
+
                       SizedBox(height: AppSpaces.heightLarge),
                       Container(
                         alignment: Alignment.centerLeft,
                         padding: EdgeInsets.symmetric(horizontal: 16),
                         child: Text(
                           'Your Booking',
-                          style: MyTextStyle.smallTitleText(),
+                          style: MyTextStyle.smallTitleText(
+                            color: AppColors.grey600,
+                            fontWeight: FontWeight.w600,
+                            size: 14,
+                          ),
                         ),
                       ),
                       SizedBox(height: AppSpaces.heightSmall),
                       BookingInfoCard(booking: booking),
-                      SizedBox(height: 46),
-        
+                      SizedBox(height: AppSpaces.heightExtraLarge),
+
                       Image.asset(AppImages.barcode),
                     ],
                   ),
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

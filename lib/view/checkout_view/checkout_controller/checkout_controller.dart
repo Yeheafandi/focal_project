@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:focal_project/core/class/status_classes.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/services/payment_service.dart';
 import 'package:focal_project/model/booking_flow_args.dart';
 import 'package:focal_project/model/coupon_model.dart';
-import 'package:focal_project/routes/app_routes.dart';
 import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/checkout_view/checkout_widgets/my_coupon_bottom_sheet.dart';
 import 'package:focal_project/view/checkout_view/checkout_widgets/payment_method_modal.dart';
@@ -17,6 +18,7 @@ class CheckoutController extends GetxController {
 
   final RxList<CouponModel> coupons = <CouponModel>[].obs;
   final Rxn<CouponModel> appliedCoupon = Rxn<CouponModel>();
+  final paymentIsLoading = false.obs;
 
   static const List<String> _months = [
     'Jan',
@@ -135,7 +137,18 @@ class CheckoutController extends GetxController {
     );
   }
 
-  void onConformAndPay() {
-    Get.toNamed(Routes.paymentComplete);
+  void onConformAndPay() async {
+    Get.back();
+    paymentIsLoading.value = true;
+
+    final res = await PaymentService.pay(amount: totalPrice);
+
+    paymentIsLoading.value = false;
+
+    if (res == StatusClasses.success) {
+      Get.toNamed(Routes.paymentComplete);
+    } else {
+      Get.snackbar("Warning!", res.message ?? res.type);
+    }
   }
 }

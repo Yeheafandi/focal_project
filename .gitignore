@@ -50,3 +50,6 @@ app.*.map.json
 # VS Code
 .vscode/
 lib/core/services/notification_sender_service.dart
+
+#secret key
+lib/core/constants/stripe_keys.dart

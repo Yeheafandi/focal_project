@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
+import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/videocall_view/videocall_controller/videocall_controller.dart';
@@ -23,9 +24,59 @@ class VideoCallScreen extends StatelessWidget {
           Column(
             children: [
               Expanded(
-                child: Image.network(controller.image, fit: BoxFit.cover),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Image.network(controller.image, fit: BoxFit.cover),
+                ),
               ),
-              Expanded(child: Container(color: Colors.blue)),
+              Expanded(
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Image.asset(
+                    AppImages.userPhotoVideoCall,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+              Container(
+                color: AppColors.primaryWhite,
+                child: Container(padding: EdgeInsets.symmetric(horizontal: 46),
+                  height: 92,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ActionButton(
+                        iconName: AppIcons.voice,
+                        state: controller.isMicMuted,
+                        onTap: controller.toggleMic,
+                      ),
+
+                      ActionButton(
+                        iconName: AppIcons.volumeUp,
+                        state: controller.isSpeakerOn,
+                        onTap: controller.toggleSpeaker,
+                      ),
+
+                      ActionButton(
+                        iconName: AppIcons.video,
+                        state: controller.isCameraOff,
+                        onTap: controller.toggleCamera,
+                        width: 16,
+                        height: 16,
+                      ),
+
+                      ActionButton(
+                        iconName: AppIcons.endCall,
+                        onTap: controller.endCall,
+                        backgroundColor: AppColors.red,
+                        iconColor: AppColors.primaryWhite,
+                        width: 32,
+                        height: 32,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
           Positioned(
@@ -33,87 +84,59 @@ class VideoCallScreen extends StatelessWidget {
             left: 24,
             right: 24,
             child: Container(
-              padding:  EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                 horizontal: AppSpaces.widthLarge,
                 vertical: AppSpaces.heightMedium,
               ),
               decoration: BoxDecoration(
                 color: AppColors.black87,
                 borderRadius: BorderRadius.circular(
-                  AppSpaces.radiusExtraExtraLarge28,
+                  50,
                 ),
               ),
               child: Row(
                 children: [
                   CircleAvatar(
-                    radius: AppSpaces.radiusExtraLarge,
+                    radius: 23,
                     backgroundImage: NetworkImage(controller.image),
                   ),
 
-                   SizedBox(width: AppSpaces.widthSmall),
+                  SizedBox(width: AppSpaces.widthSmall),
 
-                  Text(
-                    controller.name,
-                    style: MyTextStyle.normalTitleText().copyWith(
-                      color: AppColors.textWhite,
-                    ),
+                  Column(
+                    children: [
+                      Text(
+                        controller.name,
+                        style: MyTextStyle.normalTitleText().copyWith(
+                          color: AppColors.textWhite,
+                        ),
+                      ),
+                      Text(
+                        'Tour guide, sweden',
+                        style: MyTextStyle.smallTitleText(
+                          color: AppColors.grey400,
+                          size: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
                   ),
 
                   const Spacer(),
 
                   const Icon(Icons.circle, color: AppColors.red, size: 9),
 
-                   SizedBox(width: AppSpaces.widthSmall),
+                  SizedBox(width: AppSpaces.widthSmall),
 
                   Obx(
                     () => Text(
                       controller.callDuration.value,
                       style: MyTextStyle.smallTitleText().copyWith(
-                        color: AppColors.textWhite,
+                        color: AppColors.grey300,
                       ),
                     ),
                   ),
                 ],
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              color: AppColors.primaryWhite,
-              child: SizedBox(
-                height: 92,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ActionButton(
-                      iconName: AppIcons.voice,
-                      state: controller.isMicMuted,
-                      onTap: controller.toggleMic,
-                    ),
-
-                    ActionButton(
-                     iconName: AppIcons.volumeUp,
-                      state: controller.isSpeakerOn,
-                      onTap: controller.toggleSpeaker,
-                    ),
-
-                    ActionButton(
-                      iconName: AppIcons.video,
-                      state: controller.isCameraOff,
-                      onTap: controller.toggleCamera,width: 16,height: 16,
-                    ),
-
-                    ActionButton(
-                      iconName: AppIcons.endCall,
-                      onTap: controller.endCall,
-                      backgroundColor: AppColors.red,
-                      iconColor: AppColors.primaryWhite,width: 32,height: 32,
-                    ),
-                  ],
-                ),
               ),
             ),
           ),

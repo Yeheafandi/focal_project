@@ -12,6 +12,7 @@ class AppSpaces {
 
   // Border radius
   static  double  radiusSmall = 8.r;
+  static  double  radius10 = 10.r;
   static  double  radiusMedium = 12.r;
   static  double  radiusLarge = 16.r;
   static  double  radiusExtraLarge = 20.r;

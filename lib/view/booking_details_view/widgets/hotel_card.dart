@@ -67,7 +67,11 @@ class HotelCard extends StatelessWidget {
               children: [
                 Text(
                   hotelName,
-                  style: MyTextStyle.normalTitleText(),
+                  style: MyTextStyle.normalTitleText(
+                    color: AppColors.black87,
+                    size: 15,
+                    fontWeight: FontWeight.w600,
+                  ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -83,7 +87,11 @@ class HotelCard extends StatelessWidget {
                     Expanded(
                       child: Text(
                         location,
-                        style: MyTextStyle.smallTitleText(),
+                        style: MyTextStyle.smallTitleText(
+                          color: AppColors.grey600,
+                          size: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -97,12 +105,17 @@ class HotelCard extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: '\$$price',
-                        style: MyTextStyle.priceText().copyWith(fontSize: 16),
+                        style: MyTextStyle.priceText(
+                          color: AppColors.primaryBlue,
+                          size: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       TextSpan(
                         text: ' /night',
-                        style: MyTextStyle.smallTitleText().copyWith(
-                          color: AppColors.primaryBlack,
+                        style: MyTextStyle.smallTitleText(
+                          color: AppColors.black87,
+                          size: 13,
                         ),
                       ),
                     ],
@@ -122,7 +135,11 @@ class HotelCard extends StatelessWidget {
                 Flexible(
                   child: Text(
                     rating.toString(),
-                    style: MyTextStyle.smallTitleText(),
+                    style: MyTextStyle.smallTitleText(
+                      color: AppColors.black87,
+                      size: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),

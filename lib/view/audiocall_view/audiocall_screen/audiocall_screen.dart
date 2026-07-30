@@ -12,14 +12,12 @@ class AudioCallScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     final AudioCallController controller = Get.find<AudioCallController>();
 
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
-         
           Image.network(controller.image, fit: BoxFit.cover),
 
           Positioned(
@@ -35,44 +33,54 @@ class AudioCallScreen extends StatelessWidget {
             ),
           ),
 
-          
           Positioned(
             bottom: 43,
             left: 24,
             right: 24,
             child: Container(
-              padding:  EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                 horizontal: AppSpaces.widthLarge,
                 vertical: AppSpaces.heightMedium,
               ),
               decoration: BoxDecoration(
-                color: AppColors.black87, 
-                borderRadius: BorderRadius.circular(AppSpaces.radiusExtraExtraLarge28),
+                color: AppColors.black87,
+                borderRadius: BorderRadius.circular(50),
               ),
               child: Row(
                 children: [
                   CircleAvatar(
-                    radius: AppSpaces.radiusExtraLarge,
+                    radius: 23,
                     backgroundImage: NetworkImage(controller.image),
                   ),
-                   SizedBox(width: AppSpaces.widthNormal),
-                  Text(
-                    controller.name,
-                    style: MyTextStyle.normalTitleText().copyWith(
-                      color: AppColors.textWhite,
-                      fontSize: 15,
-                    ),
-                    
-                  ),Spacer(),
+                  SizedBox(width: AppSpaces.widthSmall),
+                  Column(
+                    children: [
+                      Text(
+                        controller.name,
+                        style: MyTextStyle.normalTitleText().copyWith(
+                          color: AppColors.textWhite,
+                          fontSize: 15,
+                        ),
+                      ),
+                      Text(
+                        'Tour guide, sweden',
+                        style: MyTextStyle.smallTitleText(
+                          color: AppColors.grey400,
+                          size: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Spacer(),
 
                   const Icon(Icons.circle, color: AppColors.red, size: 12),
-                   SizedBox(width: AppSpaces.widthSmall),
+                  SizedBox(width: AppSpaces.widthSmall),
                   Obx(
                     () => Text(
                       controller.callDuration.value,
                       style: MyTextStyle.smallTitleText().copyWith(
-                        color: AppColors.textWhite,
-                        
+                        color: AppColors.grey300,
                       ),
                     ),
                   ),
@@ -85,7 +93,9 @@ class AudioCallScreen extends StatelessWidget {
             left: 152,
             right: 152,
 
-            child: ActionButton(width: 32,height: 32,
+            child: ActionButton(
+              width: 32,
+              height: 32,
               iconName: AppIcons.endCall,
               onTap: controller.endCall,
               backgroundColor: AppColors.red,
@@ -108,7 +118,9 @@ class AudioCallScreen extends StatelessWidget {
                   iconColor: AppColors.primaryBlack,
                 ),
 
-                ActionButton(width: 16,height: 16,
+                ActionButton(
+                  width: 16,
+                  height: 16,
                   iconName: AppIcons.video,
                   state: controller.isCameraOff,
                   onTap: controller.toggleCamera,

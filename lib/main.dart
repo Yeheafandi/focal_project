@@ -1,8 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:focal_project/bindings/initialize_binding.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/stripe_keys.dart';
 import 'package:focal_project/core/services/local_notification_service.dart';
 import 'package:focal_project/core/services/my_services.dart';
 import 'package:focal_project/core/services/notification_firebase_service.dart';
@@ -20,6 +23,12 @@ void main() async {
   await Get.putAsync<NotificationFirebaseService>(
     () => NotificationFirebaseService().init(),
   );
+  //تهيئه stripe بس للموبايل ما بيشتغل عالويب
+  if (!kIsWeb) {
+    // set the publishable key for Stripe
+    Stripe.publishableKey = StripeKeys.stripePublishableKey;
+    await Stripe.instance.applySettings();
+  }
   runApp(MyApp());
 }
 

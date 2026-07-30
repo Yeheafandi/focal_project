@@ -8,6 +8,7 @@ import 'package:focal_project/view/checkout_view/checkout_widgets/promo_section_
 import 'package:focal_project/widgets/custome_button.dart';
 import 'package:focal_project/widgets/recommended_hotel_card.dart';
 import 'package:get/get.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class CheckoutView extends StatelessWidget {
   final CheckoutController controller = Get.put(CheckoutController());
@@ -16,65 +17,77 @@ class CheckoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primaryWhite,
-      appBar: AppBar(
-        backgroundColor: AppColors.primaryWhite,
-        elevation: 0,
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppColors.primaryBlack),
-          onPressed: () => Get.back(),
-        ),
-        title: Text('Checkout', style: MyTextStyle.normalTitleText(size: 18)),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.more_vert, color: AppColors.primaryBlack),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(
-                horizontal: AppSpaces.paddingLarge,
-                vertical: AppSpaces.paddingNormal,
+    return Obx(
+      () => ModalProgressHUD(
+        inAsyncCall: controller.paymentIsLoading.value,
+        child: Scaffold(
+          backgroundColor: AppColors.primaryWhite,
+          appBar: AppBar(
+            backgroundColor: AppColors.primaryWhite,
+            elevation: 0,
+            centerTitle: true,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: AppColors.primaryBlack),
+              onPressed: () => Get.back(),
+            ),
+            title: Text(
+              'Checkout',
+              style: MyTextStyle.normalTitleText(size: 18),
+            ),
+            actions: [
+              IconButton(
+                icon: const Icon(
+                  Icons.more_vert,
+                  color: AppColors.primaryBlack,
+                ),
+                onPressed: () {},
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  RecommendedHotelCard(
-                    hotel: controller.bookingArgs.hotel,
-                    underline: false,
+            ],
+          ),
+          body: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: AppSpaces.paddingLarge,
+                    vertical: AppSpaces.paddingNormal,
                   ),
-                  SizedBox(height: AppSpaces.heightSmall),
-                  CheckoutInfoCard(controller: controller),
-                  SizedBox(height: AppSpaces.heightLarge),
-                  PromoSectionWidget(onTap: controller.showCouponBottomSheet),
-                  SizedBox(height: AppSpaces.heightExtraLarge),
-                ],
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      RecommendedHotelCard(
+                        hotel: controller.bookingArgs.hotel,
+                        underline: false,
+                      ),
+                      SizedBox(height: AppSpaces.heightSmall),
+                      CheckoutInfoCard(controller: controller),
+                      SizedBox(height: AppSpaces.heightLarge),
+                      PromoSectionWidget(
+                        onTap: controller.showCouponBottomSheet,
+                      ),
+                      SizedBox(height: AppSpaces.heightExtraLarge),
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-              AppSpaces.paddingLarge,
-              AppSpaces.paddingSmall,
-              AppSpaces.paddingLarge,
-              AppSpaces.paddingLarge,
-            ),
-            child: SizedBox(
-              width: double.infinity,
-              child: CustomeButton(
-                text: "Select Payment",
-                onPressed: controller.selectPayment,
+              Padding(
+                padding: EdgeInsets.fromLTRB(
+                  AppSpaces.paddingLarge,
+                  AppSpaces.paddingSmall,
+                  AppSpaces.paddingLarge,
+                  AppSpaces.paddingLarge,
+                ),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: CustomeButton(
+                    text: "Select Payment",
+                    onPressed: controller.selectPayment,
+                  ),
+                ),
               ),
-             
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/book_view/book_widgets/tab_button.dart';
 import 'package:get/get.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
@@ -78,7 +79,13 @@ class MyBookingView extends StatelessWidget {
                         SizedBox(height: AppSpaces.heightNormal),
                     itemBuilder: (context, index) {
                       final booking = bookings[index];
-                      return BookingCardWidget(booking: booking);
+                      return GestureDetector(
+                        child: BookingCardWidget(booking: booking),
+                        onTap: () => Get.toNamed(
+                          Routes.bookingDetailsView,
+                          arguments: booking,
+                        ),
+                      );
                     },
                   );
                 }),

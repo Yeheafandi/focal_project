@@ -38,24 +38,31 @@ class HotelCard extends StatelessWidget {
             height: 78,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.network(
-                hotelImage,
-                width: 78,
-                height: 78,
-                fit: BoxFit.cover,
-                cacheWidth: 156,
-                cacheHeight: 156,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress == null) {
-                    return child;
-                  }
+              child: hotelImage.startsWith('http')
+                  ? Image.network(
+                      hotelImage,
+                      width: 78,
+                      height: 78,
+                      fit: BoxFit.cover,
+                      cacheWidth: 156,
+                      cacheHeight: 156,
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) {
+                          return child;
+                        }
 
-                  return const Center(child: CircularProgressIndicator());
-                },
-                errorBuilder: (context, error, stackTrace) {
-                  return const Icon(Icons.image_not_supported);
-                },
-              ),
+                        return const Center(child: CircularProgressIndicator());
+                      },
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Icon(Icons.image_not_supported);
+                      },
+                    )
+                  : Image.asset(
+                      hotelImage,
+                      width: 78,
+                      height: 78,
+                      fit: BoxFit.cover,
+                    ),
             ),
           ),
 

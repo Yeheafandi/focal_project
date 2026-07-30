@@ -36,9 +36,14 @@ class SigninScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             spacing: 30.h,
-            children: [ mainTitle('Let’s Sign you in', AppColors.titleColor),
-              SubTitle(text: 'Lorem ipsum dolor sit amet, consectetur',
+            children: [ Column(spacing: 8.h,
+              children: [
+                mainTitle('Let’s Sign you in', AppColors.titleColor),
+                SubTitle(text: 'Lorem ipsum dolor sit amet, consectetur',
                   color:  AppColors.subtitleColor,fontWeight:  FontWeight.w400),
+              ],
+            ),
+              
               Column(
                 children: [
                Padding(
@@ -46,17 +51,17 @@ class SigninScreen extends StatelessWidget {
                 child: Form(
                   key: authController.formKey2,
                   child: Column(
-                    spacing: 3,
+                    spacing: 16,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SubTitle(text: 'Email Address',color:  AppColors.titleColor,fontWeight:  FontWeight.w600),
-                      CustomeFormField(
+                      
+                      CustomeFormField(text: 'Email Address',color:  AppColors.titleColor,fontWeight:  FontWeight.w600,
                           validator: (value) => Validator.validateEmail(value),
                           authController: authController.eController,
                           hintText: 'Enter your email address',
                           type: TextInputType.emailAddress),
-                      SubTitle(text: 'Password',color:  AppColors.titleColor,fontWeight:  FontWeight.w600),
-                      CustomeFormField(
+                      
+                      CustomeFormField(text: 'Password',color:  AppColors.titleColor,fontWeight:  FontWeight.w600,
                           authController: authController.passController,
                           validator: (value) => Validator.validatePassword(value),
                           isPassword: true,
@@ -90,7 +95,7 @@ class SigninScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: 32.h,
+                        height: 24.h,
                       ),
                       Align(
                           alignment: Alignment.center,
@@ -108,12 +113,12 @@ class SigninScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SubTitle( text: 'Don’t have an account? ',color:  AppColors.grey,
-                              fontWeight:  FontWeight.normal),
+                              fontWeight:  FontWeight.w600),
                           InkWell(
                             onTap: () { Get.toNamed(Routes.signupscreen);
                             authController.clearFields();},
                             child: SubTitle(text:  'Sign Up',color:  AppColors.primaryBlue,
-                                fontWeight:  FontWeight.bold),
+                                fontWeight:  FontWeight.w600),
                           )
                         ],
                       ),
@@ -151,31 +156,34 @@ class SigninScreen extends StatelessWidget {
               ),
         
               
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 3.w,
-                    children: [
-                      SubTitle(text:  'By signing up you agree to our',color:  AppColors.grey,
-                          fontWeight:  FontWeight.normal),
-                      InkWell(
-                        child: SubTitle(text: 'Terms',color:  AppColors.black87,fontWeight:  FontWeight.normal),
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 3.w,
-                    children: [
-                      SubTitle(text:  'and',color:  AppColors.grey,fontWeight:  FontWeight.normal),
-                      InkWell(
-                        child: SubTitle(text:  'Conditions of Use',color:  AppColors.black87,
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 3.w,
+                      children: [
+                        SubTitle(text:  'By signing up you agree to our',color:  AppColors.grey,
                             fontWeight:  FontWeight.normal),
-                      )
-                    ],
-                  )
-                ],
+                        InkWell(
+                          child: SubTitle(text: 'Terms',color:  AppColors.black87,fontWeight:  FontWeight.normal),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 3.w,
+                      children: [
+                        SubTitle(text:  'and',color:  AppColors.grey,fontWeight:  FontWeight.normal),
+                        InkWell(
+                          child: SubTitle(text:  'Conditions of Use',color:  AppColors.black87,
+                              fontWeight:  FontWeight.normal),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               )
             ],
           ),

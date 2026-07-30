@@ -44,20 +44,20 @@ class SignupScreen extends StatelessWidget {
                 spacing: 8.h,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SubTitle(text:  'Full Name',color:  AppColors.titleColor,fontWeight:FontWeight.w600),
-                  CustomeFormField(
+                  
+                  CustomeFormField(text:  'Full Name',color:  AppColors.titleColor,fontWeight:FontWeight.w600,
                       authController: authController.userController,
                       validator: (val) => Validator.validateUserName(val),
                       type: TextInputType.text,
                       hintText: 'Enter your name'),
-                  SubTitle(text:'E-mail',color:AppColors.titleColor,fontWeight:FontWeight.w600),
-                  CustomeFormField(
+                  
+                  CustomeFormField(text:'E-mail',color:AppColors.titleColor,fontWeight:FontWeight.w600,
                       authController: authController.eController,
                       validator: (val) => Validator.validateEmail(val),
                       hintText: 'Enter your email',
                       type: TextInputType.emailAddress),
-                  SubTitle(text: 'Password',color:AppColors.titleColor,fontWeight:FontWeight.w600),
-                  CustomeFormField(
+                  
+                  CustomeFormField(text: 'Password',color:AppColors.titleColor,fontWeight:FontWeight.w600,
                       authController: authController.passController,
                       validator: (val) => Validator.validatePassword(val),
                       isPassword: true,
@@ -90,7 +90,7 @@ class SignupScreen extends StatelessWidget {
                             height: 22.h,
                           ),
                           SizedBox(
-                            height: AppSpaces.heightLarge.h,
+                            height: AppSpaces.heightLarge,
                           ),
                           Row(
                             spacing: 48.w,
@@ -107,7 +107,7 @@ class SignupScreen extends StatelessWidget {
               ),
             ),
           ),
-             
+             SizedBox(height: 34,),
               Column(
                 children: [
                   Row(

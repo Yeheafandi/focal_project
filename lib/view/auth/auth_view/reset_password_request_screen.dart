@@ -27,8 +27,9 @@ final AuthController authController = Get.find<AuthController>();
                 FittedBox(fit: BoxFit.scaleDown, child: SubTitle(text:  'Recover your account password',color:AppColors.subtitleColor,fontWeight:FontWeight.normal)),
                     SizedBox(height: AppSpaces.heightExtraLarge,) , 
               Column(crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 8,  children: [SubTitle(text: 'E-mail',color:AppColors.black87,fontWeight:FontWeight.bold),
-                CustomeFormField(validator: (value) =>Validator.validateEmail(value) 
+              spacing: 8,  children: [
+                CustomeFormField(text: 'E-mail',color:AppColors.black87,fontWeight:FontWeight.bold
+                  ,validator: (value) =>Validator.validateEmail(value) 
                 ,authController: authController.eController,type: TextInputType.emailAddress, hintText: 'Enter your email')],
               ),
               SizedBox(height: 40,),

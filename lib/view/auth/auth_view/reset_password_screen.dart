@@ -42,16 +42,16 @@ final AuthController authController = Get.find<AuthController>();
                     crossAxisAlignment: CrossAxisAlignment.start,
                     spacing: 8.h,
                     children: [
-                      SubTitle(text:  'New Password',color:  AppColors.black87,fontWeight: FontWeight.w600),
-                       CustomeFormField(authController: authController.passController,
+                      
+                       CustomeFormField(authController: authController.passController,text:  'New Password',color:  AppColors.black87,fontWeight: FontWeight.w600,
                         isPassword: true,
                         validator: (value)=>Validator.validatePassword(value),
                         type: TextInputType.visiblePassword,
                         hintText: 'Enter your password',
                       ),
-                      SubTitle(
-                         text:  'Confirm Password',color:  AppColors.black87,fontWeight:FontWeight.w600),
-                       CustomeFormField(authController: authController.passConfirmController,
+                      
+                       CustomeFormField( text:  'Confirm Password',color:  AppColors.black87,fontWeight:FontWeight.w600
+                        ,authController: authController.passConfirmController,
                         isPassword: true,
                         type: TextInputType.visiblePassword,
                         hintText: 'Confirm your password',validator: (value) =>Validator.validatePasswordConfirm(value) ,
@@ -64,11 +64,11 @@ final AuthController authController = Get.find<AuthController>();
                     onPressed: () {if (authController.checkMatch()) {
                               Get.dialog(
                         AlertDialog(insetPadding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 24.0),
-                          backgroundColor: AppColors.textWhite,
+                          backgroundColor: AppColors.textWhite,contentPadding: const EdgeInsets.fromLTRB(32,4, 32, 12),
                           content: SubTitle(text: 
-                              '  Your password is successfully\n                   created',
+                              '   Your password is successfully\n                   created',
                             color:   AppColors.hintColor,
-                             fontWeight:  FontWeight.normal),
+                             fontWeight:  FontWeight.w600),
                           title: Center(
                             child: Column(spacing: AppSpaces.heightMedium,
                               children: [
@@ -77,7 +77,7 @@ final AuthController authController = Get.find<AuthController>();
                                   width: 62.w,
                                   height: 62.h,
                                 ),
-                                Text('Success', style: TextStyle(fontSize: 18.sp)),
+                                Text('Success', style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.w600)),
                               ],
                             ),
                           ),

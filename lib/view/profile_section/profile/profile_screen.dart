@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
-import 'package:focal_project/widgets/bottom_nav_bar.dart';
 import 'package:get/get.dart';
+
 import 'widgets/settings_tile.dart';
 import 'profile_controller.dart';
 
@@ -88,11 +88,8 @@ class ProfileScreen extends GetView<ProfileController> {
             SizedBox(height: AppSpaces.heightSmall),
           ],
         ),
-      ),
-      bottomNavigationBar: Obx(() => BottomNavBar(
-            currentIndex: controller.navIndex.value,
-            onTap: controller.changeNavIndex,
-          )),
-    );
+      ),   
+          );
+    ;
   }
 }

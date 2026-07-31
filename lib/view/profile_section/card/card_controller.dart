@@ -1,6 +1,7 @@
 import 'package:focal_project/model/payment_card_model.dart';
 import 'package:get/get.dart';
 
+
 class CardController extends GetxController {
   final RxList<PaymentCardModel> cards = <PaymentCardModel>[].obs;
   final RxInt defaultCardIndex = 0.obs;

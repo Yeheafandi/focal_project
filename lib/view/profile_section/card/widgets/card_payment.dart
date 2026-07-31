@@ -5,6 +5,7 @@ import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/model/payment_card_model.dart';
 
+/// ويدجت البطاقة - منستقبل PaymentCardModel وبنبني الشكل حسب النوع (visa/mastercard)
 class PaymentCard extends StatelessWidget {
   final PaymentCardModel card;
   final bool isDefault;

@@ -11,6 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'card_controller.dart';
 
 
+/// GetView<CardController> بتخلي controller متاح مباشرة بدون ما تعمله save بمتغير
 class CardScreen extends GetView<CardController> {
   const CardScreen({super.key});
 

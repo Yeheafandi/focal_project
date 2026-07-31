@@ -4,6 +4,7 @@ import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/book_view/book_controller/book_controller.dart';
 import 'package:focal_project/view/book_view/book_widgets/date_booking_widget.dart';
+import 'package:focal_project/view/book_view/book_widgets/date_dailog.dart';
 import 'package:focal_project/view/book_view/book_widgets/guest_counter_widget.dart';
 import 'package:focal_project/view/book_view/book_widgets/payment_detail_row.dart';
 import 'package:focal_project/view/book_view/book_widgets/payment_method_card.dart';
@@ -14,31 +15,20 @@ class RequestToBookView extends StatelessWidget {
   final RequestToBookController controller = Get.put(RequestToBookController());
 
   RequestToBookView({super.key});
-
   Future<void> _pickDate({
     required BuildContext context,
     required DateTime initialDate,
     required DateTime firstDate,
     required ValueChanged<DateTime> onPicked,
   }) async {
-    final selected = await showDatePicker(
-      context: context,
-      initialDate: initialDate,
-      firstDate: firstDate,
-      lastDate: DateTime(2030),
-      builder: (context, child) {
-        return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: const ColorScheme.light(primary: AppColors.primary),
-          ),
-          child: child!,
-        );
-      },
+    await Get.dialog(
+      DateDailog(
+        context: context,
+        initialDate: initialDate,
+        firstDate: firstDate,
+        onPicked: onPicked,
+      ),
     );
-
-    if (selected != null) {
-      onPicked(selected);
-    }
   }
 
   @override
@@ -89,7 +79,7 @@ class RequestToBookView extends StatelessWidget {
                             onTap: () => _pickDate(
                               context: context,
                               initialDate: controller.checkInDate.value,
-                              firstDate: DateTime(2020),
+                              firstDate: DateTime.now(),
                               onPicked: controller.setCheckInDate,
                             ),
                           ),

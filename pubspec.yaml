@@ -54,7 +54,6 @@ dependencies:
   flutter_stripe: ^13.0.0
   dartz: ^0.10.1
   modal_progress_hud_nsn: ^0.5.1
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

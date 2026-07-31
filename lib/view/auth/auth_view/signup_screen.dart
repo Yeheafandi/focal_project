@@ -41,9 +41,9 @@ class SignupScreen extends StatelessWidget {
             child: Form(
               key: authController.formKey,
               child: Column(
-                spacing: 8.h,
+                spacing: 8,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+                children: [
                   
                   CustomeFormField(text:  'Full Name',color:  AppColors.titleColor,fontWeight:FontWeight.w600,
                       authController: authController.userController,
@@ -64,7 +64,7 @@ class SignupScreen extends StatelessWidget {
                       type: TextInputType.visiblePassword,
                       hintText: 'Enter your password'),
                   SizedBox(
-                    height: 32.h,
+                    height: 32,
                   ),
                   Align(
                       alignment: Alignment.center,
@@ -78,7 +78,7 @@ class SignupScreen extends StatelessWidget {
                         },
                       )),
                   SizedBox(
-                    height: 24.h,
+                    height: 24,
                   ),
                   Align(
                       alignment: Alignment.center,

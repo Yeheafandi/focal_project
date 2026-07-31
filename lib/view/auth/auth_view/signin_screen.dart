@@ -35,8 +35,8 @@ class SigninScreen extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Column(
-            spacing: 30.h,
-            children: [ Column(spacing: 8.h,
+            spacing: 30,
+            children: [ Column(spacing: 8,
               children: [
                 mainTitle('Let’s Sign you in', AppColors.titleColor),
                 SubTitle(text: 'Lorem ipsum dolor sit amet, consectetur',
@@ -53,7 +53,7 @@ class SigninScreen extends StatelessWidget {
                   child: Column(
                     spacing: 16,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
+                    children: [
                       
                       CustomeFormField(text: 'Email Address',color:  AppColors.titleColor,fontWeight:  FontWeight.w600,
                           validator: (value) => Validator.validateEmail(value),
@@ -67,7 +67,7 @@ class SigninScreen extends StatelessWidget {
                           isPassword: true,
                           type: TextInputType.visiblePassword,
                           hintText: 'Enter your password'),
-                      Row(mainAxisAlignment: MainAxisAlignment.start,
+                      Row(
                         children: [
                           Expanded(
                             child: Obx(() => CheckboxListTile(
@@ -95,19 +95,19 @@ class SigninScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                      SizedBox(
-                        height: 24.h,
-                      ),
-                      Align(
-                          alignment: Alignment.center,
-                          child: CustomeButton(
-                              text: 'Sign In',
-                              onPressed: () {
-                                if (authController.formKey2.currentState!
-                                    .validate()) {
-                                  Get.toNamed(Routes.navigationMenuView);
-                                }
-                              })),
+                    
+                    ],
+                  ),
+                ),
+              ),  
+                      CustomeButton(
+                          text: 'Sign In',
+                          onPressed: () {
+                            if (authController.formKey2.currentState!
+                                .validate()) {
+                              Get.toNamed(Routes.navigationMenuView);
+                            }
+                          }),
                               SizedBox(height:AppSpaces.heightLarge ,),
                       Row(
                         spacing: 3.w,
@@ -124,7 +124,7 @@ class SigninScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: 24.h,
+                        height: 24,
                       ),
                       Align(
                           alignment: Alignment.center,
@@ -149,42 +149,35 @@ class SigninScreen extends StatelessWidget {
                               ),
                             ],
                           )),
-                    ],
-                  ),
-                ),
-              ),
                 ],
               ),
         
-              
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      spacing: 3.w,
-                      children: [
-                        SubTitle(text:  'By signing up you agree to our',color:  AppColors.grey,
+              SizedBox(height: 46,),
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 3.w,
+                    children: [
+                      SubTitle(text:  'By signing up you agree to our',color:  AppColors.grey,
+                          fontWeight:  FontWeight.normal),
+                      InkWell(
+                        child: SubTitle(text: 'Terms',color:  AppColors.black87,fontWeight:  FontWeight.normal),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 3.w,
+                    children: [
+                      SubTitle(text:  'and',color:  AppColors.grey,fontWeight:  FontWeight.normal),
+                      InkWell(
+                        child: SubTitle(text:  'Conditions of Use',color:  AppColors.black87,
                             fontWeight:  FontWeight.normal),
-                        InkWell(
-                          child: SubTitle(text: 'Terms',color:  AppColors.black87,fontWeight:  FontWeight.normal),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      spacing: 3.w,
-                      children: [
-                        SubTitle(text:  'and',color:  AppColors.grey,fontWeight:  FontWeight.normal),
-                        InkWell(
-                          child: SubTitle(text:  'Conditions of Use',color:  AppColors.black87,
-                              fontWeight:  FontWeight.normal),
-                        )
-                      ],
-                    )
-                  ],
-                ),
+                      )
+                    ],
+                  )
+                ],
               )
             ],
           ),

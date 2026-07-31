@@ -15,7 +15,7 @@ class OtpScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar( leading: IconButton(onPressed: Get.back, icon: Icon(Icons.arrow_back)),),
       body: Padding(
-        padding:  EdgeInsets.all(AppSpaces.paddingExtraLarge32),
+        padding:  EdgeInsets.all(AppSpaces.paddingExtraLarge),
         child: Center(
           child: Column(spacing: 8,
             children: [
@@ -24,12 +24,12 @@ class OtpScreen extends StatelessWidget {
               FittedBox(fit: BoxFit.scaleDown, child: SubTitle(text: 'We have just sent you 4 digit code via your email',color:AppColors.grey,fontWeight:  FontWeight.w400)),
               SubTitle(text:  'example@gmail.com',color:  AppColors.black87,fontWeight:FontWeight.w400)
         ,SizedBox(height: AppSpaces.heightExtraLarge,)
-           , OtpTextField(fieldHeight: 56,fieldWidth: 56,focusedBorderColor: AppColors.primaryBlue,borderWidth: 1,
+           , OtpTextField(textStyle: TextStyle(fontSize: 24,fontWeight:FontWeight.w700 ,color: AppColors.primaryBlack),fillColor: AppColors.formFiled,filled:true, fieldHeight: 56,fieldWidth: 56,focusedBorderColor: AppColors.primaryBlue,borderWidth: 1,
               numberOfFields: 4,margin: EdgeInsets.all(10),
               borderColor: AppColors.textWhite,borderRadius: BorderRadius.circular(24),
               showFieldAsBox: true,
             ),SizedBox(height: 40,),
-            CustomeButton(text: 'Continue',onPressed: () =>Get.offNamed( Routes.navigationMenuView ),),SizedBox(height: AppSpaces.heightLarge,),
+            CustomeButton(text: 'Continue',onPressed: () =>Get.offNamed( Routes.navigationMenuView ),),SizedBox(height: 24,),
             Row(spacing: 3,mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SubTitle(text:'Didn’t receive code? ',color: AppColors.hintColor,fontWeight:FontWeight.w600),

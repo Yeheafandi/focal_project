@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
+import 'package:focal_project/widgets/bottom_nav_bar.dart';
 import 'package:get/get.dart';
 import 'widgets/settings_tile.dart';
 import 'profile_controller.dart';
@@ -51,13 +52,16 @@ class ProfileScreen extends GetView<ProfileController> {
                         ],
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.all(AppSpaces.paddingVerySmall),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.grey200),
-                        borderRadius: BorderRadius.circular(AppSpaces.radiusSmall),
+                    GestureDetector(
+                      onTap: controller.goToPersonalInfo,
+                      child: Container(
+                        padding: EdgeInsets.all(AppSpaces.paddingVerySmall),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: AppColors.grey200),
+                          borderRadius: BorderRadius.circular(AppSpaces.radiusSmall),
+                        ),
+                        child: Icon(Icons.edit_outlined, size: 18, color: AppColors.titleColor),
                       ),
-                      child: Icon(Icons.edit_outlined, size: 18, color: AppColors.titleColor),
                     ),
                   ],
                 )),
@@ -65,14 +69,14 @@ class ProfileScreen extends GetView<ProfileController> {
             Text('Setting', style: MyTextStyle.smallTitleText(color: AppColors.subtitleColor)),
             SizedBox(height: AppSpaces.heightVerySmall),
             SettingsTile(icon: Icons.credit_card, title: 'Your Card', onTap: controller.goToCard),
-            SettingsTile(icon: Icons.verified_user_outlined, title: 'Security', onTap: () {}),
-            SettingsTile(icon: Icons.notifications_none, title: 'Notification', onTap: () {}),
-            SettingsTile(icon: Icons.language, title: 'Languages', onTap: () {}),
+            SettingsTile(icon: Icons.verified_user_outlined, title: 'Security', onTap: controller.goToSecurity),
+            SettingsTile(icon: Icons.notifications_none, title: 'Notification', onTap: controller.goToNotifications),
+            SettingsTile(icon: Icons.language, title: 'Languages', onTap: controller.goToLanguage),
             SettingsTile(
               icon: Icons.help_outline,
               title: 'Help and Support',
               showDivider: false,
-              onTap: () {},
+              onTap: controller.goToHelpSupport,
             ),
             SizedBox(height: AppSpaces.heightExtraLarge),
             Center(
@@ -85,10 +89,10 @@ class ProfileScreen extends GetView<ProfileController> {
           ],
         ),
       ),
-      //bottomNavigationBar: Obx(() => BottomNavBar(
-        //    currentIndex: controller.navIndex.value,
-          //  onTap: controller.changeNavIndex,
-          );
-    
+      bottomNavigationBar: Obx(() => BottomNavBar(
+            currentIndex: controller.navIndex.value,
+            onTap: controller.changeNavIndex,
+          )),
+    );
   }
 }

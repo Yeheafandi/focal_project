@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'widgets/logout_dialog.dart';
 
 class ProfileController extends GetxController {
   final RxString name = 'Brooklyn Simmons'.obs;
@@ -31,7 +32,30 @@ class ProfileController extends GetxController {
     Get.toNamed('/card');
   }
 
+  void goToPersonalInfo() {
+    Get.toNamed('/personal-info');
+  }
+
+  void goToSecurity() {
+    Get.toNamed('/security');
+  }
+
+  void goToNotifications() {
+    Get.toNamed('/notifications');
+  }
+
+  void goToLanguage() {
+    Get.toNamed('/language');
+  }
+
+  void goToHelpSupport() {
+    Get.toNamed('/help-support');
+  }
+
   Future<void> logout() async {
+    final confirmed = await LogoutDialog.show();
+    if (confirmed != true) return;
+
     // TODO: امسح التوكن/الجلسة ونادِ API تسجيل الخروج، بعدين:
     // Get.offAllNamed('/login');
   }

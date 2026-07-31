@@ -11,6 +11,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get.put هون بيسوي الكنترولر ومنادي onInit تلقائياً (يلي فيها التأخير والانتقال)
     Get.put(SplashController());
 
     return Scaffold(

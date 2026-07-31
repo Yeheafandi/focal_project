@@ -16,7 +16,7 @@ class MyFavoriteShimmer extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
+          mainAxisSpacing: 0,
           childAspectRatio: 0.62,
         ),
         itemCount: 4,

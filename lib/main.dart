@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         initialBinding: InitializeBinding(),
-        initialRoute:serv.isRemembered.value? Routes.navigationMenuView:Routes.onboarding,
+        initialRoute:Routes.bookingDetailsView,
         getPages: AppRoutes.screens,
       ),
     );

@@ -26,7 +26,7 @@ class FavoriteItem extends GetView<MyFavoriteController> {
               borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
               child: Image.network(
                 hotel.image,
-                height: 119.h, 
+                height: 119.h,
                 width: 154.w,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
@@ -50,12 +50,10 @@ class FavoriteItem extends GetView<MyFavoriteController> {
                 onTap: () => controller.toggleFavorite(hotel),
                 child: Obx(
                   () => Icon(
-                    controller.favorites.contains(
-                          hotel,
-                        ) 
+                    controller.favorites.contains(hotel)
                         ? Icons.favorite
                         : Icons.favorite_border,
-                    color: Colors.white, 
+                    color: AppColors.primaryWhite,
                     size: 24,
                   ),
                 ),
@@ -63,73 +61,69 @@ class FavoriteItem extends GetView<MyFavoriteController> {
             ),
           ],
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: AppSpaces.heightSmall),
 
-        
         Row(
           children: [
             SvgPicture.asset(AppIcons.solarStar),
-             SizedBox(width: AppSpaces.widthVerySmall),
+            SizedBox(width: AppSpaces.widthVerySmall),
             Text(
               hotel.rating.toString(),
-              style: MyTextStyle.smallTitleText().copyWith(
-                fontSize: 12,
+              style: MyTextStyle.smallTitleText(
+                size: 12,
                 color: AppColors.amber,
+                fontWeight: FontWeight.w600,
               ),
             ),
             Text(
               "(${hotel.reviews})",
-              style: MyTextStyle.smallTitleText().copyWith(
+              style: MyTextStyle.smallTitleText(
                 color: AppColors.grey400,
-                fontSize: 11,
+                size: 10,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ],
         ),
-         SizedBox(height: AppSpaces.heightVerySmall),
+        SizedBox(height: AppSpaces.heightVerySmall),
 
-       
         Text(
           hotel.title,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-          style: MyTextStyle.normalTitleText().copyWith(
-            
-            fontSize: 14,
+          style: MyTextStyle.normalTitleText(
+            color: AppColors.primaryBlack,
+            size: 14,
+            fontWeight: FontWeight.w600,
           ),
         ),
-        
 
-        
         Text(
           hotel.location,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-          style: MyTextStyle.smallTitleText().copyWith(
-            color: AppColors.grey400,
-            fontSize: 12,
+          style: MyTextStyle.smallTitleText(
+            color: AppColors.grey600,
+            size: 12,
+            fontWeight: FontWeight.w400,
           ),
         ),
-         SizedBox(height: AppSpaces.heightVerySmall),
+        SizedBox(height: AppSpaces.heightVerySmall),
 
-        
         Row(
           children: [
             Text(
               "\$${hotel.price}",
-              style: MyTextStyle.priceText().copyWith(
-                color: AppColors
-                    .primaryBlack, 
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
+              style: MyTextStyle.priceText(
+                color: AppColors.primaryBlack,
+                fontWeight: FontWeight.w600,
+                size: 14,
               ),
             ),
             Text(
               " Per Night",
-              style: MyTextStyle.smallTitleText().copyWith(
-                color: AppColors.grey400,
-                fontSize: 11,
-              ),
+              style: MyTextStyle.smallTitleText(color: AppColors.grey600,
+                size: 10,)
             ),
           ],
         ),

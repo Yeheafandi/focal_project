@@ -14,12 +14,10 @@ class BookingInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-
       padding: const EdgeInsets.all(16),
 
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.primaryWhite,
         borderRadius: BorderRadius.circular(16),
       ),
 

@@ -3,25 +3,19 @@ import 'package:focal_project/model/booking_details_model.dart';
 import 'package:get/get.dart';
 
 class BookingDetailsController extends GetxController {
-  final int bookingId = 1;
+  BookingDetailsController({
+    required this.bookingId,
+    required BookingDetailsService service,
+  }) : _service = service;
 
-  final BookingDetailsService _service = BookingDetailsService();
+  final int bookingId;
+
+  final BookingDetailsService _service;
 
   late BookingDetailsModel booking;
 
   @override
   void onInit() {
     super.onInit();
-    _initBooking();
-  }
-
-  void _initBooking() {
-    final args = Get.arguments;
-
-    if (args is BookingDetailsModel) {
-      booking = args;
-    } else {
-      booking = _service.getBooking(bookingId);
-    }
-  }
+    booking = _service.getBooking(bookingId);  }
 }

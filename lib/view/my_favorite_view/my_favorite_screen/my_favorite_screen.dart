@@ -42,28 +42,35 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                 ),
                 Text(
                   "My Favorite",
-                  style: MyTextStyle.normalTitleText().copyWith(fontSize: 18),
+                  style: MyTextStyle.normalTitleText(
+                    color: AppColors.black87,
+                    fontWeight: FontWeight.w600,
+                    size: 18,
+                  ),
                 ),
                 InkWell(child: SvgPicture.asset(AppIcons.sort)),
               ],
             ),
             SizedBox(height: AppSpaces.heightLarge),
-            CustomSearchBar(),
+            CustomSearchBar(onFilterTap: () => ''),
 
             SizedBox(height: AppSpaces.heightNormal),
 
             SizedBox(
-              height: 36,
+              height: 48,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: controller.categories.length,
                 itemBuilder: (_, index) {
-                  return CategoryItem(title: controller.categories[index]);
+                  return CategoryItem(
+                    icon: controller.categoriesIcons[index],
+                    title: controller.categories[index],
+                  );
                 },
               ),
             ),
 
-            SizedBox(height: AppSpaces.heightLarge),
+            SizedBox(height: AppSpaces.heightVerySmall),
 
             Expanded(
               child: Obx(() {
@@ -78,7 +85,7 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
+                    mainAxisSpacing: 0,
                     childAspectRatio: 0.62,
                   ),
                   itemCount: controller.favorites.length,

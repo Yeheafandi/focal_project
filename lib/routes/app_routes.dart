@@ -13,7 +13,13 @@ import 'package:focal_project/view/messages_view/messages_screen/messages_screen
 import 'package:focal_project/view/my_favorite_view/my_favorite_screen/my_favorite_screen.dart';
 import 'package:focal_project/view/nearby_map_view/nearby_map_view.dart';
 import 'package:focal_project/view/notification_view/notification_screen/notification_screen.dart';
+import 'package:focal_project/view/profile_section/help_support/help_screem.dart';
+import 'package:focal_project/view/profile_section/language/language_screen.dart';
+import 'package:focal_project/view/profile_section/legal_policies/legal_screen.dart';
+import 'package:focal_project/view/profile_section/notifications/notifications_screen.dart';
+import 'package:focal_project/view/profile_section/personalInfo/personalInfo_screen.dart';
 import 'package:focal_project/view/profile_section/profile/profile_screen.dart';
+import 'package:focal_project/view/profile_section/security/security_screen.dart';
 import 'package:focal_project/view/search_section/search_view/search_view.dart';
 import 'package:focal_project/view/splash/splash_screen.dart';
 import 'package:focal_project/view/videocall_view/videocall_screen/videocall_screen.dart';
@@ -73,8 +79,32 @@ class AppRoutes {
       binding: MyFavoriteBinding(),
     ),
     GetPage(name: Routes.splashscreen, page: () => SplashScreen()),
-    GetPage(name: Routes.profilescreen, page: () => ProfileScreen()),
-    GetPage(name: Routes.cardscreen, page: () => CardScreen()),
-    GetPage(name: Routes.paymentComplete, page: () => PaymentCompleteView()),
+        GetPage(name: Routes.profilescreen, page: () => ProfileScreen()),
+        GetPage(name: Routes.cardscreen, page: () => CardScreen()),
+
+    GetPage(
+      name: Routes.personalInfoScreen,
+      page: () => const PersonalInfoScreen(),
+    ),
+    GetPage(
+      name: Routes.securityScreen,
+      page: () => const SecurityScreen(),
+    ),
+    GetPage(
+      name: Routes.notificationSettingsScreen,
+      page: () => const NotificationsScreen(),
+    ),
+    GetPage(
+      name: Routes.languageScreen,
+      page: () => const LanguageScreen(),
+    ),
+    GetPage(
+      name: Routes.helpSupportScreen,
+      page: () => const HelpSupportScreen(),
+    ),
+    GetPage(
+      name: Routes.legalPoliciesScreen,
+      page: () => const LegalPoliciesScreen(),
+    ),
   ];
 }

@@ -27,4 +27,10 @@ class Routes {
   static const String profilescreen = '/profile-screen';
   static const String cardscreen = '/card-screen';
   static const String paymentComplete = '/payment-complete';
+  static const String personalInfoScreen = '/personal-info-screen';
+  static const String securityScreen = '/security-screen';
+  static const String notificationSettingsScreen = '/notification-settings-screen';
+  static const String languageScreen = '/language-screen';
+  static const String helpSupportScreen = '/help-support-screen';
+  static const String legalPoliciesScreen = '/legal-policies-screen';
 }

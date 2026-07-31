@@ -1,4 +1,6 @@
+import 'package:focal_project/routes/routes.dart';
 import 'package:get/get.dart';
+
 import 'widgets/logout_dialog.dart';
 
 class ProfileController extends GetxController {
@@ -29,34 +31,38 @@ class ProfileController extends GetxController {
   }
 
   void goToCard() {
-    Get.toNamed('/card');
+    Get.toNamed(Routes.cardscreen);
   }
 
   void goToPersonalInfo() {
-    Get.toNamed('/personal-info');
+    Get.toNamed(Routes.personalInfoScreen);
   }
 
   void goToSecurity() {
-    Get.toNamed('/security');
+    Get.toNamed(Routes.securityScreen);
   }
 
   void goToNotifications() {
-    Get.toNamed('/notifications');
+    Get.toNamed(Routes.notificationSettingsScreen);
   }
 
   void goToLanguage() {
-    Get.toNamed('/language');
+    Get.toNamed(Routes.languageScreen);
   }
 
   void goToHelpSupport() {
-    Get.toNamed('/help-support');
+    Get.toNamed(Routes.helpSupportScreen);
+  }
+
+  void goToLegalPolicies() {
+    Get.toNamed(Routes.legalPoliciesScreen);
   }
 
   Future<void> logout() async {
     final confirmed = await LogoutDialog.show();
     if (confirmed != true) return;
 
-    // TODO: امسح التوكن/الجلسة ونادِ API تسجيل الخروج، بعدين:
-    // Get.offAllNamed('/login');
+    // TODO: امسحي التوكن/الجلسة ونادي API تسجيل الخروج، بعدين:
+    // Get.offAllNamed(Routes.signinscreen);
   }
 }

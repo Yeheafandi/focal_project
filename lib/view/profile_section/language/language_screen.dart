@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
@@ -8,8 +7,6 @@ import 'package:focal_project/view/profile_section/language/language_cotroller.d
 import 'package:focal_project/view/profile_section/language/widgets/language_title.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-
 
 class LanguageScreen extends GetView<LanguageController> {
   const LanguageScreen({super.key});
@@ -33,41 +30,44 @@ class LanguageScreen extends GetView<LanguageController> {
           ),
           onPressed: () => Get.back(),
         ),
-        title: Text('Language', style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text(
+          'language_screen.title'.tr,
+          style: MyTextStyle.normalTitleText(color: AppColors.titleColor),
+        ),
       ),
       body: Obx(
         () => ListView(
           padding: EdgeInsets.all(AppSpaces.paddingLarge),
           children: [
             Text(
-              'Suggested Languages',
+              'language_screen.suggested_languages'.tr,
               style: MyTextStyle.smallTitleText(color: AppColors.subtitleColor, size: 12),
             ),
             SizedBox(height: AppSpaces.heightSmall),
             _LanguageCard(
-              children: controller.suggestedLanguages.map((lang) {
-                final isLast = lang == controller.suggestedLanguages.last;
+              children: controller.suggestedLanguages.map((langKey) {
+                final isLast = langKey == controller.suggestedLanguages.last;
                 return LanguageTile(
-                  label: lang,
-                  isSelected: controller.selectedLanguage.value == lang,
-                  onTap: () => controller.selectLanguage(lang),
+                  labelKey: langKey,
+                  isSelected: controller.selectedLanguageKey.value == langKey,
+                  onTap: () => controller.selectLanguage(langKey),
                   showDivider: !isLast,
                 );
               }).toList(),
             ),
             SizedBox(height: AppSpaces.heightLarge),
             Text(
-              'Other Languages',
+              'language_screen.other_languages'.tr,
               style: MyTextStyle.smallTitleText(color: AppColors.subtitleColor, size: 12),
             ),
             SizedBox(height: AppSpaces.heightSmall),
             _LanguageCard(
-              children: controller.otherLanguages.map((lang) {
-                final isLast = lang == controller.otherLanguages.last;
+              children: controller.otherLanguages.map((langKey) {
+                final isLast = langKey == controller.otherLanguages.last;
                 return LanguageTile(
-                  label: lang,
-                  isSelected: controller.selectedLanguage.value == lang,
-                  onTap: () => controller.selectLanguage(lang),
+                  labelKey: langKey,
+                  isSelected: controller.selectedLanguageKey.value == langKey,
+                  onTap: () => controller.selectLanguage(langKey),
                   showDivider: !isLast,
                 );
               }).toList(),
@@ -79,7 +79,6 @@ class LanguageScreen extends GetView<LanguageController> {
   }
 }
 
-/// صندوق أبيض بحواف دائرية يلف مجموعة لغات (Suggested / Other)
 class _LanguageCard extends StatelessWidget {
   final List<Widget> children;
   const _LanguageCard({required this.children});

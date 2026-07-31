@@ -13,6 +13,7 @@ import 'package:focal_project/view/messages_view/messages_screen/messages_screen
 import 'package:focal_project/view/my_favorite_view/my_favorite_screen/my_favorite_screen.dart';
 import 'package:focal_project/view/nearby_map_view/nearby_map_view.dart';
 import 'package:focal_project/view/notification_view/notification_screen/notification_screen.dart';
+import 'package:focal_project/view/profile_section/language/language_screen.dart';
 import 'package:focal_project/view/profile_section/profile/profile_screen.dart';
 import 'package:focal_project/view/search_section/search_view/search_view.dart';
 import 'package:focal_project/view/splash/splash_screen.dart';
@@ -76,5 +77,7 @@ class AppRoutes {
     GetPage(name: Routes.profilescreen, page: () => ProfileScreen()),
     GetPage(name: Routes.cardscreen, page: () => CardScreen()),
     GetPage(name: Routes.paymentComplete, page: () => PaymentCompleteView()),
+    GetPage(name: Routes.languages, page: () => LanguageScreen()),
+
   ];
 }

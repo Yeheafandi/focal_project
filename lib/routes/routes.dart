@@ -27,4 +27,5 @@ class Routes {
   static const String profilescreen = '/profile-screen';
   static const String cardscreen = '/card-screen';
   static const String paymentComplete = '/payment-complete';
+  static const String languages = '/languages';
 }

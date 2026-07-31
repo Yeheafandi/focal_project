@@ -117,7 +117,7 @@ class HotelDetailView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Common Facilities",
+                              'hotel_detail.common_facilities'.tr,
                               style: MyTextStyle.normalTitleText(
                                 fontWeight: FontWeight.bold,
                                 size: 16,
@@ -128,7 +128,7 @@ class HotelDetailView extends StatelessWidget {
                                 Get.to(const AllFacilitiesView());
                               },
                               child: Text(
-                                "See All",
+                                'hotel_detail.see_all'.tr,
                                 style: TextStyle(
                                   color: AppColors.primary,
                                   fontWeight: FontWeight.bold,
@@ -145,22 +145,22 @@ class HotelDetailView extends StatelessWidget {
                             children: [
                               CommonFacilityItem(
                                 icon: Icons.ac_unit,
-                                label: "Ac",
+                                label: 'hotel_detail.ac'.tr,
                                 isLoading: controller.isLoadingFacilities.value,
                               ),
                               CommonFacilityItem(
                                 icon: Icons.restaurant,
-                                label: "Restaurant",
+                                label: 'hotel_detail.restaurant'.tr,
                                 isLoading: controller.isLoadingFacilities.value,
                               ),
                               CommonFacilityItem(
                                 icon: Icons.pool,
-                                label: "Pool",
+                                label: 'hotel_detail.pool'.tr,
                                 isLoading: controller.isLoadingFacilities.value,
                               ),
                               CommonFacilityItem(
                                 icon: Icons.support_agent,
-                                label: "24-Hours",
+                                label: 'hotel_detail.twenty_four_hours'.tr,
                                 isLoading: controller.isLoadingFacilities.value,
                               ),
                             ],
@@ -169,7 +169,7 @@ class HotelDetailView extends StatelessWidget {
                         SizedBox(height: AppSpaces.heightLarge),
 
                         Text(
-                          "Description",
+                          'hotel_detail.description'.tr,
                           style: MyTextStyle.normalTitleText(size: 16),
                         ),
                         SizedBox(height: AppSpaces.heightSmall),
@@ -196,7 +196,9 @@ class HotelDetailView extends StatelessWidget {
                               GestureDetector(
                                 onTap: () => controller.toggleDescription(),
                                 child: Text(
-                                  isExpanded ? "Read Less" : "Read More",
+                                  isExpanded
+                                      ? 'hotel_detail.read_less'.tr
+                                      : 'hotel_detail.read_more'.tr,
                                   style: MyTextStyle.normalTitleText(
                                     color: AppColors.primary,
                                     size: 14,
@@ -212,7 +214,7 @@ class HotelDetailView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Location",
+                              'hotel_detail.location'.tr,
                               style: MyTextStyle.normalTitleText(size: 16),
                             ),
                             GestureDetector(
@@ -220,7 +222,7 @@ class HotelDetailView extends StatelessWidget {
                                 Get.toNamed(Routes.nearbyMap);
                               },
                               child: Text(
-                                "Open Map",
+                                'hotel_detail.open_map'.tr,
                                 style: MyTextStyle.smallTitleText(
                                   color: AppColors.primary,
                                   size: 12,
@@ -242,7 +244,7 @@ class HotelDetailView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Reviews",
+                              'hotel_detail.reviews'.tr,
                               style: MyTextStyle.normalTitleText(size: 18),
                             ),
                             GestureDetector(
@@ -250,7 +252,7 @@ class HotelDetailView extends StatelessWidget {
                                 Get.to(const HotelReviewsView());
                               },
                               child: Text(
-                                "See All",
+                                'hotel_detail.see_all'.tr,
                                 style: MyTextStyle.smallTitleText(
                                   color: AppColors.primary,
                                   size: 14,
@@ -277,7 +279,7 @@ class HotelDetailView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Recommendation",
+                              'hotel_detail.recommendation'.tr,
                               style: MyTextStyle.normalTitleText(
                                 fontWeight: FontWeight.bold,
                                 size: 16,
@@ -286,7 +288,7 @@ class HotelDetailView extends StatelessWidget {
                             GestureDetector(
                               onTap: () {},
                               child: Text(
-                                "See All",
+                                'hotel_detail.see_all'.tr,
                                 style: TextStyle(
                                   color: AppColors.primary,
                                   fontWeight: FontWeight.bold,
@@ -350,9 +352,9 @@ class HotelDetailView extends StatelessWidget {
                     ),
                     onPressed: () => Get.back(),
                   ),
-                  const Text(
-                    "Detail",
-                    style: TextStyle(
+                  Text(
+                    'hotel_detail.title'.tr,
+                    style: const TextStyle(
                       color: AppColors.primaryWhite,
                       fontSize: 18,
                       fontWeight: FontWeight.w600,

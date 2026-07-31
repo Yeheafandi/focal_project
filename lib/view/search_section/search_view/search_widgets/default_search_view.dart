@@ -25,7 +25,7 @@ class DefaultSearchView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Recent Searches',
+               'default_search_view.recent_searches'.tr,
                 style: MyTextStyle.normalTitleText(
                   size: 16,
                   color: AppColors.primaryBlack,
@@ -34,7 +34,7 @@ class DefaultSearchView extends StatelessWidget {
               TextButton(
                 onPressed: () => controller.recentSearches.clear(),
                 child: Text(
-                  'Clear All',
+                  'default_search_view.clear_all'.tr,
                   style: MyTextStyle.normalTitleText(
                     color: AppColors.red,
                     fontWeight: FontWeight.w500,
@@ -50,7 +50,7 @@ class DefaultSearchView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Recently Viewed',
+                'default_search_view.recently_viewed'.tr,
                 style: MyTextStyle.normalTitleText(
                   size: 16,
                   fontWeight: FontWeight.bold,
@@ -60,7 +60,7 @@ class DefaultSearchView extends StatelessWidget {
               TextButton(
                 onPressed: () {},
                 child: Text(
-                  'See All',
+                  'default_search_view.see_all'.tr,
                   style: MyTextStyle.normalTitleText(
                     color: AppColors.primaryBlue,
                     fontWeight: FontWeight.w600,

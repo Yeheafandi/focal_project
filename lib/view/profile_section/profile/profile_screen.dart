@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
+import 'package:focal_project/routes/routes.dart';
 import 'package:get/get.dart';
 import 'widgets/settings_tile.dart';
 import 'profile_controller.dart';
@@ -67,7 +68,7 @@ class ProfileScreen extends GetView<ProfileController> {
             SettingsTile(icon: Icons.credit_card, title: 'Your Card', onTap: controller.goToCard),
             SettingsTile(icon: Icons.verified_user_outlined, title: 'Security', onTap: () {}),
             SettingsTile(icon: Icons.notifications_none, title: 'Notification', onTap: () {}),
-            SettingsTile(icon: Icons.language, title: 'Languages', onTap: () {}),
+            SettingsTile(icon: Icons.language, title: 'Languages', onTap: () {Get.toNamed(Routes.languages);}),
             SettingsTile(
               icon: Icons.help_outline,
               title: 'Help and Support',

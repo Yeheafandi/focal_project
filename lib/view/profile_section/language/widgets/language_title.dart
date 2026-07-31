@@ -1,17 +1,18 @@
-
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
+import 'package:get/get.dart';
+
 class LanguageTile extends StatelessWidget {
-  final String label;
+  final String labelKey;
   final bool isSelected;
   final VoidCallback onTap;
   final bool showDivider;
 
   const LanguageTile({
     super.key,
-    required this.label,
+    required this.labelKey,
     required this.isSelected,
     required this.onTap,
     this.showDivider = true,
@@ -29,7 +30,7 @@ class LanguageTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  label,
+                  labelKey.tr,
                   style: MyTextStyle.normalTitleText(
                     color: isSelected ? AppColors.primaryBlue : AppColors.titleColor,
                     size: 14,
@@ -37,7 +38,7 @@ class LanguageTile extends StatelessWidget {
                   ),
                 ),
                 if (isSelected)
-                  Icon(Icons.check, size: 18, color: AppColors.primaryBlue),
+                  const Icon(Icons.check, size: 18, color: AppColors.primaryBlue),
               ],
             ),
           ),

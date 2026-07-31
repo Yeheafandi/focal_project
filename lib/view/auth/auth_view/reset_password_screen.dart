@@ -40,7 +40,7 @@ final AuthController authController = Get.find<AuthController>();
                   SizedBox(height: AppSpaces.heightExtraLarge),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    spacing: 8.h,
+                    spacing: 24.h,
                     children: [
                       
                        CustomeFormField(authController: authController.passController,text:  'New Password',color:  AppColors.black87,fontWeight: FontWeight.w600,
@@ -87,7 +87,7 @@ final AuthController authController = Get.find<AuthController>();
                              
                                      onPressed: ()=>null,
                                  style: ElevatedButton.styleFrom(
-                                   fixedSize: const Size(123, 64),
+                                   fixedSize: const Size(123, 46),
                                  backgroundColor: AppColors.primaryBlue,
                                    shape: RoundedRectangleBorder(
                                      borderRadius: BorderRadius.circular(8),

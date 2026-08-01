@@ -35,4 +35,9 @@ class AppIcons {
   static const String hotelIcon = '${iconsPath}hotelicon.svg';
   static const String residentialIcon = '${iconsPath}residentialicon.svg';
   static const String heart = '${iconsPath}heart.svg';
+
+  static const String instagram = '${iconsPath}brand-instagram.svg';
+  static const String facebook = '${iconsPath}Vector.svg';
+  static const String whatsapp = '${iconsPath}brand-whatsapp.svg';
+  static const String airdrop = '${iconsPath}broadcast.svg';
 }

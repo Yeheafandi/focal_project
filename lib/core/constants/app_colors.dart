@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color backgroundPrimaryWhite= Color(0xFFFEFEFE);
+  static const Color backgroundPrimaryWhite = Color(0xFFFEFEFE);
   static const Color primaryBlue = Color(0xFF2853AF);
   static const Color primaryBlack = Color(0xFF000000);
   static const Color grey = Color(0xFF9E9E9E);
   static const Color primaryWhite = Color(0xFFFFFFFF);
-static const Color boardingsub= Color(0xFFE3E9ED);
+  static const Color boardingsub = Color(0xFFE3E9ED);
   static final Color formFiled = Color(0xFFF6F6F6);
   static const Color primary = Color(0xFF2355C4);
   static const Color background = Color(0xFFFAFAFA);
@@ -29,5 +29,8 @@ static const Color boardingsub= Color(0xFFE3E9ED);
   static final Color grey500 = Colors.grey[500]!;
   static final Color grey600 = Colors.grey[600]!;
   static const Color dotColor = Color(0xFFBFC6CC);
-  static const Color facilitiesColor = Color(0xFFE8F2FF); 
+  static const Color facilitiesColor = Color(0xFFE8F2FF);
+  static const Color pink = Color(0xFFF41F52);
+  static const Color green = Color(0xFF66CB63);
+  static const Color vividBlue = Color(0xFF1C3FF7);
 }

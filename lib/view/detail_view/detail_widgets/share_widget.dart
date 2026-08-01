@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/model/hotel_model.dart';
@@ -28,11 +30,17 @@ class ShareWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Share this Service', style: MyTextStyle.normalTitleText()),
+              Text(
+                'Share this Service',
+                style: MyTextStyle.normalTitleText(
+                  fontWeight: FontWeight.w600,
+                  size: 17,
+                ),
+              ),
               GestureDetector(
                 onTap: Get.back,
                 child: Container(
-                  padding: EdgeInsets.all(AppSpaces.paddingSmall),
+                  padding: EdgeInsets.all(AppSpaces.paddingVerySmall),
                   decoration: BoxDecoration(
                     color: AppColors.grey100,
                     shape: BoxShape.circle,
@@ -47,10 +55,11 @@ class ShareWidget extends StatelessWidget {
             ],
           ),
           SizedBox(height: AppSpaces.heightSmall),
-          Divider(thickness: 1, color: AppColors.grey300),
+          Divider(thickness: 1, color: AppColors.grey200),
           SizedBox(height: AppSpaces.heightSmall),
-          RecommendedHotelCard(hotel: hotel, underline: false),
+          RecommendedHotelCard(hotel: hotel, marginBottom: false),
           Container(
+            height: 48.h,
             padding: EdgeInsets.symmetric(
               horizontal: AppSpaces.paddingMedium,
               vertical: AppSpaces.paddingSmall,
@@ -63,16 +72,14 @@ class ShareWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    link, 
+                    link,
                     style: MyTextStyle.smallTitleText(size: 14),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 ElevatedButton.icon(
                   onPressed: () {
-                    Clipboard.setData(
-                      ClipboardData(text: link), 
-                    );
+                    Clipboard.setData(ClipboardData(text: link));
                     Get.snackbar(
                       'Copied!',
                       'Link copied to clipboard',
@@ -90,10 +97,12 @@ class ShareWidget extends StatelessWidget {
                     'Copy',
                     style: MyTextStyle.smallTitleText(
                       color: AppColors.primaryBlue,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryWhite,
+
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
@@ -110,31 +119,31 @@ class ShareWidget extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: AppSpaces.heightSmall),
+          SizedBox(height: AppSpaces.heightNormal),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ShareOption(
-                icon: Icons.wifi_tethering_rounded,
-                color: const Color(0xFF1C1C1E),
+                icon: AppIcons.airdrop,
+                color: AppColors.primaryBlack,
                 label: 'Airdrop',
                 onTap: () {},
               ),
               ShareOption(
-                icon: Icons.chat_bubble_rounded,
-                color: const Color(0xFF4ADE80),
+                icon: AppIcons.whatsapp,
+                color: AppColors.green,
                 label: 'Whatsapp',
                 onTap: () {},
               ),
               ShareOption(
-                icon: Icons.facebook_rounded,
-                color: const Color(0xFF1877F2),
+                icon: AppIcons.facebook,
+                color: AppColors.vividBlue,
                 label: 'Facebook',
                 onTap: () {},
               ),
               ShareOption(
-                icon: Icons.camera_alt_rounded,
-                color: const Color(0xFFE1306C),
+                icon: AppIcons.instagram,
+                color: AppColors.pink,
                 label: 'Instagram',
                 onTap: () {},
               ),

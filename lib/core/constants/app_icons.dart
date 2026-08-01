@@ -30,4 +30,9 @@ class AppIcons {
   static const String iconAdd = '${iconsPath}Icon add.svg';
   static const String illustration = '${iconsPath}Illustration.svg';
   static const String paymentIcon = '${iconsPath}Buy.svg';
+
+  static const String instagram = '${iconsPath}brand-instagram.svg';
+  static const String facebook = '${iconsPath}Vector.svg';
+  static const String whatsapp = '${iconsPath}brand-whatsapp.svg';
+  static const String airdrop = '${iconsPath}broadcast.svg';
 }

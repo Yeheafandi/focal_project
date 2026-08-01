@@ -4,6 +4,7 @@ import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/messages_view/messages_controller/messages_controller.dart';
 import 'package:focal_project/view/messages_view/widgets/chat_item.dart';
+import 'package:focal_project/widgets/custom_app_bar.dart';
 import 'package:focal_project/widgets/custom_search_bar.dart';
 import 'package:get/get.dart';
 
@@ -19,29 +20,20 @@ class MessageScreen extends GetView<MessageController> {
         onPressed: () {},
         child: const Icon(Icons.add, color: AppColors.primaryWhite),
       ),
-      appBar: AppBar(
-        backgroundColor: AppColors.primaryWhite,
-        title: Text('messages.title'.tr, style: MyTextStyle.normalTitleText()),
-        centerTitle: true,
-      ),
 
       body: Padding(
-        padding: EdgeInsetsGeometry.only(
-          top: AppSpaces.heightLarge,
-          right: AppSpaces.widthLarge,
-          left: AppSpaces.widthLarge,
-        ),
+        padding: EdgeInsetsGeometry.symmetric(horizontal: AppSpaces.widthLarge),
 
         child: Column(
           children: [
-            CustomSearchBar(onFilterTap: () => ''),
-
+            CustomAppBar(title: 'messages.title'.tr, showBackButton: false),
             SizedBox(height: AppSpaces.heightLarge),
+            CustomSearchBar(onFilterTap: () => ''),
 
             Expanded(
               child: ListView.separated(
                 separatorBuilder: (context, index) =>
-                    Divider(height: 8,color: AppColors.grey200),
+                    Divider(height: 8, color: AppColors.grey200),
                 itemCount: controller.chats.length,
 
                 itemBuilder: (context, index) {

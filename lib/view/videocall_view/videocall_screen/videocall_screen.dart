@@ -103,12 +103,12 @@ class VideoCallScreen extends StatelessWidget {
 
                   SizedBox(width: AppSpaces.widthSmall),
 
-                  Column(
+                  Column(crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         controller.name,
                         style: MyTextStyle.normalTitleText().copyWith(
-                          color: AppColors.textWhite,
+                          color: AppColors.textWhite,fontSize: 15,
                         ),
                       ),
                       Text(

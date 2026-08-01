@@ -7,6 +7,7 @@ import 'package:focal_project/bindings/initialize_binding.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/stripe_keys.dart';
 import 'package:focal_project/core/services/app_translations.dart';
+import 'package:focal_project/core/services/favorite_service.dart';
 import 'package:focal_project/core/services/local_notification_service.dart';
 import 'package:focal_project/core/services/my_services.dart';
 import 'package:focal_project/core/services/notification_firebase_service.dart';
@@ -30,7 +31,9 @@ void main() async {
     // set the publishable key for Stripe
     Stripe.publishableKey = StripeKeys.stripePublishableKey;
     await Stripe.instance.applySettings();
-  }
+  }await Get.putAsync(
+    () async => MyFavoriteService(),
+  );
   runApp(MyApp());
   runApp(const MyApp());
 }

@@ -1,63 +1,57 @@
 import 'package:focal_project/core/constants/app_icons.dart';
-import 'package:focal_project/model/my_favorite_model.dart';
-import 'package:get/get.dart';
 import 'package:focal_project/core/services/favorite_service.dart';
+import 'package:focal_project/model/hotel_model.dart';
+import 'package:get/get.dart';
 
 class MyFavoriteController extends GetxController {
   MyFavoriteController({required MyFavoriteService service})
-    : _service = service;
+      : _service = service;
+
   final isLoading = true.obs;
   final MyFavoriteService _service;
 
-  final favorites = <MyFavoriteModel>[].obs;
+  final selectedCategory = "All".obs;
 
-  final selectedCategory = "all".obs;
+  final categories = ["All", "Villas", "Hotels", "Apartment"];
 
-  final categories = ["all", "hotels", "resorts", "villas", "apartment"];
-  final List<String?>categoriesIcons = [
+  final List<String?> categoriesIcons = [
     null,
     AppIcons.villaIcon,
     AppIcons.hotelIcon,
     AppIcons.residentialIcon,
   ];
 
-  @override
-  void onInit() {
-    super.onInit();
-
-    fetchFavorites();
-  }
+  final displayedFavorites = <HotelModel>[].obs;
+  RxList<HotelModel> get favorites => _service.favorites;
 
   void changeCategory(String category) {
     selectedCategory.value = category;
 
-    final all = _service.getFavorites();
-
-    if (category == "all") {
-      favorites.assignAll(all);
+    if (category == "All") {
+      displayedFavorites.assignAll(favorites);
       return;
     }
 
-    favorites.assignAll(all.where((e) => e.category == category));
+    displayedFavorites.assignAll(
+      favorites.where((hotel) => hotel.category == category),
+    );
   }
 
-  void toggleFavorite(MyFavoriteModel hotel) {
-    hotel.isFavorite = false;
-
-    favorites.remove(hotel);
-
-    favorites.refresh();
+  void toggleFavorite(HotelModel hotel) {
+    _service.toggleFavorite(hotel);
+    changeCategory(selectedCategory.value);
   }
 
-  void fetchFavorites() async {
-    try {
-      isLoading.value = true;
+  @override
+  void onInit() {
+    super.onInit();
+    loadFavorites();
+  }
 
-      await Future.delayed(const Duration(seconds: 6));
-
-      favorites.assignAll(_service.getFavorites());
-    } finally {
-      isLoading.value = false;
-    }
+  Future<void> loadFavorites() async {
+    isLoading.value = true;
+    await Future.delayed(const Duration(seconds: 2));
+    displayedFavorites.assignAll(favorites);
+    isLoading.value = false;
   }
 }

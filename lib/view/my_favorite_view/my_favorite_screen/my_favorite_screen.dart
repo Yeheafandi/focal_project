@@ -41,7 +41,7 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                   },
                 ),
                 Text(
-                  "My Favorite",
+                 "my_favorite.title".tr,
                   style: MyTextStyle.normalTitleText().copyWith(fontSize: 18),
                 ),
                 InkWell(child: SvgPicture.asset(AppIcons.sort)),
@@ -58,7 +58,10 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                 scrollDirection: Axis.horizontal,
                 itemCount: controller.categories.length,
                 itemBuilder: (_, index) {
-                  return CategoryItem(title: controller.categories[index]);
+                  final categoryKey = controller.categories[index];
+                  return CategoryItem(
+                    title: "my_favorite.categories.$categoryKey".tr,
+                  );
                 },
               ),
             ),
@@ -72,7 +75,7 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                   return MyFavoriteShimmer();
                 }
                 if (controller.favorites.isEmpty) {
-                  return const Center(child: Text("No favorites added yet"));
+                  return  Center(child: Text("my_favorite.no_favorites".tr));
                 }
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

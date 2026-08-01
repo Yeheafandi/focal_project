@@ -21,10 +21,10 @@ class HomeView extends StatelessWidget {
   HomeView({super.key});
 
   final Map<String, IconData?> categoryIcons = {
-    "All": null,
-    "Villas": Icons.home_work_outlined,
-    "Hotels": Icons.hotel_outlined,
-    "Apartments": Icons.apartment_outlined,
+    "all": null,
+    "villas": Icons.home_work_outlined,
+    "hotels": Icons.hotel_outlined,
+    "apartments": Icons.apartment_outlined,
   };
 
   @override
@@ -213,7 +213,7 @@ class HomeView extends StatelessWidget {
                         onPressed: () {},
                         style: TextButton.styleFrom(padding: EdgeInsets.zero),
                         child: Text(
-                         "see_all".tr,
+                          "see_all".tr,
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.primaryBlue,
                             fontWeight: FontWeight.w600,
@@ -274,7 +274,7 @@ class HomeView extends StatelessWidget {
                                     SizedBox(width: AppSpaces.widthVerySmall),
                                   ],
                                   Text(
-                                    category,
+                                    category.tr,
                                     style: TextStyle(
                                       color: isSelected
                                           ? AppColors.primaryWhite

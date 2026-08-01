@@ -30,7 +30,7 @@ class NotificationScreen extends GetView<NotificationController> {
 
         centerTitle: true,
 
-        title: Text("Notifications", style: MyTextStyle.normalTitleText()),
+        title: Text("notification.title".tr, style: MyTextStyle.normalTitleText()),
 
         actions: [
           Padding(
@@ -68,7 +68,7 @@ class NotificationScreen extends GetView<NotificationController> {
             children: [
               SizedBox(height: AppSpaces.heightLarge),
 
-              Text("Today", style: MyTextStyle.normalTitleText()),
+              Text("notification.today".tr, style: MyTextStyle.normalTitleText()),
 
               SizedBox(height: AppSpaces.heightExtraLarge),
 
@@ -82,7 +82,7 @@ class NotificationScreen extends GetView<NotificationController> {
 
               SizedBox(height: AppSpaces.heightSmall),
 
-              Text("Yesterday", style: MyTextStyle.normalTitleText()),
+              Text("notification.yesterday".tr, style: MyTextStyle.normalTitleText()),
 
               SizedBox(height: AppSpaces.heightExtraLarge),
 

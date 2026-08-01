@@ -115,5 +115,29 @@
       "filipino": "Filipino",
       "finland": "Finland"
     }
+  },
+  "video_call": {
+    "tour_guide_location": "Tour guide, sweden"
+  },
+ "notification": {
+    "title": "Notifications",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "filter_by": "Filter By",
+    "apply": "Apply"
+  },
+  "my_favorite": {
+    "title": "My Favorite",
+    "no_favorites": "No favorites added yet",
+    "categories": {
+      "all": "All",
+      "hotels": "Hotels",
+      "resorts": "Resorts",
+      "villas": "Villas",
+      "apartment": "Apartment"
+    }
+  },
+  "messages": {
+    "title": "Messages"
   }
 }

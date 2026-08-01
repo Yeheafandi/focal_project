@@ -30,7 +30,7 @@ class FilterBottomSheet extends GetView<NotificationController> {
               width: 60,
               decoration: BoxDecoration(color: AppColors.grey200),
             ), SizedBox(height: AppSpaces.heightNormal),
-            Text("Filter By", style: MyTextStyle.normalTitleText().copyWith(fontWeight: FontWeight.w300,fontSize: 18)),
+            Text("notification.filter_by".tr, style: MyTextStyle.normalTitleText().copyWith(fontWeight: FontWeight.w300,fontSize: 18)),
 
              SizedBox(height: AppSpaces.heightExtraLarge),
 
@@ -59,7 +59,7 @@ class FilterBottomSheet extends GetView<NotificationController> {
                 },
 
                 child: Text(
-                  "Apply",
+                  "notification.apply".tr,
                   style: MyTextStyle.normalTitleText().copyWith(
                     color: AppColors.textWhite,
                   ),

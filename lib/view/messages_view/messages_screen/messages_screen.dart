@@ -21,7 +21,7 @@ class MessageScreen extends GetView<MessageController> {
       ),
       appBar: AppBar(
         backgroundColor: AppColors.primaryWhite,
-        title: Text('Message', style: MyTextStyle.normalTitleText()),
+        title: Text('messages.title'.tr, style: MyTextStyle.normalTitleText()),
         centerTitle: true,
       ),
 

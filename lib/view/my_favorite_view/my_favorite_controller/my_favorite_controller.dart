@@ -10,9 +10,9 @@ class MyFavoriteController extends GetxController {
 
   final favorites = <MyFavoriteModel>[].obs;
 
-  final selectedCategory = "All".obs;
+  final selectedCategory = "all".obs;
 
-  final categories = ["All", "Hotels", "Resorts", "Villas", "Apartment"];
+  final categories = ["all", "hotels", "resorts", "villas", "apartment"];
 
   @override
   void onInit() {
@@ -26,7 +26,7 @@ class MyFavoriteController extends GetxController {
 
     final all = _service.getFavorites();
 
-    if (category == "All") {
+    if (category == "all") {
       favorites.assignAll(all);
       return;
     }

@@ -6,26 +6,16 @@ class LanguageController extends GetxController {
   final RxBool isLoading = false.obs;
 
   final Map<String, Locale> supportedLocales = {
-    'language_screen.languages.english_uk': const Locale('en', 'GB'),
     'language_screen.languages.english': const Locale('en', 'US'),
     'language_screen.languages.arabic': const Locale('ar', 'SA'),
   };
 
   final RxList<String> suggestedLanguages = <String>[
-    'language_screen.languages.english_uk',
     'language_screen.languages.english',
     'language_screen.languages.arabic',
-    'language_screen.languages.bahasa_indonesia',
   ].obs;
 
-  final RxList<String> otherLanguages = <String>[
-    'language_screen.languages.chinese',
-    'language_screen.languages.croatian',
-    'language_screen.languages.czech',
-    'language_screen.languages.danish',
-    'language_screen.languages.filipino',
-    'language_screen.languages.finland',
-  ].obs;
+  final RxList<String> otherLanguages = <String>[].obs;
 
   @override
   void onInit() {

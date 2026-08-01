@@ -115,5 +115,29 @@
       "filipino": "الفلبينية",
       "finland": "الفنلندية"
     }
+  },
+  "video_call": {
+    "tour_guide_location": "مرشد سياحي، السويد"
+  },
+ "notification": {
+    "title": "الإشعارات",
+    "today": "اليوم",
+    "yesterday": "الأمس",
+    "filter_by": "تصفية حسب",
+    "apply": "تطبيق"
+  },
+  "my_favorite": {
+    "title": "المفضلة",
+    "no_favorites": "لم تقم بإضافة عناصر للمفضلة بعد",
+    "categories": {
+      "all": "الكل",
+      "hotels": "فنادق",
+      "resorts": "منتجعات",
+      "villas": "فيلات",
+      "apartment": "شقق"
+    }
+  },
+  "messages": {
+    "title": "الرسائل"
   }
 }

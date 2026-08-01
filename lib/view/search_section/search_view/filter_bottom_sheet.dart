@@ -13,6 +13,19 @@ class FilterBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<SearchFilterController>();
 
+    final Map<String, String> guestOptions = {
+      "3 Guest (2 Adult, 1 Childern)": "filter_bottom_sheet.guest_3".tr,
+      "2 Guest (2 Adult)": "filter_bottom_sheet.guest_2".tr,
+      "1 Guest (1 Adult)": "filter_bottom_sheet.guest_1".tr,
+    };
+
+    final List<Map<String, String>> facilityItems = [
+      {'key': 'Free Wifi', 'label': 'filter_bottom_sheet.free_wifi'.tr},
+      {'key': 'Swimming Pool', 'label': 'filter_bottom_sheet.swimming_pool'.tr},
+      {'key': 'Tv', 'label': 'filter_bottom_sheet.tv'.tr},
+      {'key': 'Laundry', 'label': 'filter_bottom_sheet.laundry'.tr},
+    ];
+
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: AppSpaces.paddingLarge,
@@ -39,7 +52,7 @@ class FilterBottomSheet extends StatelessWidget {
             SizedBox(height: AppSpaces.paddingMedium),
             Center(
               child: Text(
-                "Filter By",
+                'filter_bottom_sheet.title'.tr,
                 style: MyTextStyle.normalTitleText(
                   fontWeight: FontWeight.bold,
                   size: 18,
@@ -49,7 +62,7 @@ class FilterBottomSheet extends StatelessWidget {
             ),
             SizedBox(height: AppSpaces.paddingLarge),
 
-            _buildSectionTitle("Placeholder"),
+            _buildSectionTitle('filter_bottom_sheet.guests_placeholder'.tr),
             SizedBox(height: AppSpaces.paddingSmall),
             Obx(
               () => Container(
@@ -70,23 +83,18 @@ class FilterBottomSheet extends StatelessWidget {
                       color: AppColors.grey400,
                       size: 24,
                     ),
-                    items:
-                        [
-                          "3 Guest (2 Adult, 1 Childern)",
-                          "2 Guest (2 Adult)",
-                          "1 Guest (1 Adult)",
-                        ].map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(
-                              value,
-                              style: MyTextStyle.normalTitleText(
-                                size: 14,
-                                color: AppColors.grey500,
-                              ),
-                            ),
-                          );
-                        }).toList(),
+                    items: guestOptions.entries.map((entry) {
+                      return DropdownMenuItem<String>(
+                        value: entry.key,
+                        child: Text(
+                          entry.value,
+                          style: MyTextStyle.normalTitleText(
+                            size: 14,
+                            color: AppColors.grey500,
+                          ),
+                        ),
+                      );
+                    }).toList(),
                     onChanged: (val) {
                       if (val != null) controller.selectedGuests.value = val;
                     },
@@ -100,7 +108,7 @@ class FilterBottomSheet extends StatelessWidget {
               () => Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildSectionTitle("Price"),
+                  _buildSectionTitle('filter_bottom_sheet.price'.tr),
                   Text(
                     "\$${controller.priceRange.value.start.toInt()}-\$${controller.priceRange.value.end.toInt()}",
                     style: MyTextStyle.normalTitleText(
@@ -146,10 +154,10 @@ class FilterBottomSheet extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildSectionTitle("Instant Book"),
+                    _buildSectionTitle('filter_bottom_sheet.instant_book'.tr),
                     const SizedBox(height: 2),
                     Text(
-                      "Book without waiting for the host to respond",
+                      'filter_bottom_sheet.instant_book_desc'.tr,
                       style: MyTextStyle.smallTitleText(
                         color: AppColors.grey400,
                         fontWeight: FontWeight.w400,
@@ -178,7 +186,7 @@ class FilterBottomSheet extends StatelessWidget {
             ),
             SizedBox(height: AppSpaces.paddingExtraLarge),
 
-            _buildSectionTitle("Location"),
+            _buildSectionTitle('filter_bottom_sheet.location'.tr),
             SizedBox(height: AppSpaces.heightNormal),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -218,12 +226,12 @@ class FilterBottomSheet extends StatelessWidget {
             ),
             SizedBox(height: AppSpaces.paddingLarge),
 
-            _buildSectionTitle("Facilities"),
+            _buildSectionTitle('filter_bottom_sheet.facilities'.tr),
             SizedBox(height: AppSpaces.heightNormal),
-            ...["Free Wifi", "Swimming Pool", "Tv", "Laundry"].map((facility) {
+            ...facilityItems.map((item) {
               return Obx(() {
                 bool isChecked = controller.selectedFacilities.contains(
-                  facility,
+                  item['key'],
                 );
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -231,7 +239,7 @@ class FilterBottomSheet extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        facility,
+                        item['label']!,
                         style: MyTextStyle.normalTitleText(
                           color: AppColors.grey400,
                           size: 14,
@@ -252,9 +260,9 @@ class FilterBottomSheet extends StatelessWidget {
                           ),
                           onChanged: (checked) {
                             if (checked == true) {
-                              controller.selectedFacilities.add(facility);
+                              controller.selectedFacilities.add(item['key']!);
                             } else {
-                              controller.selectedFacilities.remove(facility);
+                              controller.selectedFacilities.remove(item['key']!);
                             }
                           },
                         ),
@@ -266,8 +274,7 @@ class FilterBottomSheet extends StatelessWidget {
             }),
             SizedBox(height: AppSpaces.paddingLarge),
 
-            // 6. Ratings
-            _buildSectionTitle("Ratings"),
+            _buildSectionTitle('filter_bottom_sheet.ratings'.tr),
             SizedBox(height: AppSpaces.heightNormal),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -316,12 +323,11 @@ class FilterBottomSheet extends StatelessWidget {
               }).toList(),
             ),
             SizedBox(height: AppSpaces.paddingLarge * 1.5),
-
-            // Apply Filter Button
+            
             SizedBox(
               width: double.infinity,
               child: CustomeButton(
-                text: "Apply Filter",
+                text: 'filter_bottom_sheet.apply_filter'.tr,
                 onPressed: () {
                   controller.isFilterApplied.value = true;
                   controller.executeSearchAndFilter();

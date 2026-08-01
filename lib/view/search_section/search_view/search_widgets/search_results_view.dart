@@ -22,7 +22,7 @@ class SearchResultsView extends StatelessWidget {
             if (controller.searchResults.isEmpty) {
               return  Center(
                 child: Text(
-                  "No results found",
+                 'search_results_view.no_results_found'.tr,
                   style: MyTextStyle.normalTitleText(size: 16, color: AppColors.grey),
                 ),
               );

@@ -1,0 +1,143 @@
+{
+  "all": "All",
+  "villas": "Villas",
+  "hotels": "Hotels",
+  "apartments": "Apartments",
+  "change_location_hint": "You Can Change Your Location to show nearby villas",
+  "most_popular": "Most Popular",
+  "see_all": "See All",
+  "recommended_for_you": "Recommended for you",
+  "hotel_near_you": "Hotel Near You",
+  "open_map": "Open Map",
+  "best_today": "Best Today 🔥",
+  "reviews_title": "Reviews",
+  "based_on_reviews": "Based on @count reviews",
+  "reviews_count": "Reviews (@count)",
+  "hotel_detail": {
+    "title": "Detail",
+    "common_facilities": "Common Facilities",
+    "see_all": "See All",
+    "ac": "Ac",
+    "restaurant": "Restaurant",
+    "pool": "Pool",
+    "twenty_four_hours": "24-Hours",
+    "description": "Description",
+    "read_more": "Read More",
+    "read_less": "Read Less",
+    "location": "Location",
+    "open_map": "Open Map",
+    "reviews": "Reviews",
+    "recommendation": "Recommendation"
+  },
+  "all_facilities": {
+    "title": "All Facilities",
+    "food_and_drink": "Food and Drink",
+    "a_la_carte_dinner": "A la carte dinner",
+    "a_la_carte_lunch": "A la carte lunch",
+    "breakfast": "Breakfast",
+    "vegetarian_meal": "Vegetarian meal",
+    "transportation": "Transportation",
+    "airport_shuttle": "Airport shuttle",
+    "car_rental": "Car rental",
+    "free_parking": "Free parking",
+    "general": "General",
+    "air_conditioning": "Air conditioning",
+    "elevator": "Elevator",
+    "heating": "Heating",
+    "hotel_service": "Hotel Service",
+    "daily_housekeeping": "Daily housekeeping",
+    "laundry_service": "Laundry service",
+    "business_facilities": "Business Facilities",
+    "meeting_rooms": "Meeting rooms",
+    "photocopying": "Photocopying",
+    "nearby_facilities": "Nearby facilities",
+    "supermarket": "Supermarket",
+    "atm": "ATM",
+    "kids": "Kids",
+    "kids_club": "Kids club",
+    "playground": "Playground",
+    "connectivity": "Connectivity",
+    "free_wifi": "Free high-speed Wi-Fi",
+    "public_facilities": "Public Facilities",
+    "swimming_pool": "Swimming pool",
+    "gym": "Gym",
+    "garden": "Garden"
+  },
+  "search_view": {
+    "title": "Search"
+  },
+  "filter_bottom_sheet": {
+    "title": "Filter By",
+    "guests_placeholder": "Guests",
+    "guest_3": "3 Guest (2 Adult, 1 Childern)",
+    "guest_2": "2 Guest (2 Adult)",
+    "guest_1": "1 Guest (1 Adult)",
+    "price": "Price",
+    "instant_book": "Instant Book",
+    "instant_book_desc": "Book without waiting for the host to respond",
+    "location": "Location",
+    "facilities": "Facilities",
+    "free_wifi": "Free Wifi",
+    "swimming_pool": "Swimming Pool",
+    "tv": "Tv",
+    "laundry": "Laundry",
+    "ratings": "Ratings",
+    "apply_filter": "Apply Filter"
+  },
+  "search_results_view": {
+    "no_results_found": "No results found"
+  },
+  "search_card_item": {
+    "per_night": "Per Night",
+    "beds_count": "@count bed",
+    "bathrooms_count": "@count bathroom"
+  },
+  "default_search_view": {
+    "recent_searches": "Recent Searches",
+    "clear_all": "Clear All",
+    "recently_viewed": "Recently Viewed",
+    "see_all": "See All"
+  },
+
+  "language_screen": {
+    "title": "Language",
+    "suggested_languages": "Suggested Languages",
+    "other_languages": "Other Languages",
+    "languages": {
+      "english_uk": "English (UK)",
+      "english": "English",
+      "arabic": "Arabic",
+      "bahasa_indonesia": "Bahasa Indonesia",
+      "chinese": "Chinese",
+      "croatian": "Croatian",
+      "czech": "Czech",
+      "danish": "Danish",
+      "filipino": "Filipino",
+      "finland": "Finland"
+    }
+  },
+  "video_call": {
+    "tour_guide_location": "Tour guide, sweden"
+  },
+ "notification": {
+    "title": "Notifications",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "filter_by": "Filter By",
+    "apply": "Apply"
+  },
+  "my_favorite": {
+    "title": "My Favorite",
+    "no_favorites": "No favorites added yet",
+    "categories": {
+      "all": "All",
+      "hotels": "Hotels",
+      "resorts": "Resorts",
+      "villas": "Villas",
+      "apartment": "Apartment"
+    }
+  },
+  "messages": {
+    "title": "Messages"
+  }
+}

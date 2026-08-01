@@ -21,7 +21,7 @@ class HotelReviewsView extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: Text(
-          "Reviews",
+          "reviews_title".tr,
           style: MyTextStyle.normalTitleText(
             fontWeight: FontWeight.bold,
             size: 20,
@@ -70,7 +70,7 @@ class HotelReviewsView extends StatelessWidget {
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        "Based on 532 reviews",
+                        "based_on_reviews".trParams({'count': '532'}),
                         style: MyTextStyle.smallTitleText(
                           color: AppColors.grey500,
                           fontWeight: FontWeight.w500,
@@ -98,7 +98,7 @@ class HotelReviewsView extends StatelessWidget {
             SizedBox(height: AppSpaces.heightLarge),
             SizedBox(height: AppSpaces.heightMedium),
 
-            Text("Reviews (532)", style: MyTextStyle.normalTitleText(size: 18)),
+            Text("reviews_count".trParams({'count': '532'}), style: MyTextStyle.normalTitleText(size: 18)),
             SizedBox(height: AppSpaces.heightLarge),
 
             ListView(

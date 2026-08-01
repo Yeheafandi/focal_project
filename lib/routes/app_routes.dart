@@ -79,8 +79,6 @@ class AppRoutes {
       binding: MyFavoriteBinding(),
     ),
     GetPage(name: Routes.splashscreen, page: () => SplashScreen()),
-        GetPage(name: Routes.profilescreen, page: () => ProfileScreen()),
-        GetPage(name: Routes.cardscreen, page: () => CardScreen()),
 
     GetPage(
       name: Routes.personalInfoScreen,
@@ -106,5 +104,9 @@ class AppRoutes {
       name: Routes.legalPoliciesScreen,
       page: () => const LegalPoliciesScreen(),
     ),
+    GetPage(name: Routes.personalInfoScreen, page: () => ProfileScreen()),
+    GetPage(name: Routes.cardscreen, page: () => CardScreen()),
+    GetPage(name: Routes.paymentComplete, page: () => PaymentCompleteView()),
+
   ];
 }

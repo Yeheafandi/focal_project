@@ -32,7 +32,7 @@ class SearchView extends StatelessWidget {
           ),
         ),
         title: Text(
-          'Search',
+          'search_view.title'.tr,
           style: MyTextStyle.normalTitleText(
             size: 18,
             fontWeight: FontWeight.bold,

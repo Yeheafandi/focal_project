@@ -21,10 +21,10 @@ class HomeView extends StatelessWidget {
   HomeView({super.key});
 
   final Map<String, IconData?> categoryIcons = {
-    "All": null,
-    "Villas": Icons.home_work_outlined,
-    "Hotels": Icons.hotel_outlined,
-    "Apartments": Icons.apartment_outlined,
+    "all": null,
+    "villas": Icons.home_work_outlined,
+    "hotels": Icons.hotel_outlined,
+    "apartments": Icons.apartment_outlined,
   };
 
   @override
@@ -141,7 +141,7 @@ class HomeView extends StatelessWidget {
                         SizedBox(width: AppSpaces.widthMedium),
                         Expanded(
                           child: Text(
-                            "You Can Change Your Location to show nearby villas",
+                            "change_location_hint".tr,
                             style: MyTextStyle.smallTitleText(
                               color: AppColors.black87,
                               size: 14,
@@ -162,7 +162,7 @@ class HomeView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Most Popular",
+                        "most_popular".tr,
                         style: MyTextStyle.normalTitleText(
                           size: 16,
                           fontWeight: FontWeight.w600,
@@ -172,7 +172,7 @@ class HomeView extends StatelessWidget {
                         onPressed: () {},
                         style: TextButton.styleFrom(padding: EdgeInsets.zero),
                         child: Text(
-                          "See All",
+                          "see_all".tr,
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.primaryBlue,
                             fontWeight: FontWeight.w600,
@@ -203,7 +203,7 @@ class HomeView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Recommended for you",
+                        "recommended_for_you".tr,
                         style: MyTextStyle.normalTitleText(
                           size: 16,
                           fontWeight: FontWeight.w600,
@@ -213,7 +213,7 @@ class HomeView extends StatelessWidget {
                         onPressed: () {},
                         style: TextButton.styleFrom(padding: EdgeInsets.zero),
                         child: Text(
-                          "See All",
+                          "see_all".tr,
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.primaryBlue,
                             fontWeight: FontWeight.w600,
@@ -274,7 +274,7 @@ class HomeView extends StatelessWidget {
                                     SizedBox(width: AppSpaces.widthVerySmall),
                                   ],
                                   Text(
-                                    category,
+                                    category.tr,
                                     style: TextStyle(
                                       color: isSelected
                                           ? AppColors.primaryWhite
@@ -311,7 +311,7 @@ class HomeView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Hotel Near You",
+                        "hotel_near_you".tr,
                         style: MyTextStyle.normalTitleText(
                           size: 16,
                           fontWeight: FontWeight.w600,
@@ -324,7 +324,7 @@ class HomeView extends StatelessWidget {
 
                         style: TextButton.styleFrom(padding: EdgeInsets.zero),
                         child: Text(
-                          "Open Map",
+                          "open_map".tr,
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.primaryBlue,
                             fontWeight: FontWeight.w600,
@@ -347,7 +347,7 @@ class HomeView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Best Today 🔥",
+                        "best_today".tr,
                         style: MyTextStyle.normalTitleText(
                           size: 16,
                           fontWeight: FontWeight.w600,
@@ -357,7 +357,7 @@ class HomeView extends StatelessWidget {
                         onPressed: () {},
                         style: TextButton.styleFrom(padding: EdgeInsets.zero),
                         child: Text(
-                          "See All",
+                          "see_all".tr,
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.primaryBlue,
                             fontWeight: FontWeight.w600,

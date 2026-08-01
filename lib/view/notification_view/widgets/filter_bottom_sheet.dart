@@ -30,15 +30,13 @@ class FilterBottomSheet extends GetView<NotificationController> {
               height: 5,
               width: 60,
               decoration: BoxDecoration(color: AppColors.grey200),
-            ),
-            SizedBox(height: AppSpaces.heightNormal),
-            Text(
-              "Filter By",
-              style: MyTextStyle.normalTitleText(
-                size: 18,
-                color: AppColors.primaryBlack,
-                fontWeight: FontWeight.w500,
-              ),
+            ), SizedBox(height: AppSpaces.heightNormal),
+            Text("notification.filter_by".tr, style: MyTextStyle.normalTitleText().copyWith(fontWeight: FontWeight.w300,fontSize: 18)),
+
+             SizedBox(height: AppSpaces.heightExtraLarge),
+
+            ...controller.filters.map(
+              (filter) => FilterOptionTile(title: filter),
             ),
 
             SizedBox(height: AppSpaces.heightLarge),
@@ -54,7 +52,7 @@ class FilterBottomSheet extends GetView<NotificationController> {
               height: 55,
 
               child: CustomeButton(
-                text: 'Apply',
+                text: "notification.apply".tr,
                 onPressed: () {
                   controller.applyFilter();
                   Get.back();

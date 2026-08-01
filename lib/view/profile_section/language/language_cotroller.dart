@@ -1,23 +1,21 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LanguageController extends GetxController {
-  final RxString selectedLanguage = 'English (UK)'.obs;
+  final RxString selectedLanguageKey = 'language_screen.languages.english'.obs;
   final RxBool isLoading = false.obs;
 
+  final Map<String, Locale> supportedLocales = {
+    'language_screen.languages.english': const Locale('en', 'US'),
+    'language_screen.languages.arabic': const Locale('ar', 'SA'),
+  };
+
   final RxList<String> suggestedLanguages = <String>[
-    'English (UK)',
-    'English',
-    'Bahasa Indonesia',
+    'language_screen.languages.english',
+    'language_screen.languages.arabic',
   ].obs;
 
-  final RxList<String> otherLanguages = <String>[
-    'Chinese',
-    'Croatian',
-    'Czech',
-    'Danish',
-    'Filipino',
-    'Finland',
-  ].obs;
+  final RxList<String> otherLanguages = <String>[].obs;
 
   @override
   void onInit() {
@@ -28,16 +26,24 @@ class LanguageController extends GetxController {
   Future<void> fetchLanguages() async {
     isLoading.value = true;
     try {
-      // TODO: بدّل هاد بنداء API حقيقي يجيب اللغة المحفوظة وقائمة اللغات المتاحة
+      final currentLocale = Get.locale;
+      if (currentLocale?.languageCode == 'ar') {
+        selectedLanguageKey.value = 'language_screen.languages.arabic';
+      } else {
+        selectedLanguageKey.value = 'language_screen.languages.english';
+      }
       await Future.delayed(const Duration(milliseconds: 200));
     } finally {
       isLoading.value = false;
     }
   }
 
-  void selectLanguage(String language) {
-    selectedLanguage.value = language;
-    // TODO: نداء API لحفظ اللغة المختارة، وممكن كمان تحديث لغة التطبيق مباشرة
-    // Get.updateLocale(...)
+  void selectLanguage(String langKey) {
+    selectedLanguageKey.value = langKey;
+
+    if (supportedLocales.containsKey(langKey)) {
+      final targetLocale = supportedLocales[langKey]!;
+      Get.updateLocale(targetLocale);
+    }
   }
 }

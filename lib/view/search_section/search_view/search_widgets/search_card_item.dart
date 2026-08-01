@@ -5,6 +5,7 @@ import 'package:focal_project/model/hotel_model.dart';
 import 'package:focal_project/view/detail_view/detail_view.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/text_style.dart';
 
@@ -113,7 +114,7 @@ class SearchCardItem extends StatelessWidget {
                 ),
               ),
               Text(
-                "Per Night",
+                'search_card_item.per_night'.tr,
                 style: MyTextStyle.normalTitleText(
                   color: AppColors.grey400,
                   fontWeight: FontWeight.w400,
@@ -128,7 +129,7 @@ class SearchCardItem extends StatelessWidget {
               Icon(Icons.king_bed_outlined, color: AppColors.black87, size: 18),
               SizedBox(width: AppSpaces.paddingVerySmall),
               Text(
-                "3 bed",
+                'search_card_item.beds_count'.trParams({'count': '3'}),
                 style: MyTextStyle.normalTitleText(
                   color: AppColors.black87,
                   size: 14,
@@ -139,7 +140,7 @@ class SearchCardItem extends StatelessWidget {
               Icon(Icons.bathtub_outlined, color: AppColors.black87, size: 18),
               SizedBox(width: AppSpaces.paddingVerySmall),
               Text(
-                "3 bathroom",
+               'search_card_item.bathrooms_count'.trParams({'count': '3'}),
                 style: MyTextStyle.normalTitleText(
                   color: AppColors.black87,
                   size: 14,

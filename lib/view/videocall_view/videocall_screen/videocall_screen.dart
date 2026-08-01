@@ -112,7 +112,7 @@ class VideoCallScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Tour guide, sweden',
+                        'video_call.tour_guide_location'.tr,
                         style: MyTextStyle.smallTitleText(
                           color: AppColors.grey400,
                           size: 12,

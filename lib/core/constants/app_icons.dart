@@ -20,6 +20,7 @@ class AppIcons {
   static const String visible = '${iconsPath}Hide.svg';
   static const String person = '${iconsPath}user3.svg';
   static const String calendar2 = '${iconsPath}calendar2.svg';
+  static const String more = '${iconsPath}more.svg';
 
   static const String emptyWallet = '${iconsPath}empty-wallet.svg';
   static const String discountShape = '${iconsPath}discount-shape.svg';

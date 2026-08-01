@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
@@ -9,6 +11,7 @@ import 'package:focal_project/view/booking_details_view/widgets/booking_info_car
 import 'package:focal_project/view/booking_details_view/widgets/hotel_card.dart';
 import 'package:focal_project/view/home_view/home_widgets/near_you_map_card.dart';
 import 'package:focal_project/view/nearby_map_view/nearby_map_view.dart';
+import 'package:focal_project/widgets/custom_app_bar.dart';
 import 'package:get/get.dart';
 
 class BookingDetailsView extends StatelessWidget {
@@ -24,23 +27,7 @@ class BookingDetailsView extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-            SizedBox(height: 56),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: Icon(Icons.arrow_back, color: AppColors.primaryBlack),
-                ),
-                Text('Booking Detail', style: MyTextStyle.normalTitleText()),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.more_vert, color: AppColors.primaryBlack),
-                ),
-              ],
-            ),
+            CustomAppBar(title: 'Booking Detail',action: SvgPicture.asset(AppIcons.more),),
             SizedBox(height: AppSpaces.heightLarge),
             Expanded(
               child: SingleChildScrollView(

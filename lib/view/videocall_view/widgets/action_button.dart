@@ -15,6 +15,7 @@ class ActionButton extends StatelessWidget {
     this.iconColor,
     this.width=24.0,
     this.height=24.0,
+    this.radius=28.0,
   });
   final double width;
   final double height;
@@ -22,7 +23,7 @@ class ActionButton extends StatelessWidget {
   final RxBool? state;
   final VoidCallback onTap;
   final bool isToggle;
-
+  final double radius;
   final Color? backgroundColor;
   final Color? iconColor;
 
@@ -49,7 +50,7 @@ class ActionButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: CircleAvatar(
-        radius: AppSpaces.radiusExtraExtraLarge28,
+        radius: radius,
         backgroundColor: color,
         child: SvgPicture.asset(
           iconName,

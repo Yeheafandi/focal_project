@@ -7,6 +7,7 @@ import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/booking_details_view/widgets/hotel_card.dart';
 import 'package:focal_project/view/chat_details_view/chat_details_controller/chat_details_controller.dart';
 import 'package:focal_project/view/chat_details_view/widgets/chat_bubble.dart';
+import 'package:focal_project/widgets/custom_app_bar.dart';
 
 import 'package:get/get.dart';
 
@@ -30,45 +31,14 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
                 ),
               ],
             ),
-            child: Column(
-              children: [
-                SizedBox(height: 65),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      padding: EdgeInsets.only(left: AppSpaces.widthLarge),
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: AppColors.primaryBlack,
-                      ),
-                    ),
-                    Text(
-                      'Chat',
-                      style: MyTextStyle.normalTitleText(
-                        size: 18,
-                        color: AppColors.primaryBlack,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    IconButton(
-                      padding: EdgeInsets.only(right: AppSpaces.widthLarge),
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.more_vert,
-                        color: AppColors.primaryBlack,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: AppSpaces.heightNormal),
-
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: ListTile(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
+              child: Column(
+                children: [
+                  CustomAppBar(title: 'Chat',action: SvgPicture.asset(AppIcons.more)),
+                  SizedBox(height: AppSpaces.heightNormal),
+              
+                  ListTile(
                     contentPadding: EdgeInsets.zero,
                     leading: Container(
                       width: 60,
@@ -98,7 +68,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-
+                  
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -126,9 +96,9 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
                       ],
                     ),
                   ),
-                ),
-                SizedBox(height: AppSpaces.heightVerySmall),
-              ],
+                  SizedBox(height: AppSpaces.heightVerySmall),
+                ],
+              ),
             ),
           ),
           Expanded(

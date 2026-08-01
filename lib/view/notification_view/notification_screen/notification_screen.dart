@@ -8,6 +8,7 @@ import 'package:focal_project/core/services/notification_firebase_service.dart';
 import 'package:focal_project/view/notification_view/notification_controller/notification_controller.dart';
 import 'package:focal_project/view/notification_view/widgets/filter_bottom_sheet.dart';
 import 'package:focal_project/view/notification_view/widgets/notification_item.dart';
+import 'package:focal_project/widgets/custom_app_bar.dart';
 import 'package:get/get.dart';
 
 class NotificationScreen extends GetView<NotificationController> {
@@ -20,25 +21,7 @@ class NotificationScreen extends GetView<NotificationController> {
         padding: EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
         child: Column(
           children: [
-            SizedBox(height: 56),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  child: SvgPicture.asset(AppIcons.backArrow),
-                  onTap: () {
-                    Get.back();
-                  },
-                ),
-                Text(
-                  "Notifications",
-                  style: MyTextStyle.normalTitleText(
-                    color: AppColors.black87,
-                    fontWeight: FontWeight.w600,
-                    size: 18,
-                  ),
-                ),
-                InkWell(
+            CustomAppBar(title: 'Notifications',action: InkWell(
                   child: SvgPicture.asset(AppIcons.sort),
                   onTap: () {
                     Get.bottomSheet(
@@ -53,9 +36,7 @@ class NotificationScreen extends GetView<NotificationController> {
                       ),
                     );
                   },
-                ),
-              ],
-            ),
+                ),),
             Expanded(
               child: Obx(() {
                 final today = controller.notifications

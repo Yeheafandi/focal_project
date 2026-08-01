@@ -23,13 +23,9 @@ class AudioCallScreen extends StatelessWidget {
           Positioned(
             top: 60,
             left: 24,
-            child: GestureDetector(
+            child: ActionButton(radius: 24,
+              iconName: AppIcons.backArrow,
               onTap: () => controller.endCall(),
-              child: const CircleAvatar(
-                backgroundColor: AppColors.primaryWhite,
-                radius: 22,
-                child: Icon(Icons.arrow_back, color: AppColors.primaryBlack),
-              ),
             ),
           ),
 
@@ -53,10 +49,10 @@ class AudioCallScreen extends StatelessWidget {
                     backgroundImage: NetworkImage(controller.image),
                   ),
                   SizedBox(width: AppSpaces.widthSmall),
-                  Column(
+                  Column(crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        controller.name,
+                         controller.name,
                         style: MyTextStyle.normalTitleText().copyWith(
                           color: AppColors.textWhite,
                           fontSize: 15,
@@ -74,7 +70,7 @@ class AudioCallScreen extends StatelessWidget {
                   ),
                   Spacer(),
 
-                  const Icon(Icons.circle, color: AppColors.red, size: 12),
+                  const Icon(Icons.circle, color: AppColors.red, size: 9),
                   SizedBox(width: AppSpaces.widthSmall),
                   Obx(
                     () => Text(

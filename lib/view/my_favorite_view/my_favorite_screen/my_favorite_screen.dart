@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/view/my_favorite_view/my_favorite_controller/my_favorite_controller.dart';
 import 'package:focal_project/view/my_favorite_view/widgets/my_favorite_shimmer.dart';
+import 'package:focal_project/widgets/custom_app_bar.dart';
 import 'package:focal_project/widgets/custom_search_bar.dart';
 import 'package:focal_project/widgets/custom_shimmer.dart';
 import 'package:get/get.dart';
@@ -28,30 +29,8 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
         padding: EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
         child: Column(
           children: [
-            SizedBox(height: 56),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  icon: Icon(Icons.arrow_back, color: AppColors.primaryBlack),
-                  onPressed: () {
-                    Get.back();
-                  },
-                ),
-                Text(
-                  "My Favorite",
-                  style: MyTextStyle.normalTitleText(
-                    color: AppColors.black87,
-                    fontWeight: FontWeight.w600,
-                    size: 18,
-                  ),
-                ),
-                InkWell(child: SvgPicture.asset(AppIcons.sort)),
-              ],
-            ),
-            SizedBox(height: AppSpaces.heightLarge),
+            CustomAppBar(title: 'My Favorite',action: InkWell(child: SvgPicture.asset(AppIcons.sort)),showBackButton: false,),
+            SizedBox(height: AppSpaces.heightExtraLarge),
             CustomSearchBar(onFilterTap: () => ''),
 
             SizedBox(height: AppSpaces.heightNormal),
@@ -79,7 +58,16 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                   return MyFavoriteShimmer();
                 }
                 if (controller.favorites.isEmpty) {
-                  return const Center(child: Text("No favorites added yet"));
+                  return Center(
+                    child: Text(
+                      "No Favorites Hotels",
+                      style: MyTextStyle.smallTitleText(
+                        color: AppColors.subtitleColor,
+                        fontWeight: FontWeight.w400,
+                        size: 14,
+                      ),
+                    ),
+                  );
                 }
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -88,9 +76,11 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                     mainAxisSpacing: 0,
                     childAspectRatio: 0.62,
                   ),
-                  itemCount: controller.favorites.length,
+                  itemCount: controller.displayedFavorites.length,
                   itemBuilder: (_, index) {
-                    return FavoriteItem(hotel: controller.favorites[index]);
+                    return FavoriteItem(
+                      hotel: controller.displayedFavorites[index],
+                    );
                   },
                 );
               }),

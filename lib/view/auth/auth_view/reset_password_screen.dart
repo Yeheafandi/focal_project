@@ -34,7 +34,7 @@ final AuthController authController = Get.find<AuthController>();
                   SizedBox(height: AppSpaces.heightMedium),
                   FittedBox(
                     fit: BoxFit.scaleDown,
-                    child: SubTitle(text:  'Enter your new password',color:  AppColors.subtitleColor,
+                    child: SubTitle(text:  'Enter your new password',size: 16,color:  AppColors.subtitleColor,
                        fontWeight:FontWeight.normal),
                   ),
                   SizedBox(height: AppSpaces.heightExtraLarge),

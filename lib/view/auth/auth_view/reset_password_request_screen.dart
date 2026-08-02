@@ -24,7 +24,7 @@ final AuthController authController = Get.find<AuthController>();
               children: [
                 mainTitle('Forgot Password',AppColors.primaryBlack),
               SizedBox(height: AppSpaces.heightMedium,),
-                FittedBox(fit: BoxFit.scaleDown, child: SubTitle(text:  'Recover your account password',color:AppColors.subtitleColor,fontWeight:FontWeight.normal)),
+                FittedBox(fit: BoxFit.scaleDown, child: SubTitle(text:  'Recover your account password',color:AppColors.subtitleColor,fontWeight:FontWeight.w400,size:16)),
                     SizedBox(height: AppSpaces.heightExtraLarge,) , 
               Column(crossAxisAlignment: CrossAxisAlignment.start,
               spacing: 8,  children: [

@@ -27,6 +27,7 @@ class ShareWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -69,6 +70,7 @@ class ShareWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(14),
             ),
             child: Row(
+
               children: [
                 Expanded(
                   child: Text(
@@ -147,6 +149,7 @@ class ShareWidget extends StatelessWidget {
                 label: 'Instagram',
                 onTap: () {},
               ),
+              
             ],
           ),
         ],

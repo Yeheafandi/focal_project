@@ -108,7 +108,7 @@ class SignupScreen extends StatelessWidget {
             ),
           ),
              SizedBox(height: 34,),
-              Column(
+              Column(spacing: 4,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -133,6 +133,7 @@ class SignupScreen extends StatelessWidget {
                       )
                     ],
                   )
+                  
                 ],
               )
             ],

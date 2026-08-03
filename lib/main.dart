@@ -26,16 +26,15 @@ void main() async {
   await Get.putAsync<NotificationFirebaseService>(
     () => NotificationFirebaseService().init(),
   );
+   
   //تهيئه stripe بس للموبايل ما بيشتغل عالويب
   if (!kIsWeb) {
     // set the publishable key for Stripe
     Stripe.publishableKey = StripeKeys.stripePublishableKey;
     await Stripe.instance.applySettings();
-  }await Get.putAsync(
-    () async => MyFavoriteService(),
-  );
+  }
   runApp(MyApp());
-  runApp(const MyApp());
+  
 }
 
 class MyApp extends StatelessWidget {
@@ -58,9 +57,9 @@ class MyApp extends StatelessWidget {
         fallbackLocale: const Locale('en', 'US'),
         debugShowCheckedModeBanner: false,
         initialBinding: InitializeBinding(),
-        initialRoute: serv.isRemembered.value
-            ? Routes.navigationMenuView
-            : Routes.onboarding,
+        initialRoute: 
+             Routes.navigationMenuView,
+            
         getPages: AppRoutes.screens,
       ),
     );

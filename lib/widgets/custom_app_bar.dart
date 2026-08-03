@@ -23,12 +23,15 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 56),
+      padding: const EdgeInsets.only(top: 40),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           showBackButton
-              ? InkWell(onTap: onBack ?? () => Get.back(),child: SvgPicture.asset(AppIcons.backArrow))
+              ? InkWell(
+                  onTap: onBack ?? () => Get.back(),
+                  child: SvgPicture.asset(AppIcons.backArrow),
+                )
               : const SizedBox(width: 24),
 
           Text(

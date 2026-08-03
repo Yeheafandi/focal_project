@@ -45,13 +45,15 @@ class MyFavoriteController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    print("MyFavoriteController onInit================================");
     loadFavorites();
+    displayedFavorites.assignAll(favorites);
   }
 
   Future<void> loadFavorites() async {
     isLoading.value = true;
-    await Future.delayed(const Duration(seconds: 2));
-    displayedFavorites.assignAll(favorites);
+    await Future.delayed(const Duration(seconds: 5));
+    
     isLoading.value = false;
   }
 }

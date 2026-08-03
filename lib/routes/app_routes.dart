@@ -76,7 +76,7 @@ class AppRoutes {
     GetPage(
       name: Routes.myFavoriteScreen,
       page: () => const MyFavoriteScreen(),
-      binding: MyFavoriteBinding(),
+      // binding: MyFavoriteBinding(),
     ),
     GetPage(name: Routes.splashscreen, page: () => SplashScreen()),
 

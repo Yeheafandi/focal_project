@@ -1,5 +1,7 @@
+import 'package:focal_project/core/services/favorite_service.dart';
 import 'package:focal_project/core/services/notification_service.dart';
 import 'package:focal_project/view/booking_details_view/booking_details_controller/booking_details_controller.dart';
+import 'package:focal_project/view/my_favorite_view/my_favorite_controller/my_favorite_controller.dart';
 import 'package:focal_project/view/notification_view/notification_controller/notification_controller.dart';
 import 'package:focal_project/view/search_section/search_view/search_filter_controller/search_filter_controller.dart';
 import 'package:focal_project/view/auth/auth_controller/auth_controller.dart';
@@ -12,6 +14,16 @@ import 'package:get/get.dart';
 class InitializeBinding extends Bindings {
   @override
   void dependencies() {
+
+Get.put(MyFavoriteService(), permanent: true);
+
+    Get.put(
+      MyFavoriteController(
+        service: Get.find<MyFavoriteService>(),
+      ),
+      permanent: true,
+    );
+
     // Get.put(Crud());
     Get.lazyPut<SearchFilterController>(() => SearchFilterController());
 
@@ -26,10 +38,17 @@ class InitializeBinding extends Bindings {
     );
     // Get.put(Crud());
     Get.lazyPut<ChatDetailsService>(() => ChatDetailsService());
-    Get.lazyPut<NotificationService>(() => NotificationService());
+    
     Get.lazyPut<AuthController>(() => AuthController());
-    Get.lazyPut<NotificationController>(
-      () => NotificationController(service: Get.find()),
+    Get.lazyPut<NotificationService>(
+      () => NotificationService(),
     );
+
+    Get.put<NotificationController>(
+       NotificationController(
+        service: Get.find<NotificationService>(),
+      ),
+    );
+
   }
 }

@@ -12,7 +12,7 @@ class NavigationController extends GetxController {
 @override
   void onInit() {
     super.onInit();
-    MyFavoriteBinding().dependencies();
+    // MyFavoriteBinding().dependencies();
   }
 
   final List<Widget> screens = [

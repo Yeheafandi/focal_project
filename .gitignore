@@ -50,9 +50,6 @@ app.*.map.json
 # VS Code
 .vscode/
 lib/core/services/notification_sender_service.dart
-<<<<<<< HEAD
 
 #secret key
 lib/core/constants/stripe_keys.dart
-=======
->>>>>>> origin/feat/profile-section

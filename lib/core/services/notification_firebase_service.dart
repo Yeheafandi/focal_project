@@ -24,6 +24,7 @@ class NotificationFirebaseService extends GetxService {
           NotificationModel(
             id: DateTime.now().millisecondsSinceEpoch,
             assetIcon: AppIcons.paymentIcon,
+            body: message.notification!.body?? '',
             title: message.notification!.title ?? "",
             time: "Now",
             category: "New Notification",

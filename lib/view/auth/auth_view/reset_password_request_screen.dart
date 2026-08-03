@@ -38,6 +38,7 @@ final AuthController authController = Get.find<AuthController>();
                if (authController.formKey.currentState!
                                     .validate()) {
                                   Get.toNamed(Routes.resetpassword);
+                                  authController.passController.clear();
                                 }
               })
               ,])),

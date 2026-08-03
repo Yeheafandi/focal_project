@@ -23,7 +23,7 @@ class ProfileScreen extends GetView<ProfileController> {
         elevation: 0,
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: Text('Profile', style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text('profile'.tr, style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
       ),
       body: SafeArea(
         child: ListView(
@@ -67,15 +67,15 @@ class ProfileScreen extends GetView<ProfileController> {
                   ],
                 )),
             SizedBox(height: AppSpaces.heightExtraLarge),
-            Text('Setting', style: MyTextStyle.smallTitleText(color: AppColors.subtitleColor)),
+            Text('setting'.tr, style: MyTextStyle.smallTitleText(color: AppColors.subtitleColor)),
             SizedBox(height: AppSpaces.heightVerySmall),
-            SettingsTile(icon: Icons.credit_card, title: 'Your Card', onTap: controller.goToCard),
-            SettingsTile(icon: Icons.verified_user_outlined, title: 'Security', onTap: controller.goToSecurity),
-            SettingsTile(icon: Icons.notifications_none, title: 'Notification', onTap: controller.goToNotifications),
-            SettingsTile(icon: Icons.language, title: 'Languages', onTap: controller.goToLanguage),
+            SettingsTile(icon: Icons.credit_card, title: 'your_card'.tr, onTap: controller.goToCard),
+            SettingsTile(icon: Icons.verified_user_outlined, title: 'security'.tr, onTap: controller.goToSecurity),
+            SettingsTile(icon: Icons.notifications_none, title: 'notifications'.tr, onTap: controller.goToNotifications),
+            SettingsTile(icon: Icons.language, title: 'languages'.tr, onTap: controller.goToLanguage),
             SettingsTile(
               icon: Icons.help_outline,
-              title: 'Help and Support',
+              title: 'help_and_support'.tr,
               showDivider: false,
               onTap: controller.goToHelpSupport,
             ),
@@ -83,7 +83,7 @@ class ProfileScreen extends GetView<ProfileController> {
             Center(
               child: TextButton(
                 onPressed: controller.logout,
-                child: Text('Logout', style: MyTextStyle.normalTitleText(color: AppColors.red, size: 15)),
+                child: Text('log_out'.tr, style: MyTextStyle.normalTitleText(color: AppColors.red, size: 15)),
               ),
             ),
             SizedBox(height: AppSpaces.heightSmall),

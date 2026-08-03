@@ -5,6 +5,7 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
+import 'package:get/get.dart';
 
 class PaymentCompleteView extends StatelessWidget {
   const PaymentCompleteView({super.key});
@@ -19,7 +20,7 @@ class PaymentCompleteView extends StatelessWidget {
         centerTitle: false,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: AppColors.primaryBlack),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Get.back(),
         ),
         actions: [
           IconButton(
@@ -39,7 +40,7 @@ class PaymentCompleteView extends StatelessWidget {
                 children: [
                   SvgPicture.asset(AppIcons.illustration),
                   Text(
-                    'Payment Complete',
+                    'checkout.payment_complete'.tr,
                     textAlign: TextAlign.center,
                     style: MyTextStyle.normalTitleText(
                       size: 24,
@@ -48,7 +49,7 @@ class PaymentCompleteView extends StatelessWidget {
                   ),
                   SizedBox(height: AppSpaces.heightSmall),
                   Text(
-                    'Etiam cras nec metus laoreet. Faucibus iaculis cras ut posuere.',
+                    'checkout.payment_complete_desc'.tr,
                     textAlign: TextAlign.center,
                     style: MyTextStyle.smallTitleText(
                       color: AppColors.grey500,

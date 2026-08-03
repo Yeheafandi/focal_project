@@ -25,14 +25,14 @@ class LegalPoliciesController extends GetxController {
           'Leo auctor et etiam est, amet aliquet ut vitae. Odio vulputate est id tincidunt fames.';
 
       sections.value = [
-        LegalSection(title: 'Terms', body: lorem),
+        LegalSection(title: 'terms'.tr, body: lorem),
         LegalSection(title: '', body: lorem),
-        LegalSection(title: 'Changes to the Service and/or Terms:', body: lorem),
+        LegalSection(title: 'changes_to_service_terms'.tr, body: lorem),
         LegalSection(title: '', body: lorem),
       ];
       error.value = null;
     } catch (e) {
-      error.value = 'Failed to load content';
+      error.value = 'failed_to_load_content'.tr;
     } finally {
       isLoading.value = false;
     }

@@ -6,14 +6,9 @@ import 'package:focal_project/core/services/favorite_service.dart';
 class MyFavoriteBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<MyFavoriteService>(
-      () => MyFavoriteService(),
-    );
-
-    Get.lazyPut<MyFavoriteController>(
-      () => MyFavoriteController(
-        service: Get.find<MyFavoriteService>(),
-      ),
+  Get.put<MyFavoriteService>(MyFavoriteService(), permanent: true);
+    Get.put<MyFavoriteController>(
+      MyFavoriteController(service: Get.find<MyFavoriteService>()),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/model/payment_card_model.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 /// ويدجت البطاقة - منستقبل PaymentCardModel وبنبني الشكل حسب النوع (visa/mastercard)
 class PaymentCard extends StatelessWidget {
@@ -46,7 +47,7 @@ class PaymentCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Current Balance',
+                    'your_card'.tr,
                     style: MyTextStyle.smallTitleText(color: AppColors.grey300),
                   ),
                   _CardLogo(isVisa: _isVisa),
@@ -82,7 +83,7 @@ class PaymentCard extends StatelessWidget {
               activeColor: AppColors.primary,
             ),
             Text(
-              'Use as default payment method',
+              'use_as_default'.tr,
               style: MyTextStyle.smallTitleText(color: AppColors.titleColor, size: 13),
             ),
           ],

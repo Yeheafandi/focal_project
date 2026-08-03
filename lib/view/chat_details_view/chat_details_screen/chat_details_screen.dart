@@ -35,7 +35,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
               padding: EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
               child: Column(
                 children: [
-                  CustomAppBar(title: 'Chat',action: SvgPicture.asset(AppIcons.more)),
+                  CustomAppBar(title: 'chat.title'.tr,action: SvgPicture.asset(AppIcons.more)),
                   SizedBox(height: AppSpaces.heightNormal),
               
                   ListTile(
@@ -61,7 +61,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
                       style: MyTextStyle.normalTitleText(),
                     ),
                     subtitle: Text(
-                      'Online',
+                      'chat.status_online'.tr,
                       style: MyTextStyle.smallTitleText(
                         color: AppColors.primary,
                         size: 12,
@@ -119,10 +119,10 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
                       
                     ),
                     child: HotelCard(
-                      hotelName: "The Aston Vill Hotel",
+                      hotelName: "hotel_card.sample_title".tr,
                       hotelImage:
                           "https://images.unsplash.com/photo-1566073771259-6a8506099945",
-                      location: "Vlou Point, Mickleton",
+                      location: "hotel_card.sample_location".tr,
                       price: 120,
                       rating: 4.7,
                     ),
@@ -164,7 +164,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
                             child: TextField(
                               controller: controller.messageInputController,
                               decoration: InputDecoration(
-                                hintText: 'Write a reply',
+                                hintText: 'chat.write_reply_hint'.tr,
                                 hintStyle: MyTextStyle.smallTitleText(
                                   color: AppColors.grey500,
                                   fontWeight: FontWeight.w400,

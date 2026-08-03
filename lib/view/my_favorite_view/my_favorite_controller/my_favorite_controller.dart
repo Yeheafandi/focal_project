@@ -10,9 +10,9 @@ class MyFavoriteController extends GetxController {
   final isLoading = true.obs;
   final MyFavoriteService _service;
 
-  final selectedCategory = "All".obs;
+  final selectedCategory = "all".obs;
 
-  final categories = ["All", "Villas", "Hotels", "Apartment"];
+  final categories = ["all", "villas", "hotels", "apartments"];
 
   final List<String?> categoriesIcons = [
     null,
@@ -27,7 +27,7 @@ class MyFavoriteController extends GetxController {
   void changeCategory(String category) {
     selectedCategory.value = category;
 
-    if (category == "All") {
+    if (category == "all") {
       displayedFavorites.assignAll(favorites);
       return;
     }

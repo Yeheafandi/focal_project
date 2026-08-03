@@ -6,6 +6,7 @@ import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/core/services/booking_details_services.dart';
+import 'package:focal_project/model/booking_details_model.dart';
 import 'package:focal_project/view/booking_details_view/booking_details_controller/booking_details_controller.dart';
 import 'package:focal_project/view/booking_details_view/widgets/booking_info_card.dart';
 import 'package:focal_project/view/booking_details_view/widgets/hotel_card.dart';
@@ -16,8 +17,14 @@ import 'package:get/get.dart';
 
 class BookingDetailsView extends StatelessWidget {
   BookingDetailsView({super.key});
-  final controller = Get.put(BookingDetailsController(bookingId: 1,
-    service: BookingDetailsService()));
+
+  final controller = Get.put(
+    BookingDetailsController(
+      bookingId: (Get.arguments as BookingDetailsModel?)?.id ?? 1,
+      service: BookingDetailsService(),
+      initialBooking: Get.arguments as BookingDetailsModel?,
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +34,10 @@ class BookingDetailsView extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-            CustomAppBar(title: 'Booking Detail',action: SvgPicture.asset(AppIcons.more),),
+            CustomAppBar(
+              title: 'booking_details.title'.tr,
+              action: SvgPicture.asset(AppIcons.more),
+            ),
             SizedBox(height: AppSpaces.heightLarge),
             Expanded(
               child: SingleChildScrollView(
@@ -46,7 +56,7 @@ class BookingDetailsView extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         padding: EdgeInsets.symmetric(horizontal: 16),
                         child: Text(
-                          'Your Hotel',
+                          'booking_details.your_hotel'.tr,
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.grey600,
                             fontWeight: FontWeight.w600,
@@ -70,7 +80,7 @@ class BookingDetailsView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Location',
+                              'booking_details.location'.tr,
                               style: MyTextStyle.smallTitleText(
                                 color: AppColors.grey600,
                                 fontWeight: FontWeight.w600,
@@ -82,7 +92,7 @@ class BookingDetailsView extends StatelessWidget {
                                 Get.to(() => NearbyMapView());
                               },
                               child: Text(
-                                'Open Map',
+                                'booking_details.open_map'.tr,
                                 style: MyTextStyle.smallTitleText(
                                   color: AppColors.primaryBlue,
                                   size: 14,
@@ -97,7 +107,9 @@ class BookingDetailsView extends StatelessWidget {
 
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: NearYouMapCard(areaName: 'haight St'),
+                        child: NearYouMapCard(
+                          areaName: 'booking_details.haight_st'.tr,
+                        ),
                       ),
 
                       SizedBox(height: AppSpaces.heightLarge),
@@ -105,7 +117,7 @@ class BookingDetailsView extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         padding: EdgeInsets.symmetric(horizontal: 16),
                         child: Text(
-                          'Your Booking',
+                          'booking_details.your_booking'.tr,
                           style: MyTextStyle.smallTitleText(
                             color: AppColors.grey600,
                             fontWeight: FontWeight.w600,

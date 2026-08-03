@@ -45,12 +45,11 @@ class MyCouponBottomSheet extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('My Cupon', style: MyTextStyle.normalTitleText(size: 20)),
+              Text('checkout.my_coupon'.tr, style: MyTextStyle.normalTitleText(size: 20)),
               GestureDetector(
                 onTap: Get.back,
                 child: Container(
                   padding: EdgeInsets.all(AppSpaces.paddingSmall),
-
                   child: SvgPicture.asset(AppIcons.close),
                 ),
               ),
@@ -74,7 +73,7 @@ class MyCouponBottomSheet extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: CustomeButton(
-              text: "Use Cupon",
+              text: "checkout.use_coupon".tr,
               onPressed: controller.useCoupon,
             ),
           ),

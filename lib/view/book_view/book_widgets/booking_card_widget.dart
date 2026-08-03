@@ -5,6 +5,7 @@ import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/model/booking_details_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class BookingCardWidget extends StatelessWidget {
   final BookingDetailsModel booking;
@@ -131,7 +132,7 @@ class BookingCardWidget extends StatelessWidget {
                   SizedBox(height: AppSpaces.heightSmall),
                   _detailsRow(
                     icon: AppIcons.person,
-                    title: 'Guest',
+                    title:'guest'.tr,
                     details:
                         ' ${booking.guests} Guests (${booking.rooms} Room)',
                   ),

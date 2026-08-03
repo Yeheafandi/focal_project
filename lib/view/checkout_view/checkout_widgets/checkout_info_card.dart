@@ -19,7 +19,6 @@ class CheckoutInfoCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(AppSpaces.paddingNormal),
       decoration: BoxDecoration(
-        // color: AppColors.primaryWhite,
         borderRadius: BorderRadius.circular(AppSpaces.radiusMedium + 2),
         border: Border.all(color: AppColors.grey300),
       ),
@@ -27,7 +26,7 @@ class CheckoutInfoCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Your Booking',
+            'checkout.your_booking'.tr,
             style: MyTextStyle.normalTitleText(
               color: AppColors.primary,
               size: 14,
@@ -36,31 +35,30 @@ class CheckoutInfoCard extends StatelessWidget {
           SizedBox(height: AppSpaces.heightSmall),
           CheckoutBookingRow(
             icon: AppIcons.calendar,
-            label: 'Dates',
+            label: 'checkout.dates'.tr,
             value: controller.datesRange,
           ),
           CheckoutBookingRow(
             icon: AppIcons.person,
-            label: 'Guest',
+            label: 'checkout.guest'.tr,
             value: controller.guestLabel,
           ),
           CheckoutBookingRow(
             icon: AppIcons.building,
-            label: 'Room type',
+            label: 'checkout.room_type'.tr,
             value: controller.roomType,
           ),
           CheckoutBookingRow(
             icon: AppIcons.call,
-            label: 'Phone',
+            label: 'checkout.phone'.tr,
             value: controller.phone,
             isLast: true,
           ),
-
           SizedBox(height: AppSpaces.heightNormal),
           const CheckoutDashedDivider(),
           SizedBox(height: AppSpaces.heightNormal),
           Text(
-            'Price Details',
+            'checkout.price_details'.tr,
             style: MyTextStyle.normalTitleText(
               color: AppColors.primary,
               size: 14,
@@ -71,11 +69,11 @@ class CheckoutInfoCard extends StatelessWidget {
             () => Column(
               children: [
                 CheckoutPriceRow(
-                  label: 'Price',
+                  label: 'checkout.price'.tr,
                   value: controller.formatPrice(controller.price),
                 ),
                 CheckoutPriceRow(
-                  label: 'Admin fee',
+                  label: 'checkout.admin_fee'.tr,
                   value: controller.formatPrice(controller.adminFee),
                 ),
                 if (controller.appliedCoupon.value != null)
@@ -85,7 +83,7 @@ class CheckoutInfoCard extends StatelessWidget {
                         '-${controller.formatPrice(controller.discountAmount)}',
                   ),
                 CheckoutPriceRow(
-                  label: 'Total price',
+                  label: 'checkout.total_price'.tr,
                   value: controller.formatPrice(controller.totalPrice),
                   isTotal: true,
                 ),

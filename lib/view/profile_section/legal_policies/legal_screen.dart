@@ -30,7 +30,7 @@ class LegalPoliciesScreen extends GetView<LegalPoliciesController> {
           ),
           onPressed: () => Get.back(),
         ),
-        title: Text('Legal and Policies', style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text('legal_and_policies'.tr, style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
       ),
       body: Obx(() {
         if (controller.isLoading.value) {

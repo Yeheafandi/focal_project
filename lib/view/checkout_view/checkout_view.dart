@@ -31,7 +31,7 @@ class CheckoutView extends StatelessWidget {
               onPressed: () => Get.back(),
             ),
             title: Text(
-              'Checkout',
+              'checkout.title'.tr,
               style: MyTextStyle.normalTitleText(size: 18),
             ),
             actions: [
@@ -63,6 +63,7 @@ class CheckoutView extends StatelessWidget {
                       CheckoutInfoCard(controller: controller),
                       SizedBox(height: AppSpaces.heightLarge),
                       PromoSectionWidget(
+                        label: controller.appliedCoupon.value?.title,
                         onTap: controller.showCouponBottomSheet,
                       ),
                       SizedBox(height: AppSpaces.heightExtraLarge),
@@ -80,7 +81,7 @@ class CheckoutView extends StatelessWidget {
                 child: SizedBox(
                   width: double.infinity,
                   child: CustomeButton(
-                    text: "Select Payment",
+                    text: "checkout.select_payment".tr,
                     onPressed: controller.selectPayment,
                   ),
                 ),

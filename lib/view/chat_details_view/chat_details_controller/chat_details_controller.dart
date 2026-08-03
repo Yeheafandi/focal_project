@@ -41,7 +41,7 @@ class ChatDetailsController extends GetxController {
     messages.add(
       MessageModel(
         id: DateTime.now().millisecondsSinceEpoch,
-        senderName: 'Me',
+        senderName: 'chat.me'.tr,
         text: text,
         time: '10:32 AM',
         isMe: true,
@@ -51,7 +51,7 @@ class ChatDetailsController extends GetxController {
       MessageModel(
         id: DateTime.now().millisecondsSinceEpoch,
         senderName: 'Ahmir',
-        text: 'hellooo',
+        text: 'chat.default_response'.tr,
         time: '10:32 AM',
         isMe: false,
       ),

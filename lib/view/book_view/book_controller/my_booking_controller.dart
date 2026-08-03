@@ -16,7 +16,12 @@ class MyBookingController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    bookings.assignAll(_initialBookings ?? _defaultBookings);
+    refreshTranslations();
+  }
+
+  void refreshTranslations() {
+    final sourceBookings = _initialBookings ?? _defaultBookings;
+    bookings.assignAll(sourceBookings);
     filteredBookings.assignAll(bookings);
   }
 
@@ -31,55 +36,55 @@ class MyBookingController extends GetxController {
     filteredBookings.refresh();
   }
 
-  static final List<BookingDetailsModel> _defaultBookings = [
+  static List<BookingDetailsModel> get _defaultBookings => [
     BookingDetailsModel(
       id: 1,
-      hotelName: 'The Aston Vill Hotel',
+      hotelName: 'my_bookings.hotel_1_name'.tr,
       hotelImage: AppImages.onBoarding2,
-      location: 'Veum Point, Michikoton',
+      location: 'my_bookings.hotel_1_location'.tr,
       rating: 4.7,
       price: 120,
-      checkIn: '12 Nov 2024',
-      checkOut: '14 Nov 2024',
+      checkIn: 'my_bookings.hotel_1_check_in'.tr,
+      checkOut: 'my_bookings.hotel_1_check_out'.tr,
       guests: 2,
       rooms: 1,
-      roomType: 'Deluxe Room',
-      phone: '+1 234 567 890',
-      barcode: 'ABC12345',
+      roomType: 'my_bookings.hotel_1_room_type'.tr,
+      phone: 'my_bookings.hotel_1_phone'.tr,
+      barcode: 'my_bookings.hotel_1_barcode'.tr,
       latitude: 0,
       longitude: 0,
     ),
     BookingDetailsModel(
       id: 2,
-      hotelName: 'Mystic Palms',
+      hotelName: 'my_bookings.hotel_2_name'.tr,
       hotelImage: AppImages.onBoarding1,
-      location: 'Palm Springs, CA',
+      location: 'my_bookings.hotel_2_location'.tr,
       rating: 4.0,
       price: 230,
-      checkIn: '20 Nov 2024',
-      checkOut: '25 Nov 2024',
+      checkIn: 'my_bookings.hotel_2_check_in'.tr,
+      checkOut: 'my_bookings.hotel_2_check_out'.tr,
       guests: 1,
       rooms: 1,
-      roomType: 'Standard Room',
-      phone: '+1 987 654 321',
-      barcode: 'XYZ98765',
+      roomType: 'my_bookings.hotel_2_room_type'.tr,
+      phone: 'my_bookings.hotel_2_phone'.tr,
+      barcode: 'my_bookings.hotel_2_barcode'.tr,
       latitude: 0,
       longitude: 0,
     ),
     BookingDetailsModel(
       id: 3,
-      hotelName: 'Elysian Suites',
+      hotelName: 'my_bookings.hotel_3_name'.tr,
       hotelImage: AppImages.onBoarding3,
-      location: 'San Diego, CA',
+      location: 'my_bookings.hotel_3_location'.tr,
       rating: 3.8,
       price: 190,
-      checkIn: '01 Dec 2024',
-      checkOut: '05 Dec 2024',
+      checkIn: 'my_bookings.hotel_3_check_in'.tr,
+      checkOut: 'my_bookings.hotel_3_check_out'.tr,
       guests: 2,
       rooms: 1,
-      roomType: 'Suite Room',
-      phone: '+1 555 123 456',
-      barcode: 'ELYS1234',
+      roomType: 'my_bookings.hotel_3_room_type'.tr,
+      phone: 'my_bookings.hotel_3_phone'.tr,
+      barcode: 'my_bookings.hotel_3_barcode'.tr,
       latitude: 0,
       longitude: 0,
     ),

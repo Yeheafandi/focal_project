@@ -3,6 +3,7 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/model/booking_details_model.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'booking_info_item.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -25,14 +26,14 @@ class BookingInfoCard extends StatelessWidget {
         children: [
           BookingInfoItem(
             iconName: AppIcons.calendar,
-            title: "Check In",
+            title: "booking_details.check_in".tr,
             value: booking.checkIn,
           ),
 
           SizedBox(height: AppSpaces.heightSmall),
 
           BookingInfoItem(
-            title: "Check Out",
+            title: "booking_details.check_out".tr,
             value: booking.checkOut,
             iconName: AppIcons.calendar,
           ),
@@ -41,7 +42,7 @@ class BookingInfoCard extends StatelessWidget {
 
           BookingInfoItem(
             iconName: AppIcons.user,
-            title: "Guests",
+            title: "booking_details.guests".tr,
             value: booking.guests.toString(),
           ),
 
@@ -49,7 +50,7 @@ class BookingInfoCard extends StatelessWidget {
 
           BookingInfoItem(
             iconName: AppIcons.building,
-            title: "Room Type",
+            title: "booking_details.room_type".tr,
             value: booking.roomType,
           ),
 
@@ -57,7 +58,7 @@ class BookingInfoCard extends StatelessWidget {
 
           BookingInfoItem(
             iconName: AppIcons.call,
-            title: "Phone",
+            title: "booking_details.phone".tr,
             value: booking.phone,
           ),
         ],

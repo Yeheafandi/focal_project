@@ -34,7 +34,7 @@ class CardScreen extends GetView<CardController> {
           ),
           onPressed: () => Get.back(),
         ),
-        title: Text('Your Card', style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text('your_card'.tr, style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
       ),
       body: Obx(() {
         if (controller.isLoading.value) {

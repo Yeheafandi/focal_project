@@ -32,7 +32,7 @@ class HelpSupportController extends GetxController {
       filteredFaqs.value = _allFaqs;
       error.value = null;
     } catch (e) {
-      error.value = 'Failed to load FAQs';
+      error.value = "failed_to_load_faqs".tr;
     } finally {
       isLoading.value = false;
     }

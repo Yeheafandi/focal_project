@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class BookingBarcodeCard extends StatelessWidget {
 
@@ -32,8 +33,8 @@ class BookingBarcodeCard extends StatelessWidget {
             width: double.infinity,
             color: Colors.grey.shade300,
             alignment: Alignment.center,
-            child: const Text("Barcode"),
-          ),
+            child: Text("booking_details.barcode_label".tr),         
+             ),
 
           const SizedBox(height:12),
 

@@ -29,7 +29,7 @@ class MyBookingView extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: Text(
-          'My Booking',
+          'my_booking'.tr,
           style: MyTextStyle.normalTitleText(
             size: 18,
             fontWeight: FontWeight.w700,
@@ -50,7 +50,7 @@ class MyBookingView extends StatelessWidget {
             children: [
               SizedBox(height: AppSpaces.heightLarge),
               CustomSearchBar(
-                hintText: 'Search...',
+                hintText: 'search_hint'.tr,
                 onFilterTap: () {},
                 onChanged: controller.onSearchChanged,
               ),
@@ -63,7 +63,7 @@ class MyBookingView extends StatelessWidget {
                   if (bookings.isEmpty) {
                     return Center(
                       child: Text(
-                        'No bookings found',
+                        'no_bookings_found'.tr,
                         style: MyTextStyle.smallTitleText(
                           size: 14,
                           color: AppColors.grey600,
@@ -108,14 +108,14 @@ class MyBookingView extends StatelessWidget {
         child: Row(
           children: [
             TabButton(
-              title: 'Booked',
+              title: 'booked'.tr,
               index: 0,
               isSelected: controller.selectedTabIndex.value == 0,
               onTap: controller.changeTab,
             ),
             SizedBox(width: AppSpaces.widthSmall),
             TabButton(
-              title: 'History',
+              title: 'history'.tr,
               index: 1,
               isSelected: controller.selectedTabIndex.value == 1,
               onTap: controller.changeTab,

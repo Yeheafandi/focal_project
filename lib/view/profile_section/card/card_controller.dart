@@ -36,7 +36,7 @@ class CardController extends GetxController {
       ];
       error.value = null;
     } catch (e) {
-      error.value = 'Failed to load cards';
+      error.value = 'failed_to_load_cards'.tr;
     } finally {
       isLoading.value = false;
     }

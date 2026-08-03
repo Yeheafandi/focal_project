@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/model/hotel_model.dart';
-import 'package:focal_project/routes/app_routes.dart';
-import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/detail_view/detail_view.dart';
 import 'package:focal_project/view/my_favorite_view/my_favorite_controller/my_favorite_controller.dart';
 import 'package:get/get.dart';
@@ -12,7 +10,6 @@ import 'package:get/get.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
-import 'package:focal_project/model/my_favorite_model.dart';
 
 class FavoriteItem extends GetView<MyFavoriteController> {
   const FavoriteItem({super.key, required this.hotel});
@@ -129,7 +126,7 @@ class FavoriteItem extends GetView<MyFavoriteController> {
                 ),
               ),
               Text(
-                " Per Night",
+               " / ${"search_card_item.per_night".tr}",
                 style: MyTextStyle.smallTitleText(
                   color: AppColors.grey600,
                   size: 10,

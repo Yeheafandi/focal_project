@@ -45,7 +45,7 @@ class PersonalInfoController extends GetxController {
       // TODO: نداء API لحفظ التعديلات (firstNameCtrl.text, lastNameCtrl.text ...)
       await Future.delayed(const Duration(milliseconds: 300));
       isEditing.value = false; // بعد الحفظ منرجع لوضع العرض
-      Get.snackbar('Success', 'Your changes have been saved');
+      Get.snackbar('success'.tr, 'changes_saved_success'.tr);
     } finally {
       isLoading.value = false;
     }

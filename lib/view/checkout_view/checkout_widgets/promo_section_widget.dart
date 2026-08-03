@@ -4,12 +4,13 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
+import 'package:get/get.dart';
 
 class PromoSectionWidget extends StatelessWidget {
-  final String label;
+  final String? label;
   final VoidCallback? onTap;
 
-  const PromoSectionWidget({super.key, this.label = 'Select', this.onTap});
+  const PromoSectionWidget({super.key, this.label, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class PromoSectionWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Promo',
+          'checkout.promo'.tr,
           style: MyTextStyle.normalTitleText(
             size: 16,
             fontWeight: FontWeight.w500,
@@ -38,10 +39,9 @@ class PromoSectionWidget extends StatelessWidget {
             child: Row(
               children: [
                 SvgPicture.asset(AppIcons.discountShape),
-
                 SizedBox(width: AppSpaces.widthMedium),
                 Text(
-                  label,
+                  label ?? 'checkout.select_promo'.tr,
                   style: MyTextStyle.normalTitleText(
                     color: AppColors.primary,
                     size: 14,
@@ -50,8 +50,6 @@ class PromoSectionWidget extends StatelessWidget {
                 ),
                 const Spacer(),
                 SvgPicture.asset(AppIcons.arrowRight),
-
-                // Icon(Icons.chevron_right, color: AppColors.primary, size: 22),
               ],
             ),
           ),

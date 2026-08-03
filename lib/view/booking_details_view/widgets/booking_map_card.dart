@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class BookingMapCard extends StatelessWidget {
 
@@ -32,8 +33,7 @@ class BookingMapCard extends StatelessWidget {
 
       alignment: Alignment.center,
 
-      child: const Text("Google Map"),
-
+    child: Text("booking_details.google_map_label".tr),
     );
   }
 }

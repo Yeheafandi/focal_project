@@ -44,7 +44,7 @@ class RequestToBookView extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: Text(
-          'Request to book',
+         'booking.request_to_book'.tr,
           style: MyTextStyle.normalTitleText(
             size: 18,
             fontWeight: FontWeight.bold,
@@ -72,7 +72,7 @@ class RequestToBookView extends StatelessWidget {
                       children: [
                         Expanded(
                           child: DateBookingWidget(
-                            label: 'Check - In',
+                            label: 'booking.check_in'.tr,
                             dateText: controller.formatDate(
                               controller.checkInDate.value,
                             ),
@@ -87,7 +87,7 @@ class RequestToBookView extends StatelessWidget {
                         SizedBox(width: AppSpaces.widthMedium),
                         Expanded(
                           child: DateBookingWidget(
-                            label: 'Check - Out',
+                            label: 'booking.check_out'.tr,
                             dateText: controller.formatDate(
                               controller.checkOutDate.value,
                             ),
@@ -107,7 +107,7 @@ class RequestToBookView extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Guest', style: MyTextStyle.normalTitleText()),
+                        Text('booking.guest'.tr, style: MyTextStyle.normalTitleText()),
                         GuestCounterWidget(
                           count: controller.guestCount.value,
                           onIncrement: controller.incrementGuest,
@@ -116,7 +116,7 @@ class RequestToBookView extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: AppSpaces.heightLarge),
-                    Text('Pay With', style: MyTextStyle.normalTitleText()),
+                    Text('booking.pay_with'.tr, style: MyTextStyle.normalTitleText()),
                     SizedBox(height: AppSpaces.heightNormal),
                     PaymentMethodCard(
                       methodName: controller.paymentMethodName.value,
@@ -125,23 +125,23 @@ class RequestToBookView extends StatelessWidget {
                     ),
                     SizedBox(height: AppSpaces.heightLarge),
                     Text(
-                      'Payment Details',
+                      'booking.payment_details'.tr,
                       style: MyTextStyle.normalTitleText(),
                     ),
                     SizedBox(height: AppSpaces.heightSmall + 2),
                     PaymentDetailRow(
-                      label: 'Total : ${controller.nightCount} Night',
+                      label: 'booking.total_nights'.tr.replaceFirst('@count', controller.nightCount.toString()),
                       value: '\$${controller.nightsTotal.toInt()}',
                     ),
                     SizedBox(height: AppSpaces.heightSmall + 2),
 
                     PaymentDetailRow(
-                      label: 'Cleaning Fee',
+                      label: 'booking.cleaning_fee'.tr,
                       value: '\$${controller.cleaningFee.toInt()}',
                     ),
                     SizedBox(height: AppSpaces.heightSmall + 2),
                     PaymentDetailRow(
-                      label: 'Service Fee',
+                      label: 'booking.service_fee'.tr,
                       value: '\$${controller.serviceFee.toInt()}',
                     ),
                     Divider(
@@ -150,7 +150,7 @@ class RequestToBookView extends StatelessWidget {
                       height: AppSpaces.heightLarge,
                     ),
                     PaymentDetailRow(
-                      label: 'Total Payment:',
+                      label: 'booking.total_payment'.tr,
                       value: '\$${controller.totalPayment.toInt()}',
                       isTotal: true,
                     ),
@@ -161,7 +161,7 @@ class RequestToBookView extends StatelessWidget {
             ),
           ),
 
-          CustomeButton(text: "Checkout", onPressed: controller.checkout),
+          CustomeButton(text: "booking.checkout".tr, onPressed: controller.checkout),
           SizedBox(height: AppSpaces.heightExtraLarge),
         ],
       ),

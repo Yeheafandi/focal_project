@@ -33,7 +33,7 @@ class SecurityScreen extends GetView<SecurityController> {
           ),
           onPressed: () => Get.back(),
         ),
-        title: Text('Security', style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text('security'.tr, style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
       ),
       body: Obx(
         () => Padding(
@@ -41,17 +41,17 @@ class SecurityScreen extends GetView<SecurityController> {
           child: Column(
             children: [
               ToggleTile(
-                label: 'Face ID',
+                label: 'face_id'.tr,
                 value: controller.faceId.value,
                 onChanged: controller.toggleFaceId,
               ),
               ToggleTile(
-                label: 'Remember Password',
+                label: 'remember_password'.tr,
                 value: controller.rememberPassword.value,
                 onChanged: controller.toggleRememberPassword,
               ),
               ToggleTile(
-                label: 'Touch ID',
+                label: 'touch_id'.tr,
                 value: controller.touchId.value,
                 onChanged: controller.toggleTouchId,
               ),

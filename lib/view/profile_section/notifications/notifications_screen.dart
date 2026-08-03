@@ -34,7 +34,7 @@ class NotificationsScreen extends GetView<NotificationsController> {
           ),
           onPressed: () => Get.back(),
         ),
-        title: Text('Notifications', style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text('notifications'.tr, style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
       ),
       body: Obx(
         () => Padding(
@@ -43,7 +43,7 @@ class NotificationsScreen extends GetView<NotificationsController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Messages Notifications',
+                'messages_notifications'.tr,
                 style: MyTextStyle.smallTitleText(color: AppColors.subtitleColor, size: 12),
               ),
               SizedBox(height: AppSpaces.heightSmall),
@@ -56,28 +56,28 @@ class NotificationsScreen extends GetView<NotificationsController> {
                 child: Column(
                   children: [
                     ToggleTile(
-                      label: 'New Event',
+                      label: 'new_event'.tr,
                       value: controller.newEvent.value,
                       onChanged: controller.toggleNewEvent,
                       bordered: false,
                       showDivider: true,
                     ),
                     ToggleTile(
-                      label: 'Delivery',
+                      label: 'delivery'.tr,
                       value: controller.delivery.value,
                       onChanged: controller.toggleDelivery,
                       bordered: false,
                       showDivider: true,
                     ),
                     ToggleTile(
-                      label: 'Message',
+                      label: 'message'.tr,
                       value: controller.message.value,
                       onChanged: controller.toggleMessage,
                       bordered: false,
                       showDivider: true,
                     ),
                     ToggleTile(
-                      label: 'Payment',
+                      label: 'payment'.tr,
                       value: controller.payment.value,
                       onChanged: controller.togglePayment,
                       bordered: false,

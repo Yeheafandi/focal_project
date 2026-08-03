@@ -3,6 +3,7 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/model/hotel_model.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class BookingBottomBar extends StatelessWidget {
   final HotelModel hotel;
@@ -73,7 +74,7 @@ class BookingBottomBar extends StatelessWidget {
               ),
               onPressed: onBookingPressed,
               child: Text(
-                "Booking Now",
+                'booking_now'.tr,
                 style: MyTextStyle.normalTitleText(
                   color: AppColors.primaryWhite,
                   size: 16,

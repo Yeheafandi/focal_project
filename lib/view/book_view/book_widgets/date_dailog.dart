@@ -32,7 +32,7 @@ class DateDailog extends StatelessWidget {
             SizedBox(height: AppSpaces.heightMedium),
 
             Text(
-              "Select Date",
+              "select_date".tr,
               style: MyTextStyle.normalTitleText(
                 size: 18,
                 fontWeight: FontWeight.w600,
@@ -97,7 +97,7 @@ class DateDailog extends StatelessWidget {
                     ),
                     onPressed: () => Get.back(),
                     child: Text(
-                      'Cancel',
+                     'cancel'.tr,
                       style: MyTextStyle.normalTitleText(
                         size: 14,
                         fontWeight: FontWeight.w500,
@@ -127,7 +127,7 @@ class DateDailog extends StatelessWidget {
                       Get.back();
                     },
                     child: Text(
-                      'Apply',
+                     'apply'.tr,
                       style: MyTextStyle.normalTitleText(
                         size: 14,
                         fontWeight: FontWeight.w500,

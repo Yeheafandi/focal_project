@@ -6,9 +6,11 @@ class BookingDetailsController extends GetxController {
   BookingDetailsController({
     required this.bookingId,
     required BookingDetailsService service,
+    this.initialBooking,
   }) : _service = service;
 
   final int bookingId;
+  final BookingDetailsModel? initialBooking;
 
   final BookingDetailsService _service;
 
@@ -17,5 +19,6 @@ class BookingDetailsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    booking = _service.getBooking(bookingId);  }
+    booking = initialBooking ?? _service.getBooking(bookingId);
+  }
 }

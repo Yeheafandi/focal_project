@@ -4,6 +4,7 @@ import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/detail_view/detail_widgets/share_widget.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spaces.dart';
 import '../../../../core/constants/text_style.dart';
@@ -146,7 +147,7 @@ class MapHotelCard extends StatelessWidget {
                     elevation: 0,
                   ),
                   child: Text(
-                    "Booking Now",
+                       'booking_now'.tr,
                     style: MyTextStyle.normalTitleText(
                       color: AppColors.primaryWhite,
                       size: 16,

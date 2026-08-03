@@ -32,7 +32,7 @@ class PersonalInfoScreen extends GetView<PersonalInfoController> {
           ),
           onPressed: () => Get.back(),
         ),
-        title: Text('Personal Info', style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text('personal_info'.tr, style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
         actions: [
           Padding(
             padding: EdgeInsets.only(right: AppSpaces.paddingNormal),
@@ -59,26 +59,26 @@ class PersonalInfoScreen extends GetView<PersonalInfoController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               LabeledTextField(
-                label: 'First Name',
+                label: 'first_name'.tr,
                 controller: controller.firstNameCtrl,
                 enabled: controller.isEditing.value,
               ),
               SizedBox(height: AppSpaces.heightLarge),
               LabeledTextField(
-                label: 'Last Name',
+                label: 'last_name'.tr,
                 controller: controller.lastNameCtrl,
                 enabled: controller.isEditing.value,
               ),
               SizedBox(height: AppSpaces.heightLarge),
               LabeledTextField(
-                label: 'Email',
+                label: 'email'.tr,
                 controller: controller.emailCtrl,
                 enabled: controller.isEditing.value,
                 keyboardType: TextInputType.emailAddress,
               ),
               SizedBox(height: AppSpaces.heightLarge),
               LabeledTextField(
-                label: 'Phone',
+                label: 'phone'.tr,
                 controller: controller.phoneCtrl,
                 enabled: controller.isEditing.value,
                 keyboardType: TextInputType.phone,
@@ -101,7 +101,7 @@ class PersonalInfoScreen extends GetView<PersonalInfoController> {
                     ),
                   ),
                   child: Text(
-                    'Save Changes',
+                    'save_changes'.tr,
                     style: MyTextStyle.normalTitleText(
                       color: controller.isEditing.value ? AppColors.primaryWhite : AppColors.grey400,
                       size: 15,

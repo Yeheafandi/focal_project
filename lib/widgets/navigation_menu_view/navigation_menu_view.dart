@@ -47,27 +47,27 @@ class NavigationMenuView extends StatelessWidget {
               NavigationDestination(
                 icon: Image.asset(AppImages.homeIcon, width: 24, height: 24, color: AppColors.grey500),
                 selectedIcon: Image.asset(AppImages.homeIconFill, width: 24, height: 24, color: AppColors.primaryBlue),
-                label: 'Home',
+                label: 'home'.tr,
               ),
               NavigationDestination(
                 icon: Image.asset(AppImages.bookingIcon, width: 24, height: 24, color: AppColors.grey500),
                 selectedIcon: Image.asset(AppImages.bookingIconFill, width: 24, height: 24, color: AppColors.primaryBlue),
-                label: 'My Booking',
+                label: 'my_booking'.tr,
               ),
               NavigationDestination(
                 icon: Image.asset(AppImages.favoriteIcon, width: 24, height: 24, color: AppColors.grey500),
                 selectedIcon: Image.asset(AppImages.favoriteIconFill, width: 24, height: 24, color: AppColors.primaryBlue),
-                label: 'My Favorite',
+                label: 'my_favorite_nav'.tr,
               ),
               NavigationDestination(
                 icon: Image.asset(AppImages.messageIcon, width: 24, height: 24, color: AppColors.grey500),
                 selectedIcon: Image.asset(AppImages.messageIconFill, width: 24, height: 24, color: AppColors.primaryBlue),
-                label: 'Message',
+                label: 'message'.tr,
               ),
               NavigationDestination(
                 icon: Image.asset(AppImages.profileIcon, width: 24, height: 24, color: AppColors.grey500),
                 selectedIcon: Image.asset(AppImages.profileIconFill, width: 24, height: 24, color: AppColors.primaryBlue),
-                label: 'Profile',
+                label: 'profile'.tr,
               ),
             ],
           ),

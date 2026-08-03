@@ -98,8 +98,12 @@ class CheckoutController extends GetxController {
     return '${checkIn.day} $month - ${checkOut.day} $checkOutMonth ${checkOut.year}';
   }
 
-  String get guestLabel =>
-      '${bookingArgs.guestCount} Guest${bookingArgs.guestCount > 1 ? 's' : ''} (1 Room)';
+  String get guestLabel {
+    final guestText = bookingArgs.guestCount > 1
+        ? 'checkout.guests'.tr
+        : 'checkout.guest'.tr;
+    return '${bookingArgs.guestCount} $guestText ${'checkout.room_count'.tr}';
+  }
 
   String formatPrice(double amount) => '\$${amount.toStringAsFixed(2)}';
 
@@ -148,7 +152,7 @@ class CheckoutController extends GetxController {
     if (res == StatusClasses.success) {
       Get.toNamed(Routes.paymentComplete);
     } else {
-      Get.snackbar("Warning!", res.message ?? res.type);
+      Get.snackbar('checkout.warning'.tr, res.message ?? res.type);
     }
   }
 }

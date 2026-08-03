@@ -32,7 +32,7 @@ class HelpSupportScreen extends GetView<HelpSupportController> {
           ),
           onPressed: () => Get.back(),
         ),
-        title: Text('Help and Support', style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text('help_and_support'.tr, style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
       ),
       body: Padding(
         padding: EdgeInsets.all(AppSpaces.paddingLarge),
@@ -48,7 +48,7 @@ class HelpSupportScreen extends GetView<HelpSupportController> {
                 fontWeight: FontWeight.normal,
               ),
               decoration: InputDecoration(
-                hintText: 'Search...',
+                hintText:'search_hint'.tr,
                 hintStyle: MyTextStyle.smallTitleText(color: AppColors.hintColor, size: 14),
                 prefixIcon: Icon(Icons.search, color: AppColors.hintColor, size: 20),
                 filled: true,

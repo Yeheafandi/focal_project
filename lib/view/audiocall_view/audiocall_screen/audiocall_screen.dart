@@ -59,7 +59,7 @@ class AudioCallScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Tour guide, sweden',
+                        'audio_call.role_subheading'.tr,
                         style: MyTextStyle.smallTitleText(
                           color: AppColors.grey400,
                           size: 12,

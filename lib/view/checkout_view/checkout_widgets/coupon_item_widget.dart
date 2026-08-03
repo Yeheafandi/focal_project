@@ -5,6 +5,7 @@ import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/model/coupon_model.dart';
+import 'package:get/get.dart';
 
 class CouponItemWidget extends StatelessWidget {
   final CouponModel coupon;
@@ -20,19 +21,6 @@ class CouponItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      // showModalBottomSheet(
-      //   context: context,
-      //   isScrollControlled: true,
-      //   backgroundColor: Colors.transparent,
-      //   builder: (_) => Container(
-      //     margin: const EdgeInsets.only(top: 40),
-      //     decoration: const BoxDecoration(
-      //       color: Colors.white,
-      //       borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-      //     ),
-      //     child: const PaymentMethodModal(),
-      //   ),
-      // );
       child: Container(
         margin: EdgeInsets.only(bottom: AppSpaces.heightNormal),
         padding: EdgeInsets.all(AppSpaces.paddingNormal),
@@ -73,7 +61,7 @@ class CouponItemWidget extends StatelessWidget {
                       ),
                       SizedBox(width: AppSpaces.widthSmall),
                       Text(
-                        'See Detail',
+                        'checkout.see_detail'.tr,
                         style: MyTextStyle.smallTitleText(
                           color: AppColors.primary,
                           size: 14,

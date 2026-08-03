@@ -4,6 +4,7 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class PaymentMethodCard extends StatelessWidget {
   final String methodName;
@@ -77,7 +78,7 @@ class PaymentMethodCard extends StatelessWidget {
                 border: Border.all(color: AppColors.primary),
               ),
               child: Text(
-                'Edit',
+              'edit'.tr,
                 style: MyTextStyle.smallTitleText(
                   color: AppColors.primary,
                   size: 14,

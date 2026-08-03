@@ -23,7 +23,6 @@ class _PaymentMethodModalState extends State<PaymentMethodModal> {
     String label,
     Widget? leading,
     bool isSelected, {
-    // required Function(String val) onTab,
     bool hasCheck = true,
   }) {
     return Container(
@@ -122,7 +121,7 @@ class _PaymentMethodModalState extends State<PaymentMethodModal> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Payment Method',
+                'checkout.payment_method'.tr,
                 style: MyTextStyle.normalTitleText(
                   color: AppColors.primaryBlack,
                   size: 20,
@@ -139,19 +138,18 @@ class _PaymentMethodModalState extends State<PaymentMethodModal> {
           ),
           SizedBox(height: AppSpaces.heightExtraLarge),
           _methodTile(
-            'Master Card',
+            'checkout.master_card'.tr,
             SvgPicture.asset(AppIcons.mastercard),
-            selected == 'Master Card',
+            selected == 'checkout.master_card'.tr || selected == 'Master Card',
           ),
           _methodTile(
-            'Visa',
+            'checkout.visa'.tr,
             SvgPicture.asset(AppIcons.visaLogo),
-            selected == 'Visa',
+            selected == 'checkout.visa'.tr || selected == 'Visa',
           ),
           _methodTile(
-            'Add Debit Card',
+            'checkout.add_debit_card'.tr,
             GestureDetector(child: SvgPicture.asset(AppIcons.iconAdd)),
-
             false,
             hasCheck: false,
           ),
@@ -159,11 +157,10 @@ class _PaymentMethodModalState extends State<PaymentMethodModal> {
           SizedBox(
             width: double.infinity,
             child: CustomeButton(
-              text: "Confirm and Pay",
+              text: "checkout.confirm_and_pay".tr,
               onPressed: widget.onConformAndPay,
             ),
           ),
-
           SizedBox(height: AppSpaces.heightSmall),
         ],
       ),

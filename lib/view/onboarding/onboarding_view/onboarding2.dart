@@ -30,7 +30,7 @@ class Onboarding2 extends StatelessWidget {
               ),
            Spacer()
               ,CustomeButton(text: 'Continue',onPressed: (){
-              Get.toNamed(Routes.onboarding3);
+              Get.offNamed(Routes.onboarding3);
               },),SizedBox(height: 55,)
       ],),
     )]));

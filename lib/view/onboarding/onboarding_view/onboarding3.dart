@@ -30,7 +30,7 @@ class Onboarding3 extends StatelessWidget {
               ),
            Spacer()
               ,CustomeButton(text: 'Get Started',onPressed: (){
-               Get.toNamed(Routes.signinscreen);
+               Get.offNamed(Routes.signinscreen);
               },),SizedBox(height: 24,),
               Row(mainAxisAlignment: MainAxisAlignment.center,spacing: 3,
                 children: [

@@ -71,11 +71,13 @@ class SigninScreen extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Obx(() => CheckboxListTile(
-                                checkboxScaleFactor: 1.2.r,
+                                checkboxScaleFactor: 1.5.r,
                                 side: BorderSide(
                                     width: 1.w, color: AppColors.boardingsub),
                                 checkboxShape: const CircleBorder(),
                                 activeColor: Colors.blue,
+                                contentPadding: EdgeInsets.zero,
+                                visualDensity: VisualDensity(horizontal: VisualDensity.minimumDensity,vertical: VisualDensity.minimumDensity),
                                 controlAffinity:
                                 ListTileControlAffinity.leading,
                                 title: SubTitle(text: 'Remember Me',
@@ -105,7 +107,7 @@ class SigninScreen extends StatelessWidget {
                           onPressed: () {
                             if (authController.formKey2.currentState!
                                 .validate()) {
-                              Get.toNamed(Routes.navigationMenuView);
+                              Get.offAllNamed(Routes.navigationMenuView);
                             }
                           }),
                               SizedBox(height:AppSpaces.heightLarge ,),

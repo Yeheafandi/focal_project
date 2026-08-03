@@ -1,4 +1,3 @@
-import 'package:focal_project/model/booking_details_model.dart';
 
 class MessageModel {
   final int id;

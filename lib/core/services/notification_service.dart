@@ -8,7 +8,8 @@ class NotificationService {
       NotificationModel(
         id: 2,
         image: "https://randomuser.me/api/portraits/men/2.jpg",
-        title: "20% discount if you stay on Saturday",
+        title: "Discount",
+        body: '20% discount if you stay on Saturday',
         time: "2 hours ago",
         category: "Discounts",
         section: 'Yesterday',

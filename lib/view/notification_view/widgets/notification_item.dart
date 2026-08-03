@@ -49,7 +49,7 @@ class NotificationItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  notification.title,
+                  notification.body,
                   style: MyTextStyle.smallTitleText(
                     color: AppColors.black87,
                     fontWeight: FontWeight.w400,

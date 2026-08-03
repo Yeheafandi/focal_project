@@ -1,14 +1,15 @@
-import 'package:focal_project/view/my_favorite_view/my_favorite_controller/my_favorite_controller.dart';
-import 'package:get/get.dart';
+// import 'package:focal_project/view/my_favorite_view/my_favorite_controller/my_favorite_controller.dart';
+// import 'package:get/get.dart';
 
-import 'package:focal_project/core/services/favorite_service.dart';
+// import 'package:focal_project/core/services/favorite_service.dart';
 
-class MyFavoriteBinding extends Bindings {
-  @override
-  void dependencies() {
-  Get.put<MyFavoriteService>(MyFavoriteService(), permanent: true);
-    Get.put<MyFavoriteController>(
-      MyFavoriteController(service: Get.find<MyFavoriteService>()),
-    );
-  }
-}
+// class MyFavoriteBinding extends Bindings {
+//   @override
+//   void dependencies() {
+    // Get.put(MyFavoriteService(), permanent: true);
+    // Get.put<MyFavoriteController>(
+    //   MyFavoriteController(service: Get.find<MyFavoriteService>()),
+    //   permanent: true,
+    // );
+//   }
+// }

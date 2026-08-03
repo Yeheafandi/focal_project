@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
-import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 
 class PaymentDetailRow extends StatelessWidget {

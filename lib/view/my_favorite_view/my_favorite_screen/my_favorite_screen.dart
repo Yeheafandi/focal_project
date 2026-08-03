@@ -17,7 +17,7 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    print("======================== MyFavoriteScreen build");return Scaffold(
       backgroundColor: AppColors.primaryWhite,
       body: SafeArea(
         child: Padding(
@@ -40,8 +40,9 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
                   itemBuilder: (_, index) {
                     final categoryKey = controller.categories[index];
                     return CategoryItem(
-                      title: "my_favorite.categories.$categoryKey".tr,
-                      icon: controller.categoriesIcons[index] ?? '',
+                      title: controller.categories[index],
+                      icon: controller.categoriesIcons[index],
+
                     );
                   },
                 ),

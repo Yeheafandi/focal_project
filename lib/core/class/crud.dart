@@ -24,6 +24,9 @@ class Crud {
         );
         Map<String, dynamic> decodedResponse;
         try {
+          print("STATUS CODE: ${response.statusCode}");
+          print("HEADERS: ${response.headers}");
+          print("BODY: ${response.body}");
           print(response.body);
           decodedResponse = json.decode(response.body);
         } catch (e) {

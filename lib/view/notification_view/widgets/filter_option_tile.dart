@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
-import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/notification_view/notification_controller/notification_controller.dart';
 import 'package:get/get.dart';

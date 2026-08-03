@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
-import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/view/messages_view/messages_controller/messages_controller.dart';
 import 'package:focal_project/view/messages_view/widgets/chat_item.dart';
 import 'package:focal_project/widgets/custom_app_bar.dart';

@@ -3,7 +3,6 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
-import 'package:focal_project/core/services/favorite_service.dart';
 import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/home_view/home_controller/home_controller.dart';
 import 'package:focal_project/view/home_view/home_widgets/best_today_card.dart';

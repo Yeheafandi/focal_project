@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/class/status_classes.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/services/notification_firebase_service.dart';
+import 'package:focal_project/core/services/notification_sender_service.dart';
 import 'package:focal_project/core/services/payment_service.dart';
 import 'package:focal_project/model/booking_flow_args.dart';
 import 'package:focal_project/model/coupon_model.dart';
@@ -141,16 +143,29 @@ class CheckoutController extends GetxController {
     );
   }
 
-  void onConformAndPay() async {
+  Future<void> onConformAndPay() async {
     Get.back();
     paymentIsLoading.value = true;
 
     final res = await PaymentService.pay(amount: totalPrice);
 
     paymentIsLoading.value = false;
+ 
+     
 
     if (res == StatusClasses.success) {
+     
+     
       Get.toNamed(Routes.paymentComplete);
+      final token = Get.find<NotificationFirebaseService>().fcmToken;
+
+    if (token != null) {
+      await NotificationSender.sendNotificationToSelectToken(
+        fcmToken: token,
+        title: "Payment",
+        body: "Payment has been successfully made, order is being processed",
+      );
+    }
     } else {
       Get.snackbar('checkout.warning'.tr, res.message ?? res.type);
     }

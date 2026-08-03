@@ -1,5 +1,4 @@
 import 'package:focal_project/bindings/chat_details_binding.dart';
-import 'package:focal_project/bindings/my_favorite_binding.dart';
 import 'package:focal_project/routes/routes.dart';
 import 'package:focal_project/view/audiocall_view/audiocall_screen/audiocall_screen.dart';
 import 'package:focal_project/view/booking_details_view/booking_details_view/booking_details_view.dart';
@@ -76,7 +75,7 @@ class AppRoutes {
     GetPage(
       name: Routes.myFavoriteScreen,
       page: () => const MyFavoriteScreen(),
-      binding: MyFavoriteBinding(),
+      // binding: MyFavoriteBinding(),
     ),
     GetPage(name: Routes.splashscreen, page: () => SplashScreen()),
 

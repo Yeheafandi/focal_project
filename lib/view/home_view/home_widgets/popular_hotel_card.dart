@@ -5,7 +5,6 @@ import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/services/favorite_service.dart';
 import 'package:focal_project/model/hotel_model.dart';
 import 'package:focal_project/view/detail_view/detail_view.dart';
-import 'package:focal_project/view/home_view/home_controller/home_controller.dart';
 import 'package:get/get.dart';
 
 class PopularHotelCard extends StatelessWidget {

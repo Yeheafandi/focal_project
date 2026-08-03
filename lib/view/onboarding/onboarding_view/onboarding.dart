@@ -3,7 +3,6 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/view/onboarding/onboarding_controller.dart/onboarding_controller.dart';
 import 'package:focal_project/view/onboarding/onboarding_view/onboarding1.dart';
 import 'package:focal_project/view/onboarding/onboarding_view/onboarding2.dart';
-import 'package:focal_project/view/onboarding/onboarding_view/onboarding3.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Onboarding extends StatelessWidget {

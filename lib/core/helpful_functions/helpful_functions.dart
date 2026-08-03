@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:focal_project/view/auth/auth_controller/auth_controller.dart';
 import 'package:get/get.dart';
 

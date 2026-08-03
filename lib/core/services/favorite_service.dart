@@ -1,6 +1,5 @@
 import 'package:focal_project/core/services/hotel_services.dart';
 import 'package:focal_project/model/hotel_model.dart';
-import 'package:focal_project/model/my_favorite_model.dart';
 import 'package:get/get.dart';
 
 class MyFavoriteService extends GetxService{

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:focal_project/bindings/my_favorite_binding.dart';
 import 'package:focal_project/view/book_view/my_booking_view.dart';
 import 'package:focal_project/view/home_view/home_view.dart';
 import 'package:focal_project/view/messages_view/messages_screen/messages_screen.dart';
@@ -12,7 +11,7 @@ class NavigationController extends GetxController {
 @override
   void onInit() {
     super.onInit();
-    MyFavoriteBinding().dependencies();
+    // MyFavoriteBinding().dependencies();
   }
 
   final List<Widget> screens = [

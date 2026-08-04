@@ -18,7 +18,7 @@ class BestTodayCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => HotelDetailView(hotel: hotel));
+        Get.to(() => HotelDetailView(hotel: hotel),preventDuplicates: false,);
       },
      child:  Container(
       width: 300,

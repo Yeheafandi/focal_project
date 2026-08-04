@@ -56,8 +56,7 @@ class MyApp extends StatelessWidget {
         fallbackLocale: const Locale('en', 'US'),
         debugShowCheckedModeBanner: false,
         initialBinding: InitializeBinding(),
-        initialRoute: 
-             Routes.navigationMenuView,
+        initialRoute: serv.isRemembered.value? Routes.navigationMenuView:Routes.onboarding,
             
         getPages: AppRoutes.screens,
       ),

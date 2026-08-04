@@ -21,39 +21,34 @@ class MyFavoriteController extends GetxController {
     AppIcons.residentialIcon,
   ];
 
-  final displayedFavorites = <HotelModel>[].obs;
   RxList<HotelModel> get favorites => _service.favorites;
+
+  List<HotelModel> get displayedFavorites {
+    if (selectedCategory.value == "all") {
+      return favorites;
+    }
+    return favorites
+        .where((hotel) => hotel.category == selectedCategory.value)
+        .toList();
+  }
 
   void changeCategory(String category) {
     selectedCategory.value = category;
-
-    if (category == "all") {
-      displayedFavorites.assignAll(favorites);
-      return;
-    }
-
-    displayedFavorites.assignAll(
-      favorites.where((hotel) => hotel.category == category),
-    );
   }
 
   void toggleFavorite(HotelModel hotel) {
     _service.toggleFavorite(hotel);
-    changeCategory(selectedCategory.value);
   }
 
   @override
   void onInit() {
     super.onInit();
-    print("MyFavoriteController onInit================================");
     loadFavorites();
-    displayedFavorites.assignAll(favorites);
   }
 
   Future<void> loadFavorites() async {
     isLoading.value = true;
-    await Future.delayed(const Duration(seconds: 5));
-    
+    await Future.delayed(const Duration(seconds: 1));
     isLoading.value = false;
   }
 }

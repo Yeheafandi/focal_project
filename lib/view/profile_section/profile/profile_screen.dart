@@ -22,7 +22,7 @@ class ProfileScreen extends GetView<ProfileController> {
         elevation: 0,
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: Text('profile'.tr, style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text('profile'.tr, style: MyTextStyle.normalTitleText(fontWeight: FontWeight.w600, size: 18, color: AppColors.titleColor)),
       ),
       body: SafeArea(
         child: ListView(

@@ -58,7 +58,7 @@ class LogoutDialog extends StatelessWidget {
                 // زر Log Out - outline وردي
                 Expanded(
                   child: OutlinedButton(
-                    onPressed: () {MyServices().clearRemember(); Get.offAllNamed(Routes.splashscreen);},
+                    onPressed: () {MyServices().clearRemember(); Get.offAllNamed(Routes.signinscreen);},
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(color: AppColors.red),
                       padding: EdgeInsets.symmetric(vertical: AppSpaces.paddingMedium),

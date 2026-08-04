@@ -36,7 +36,8 @@ class AppImages {
   static String locationOutlineIcon = 'assets/icons/solar_map-point-outline (1).png';
   static String locationIcon = 'assets/icons/location.png';
   static String rotate3dIcon = 'assets/icons/3d-rotate.png';
-  static String splashIcon = 'assets/icons/Vector.png';
+  static String splashIcon = 'assets/icons/splash.png';
+  static const String helpIcon='assets/icons/help (1) 1.png';
   
 
 }

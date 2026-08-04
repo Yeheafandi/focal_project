@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_icons.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:get/get.dart';
@@ -22,7 +23,7 @@ class ProfileScreen extends GetView<ProfileController> {
         elevation: 0,
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: Text('profile'.tr, style: MyTextStyle.normalTitleText(fontWeight: FontWeight.w600, size: 18, color: AppColors.titleColor)),
+        title: Text('profile'.tr, style: MyTextStyle.normalTitleText(fontWeight: FontWeight.w600,size: 18,color: AppColors.titleColor)),
       ),
       body: SafeArea(
         child: ListView(
@@ -60,7 +61,7 @@ class ProfileScreen extends GetView<ProfileController> {
                           border: Border.all(color: AppColors.grey200),
                           borderRadius: BorderRadius.circular(AppSpaces.radiusSmall),
                         ),
-                        child: Icon(Icons.edit_outlined, size: 18, color: AppColors.titleColor),
+                        child: ImageIcon(AssetImage(AppIcons.edit), size: 18, color: AppColors.titleColor),
                       ),
                     ),
                   ],
@@ -68,12 +69,12 @@ class ProfileScreen extends GetView<ProfileController> {
             SizedBox(height: AppSpaces.heightExtraLarge),
             Text('setting'.tr, style: MyTextStyle.smallTitleText(size: 18,color: AppColors.hintColor,fontWeight: FontWeight.w500)),
             SizedBox(height: AppSpaces.heightVerySmall),
-           Column(spacing: 28, children: [ SettingsTile(icon: Icons.credit_card, title: 'your_card'.tr, onTap: controller.goToCard),
-            SettingsTile(icon: Icons.verified_user_outlined, title: 'security'.tr, onTap: controller.goToSecurity),
-            SettingsTile(icon: Icons.notifications_none, title: 'notifications'.tr, onTap: controller.goToNotifications),
-            SettingsTile(icon: Icons.language, title: 'languages'.tr, onTap: controller.goToLanguage),
+           Column(spacing: 28, children: [ SettingsTile(icon: AppIcons.wallet, title: 'your_card'.tr, onTap: controller.goToCard),
+            SettingsTile(icon: AppIcons.security, title: 'security'.tr, onTap: controller.goToSecurity),
+            SettingsTile(icon: AppIcons.notify, title: 'notifications'.tr, onTap: controller.goToNotifications),
+            SettingsTile(icon: AppIcons.language, title: 'languages'.tr, onTap: controller.goToLanguage),
             SettingsTile(
-              icon: Icons.help_outline,
+              icon: AppIcons.help,
               title: 'help_and_support'.tr,
               showDivider: false,
               onTap: controller.goToHelpSupport,
@@ -90,6 +91,6 @@ class ProfileScreen extends GetView<ProfileController> {
         ),
       ),   
           );
-    ;
+    
   }
 }

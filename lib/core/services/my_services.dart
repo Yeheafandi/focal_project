@@ -17,5 +17,8 @@ class MyServices extends GetxService{
 
         await _prefs.setBool(_key,value );
 }
-
+Future <void> clearRemember() async{
+  isRemembered.value=false;
+  await _prefs.remove(_key);
+}
 }

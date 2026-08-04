@@ -12,7 +12,7 @@ import 'package:focal_project/view/messages_view/messages_screen/messages_screen
 import 'package:focal_project/view/my_favorite_view/my_favorite_screen/my_favorite_screen.dart';
 import 'package:focal_project/view/nearby_map_view/nearby_map_view.dart';
 import 'package:focal_project/view/notification_view/notification_screen/notification_screen.dart';
-import 'package:focal_project/view/profile_section/help_support/help_screem.dart';
+import 'package:focal_project/view/profile_section/help_support/help_screen.dart';
 import 'package:focal_project/view/profile_section/language/language_screen.dart';
 import 'package:focal_project/view/profile_section/legal_policies/legal_screen.dart';
 import 'package:focal_project/view/profile_section/notifications/notifications_screen.dart';

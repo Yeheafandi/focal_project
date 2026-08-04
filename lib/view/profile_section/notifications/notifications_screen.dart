@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
@@ -8,9 +7,7 @@ import 'package:focal_project/widgets/toggle_title.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 import 'notifications_controller.dart';
-
 
 class NotificationsScreen extends GetView<NotificationsController> {
   const NotificationsScreen({super.key});
@@ -30,31 +27,58 @@ class NotificationsScreen extends GetView<NotificationsController> {
             AppIcons.backArrow,
             width: 20,
             height: 20,
-            colorFilter: const ColorFilter.mode(AppColors.titleColor, BlendMode.srcIn),
+            colorFilter: const ColorFilter.mode(
+              AppColors.titleColor,
+              BlendMode.srcIn,
+            ),
           ),
           onPressed: () => Get.back(),
         ),
-        title: Text('notifications'.tr, style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text(
+          'notifications'.tr,
+          style: MyTextStyle.normalTitleText(
+            color: AppColors.titleColor,
+            size: 18,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
       body: Obx(
         () => Padding(
-          padding: EdgeInsets.all(AppSpaces.paddingLarge),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSpaces.paddingLarge,
+            vertical: AppSpaces.paddingNormal,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'messages_notifications'.tr,
-                style: MyTextStyle.smallTitleText(color: AppColors.subtitleColor, size: 12),
-              ),
-              SizedBox(height: AppSpaces.heightSmall),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: AppSpaces.paddingNormal),
+                padding: EdgeInsets.all(AppSpaces.paddingNormal),
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.grey200),
-                  borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
+                  color: AppColors.primaryWhite,
+                  border: Border.all(color: AppColors.grey200.withOpacity(0.6)),
+                  borderRadius: BorderRadius.circular(
+                    AppSpaces.radiusExtraLarge,
+                  ),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 8.0,
+                        bottom: 12.0,
+                        left: 4.0,
+                      ),
+                      child: Text(
+                        'messages_notifications'.tr,
+                        style: MyTextStyle.smallTitleText(
+                          color: AppColors.subtitleColor.withOpacity(0.7),
+                          size: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
                     ToggleTile(
                       label: 'new_event'.tr,
                       value: controller.newEvent.value,

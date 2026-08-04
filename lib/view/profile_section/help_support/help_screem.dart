@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
@@ -8,7 +7,6 @@ import 'package:focal_project/view/profile_section/help_support/help_controller.
 import 'package:focal_project/view/profile_section/help_support/widgets/faq_title.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 
 class HelpSupportScreen extends GetView<HelpSupportController> {
   const HelpSupportScreen({super.key});
@@ -28,11 +26,21 @@ class HelpSupportScreen extends GetView<HelpSupportController> {
             AppIcons.backArrow,
             width: 20,
             height: 20,
-            colorFilter: const ColorFilter.mode(AppColors.titleColor, BlendMode.srcIn),
+            colorFilter: const ColorFilter.mode(
+              AppColors.titleColor,
+              BlendMode.srcIn,
+            ),
           ),
           onPressed: () => Get.back(),
         ),
-        title: Text('help_and_support'.tr, style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text(
+          'help_and_support'.tr,
+          style: MyTextStyle.normalTitleText(
+            color: AppColors.titleColor,
+            size: 18,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.all(AppSpaces.paddingLarge),
@@ -48,12 +56,22 @@ class HelpSupportScreen extends GetView<HelpSupportController> {
                 fontWeight: FontWeight.normal,
               ),
               decoration: InputDecoration(
-                hintText:'search_hint'.tr,
-                hintStyle: MyTextStyle.smallTitleText(color: AppColors.hintColor, size: 14),
-                prefixIcon: Icon(Icons.search, color: AppColors.hintColor, size: 20),
+                hintText: 'search_hint'.tr,
+                hintStyle: MyTextStyle.smallTitleText(
+                  color: AppColors.hintColor,
+                  size: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+                prefixIcon: Icon(
+                  Icons.search,
+                  color: AppColors.hintColor,
+                  size: 20,
+                ),
                 filled: true,
                 fillColor: AppColors.primaryWhite,
-                contentPadding: EdgeInsets.symmetric(vertical: AppSpaces.paddingMedium),
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: AppSpaces.paddingMedium,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(AppSpaces.radiusMedium),
                   borderSide: BorderSide(color: AppColors.grey200),

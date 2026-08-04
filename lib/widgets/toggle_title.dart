@@ -3,8 +3,6 @@ import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 
-
-
 class ToggleTile extends StatelessWidget {
   final String label;
   final bool value;
@@ -25,7 +23,7 @@ class ToggleTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final row = Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: bordered ? AppSpaces.paddingNormal : 0,
+        horizontal: bordered ? AppSpaces.paddingNormal : 4,
         vertical: AppSpaces.paddingSmall,
       ),
       child: Row(
@@ -35,17 +33,21 @@ class ToggleTile extends StatelessWidget {
             label,
             style: MyTextStyle.normalTitleText(
               color: AppColors.titleColor,
-              size: 14,
+              size: 16,
               fontWeight: FontWeight.w600,
             ),
           ),
-          Switch(
-            value: value,
-            onChanged: onChanged,
-            activeColor: AppColors.primaryWhite,
-            activeTrackColor: AppColors.primaryBlue,
-            inactiveThumbColor: AppColors.primaryWhite,
-            inactiveTrackColor: AppColors.grey300,
+          Transform.scale(
+            scale: 0.8,
+            child: Switch(
+              value: value,
+              onChanged: onChanged,
+              activeColor: AppColors.primaryBlue,
+              activeTrackColor: AppColors.primaryBlue.withOpacity(0.15),
+              inactiveThumbColor: AppColors.primaryBlue,
+              inactiveTrackColor: AppColors.grey200.withOpacity(0.5),
+              trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
+            ),
           ),
         ],
       ),
@@ -55,7 +57,13 @@ class ToggleTile extends StatelessWidget {
       return Column(
         children: [
           row,
-          if (showDivider) Divider(height: 1, color: AppColors.grey200),
+          if (showDivider)
+            Divider(
+              height: 1,
+              color: AppColors.grey200.withOpacity(0.4),
+              indent: 4,
+              endIndent: 4,
+            ),
         ],
       );
     }

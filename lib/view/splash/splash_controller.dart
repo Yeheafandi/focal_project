@@ -1,3 +1,4 @@
+import 'package:focal_project/routes/routes.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
@@ -10,6 +11,6 @@ class SplashController extends GetxController {
   Future<void> _goNext() async {
     await Future.delayed(const Duration(seconds: 2));
     // لما تجهز شاشة الدخول أو الهوم، فك التعليق وحط اسم الروت الصح
-    // Get.offAllNamed('/profile');
+    Get.offAllNamed(Routes.onboarding);
   }
 }

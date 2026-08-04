@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialBinding: InitializeBinding(),
         initialRoute: 
-             Routes.navigationMenuView,
+             Routes.splashscreen,
             
         getPages: AppRoutes.screens,
       ),

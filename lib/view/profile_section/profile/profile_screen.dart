@@ -37,17 +37,17 @@ class ProfileScreen extends GetView<ProfileController> {
                     ),
                     SizedBox(width: AppSpaces.widthMedium),
                     Expanded(
-                      child: Column(
+                      child: Column(spacing: 8,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             controller.name.value,
-                            style: MyTextStyle.normalTitleText(color: AppColors.titleColor),
+                            style: MyTextStyle.normalTitleText(size: 18,color: AppColors.titleColor),
                           ),
                           SizedBox(height: AppSpaces.heightVerySmall / 2),
                           Text(
                             controller.username.value,
-                            style: MyTextStyle.smallTitleText(color: AppColors.subtitleColor),
+                            style: MyTextStyle.smallTitleText(size: 14,color: AppColors.userColor, fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),
@@ -66,9 +66,9 @@ class ProfileScreen extends GetView<ProfileController> {
                   ],
                 )),
             SizedBox(height: AppSpaces.heightExtraLarge),
-            Text('setting'.tr, style: MyTextStyle.smallTitleText(color: AppColors.subtitleColor)),
+            Text('setting'.tr, style: MyTextStyle.smallTitleText(size: 18,color: AppColors.hintColor,fontWeight: FontWeight.w500)),
             SizedBox(height: AppSpaces.heightVerySmall),
-            SettingsTile(icon: Icons.credit_card, title: 'your_card'.tr, onTap: controller.goToCard),
+           Column(spacing: 28, children: [ SettingsTile(icon: Icons.credit_card, title: 'your_card'.tr, onTap: controller.goToCard),
             SettingsTile(icon: Icons.verified_user_outlined, title: 'security'.tr, onTap: controller.goToSecurity),
             SettingsTile(icon: Icons.notifications_none, title: 'notifications'.tr, onTap: controller.goToNotifications),
             SettingsTile(icon: Icons.language, title: 'languages'.tr, onTap: controller.goToLanguage),
@@ -77,7 +77,7 @@ class ProfileScreen extends GetView<ProfileController> {
               title: 'help_and_support'.tr,
               showDivider: false,
               onTap: controller.goToHelpSupport,
-            ),
+            ),], ),
             SizedBox(height: AppSpaces.heightExtraLarge),
             Center(
               child: TextButton(

@@ -38,8 +38,8 @@ class SettingsTile extends StatelessWidget {
                     title,
                     style: MyTextStyle.normalTitleText(
                       color: textColor ?? AppColors.titleColor,
-                      size: 15,
-                      fontWeight: FontWeight.w500,
+                      size: 16,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),

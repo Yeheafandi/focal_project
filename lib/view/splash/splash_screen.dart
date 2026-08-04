@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/text_style.dart';
 import 'package:get/get.dart';
 
@@ -28,15 +29,11 @@ class SplashScreen extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
               child: Center(
-                child: Text(
-                  'g',
-                  style: TextStyle(
-                    fontSize: 52,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.primaryWhite,
-                    fontFamily: 'cursive',
-                  ),
+                child: Image.asset(
+                  
+AppImages.splashIcon,
+                  width: 77,
+                  height: 123,
                 ),
               ),
             ),

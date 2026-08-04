@@ -1,8 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
+import 'package:focal_project/core/constants/app_images.dart';
 import 'package:focal_project/core/constants/app_spaces.dart';
 import 'package:focal_project/core/constants/text_style.dart';
+import 'package:focal_project/core/services/my_services.dart';
+import 'package:focal_project/routes/routes.dart';
 import 'package:get/get.dart';
 
 
@@ -32,22 +35,11 @@ class LogoutDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             // الدائرة الوردية بعلامة الاستفهام
-            Container(
-              width: 64,
-              height: 64,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: AppColors.red, width: 2),
-              ),
-              child: Center(
-                child: Text(
-                  '?',
-                  style: MyTextStyle.onBoarding(
-                    color: AppColors.red,
-                    size: 32,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+            Center(
+              child: Image.asset(
+                AppImages.helpIcon,
+                width: 101,
+                height: 101,
               ),
             ),
             SizedBox(height: AppSpaces.heightNormal),
@@ -58,7 +50,7 @@ class LogoutDialog extends StatelessWidget {
             SizedBox(height: AppSpaces.heightVerySmall),
             Text(
               'do_you_want_to_log_out'.tr,
-              style: MyTextStyle.smallTitleText(color: AppColors.subtitleColor, size: 13),
+              style: MyTextStyle.smallTitleText(color: AppColors.hintColor, size: 13),
             ),
             SizedBox(height: AppSpaces.heightLarge),
             Row(
@@ -66,7 +58,7 @@ class LogoutDialog extends StatelessWidget {
                 // زر Log Out - outline وردي
                 Expanded(
                   child: OutlinedButton(
-                    onPressed: () => Get.back(result: true),
+                    onPressed: () {MyServices().clearRemember(); Get.offAllNamed(Routes.splashscreen);},
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(color: AppColors.red),
                       padding: EdgeInsets.symmetric(vertical: AppSpaces.paddingMedium),

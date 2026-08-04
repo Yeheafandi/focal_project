@@ -6,7 +6,7 @@ import 'package:focal_project/core/constants/text_style.dart';
 
 
 class SettingsTile extends StatelessWidget {
-  final IconData icon;
+  final String icon;
   final String title;
   final VoidCallback onTap;
   final Color? textColor;
@@ -31,7 +31,7 @@ class SettingsTile extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: AppSpaces.paddingMedium),
             child: Row(
               children: [
-                Icon(icon, size: 20, color: textColor ?? AppColors.titleColor),
+                ImageIcon(AssetImage(icon), size: 20, color: textColor ?? AppColors.titleColor),
                 SizedBox(width: AppSpaces.widthMedium),
                 Expanded(
                   child: Text(

@@ -76,14 +76,14 @@ class ProfileScreen extends GetView<ProfileController> {
             SettingsTile(
               icon: AppIcons.help,
               title: 'help_and_support'.tr,
-              showDivider: false,
+              
               onTap: controller.goToHelpSupport,
             ),], ),
             SizedBox(height: AppSpaces.heightExtraLarge),
             Center(
               child: TextButton(
                 onPressed: controller.logout,
-                child: Text('log_out'.tr, style: MyTextStyle.normalTitleText(color: AppColors.red, size: 15)),
+                child: Text('Logout'.tr, style: MyTextStyle.normalTitleText(color: AppColors.red, size: 16)),
               ),
             ),
             SizedBox(height: AppSpaces.heightSmall),
@@ -91,6 +91,6 @@ class ProfileScreen extends GetView<ProfileController> {
         ),
       ),   
           );
-    ;
+    
   }
 }

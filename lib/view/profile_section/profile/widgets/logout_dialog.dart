@@ -67,7 +67,7 @@ class LogoutDialog extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'log_out'.tr,
+                      'Log Out'.tr,
                       style: MyTextStyle.normalTitleText(color: AppColors.red, size: 14),
                     ),
                   ),

@@ -46,4 +46,5 @@ class AppIcons {
   static const String language = '${iconsPath}Vector.png';
   static const String security = '${iconsPath}Shield-Done.png';
   static const String help = '${iconsPath}Danger-Circle.png';
+  static const String visaDebit = '${iconsPath}VisaDebit.svg';
 }

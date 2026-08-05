@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 import 'package:focal_project/core/constants/app_icons.dart';
@@ -9,7 +8,6 @@ import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'card_controller.dart';
-
 
 /// GetView<CardController> بتخلي controller متاح مباشرة بدون ما تعمله save بمتغير
 class CardScreen extends GetView<CardController> {
@@ -28,13 +26,14 @@ class CardScreen extends GetView<CardController> {
         leading: IconButton(
           icon: SvgPicture.asset(
             AppIcons.backArrow,
-            width: 20,
-            height: 20,
-            colorFilter: const ColorFilter.mode(AppColors.titleColor, BlendMode.srcIn),
+
+            colorFilter:
+                const ColorFilter.mode(AppColors.titleColor, BlendMode.srcIn),
           ),
           onPressed: () => Get.back(),
         ),
-        title: Text('your_card'.tr, style: MyTextStyle.normalTitleText(color: AppColors.titleColor)),
+        title: Text('your_card'.tr,
+            style: MyTextStyle.normalTitleText(color: AppColors.titleColor,size: 16)),
       ),
       body: Obx(() {
         if (controller.isLoading.value) {
@@ -50,19 +49,24 @@ class CardScreen extends GetView<CardController> {
           ),
           child: ListView.separated(
             itemCount: controller.cards.length,
-            separatorBuilder: (_, __) => SizedBox(height: AppSpaces.heightLarge),
+            separatorBuilder: (_, __) =>
+                SizedBox(height: AppSpaces.heightLarge),
             itemBuilder: (context, index) {
               final card = controller.cards[index];
-              return PaymentCard(
-                card: card,
-                isDefault: controller.defaultCardIndex.value == index,
-                onDefaultChanged: (_) => controller.setDefaultCard(index),
-              );
+              return Obx(() {
+                return PaymentCard(
+                  card: card,
+                  isDefault: controller.defaultCardIndex.value == index,
+                  onDefaultChanged: (_) => controller.setDefaultCard(index),
+                );
+              });
             },
           ),
         );
       }),
       floatingActionButton: FloatingActionButton(
+        elevation: 0,
+        shape: CircleBorder(),
         backgroundColor: AppColors.primary,
         onPressed: controller.addCard,
         child: Icon(Icons.add, color: AppColors.primaryWhite),

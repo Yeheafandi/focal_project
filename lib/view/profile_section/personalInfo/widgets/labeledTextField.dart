@@ -27,17 +27,17 @@ class LabeledTextField extends StatelessWidget {
           label,
           style: MyTextStyle.normalTitleText(
             color: AppColors.titleColor,
-            size: 13,
+            size: 14,
             fontWeight: FontWeight.w600,
           ),
         ),
-        SizedBox(height: AppSpaces.heightVerySmall),
+        SizedBox(height: AppSpaces.heightSmall),
         TextField(
           controller: controller,
           enabled: enabled,
           keyboardType: keyboardType,
           style: MyTextStyle.normalTitleText(
-            color: AppColors.titleColor,
+            color: AppColors.subtitleColor,
             size: 14,
             fontWeight: FontWeight.normal,
           ),

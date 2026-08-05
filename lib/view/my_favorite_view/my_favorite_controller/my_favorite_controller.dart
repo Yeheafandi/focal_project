@@ -10,7 +10,7 @@ class MyFavoriteController extends GetxController {
   final isLoading = true.obs;
   final MyFavoriteService _service;
 
-  final selectedCategory = "all".obs;
+  final selectedCategory = "All".obs;
 
   final categories = ["all", "villas", "hotels", "apartments"];
 
@@ -24,7 +24,7 @@ class MyFavoriteController extends GetxController {
   RxList<HotelModel> get favorites => _service.favorites;
 
   List<HotelModel> get displayedFavorites {
-    if (selectedCategory.value == "all") {
+    if (selectedCategory.value == "All") {
       return favorites;
     }
     return favorites
@@ -48,7 +48,7 @@ class MyFavoriteController extends GetxController {
 
   Future<void> loadFavorites() async {
     isLoading.value = true;
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 4));
     isLoading.value = false;
   }
 }

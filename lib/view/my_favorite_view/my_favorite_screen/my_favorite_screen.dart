@@ -17,72 +17,72 @@ class MyFavoriteScreen extends GetView<MyFavoriteController> {
 
   @override
   Widget build(BuildContext context) {
-    print("======================== MyFavoriteScreen build");return Scaffold(
+    print("======================== MyFavoriteScreen build");
+    return Scaffold(
       backgroundColor: AppColors.primaryWhite,
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
-          child: Column(
-            children: [
-              CustomAppBar(
-                title: 'my_favorite.title'.tr,
-                action: InkWell(child: SvgPicture.asset(AppIcons.sort)),
-                showBackButton: false,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: AppSpaces.widthLarge),
+        child: Column(
+          children: [
+            CustomAppBar(
+              title: 'my_favorite.title'.tr,
+              action: InkWell(child: SvgPicture.asset(AppIcons.sort)),
+              showBackButton: false,
+            ),
+            SizedBox(height: AppSpaces.heightExtraLarge),
+            CustomSearchBar(onFilterTap: () => ''),
+            SizedBox(height: AppSpaces.heightNormal),
+            SizedBox(
+              height: 48,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: controller.categories.length,
+                itemBuilder: (_, index) {
+                  final categoryKey = controller.categories[index];
+                  return CategoryItem(
+                    title:
+                        "my_favorite.categories.${controller.categories[index]}"
+                            .tr,
+                    icon: controller.categoriesIcons[index],
+                  );
+                },
               ),
-              SizedBox(height: AppSpaces.heightExtraLarge),
-              CustomSearchBar(onFilterTap: () => ''),
-              SizedBox(height: AppSpaces.heightNormal),
-              SizedBox(
-                height: 48,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: controller.categories.length,
+            ),
+            SizedBox(height: AppSpaces.heightLarge),
+            Expanded(
+              child: Obx(() {
+                if (controller.isLoading.value) {
+                  return const MyFavoriteShimmer();
+                }
+                if (controller.favorites.isEmpty) {
+                  return Center(
+                    child: Text(
+                      "my_favorite.no_favorites".tr,
+                      style: MyTextStyle.smallTitleText(
+                        color: AppColors.subtitleColor,
+                        fontWeight: FontWeight.w400,
+                        size: 14,
+                      ),
+                    ),
+                  );
+                }
+                return GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 0,
+                    childAspectRatio: 0.62,
+                  ),
+                  itemCount: controller.displayedFavorites.length,
                   itemBuilder: (_, index) {
-                    final categoryKey = controller.categories[index];
-                    return CategoryItem(
-                      title: controller.categories[index],
-                      icon: controller.categoriesIcons[index],
-
+                    return FavoriteItem(
+                      hotel: controller.displayedFavorites[index],
                     );
                   },
-                ),
-              ),
-              SizedBox(height: AppSpaces.heightVerySmall),
-              Expanded(
-                child: Obx(() {
-                  if (controller.isLoading.value) {
-                    return const MyFavoriteShimmer();
-                  }
-                  if (controller.favorites.isEmpty) {
-                    return Center(
-                      child: Text(
-                        "my_favorite.no_favorites".tr,
-                        style: MyTextStyle.smallTitleText(
-                          color: AppColors.subtitleColor,
-                          fontWeight: FontWeight.w400,
-                          size: 14,
-                        ),
-                      ),
-                    );
-                  }
-                  return GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 0,
-                      childAspectRatio: 0.62,
-                    ),
-                    itemCount: controller.displayedFavorites.length,
-                    itemBuilder: (_, index) {
-                      return FavoriteItem(
-                        hotel: controller.displayedFavorites[index],
-                      );
-                    },
-                  );
-                }),
-              ),
-            ],
-          ),
+                );
+              }),
+            ),
+          ],
         ),
       ),
     );

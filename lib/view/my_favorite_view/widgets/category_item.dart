@@ -7,10 +7,11 @@ import 'package:get/get.dart';
 import 'package:focal_project/core/constants/app_colors.dart';
 
 class CategoryItem extends GetView<MyFavoriteController> {
-  const CategoryItem({super.key, required this.title, required this.icon});
+  const CategoryItem({super.key, required this.title, required this.icon,});
 
   final String title;
   final String ?icon;
+  
 
   @override
   Widget build(BuildContext context) {

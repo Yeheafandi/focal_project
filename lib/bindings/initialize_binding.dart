@@ -39,7 +39,7 @@ Get.put(MyFavoriteService(), permanent: true);
     // Get.put(Crud());
     Get.lazyPut<ChatDetailsService>(() => ChatDetailsService());
     
-    Get.put( AuthController());
+    Get.lazyPut<AuthController>(() => AuthController(), fenix: true);
     Get.lazyPut<NotificationService>(
       () => NotificationService(),
     );

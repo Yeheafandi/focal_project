@@ -17,7 +17,6 @@ class CardController extends GetxController {
   Future<void> fetchCards() async {
     isLoading.value = true;
     try {
-      // TODO: بدّل هاد الجزء بنداء API حقيقي زي fetchProducts عندك
       // final response = await http.get(Uri.parse(AppUrls.cards));
       await Future.delayed(const Duration(milliseconds: 300));
       cards.value = [

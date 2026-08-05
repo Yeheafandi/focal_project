@@ -33,10 +33,12 @@ class PaymentCard extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                height: 160.h,
+                // height: 160.h,
                 clipBehavior: Clip.antiAlias,
                 width: double.infinity,
-                padding: EdgeInsets.all(AppSpaces.paddingLarge),
+                padding: EdgeInsets.symmetric(
+                    horizontal: AppSpaces.paddingLarge,
+                    vertical: AppSpaces.paddingExtraLarge),
                 decoration: BoxDecoration(
                   color: _isVisa ? AppColors.darkBlue : AppColors.primaryBlack,
                   borderRadius: BorderRadius.circular(AppSpaces.radiusLarge),
